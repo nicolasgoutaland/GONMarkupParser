@@ -12,7 +12,7 @@ WIP - A simple markup parser for iOS.
 - parser input string and retrieve result __NSMutableAttributedString__ using __attributedStringFromString__
 
 ##Installation
-__Cocoapods__: `pod 'GONMarkupParser'`<br>
+__Cocoapods__: `pod 'GONMarkupParser'`<br> // Not available yet
 __Manual__: Copy the __Classes__ folder in your project<br>
 
 Import wanted headers in your project. .pch is a good place ;)
