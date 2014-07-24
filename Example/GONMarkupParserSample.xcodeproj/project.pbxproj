@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CB1C580195B19C400590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
+		5CB1C58A195B1EE600590186 /* GONMarkupNamedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */; };
+		5CB1C58E195B24F200590186 /* GONMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C58D195B24F200590186 /* GONMarkupBlock.m */; };
+		5CB1C58F195B250A00590186 /* GONMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C58D195B24F200590186 /* GONMarkupBlock.m */; };
+		5CB1C590195B250A00590186 /* GONMarkupNamedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */; };
+		5CB1C591195B250A00590186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27160195B11E0007FCF44 /* AppDelegate.m */; };
+		5CB1C592195B250A00590186 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27166195B11E0007FCF44 /* InputViewController.m */; };
+		5CB1C593195B250A00590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
+		5CB1C594195B250A00590186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2715C195B11E0007FCF44 /* main.m */; };
+		5CB1C597195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */; };
+		5CB1C598195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */; };
+		5CB1C59C195B25E800590186 /* GONMarkupReset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59B195B25E800590186 /* GONMarkupReset.m */; };
+		5CB1C59D195B25E800590186 /* GONMarkupReset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59B195B25E800590186 /* GONMarkupReset.m */; };
+		5CB1C5A0195B2B7700590186 /* GONMarkupNamedFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59F195B2B7700590186 /* GONMarkupNamedFont.m */; };
+		5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59F195B2B7700590186 /* GONMarkupNamedFont.m */; };
+		5CB1C5A4195B333700590186 /* GONMarkup+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5A3195B333700590186 /* GONMarkup+Private.m */; };
+		5CB1C5A5195B333700590186 /* GONMarkup+Private.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5A3195B333700590186 /* GONMarkup+Private.m */; };
+		5CB1C5A8195B3B7400590186 /* DefaultText in Resources */ = {isa = PBXBuildFile; fileRef = 5CB1C5A7195B3B7400590186 /* DefaultText */; };
+		5CB1C5A9195B3B7400590186 /* DefaultText in Resources */ = {isa = PBXBuildFile; fileRef = 5CB1C5A7195B3B7400590186 /* DefaultText */; };
+		5CB1C5AD195B4FA000590186 /* GONMarkupList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5AC195B4FA000590186 /* GONMarkupList.m */; };
+		5CB1C5AE195B4FA000590186 /* GONMarkupList.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5AC195B4FA000590186 /* GONMarkupList.m */; };
+		5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5B4195B4FB600590186 /* GONMarkupListItem.m */; };
+		5CB1C5B6195B4FB600590186 /* GONMarkupListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5B4195B4FB600590186 /* GONMarkupListItem.m */; };
+		5CB1C5B9195B55BE00590186 /* GONMarkupLineBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */; };
+		5CB1C5BA195B55BE00590186 /* GONMarkupLineBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */; };
+		5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC284B6197974870009D443 /* GONMarkupSimple.m */; };
+		5CC43CD5197E616600E46A03 /* GONMarkupAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43CD4197E616600E46A03 /* GONMarkupAlignment.m */; };
+		5CE27151195B11E0007FCF44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27150195B11E0007FCF44 /* Foundation.framework */; };
+		5CE27153195B11E0007FCF44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27152195B11E0007FCF44 /* CoreGraphics.framework */; };
+		5CE27155195B11E0007FCF44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27154195B11E0007FCF44 /* UIKit.framework */; };
+		5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27159195B11E0007FCF44 /* InfoPlist.strings */; };
+		5CE2715D195B11E0007FCF44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2715C195B11E0007FCF44 /* main.m */; };
+		5CE27161195B11E0007FCF44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27160195B11E0007FCF44 /* AppDelegate.m */; };
+		5CE27164195B11E0007FCF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27162195B11E0007FCF44 /* Main.storyboard */; };
+		5CE27167195B11E0007FCF44 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27166195B11E0007FCF44 /* InputViewController.m */; };
+		5CE27169195B11E0007FCF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27168195B11E0007FCF44 /* Images.xcassets */; };
+		5CE27170195B11E0007FCF44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE2716F195B11E0007FCF44 /* XCTest.framework */; };
+		5CE27171195B11E0007FCF44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27150195B11E0007FCF44 /* Foundation.framework */; };
+		5CE27172195B11E0007FCF44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27154195B11E0007FCF44 /* UIKit.framework */; };
+		5CE2717A195B11E0007FCF44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27178195B11E0007FCF44 /* InfoPlist.strings */; };
+		5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2717B195B11E0007FCF44 /* GONMarkupParserSampleTests.m */; };
+		5CE27194195B1412007FCF44 /* GONMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2718D195B1412007FCF44 /* GONMarkup.m */; };
+		5CE27195195B1412007FCF44 /* GONMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2718D195B1412007FCF44 /* GONMarkup.m */; };
+		5CE27196195B1412007FCF44 /* GONMarkupColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2718F195B1412007FCF44 /* GONMarkupColor.m */; };
+		5CE27197195B1412007FCF44 /* GONMarkupColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2718F195B1412007FCF44 /* GONMarkupColor.m */; };
+		5CE27198195B1412007FCF44 /* GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27191195B1412007FCF44 /* GONMarkupParser.m */; };
+		5CE27199195B1412007FCF44 /* GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27191195B1412007FCF44 /* GONMarkupParser.m */; };
+		5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
+		5CE2719B195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
+		5CE2719F195B1431007FCF44 /* GONAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */; };
+		5CE271A0195B1431007FCF44 /* GONAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */; };
+		6C6DD8957B134FA9B1AE1824 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B85795BD5D4A4195265653 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CE27173195B11E0007FCF44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CE27145195B11E0007FCF44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CE2714C195B11E0007FCF44;
+			remoteInfo = GONMarkupParserSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		17B85795BD5D4A4195265653 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C34E7D119752C2B009C8012 /* GONMarkupParser_All.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_All.h; path = ../Classes/GONMarkupParser_All.h; sourceTree = "<group>"; };
+		5CB1C57E195B19C400590186 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		5CB1C57F195B19C400590186 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
+		5CB1C582195B1A0100590186 /* GONMarkupDefaultMarkups.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupDefaultMarkups.h; path = ../Classes/GONMarkupDefaultMarkups.h; sourceTree = "<group>"; };
+		5CB1C588195B1EE600590186 /* GONMarkupNamedColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupNamedColor.h; path = ../Classes/GONMarkupNamedColor.h; sourceTree = "<group>"; };
+		5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupNamedColor.m; path = ../Classes/GONMarkupNamedColor.m; sourceTree = "<group>"; };
+		5CB1C58C195B24F200590186 /* GONMarkupBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupBlock.h; path = ../Classes/GONMarkupBlock.h; sourceTree = "<group>"; };
+		5CB1C58D195B24F200590186 /* GONMarkupBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupBlock.m; path = ../Classes/GONMarkupBlock.m; sourceTree = "<group>"; };
+		5CB1C595195B251F00590186 /* GONAttributedMarkupBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONAttributedMarkupBlock.h; path = ../Classes/GONAttributedMarkupBlock.h; sourceTree = "<group>"; };
+		5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONAttributedMarkupBlock.m; path = ../Classes/GONAttributedMarkupBlock.m; sourceTree = "<group>"; };
+		5CB1C59A195B25E800590186 /* GONMarkupReset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupReset.h; path = ../Classes/GONMarkupReset.h; sourceTree = "<group>"; };
+		5CB1C59B195B25E800590186 /* GONMarkupReset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupReset.m; path = ../Classes/GONMarkupReset.m; sourceTree = "<group>"; };
+		5CB1C59E195B2B7700590186 /* GONMarkupNamedFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupNamedFont.h; path = ../Classes/GONMarkupNamedFont.h; sourceTree = "<group>"; };
+		5CB1C59F195B2B7700590186 /* GONMarkupNamedFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupNamedFont.m; path = ../Classes/GONMarkupNamedFont.m; sourceTree = "<group>"; };
+		5CB1C5A2195B333700590186 /* GONMarkup+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GONMarkup+Private.h"; path = "../Classes/GONMarkup+Private.h"; sourceTree = "<group>"; };
+		5CB1C5A3195B333700590186 /* GONMarkup+Private.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GONMarkup+Private.m"; path = "../Classes/GONMarkup+Private.m"; sourceTree = "<group>"; };
+		5CB1C5A7195B3B7400590186 /* DefaultText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DefaultText; sourceTree = "<group>"; };
+		5CB1C5AB195B4FA000590186 /* GONMarkupList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupList.h; path = ../Classes/GONMarkupList.h; sourceTree = "<group>"; };
+		5CB1C5AC195B4FA000590186 /* GONMarkupList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupList.m; path = ../Classes/GONMarkupList.m; sourceTree = "<group>"; };
+		5CB1C5B3195B4FB600590186 /* GONMarkupListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupListItem.h; path = ../Classes/GONMarkupListItem.h; sourceTree = "<group>"; };
+		5CB1C5B4195B4FB600590186 /* GONMarkupListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupListItem.m; path = ../Classes/GONMarkupListItem.m; sourceTree = "<group>"; };
+		5CB1C5B7195B55BE00590186 /* GONMarkupLineBreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupLineBreak.h; path = ../Classes/GONMarkupLineBreak.h; sourceTree = "<group>"; };
+		5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupLineBreak.m; path = ../Classes/GONMarkupLineBreak.m; sourceTree = "<group>"; };
+		5CBDC0A0195C334D007279A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		5CBDC0A1195C3356007279A0 /* GONMarkupParser.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = GONMarkupParser.podspec; path = ../GONMarkupParser.podspec; sourceTree = "<group>"; };
+		5CC284B5197974870009D443 /* GONMarkupSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupSimple.h; path = ../Classes/GONMarkupSimple.h; sourceTree = "<group>"; };
+		5CC284B6197974870009D443 /* GONMarkupSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupSimple.m; path = ../Classes/GONMarkupSimple.m; sourceTree = "<group>"; };
+		5CC43CD3197E616600E46A03 /* GONMarkupAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupAlignment.h; path = ../Classes/GONMarkupAlignment.h; sourceTree = "<group>"; };
+		5CC43CD4197E616600E46A03 /* GONMarkupAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupAlignment.m; path = ../Classes/GONMarkupAlignment.m; sourceTree = "<group>"; };
+		5CE2714D195B11E0007FCF44 /* GONMarkupParserSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GONMarkupParserSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE27150195B11E0007FCF44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5CE27152195B11E0007FCF44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5CE27154195B11E0007FCF44 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5CE27158195B11E0007FCF44 /* GONMarkupParserSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GONMarkupParserSample-Info.plist"; sourceTree = "<group>"; };
+		5CE2715A195B11E0007FCF44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5CE2715C195B11E0007FCF44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5CE2715E195B11E0007FCF44 /* GONMarkupParserSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GONMarkupParserSample-Prefix.pch"; sourceTree = "<group>"; };
+		5CE2715F195B11E0007FCF44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5CE27160195B11E0007FCF44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5CE27163195B11E0007FCF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5CE27165195B11E0007FCF44 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		5CE27166195B11E0007FCF44 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		5CE27168195B11E0007FCF44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5CE2716E195B11E0007FCF44 /* GONMarkupParserSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GONMarkupParserSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE2716F195B11E0007FCF44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5CE27177195B11E0007FCF44 /* GONMarkupParserSampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GONMarkupParserSampleTests-Info.plist"; sourceTree = "<group>"; };
+		5CE27179195B11E0007FCF44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5CE2717B195B11E0007FCF44 /* GONMarkupParserSampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GONMarkupParserSampleTests.m; sourceTree = "<group>"; };
+		5CE2718A195B12E6007FCF44 /* PodFile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PodFile; path = ../PodFile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5CE2718C195B1412007FCF44 /* GONMarkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkup.h; path = ../Classes/GONMarkup.h; sourceTree = "<group>"; };
+		5CE2718D195B1412007FCF44 /* GONMarkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkup.m; path = ../Classes/GONMarkup.m; sourceTree = "<group>"; };
+		5CE2718E195B1412007FCF44 /* GONMarkupColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupColor.h; path = ../Classes/GONMarkupColor.h; sourceTree = "<group>"; };
+		5CE2718F195B1412007FCF44 /* GONMarkupColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupColor.m; path = ../Classes/GONMarkupColor.m; sourceTree = "<group>"; };
+		5CE27190195B1412007FCF44 /* GONMarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser.h; path = ../Classes/GONMarkupParser.h; sourceTree = "<group>"; };
+		5CE27191195B1412007FCF44 /* GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParser.m; path = ../Classes/GONMarkupParser.m; sourceTree = "<group>"; };
+		5CE27192195B1412007FCF44 /* GONMarkupFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupFont.h; path = ../Classes/GONMarkupFont.h; sourceTree = "<group>"; };
+		5CE27193195B1412007FCF44 /* GONMarkupFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupFont.m; path = ../Classes/GONMarkupFont.m; sourceTree = "<group>"; };
+		5CE2719D195B1431007FCF44 /* GONAttributedMarkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONAttributedMarkup.h; path = ../Classes/GONAttributedMarkup.h; sourceTree = "<group>"; };
+		5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONAttributedMarkup.m; path = ../Classes/GONAttributedMarkup.m; sourceTree = "<group>"; };
+		AACC2A473D0D4500B74DF175 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5CE2714A195B11E0007FCF44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE27153195B11E0007FCF44 /* CoreGraphics.framework in Frameworks */,
+				5CE27155195B11E0007FCF44 /* UIKit.framework in Frameworks */,
+				5CE27151195B11E0007FCF44 /* Foundation.framework in Frameworks */,
+				6C6DD8957B134FA9B1AE1824 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE2716B195B11E0007FCF44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE27170195B11E0007FCF44 /* XCTest.framework in Frameworks */,
+				5CE27172195B11E0007FCF44 /* UIKit.framework in Frameworks */,
+				5CE27171195B11E0007FCF44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5CB1C581195B19C800590186 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C57E195B19C400590186 /* ResultViewController.h */,
+				5CB1C57F195B19C400590186 /* ResultViewController.m */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
+		5CB1C583195B1A3100590186 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2718E195B1412007FCF44 /* GONMarkupColor.h */,
+				5CE2718F195B1412007FCF44 /* GONMarkupColor.m */,
+				5CB1C588195B1EE600590186 /* GONMarkupNamedColor.h */,
+				5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */,
+			);
+			name = Color;
+			sourceTree = "<group>";
+		};
+		5CB1C584195B1A3500590186 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27192195B1412007FCF44 /* GONMarkupFont.h */,
+				5CE27193195B1412007FCF44 /* GONMarkupFont.m */,
+				5CB1C59E195B2B7700590186 /* GONMarkupNamedFont.h */,
+				5CB1C59F195B2B7700590186 /* GONMarkupNamedFont.m */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		5CB1C58B195B24DB00590186 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C58C195B24F200590186 /* GONMarkupBlock.h */,
+				5CB1C58D195B24F200590186 /* GONMarkupBlock.m */,
+				5CB1C595195B251F00590186 /* GONAttributedMarkupBlock.h */,
+				5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */,
+			);
+			name = Block;
+			sourceTree = "<group>";
+		};
+		5CB1C599195B25A400590186 /* Special */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C59A195B25E800590186 /* GONMarkupReset.h */,
+				5CB1C59B195B25E800590186 /* GONMarkupReset.m */,
+				5CB1C5B7195B55BE00590186 /* GONMarkupLineBreak.h */,
+				5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */,
+			);
+			name = Special;
+			sourceTree = "<group>";
+		};
+		5CB1C5A6195B333B00590186 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C5A2195B333700590186 /* GONMarkup+Private.h */,
+				5CB1C5A3195B333700590186 /* GONMarkup+Private.m */,
+			);
+			name = Private;
+			sourceTree = "<group>";
+		};
+		5CB1C5AA195B4F8900590186 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C5AB195B4FA000590186 /* GONMarkupList.h */,
+				5CB1C5AC195B4FA000590186 /* GONMarkupList.m */,
+				5CB1C5B3195B4FB600590186 /* GONMarkupListItem.h */,
+				5CB1C5B4195B4FB600590186 /* GONMarkupListItem.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		5CC284B41979746D0009D443 /* Simple */ = {
+			isa = PBXGroup;
+			children = (
+				5CC284B5197974870009D443 /* GONMarkupSimple.h */,
+				5CC284B6197974870009D443 /* GONMarkupSimple.m */,
+			);
+			name = Simple;
+			sourceTree = "<group>";
+		};
+		5CC43CD2197E613800E46A03 /* Alignment */ = {
+			isa = PBXGroup;
+			children = (
+				5CC43CD3197E616600E46A03 /* GONMarkupAlignment.h */,
+				5CC43CD4197E616600E46A03 /* GONMarkupAlignment.m */,
+			);
+			name = Alignment;
+			sourceTree = "<group>";
+		};
+		5CE27144195B11E0007FCF44 = {
+			isa = PBXGroup;
+			children = (
+				5CBDC0A0195C334D007279A0 /* README.md */,
+				5CBDC0A1195C3356007279A0 /* GONMarkupParser.podspec */,
+				5CE27185195B1226007FCF44 /* Lib */,
+				5CE27156195B11E0007FCF44 /* GONMarkupParserSample */,
+				5CE27175195B11E0007FCF44 /* GONMarkupParserSampleTests */,
+				5CE2714F195B11E0007FCF44 /* Frameworks */,
+				5CE2714E195B11E0007FCF44 /* Products */,
+				AACC2A473D0D4500B74DF175 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		5CE2714E195B11E0007FCF44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2714D195B11E0007FCF44 /* GONMarkupParserSample.app */,
+				5CE2716E195B11E0007FCF44 /* GONMarkupParserSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CE2714F195B11E0007FCF44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27150195B11E0007FCF44 /* Foundation.framework */,
+				5CE27152195B11E0007FCF44 /* CoreGraphics.framework */,
+				5CE27154195B11E0007FCF44 /* UIKit.framework */,
+				5CE2716F195B11E0007FCF44 /* XCTest.framework */,
+				17B85795BD5D4A4195265653 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5CE27156195B11E0007FCF44 /* GONMarkupParserSample */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27186195B123A007FCF44 /* Classes */,
+				5CE27187195B1241007FCF44 /* Resources */,
+				5CE27157195B11E0007FCF44 /* Supporting Files */,
+			);
+			path = GONMarkupParserSample;
+			sourceTree = "<group>";
+		};
+		5CE27157195B11E0007FCF44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27158195B11E0007FCF44 /* GONMarkupParserSample-Info.plist */,
+				5CE27159195B11E0007FCF44 /* InfoPlist.strings */,
+				5CE2715C195B11E0007FCF44 /* main.m */,
+				5CE2715E195B11E0007FCF44 /* GONMarkupParserSample-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CE27175195B11E0007FCF44 /* GONMarkupParserSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2717B195B11E0007FCF44 /* GONMarkupParserSampleTests.m */,
+				5CE27176195B11E0007FCF44 /* Supporting Files */,
+			);
+			path = GONMarkupParserSampleTests;
+			sourceTree = "<group>";
+		};
+		5CE27176195B11E0007FCF44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27177195B11E0007FCF44 /* GONMarkupParserSampleTests-Info.plist */,
+				5CE27178195B11E0007FCF44 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CE27185195B1226007FCF44 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				5C34E7D119752C2B009C8012 /* GONMarkupParser_All.h */,
+				5CE27190195B1412007FCF44 /* GONMarkupParser.h */,
+				5CE27191195B1412007FCF44 /* GONMarkupParser.m */,
+				5CE271A1195B1437007FCF44 /* DefaultMarkup */,
+				5CE2719C195B141A007FCF44 /* Markup */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		5CE27186195B123A007FCF44 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2715F195B11E0007FCF44 /* AppDelegate.h */,
+				5CE27160195B11E0007FCF44 /* AppDelegate.m */,
+				5CE27188195B126A007FCF44 /* ViewControllers */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		5CE27187195B1241007FCF44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27168195B11E0007FCF44 /* Images.xcassets */,
+				5CE27162195B11E0007FCF44 /* Main.storyboard */,
+				5CE2718A195B12E6007FCF44 /* PodFile */,
+				5CB1C5A7195B3B7400590186 /* DefaultText */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5CE27188195B126A007FCF44 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27189195B1274007FCF44 /* Input */,
+				5CB1C581195B19C800590186 /* Result */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5CE27189195B1274007FCF44 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				5CE27165195B11E0007FCF44 /* InputViewController.h */,
+				5CE27166195B11E0007FCF44 /* InputViewController.m */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
+		5CE2719C195B141A007FCF44 /* Markup */ = {
+			isa = PBXGroup;
+			children = (
+				5CE2719D195B1431007FCF44 /* GONAttributedMarkup.h */,
+				5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */,
+				5CE2718C195B1412007FCF44 /* GONMarkup.h */,
+				5CE2718D195B1412007FCF44 /* GONMarkup.m */,
+				5CB1C5A6195B333B00590186 /* Private */,
+			);
+			name = Markup;
+			sourceTree = "<group>";
+		};
+		5CE271A1195B1437007FCF44 /* DefaultMarkup */ = {
+			isa = PBXGroup;
+			children = (
+				5CB1C582195B1A0100590186 /* GONMarkupDefaultMarkups.h */,
+				5CC43CD2197E613800E46A03 /* Alignment */,
+				5CB1C58B195B24DB00590186 /* Block */,
+				5CB1C583195B1A3100590186 /* Color */,
+				5CB1C584195B1A3500590186 /* Font */,
+				5CB1C5AA195B4F8900590186 /* List */,
+				5CC284B41979746D0009D443 /* Simple */,
+				5CB1C599195B25A400590186 /* Special */,
+			);
+			name = DefaultMarkup;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5CE2714C195B11E0007FCF44 /* GONMarkupParserSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE2717F195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSample" */;
+			buildPhases = (
+				EC3DF1B1D208418697196C2B /* Check Pods Manifest.lock */,
+				5CE27149195B11E0007FCF44 /* Sources */,
+				5CE2714A195B11E0007FCF44 /* Frameworks */,
+				5CE2714B195B11E0007FCF44 /* Resources */,
+				AF75F26F4574437294323C3C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GONMarkupParserSample;
+			productName = GONMarkupParserSample;
+			productReference = 5CE2714D195B11E0007FCF44 /* GONMarkupParserSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5CE2716D195B11E0007FCF44 /* GONMarkupParserSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CE27182195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSampleTests" */;
+			buildPhases = (
+				5CE2716A195B11E0007FCF44 /* Sources */,
+				5CE2716B195B11E0007FCF44 /* Frameworks */,
+				5CE2716C195B11E0007FCF44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CE27174195B11E0007FCF44 /* PBXTargetDependency */,
+			);
+			name = GONMarkupParserSampleTests;
+			productName = GONMarkupParserSampleTests;
+			productReference = 5CE2716E195B11E0007FCF44 /* GONMarkupParserSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CE27145195B11E0007FCF44 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Nicolas Goutaland";
+				TargetAttributes = {
+					5CE2716D195B11E0007FCF44 = {
+						TestTargetID = 5CE2714C195B11E0007FCF44;
+					};
+				};
+			};
+			buildConfigurationList = 5CE27148195B11E0007FCF44 /* Build configuration list for PBXProject "GONMarkupParserSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5CE27144195B11E0007FCF44;
+			productRefGroup = 5CE2714E195B11E0007FCF44 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CE2714C195B11E0007FCF44 /* GONMarkupParserSample */,
+				5CE2716D195B11E0007FCF44 /* GONMarkupParserSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5CE2714B195B11E0007FCF44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE27169195B11E0007FCF44 /* Images.xcassets in Resources */,
+				5CB1C5A8195B3B7400590186 /* DefaultText in Resources */,
+				5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */,
+				5CE27164195B11E0007FCF44 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE2716C195B11E0007FCF44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CE2717A195B11E0007FCF44 /* InfoPlist.strings in Resources */,
+				5CB1C5A9195B3B7400590186 /* DefaultText in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF75F26F4574437294323C3C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC3DF1B1D208418697196C2B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CE27149195B11E0007FCF44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB1C5B9195B55BE00590186 /* GONMarkupLineBreak.m in Sources */,
+				5CB1C597195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */,
+				5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */,
+				5CE27198195B1412007FCF44 /* GONMarkupParser.m in Sources */,
+				5CB1C5A0195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
+				5CB1C58E195B24F200590186 /* GONMarkupBlock.m in Sources */,
+				5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */,
+				5CE27167195B11E0007FCF44 /* InputViewController.m in Sources */,
+				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
+				5CE27196195B1412007FCF44 /* GONMarkupColor.m in Sources */,
+				5CB1C59C195B25E800590186 /* GONMarkupReset.m in Sources */,
+				5CB1C58A195B1EE600590186 /* GONMarkupNamedColor.m in Sources */,
+				5CE27161195B11E0007FCF44 /* AppDelegate.m in Sources */,
+				5CB1C5AD195B4FA000590186 /* GONMarkupList.m in Sources */,
+				5CE2719F195B1431007FCF44 /* GONAttributedMarkup.m in Sources */,
+				5CE2715D195B11E0007FCF44 /* main.m in Sources */,
+				5CB1C5A4195B333700590186 /* GONMarkup+Private.m in Sources */,
+				5CE27194195B1412007FCF44 /* GONMarkup.m in Sources */,
+				5CC43CD5197E616600E46A03 /* GONMarkupAlignment.m in Sources */,
+				5CB1C580195B19C400590186 /* ResultViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CE2716A195B11E0007FCF44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB1C590195B250A00590186 /* GONMarkupNamedColor.m in Sources */,
+				5CB1C5AE195B4FA000590186 /* GONMarkupList.m in Sources */,
+				5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */,
+				5CB1C591195B250A00590186 /* AppDelegate.m in Sources */,
+				5CB1C592195B250A00590186 /* InputViewController.m in Sources */,
+				5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
+				5CB1C598195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */,
+				5CB1C593195B250A00590186 /* ResultViewController.m in Sources */,
+				5CE271A0195B1431007FCF44 /* GONAttributedMarkup.m in Sources */,
+				5CB1C5B6195B4FB600590186 /* GONMarkupListItem.m in Sources */,
+				5CB1C5A5195B333700590186 /* GONMarkup+Private.m in Sources */,
+				5CE27195195B1412007FCF44 /* GONMarkup.m in Sources */,
+				5CB1C59D195B25E800590186 /* GONMarkupReset.m in Sources */,
+				5CE2719B195B1412007FCF44 /* GONMarkupFont.m in Sources */,
+				5CE27199195B1412007FCF44 /* GONMarkupParser.m in Sources */,
+				5CB1C5BA195B55BE00590186 /* GONMarkupLineBreak.m in Sources */,
+				5CE27197195B1412007FCF44 /* GONMarkupColor.m in Sources */,
+				5CB1C594195B250A00590186 /* main.m in Sources */,
+				5CB1C58F195B250A00590186 /* GONMarkupBlock.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CE27174195B11E0007FCF44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CE2714C195B11E0007FCF44 /* GONMarkupParserSample */;
+			targetProxy = 5CE27173195B11E0007FCF44 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5CE27159195B11E0007FCF44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CE2715A195B11E0007FCF44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5CE27162195B11E0007FCF44 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CE27163195B11E0007FCF44 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5CE27178195B11E0007FCF44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CE27179195B11E0007FCF44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5CE2717D195B11E0007FCF44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5CE2717E195B11E0007FCF44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5CE27180195B11E0007FCF44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AACC2A473D0D4500B74DF175 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GONMarkupParserSample/GONMarkupParserSample-Prefix.pch";
+				INFOPLIST_FILE = "GONMarkupParserSample/GONMarkupParserSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5CE27181195B11E0007FCF44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AACC2A473D0D4500B74DF175 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GONMarkupParserSample/GONMarkupParserSample-Prefix.pch";
+				INFOPLIST_FILE = "GONMarkupParserSample/GONMarkupParserSample-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5CE27183195B11E0007FCF44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GONMarkupParserSample.app/GONMarkupParserSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GONMarkupParserSample/GONMarkupParserSample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GONMarkupParserSampleTests/GONMarkupParserSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5CE27184195B11E0007FCF44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GONMarkupParserSample.app/GONMarkupParserSample";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GONMarkupParserSample/GONMarkupParserSample-Prefix.pch";
+				INFOPLIST_FILE = "GONMarkupParserSampleTests/GONMarkupParserSampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5CE27148195B11E0007FCF44 /* Build configuration list for PBXProject "GONMarkupParserSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE2717D195B11E0007FCF44 /* Debug */,
+				5CE2717E195B11E0007FCF44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE2717F195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE27180195B11E0007FCF44 /* Debug */,
+				5CE27181195B11E0007FCF44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CE27182195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CE27183195B11E0007FCF44 /* Debug */,
+				5CE27184195B11E0007FCF44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CE27145195B11E0007FCF44 /* Project object */;
+}

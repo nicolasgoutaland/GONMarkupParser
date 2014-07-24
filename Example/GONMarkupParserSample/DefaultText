@@ -1,0 +1,45 @@
+default text here <red>this text should be red <small>small</small> </red><small>black small</small>.
+This one should be black
+<font name="Didot-Italic" size="12"> Nouvelle font </><br/><br/>
+<color value="yellow">yellow <reset>protected \o/</reset>ye<font size="12">ll</>ow<//>
+Let me add some <custom>Custom tag here</>
+Yep, that was big.
+You can also change text alignment
+<center>Centered</>
+<left>Left</>
+<right>Right</>
+<justified>Justified paragraph Lorem ipsum dolor sit amet, consectetur adipiscing elit. In <red>rhoncus diam nec sem consequat</red> tincidunt. Etiam eu lacus a lorem cursus sodales et nec sapien. </>
+<normal>Normal</>
+<custom>Another Custom tag here, but with <reset all="true">a full protected section</reset>, pretty cool huh ?</>
+And now, an unordered list
+<ul>
+<li>Item</li>
+<ul>
+<li>Item</li>
+<ul>
+<li>Item</li>
+</ul>
+<ul>
+<li>Item</li>
+</ul>
+</ul>
+<li><red>Item</red></li>
+<li>Item</li>
+</ul>
+
+and an ordered list
+<ol>
+<li>Item</li>
+<ol>
+<li>Item</li>
+<ol>
+<li>Item</li>
+</ol>
+<ol>
+<li>Item</li>
+</ol>
+</ol>
+<li>Item</li>
+<li>Item</li>
+</ol>
+
