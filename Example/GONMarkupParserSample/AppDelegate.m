@@ -7,8 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GONMarkupParser.h"
-#import "GONMarkupDefaultMarkups.h"
+#import "GONMarkupParser_All.h"
 #import "InputViewController.h"
 
 @implementation AppDelegate
@@ -16,16 +15,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Set your custom configuration here
-    [GONMarkupParser sharedInstance].debugEnabled = YES;
-    [[GONMarkupParser sharedInstance].defaultConfiguration setObject:[UIFont systemFontOfSize:25.0] forKey:NSFontAttributeName];
+    [GONMarkupParserManager sharedParser].debugEnabled = YES;
+    [[GONMarkupParserManager sharedParser].defaultConfiguration setObject:[UIFont systemFontOfSize:25.0] forKey:NSFontAttributeName];
 
-    [[GONMarkupParser sharedInstance] addMarkup:[GONMarkupSimple simpleMarkup:@"pwet"
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupSimple simpleMarkup:@"pwet"
                                                                         style:@{NSParagraphStyleAttributeName : [NSParagraphStyle defaultParagraphStyle]}
                                                               mergingStrategy:GONMarkupSimpleMergingStrategyMergeAll]];
 
     
-    [[GONMarkupParser sharedInstance] addMarkup:[GONMarkupNamedFont namedFontMarkup:[UIFont systemFontOfSize:12.0] forTag:@"small"]];
-    [[GONMarkupParser sharedInstance] addMarkup:[GONMarkupNamedColor namedColorMarkup:[UIColor redColor]
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupNamedFont namedFontMarkup:[UIFont systemFontOfSize:12.0] forTag:@"small"]];
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupNamedColor namedColorMarkup:[UIColor redColor]
                                                                                forTag:@"red"]];
 
     // Custom markup block
@@ -35,7 +34,7 @@
                                      forKey:NSFontAttributeName];
     };
 
-    [[GONMarkupParser sharedInstance] addMarkup:markupBlock];
+    [[GONMarkupParserManager sharedParser] addMarkup:markupBlock];
 
     // You can define custom text from <Resources/Default> file
     NSString *defaultString = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DefaultText" ofType:nil]

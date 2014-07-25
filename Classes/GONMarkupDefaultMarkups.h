@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 
+#import "GONMarkupAlignment.h"
 #import "GONAttributedMarkupBlock.h"
 #import "GONMarkupBlock.h"
 #import "GONMarkupColor.h"
@@ -17,4 +18,4 @@
 #import "GONMarkupNamedFont.h"
 #import "GONMarkupReset.h"
 #import "GONMarkupSimple.h"
-#import "GONMarkupAlignment.h"
+#import "GONMarkupTextStyle.h"

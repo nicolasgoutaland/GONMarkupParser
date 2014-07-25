@@ -19,24 +19,21 @@
 
 #warning Evolutions : Allow markup to be encoded (NSCoding)
 #warning Evolutions : Loading from PLIST file
+#warning Evolutions : Allows copy
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
 #define GONMarkupParser_incorrectClosingTag_KEY        @"incorrectClosingTag"
 
 @interface GONMarkupParser : NSObject
-/* Return shared instance.
- * Shared instance is preconfigured to handle all default tags
- */
-+ (instancetype)sharedInstance;
-
+// Constructors
 /* Instanciate a new markup parser, configured to handle all default tags */
-+ (instancetype)defaultMarkupParser;
++ (GONMarkupParser *)defaultMarkupParser;
 
-/* Instanciate a new empty markup parser. This parser won't have any configured tag 
+/* Instanciate a new empty markup parser. This parser won't have any configured tag
  * Same as [[GONMarkupParser alloc] init]
  */
-+ (instancetype)emptyMarkupParser;
++ (GONMarkupParser *)emptyMarkupParser;
 
 /* Add a new markup to parser
  * A markup can be used in only one parser at a time

@@ -34,6 +34,9 @@
 		5CB1C5BA195B55BE00590186 /* GONMarkupLineBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */; };
 		5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC284B6197974870009D443 /* GONMarkupSimple.m */; };
 		5CC43CD5197E616600E46A03 /* GONMarkupAlignment.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CC43CD4197E616600E46A03 /* GONMarkupAlignment.m */; };
+		5CD617E319828AA90001C3D9 /* GONMarkupParserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD617E219828AA90001C3D9 /* GONMarkupParserManager.m */; };
+		5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD617E619828B1C0001C3D9 /* GONMarkupTextStyle.m */; };
+		5CD617E919828B2E0001C3D9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD617E819828B2E0001C3D9 /* CoreText.framework */; };
 		5CE27151195B11E0007FCF44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27150195B11E0007FCF44 /* Foundation.framework */; };
 		5CE27153195B11E0007FCF44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27152195B11E0007FCF44 /* CoreGraphics.framework */; };
 		5CE27155195B11E0007FCF44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27154195B11E0007FCF44 /* UIKit.framework */; };
@@ -102,6 +105,11 @@
 		5CC284B6197974870009D443 /* GONMarkupSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupSimple.m; path = ../Classes/GONMarkupSimple.m; sourceTree = "<group>"; };
 		5CC43CD3197E616600E46A03 /* GONMarkupAlignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupAlignment.h; path = ../Classes/GONMarkupAlignment.h; sourceTree = "<group>"; };
 		5CC43CD4197E616600E46A03 /* GONMarkupAlignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupAlignment.m; path = ../Classes/GONMarkupAlignment.m; sourceTree = "<group>"; };
+		5CD617E119828AA90001C3D9 /* GONMarkupParserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParserManager.h; path = ../Classes/GONMarkupParserManager.h; sourceTree = "<group>"; };
+		5CD617E219828AA90001C3D9 /* GONMarkupParserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParserManager.m; path = ../Classes/GONMarkupParserManager.m; sourceTree = "<group>"; };
+		5CD617E519828B1C0001C3D9 /* GONMarkupTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupTextStyle.h; path = ../Classes/GONMarkupTextStyle.h; sourceTree = "<group>"; };
+		5CD617E619828B1C0001C3D9 /* GONMarkupTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupTextStyle.m; path = ../Classes/GONMarkupTextStyle.m; sourceTree = "<group>"; };
+		5CD617E819828B2E0001C3D9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		5CE2714D195B11E0007FCF44 /* GONMarkupParserSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GONMarkupParserSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE27150195B11E0007FCF44 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5CE27152195B11E0007FCF44 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,6 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD617E919828B2E0001C3D9 /* CoreText.framework in Frameworks */,
 				5CE27153195B11E0007FCF44 /* CoreGraphics.framework in Frameworks */,
 				5CE27155195B11E0007FCF44 /* UIKit.framework in Frameworks */,
 				5CE27151195B11E0007FCF44 /* Foundation.framework in Frameworks */,
@@ -251,6 +260,15 @@
 			name = Alignment;
 			sourceTree = "<group>";
 		};
+		5CD617E419828AF50001C3D9 /* TextStyle */ = {
+			isa = PBXGroup;
+			children = (
+				5CD617E519828B1C0001C3D9 /* GONMarkupTextStyle.h */,
+				5CD617E619828B1C0001C3D9 /* GONMarkupTextStyle.m */,
+			);
+			name = TextStyle;
+			sourceTree = "<group>";
+		};
 		5CE27144195B11E0007FCF44 = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +295,7 @@
 		5CE2714F195B11E0007FCF44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CD617E819828B2E0001C3D9 /* CoreText.framework */,
 				5CE27150195B11E0007FCF44 /* Foundation.framework */,
 				5CE27152195B11E0007FCF44 /* CoreGraphics.framework */,
 				5CE27154195B11E0007FCF44 /* UIKit.framework */,
@@ -331,6 +350,8 @@
 				5C34E7D119752C2B009C8012 /* GONMarkupParser_All.h */,
 				5CE27190195B1412007FCF44 /* GONMarkupParser.h */,
 				5CE27191195B1412007FCF44 /* GONMarkupParser.m */,
+				5CD617E119828AA90001C3D9 /* GONMarkupParserManager.h */,
+				5CD617E219828AA90001C3D9 /* GONMarkupParserManager.m */,
 				5CE271A1195B1437007FCF44 /* DefaultMarkup */,
 				5CE2719C195B141A007FCF44 /* Markup */,
 			);
@@ -399,6 +420,7 @@
 				5CB1C5AA195B4F8900590186 /* List */,
 				5CC284B41979746D0009D443 /* Simple */,
 				5CB1C599195B25A400590186 /* Special */,
+				5CD617E419828AF50001C3D9 /* TextStyle */,
 			);
 			name = DefaultMarkup;
 			sourceTree = "<group>";
@@ -546,11 +568,13 @@
 				5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */,
 				5CE27167195B11E0007FCF44 /* InputViewController.m in Sources */,
 				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
+				5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */,
 				5CE27196195B1412007FCF44 /* GONMarkupColor.m in Sources */,
 				5CB1C59C195B25E800590186 /* GONMarkupReset.m in Sources */,
 				5CB1C58A195B1EE600590186 /* GONMarkupNamedColor.m in Sources */,
 				5CE27161195B11E0007FCF44 /* AppDelegate.m in Sources */,
 				5CB1C5AD195B4FA000590186 /* GONMarkupList.m in Sources */,
+				5CD617E319828AA90001C3D9 /* GONMarkupParserManager.m in Sources */,
 				5CE2719F195B1431007FCF44 /* GONAttributedMarkup.m in Sources */,
 				5CE2715D195B11E0007FCF44 /* main.m in Sources */,
 				5CB1C5A4195B333700590186 /* GONMarkup+Private.m in Sources */,

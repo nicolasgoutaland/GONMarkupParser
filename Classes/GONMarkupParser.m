@@ -31,43 +31,26 @@
 @end
 
 @implementation GONMarkupParser
-#pragma mark - Shared instance
-+ (instancetype)sharedInstance
-{
-    static GONMarkupParser *sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [self defaultMarkupParser];
-    });
-
-    return sharedInstance;
-}
-
-+ (instancetype)defaultMarkupParser
-{
-    return [[self alloc] initPreconfiguredParser];
-}
-
-+ (instancetype)emptyMarkupParser
-{
-    return [[self alloc] init];
-}
-
 #pragma mark - Constructor
-- (id)initPreconfiguredParser
++ (GONMarkupParser *)defaultMarkupParser
 {
-    if (self = [self init])
-    {
-        [self addMarkup:[GONMarkupFont fontMarkup]];
-        [self addMarkup:[GONMarkupColor colorMarkup]];
-        [self addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
-        [self addMarkup:[GONMarkupReset resetMarkup]];
+    GONMarkupParser *parser = [[GONMarkupParser alloc] init];
 
-        [self addMarkups:[GONMarkupList allMarkups]];
-        [self addMarkups:[GONMarkupAlignment allMarkups]];
-    }
+    [parser addMarkup:[GONMarkupFont fontMarkup]];
+    [parser addMarkup:[GONMarkupColor colorMarkup]];
+    [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
+    [parser addMarkup:[GONMarkupReset resetMarkup]];
 
-    return self;
+    [parser addMarkups:[GONMarkupTextStyle allMarkups]];
+    [parser addMarkups:[GONMarkupList allMarkups]];
+    [parser addMarkups:[GONMarkupAlignment allMarkups]];
+    
+    return parser;
+}
+
++ (GONMarkupParser *)emptyMarkupParser
+{
+    return [[GONMarkupParser alloc] init];
 }
 
 - (id)init
@@ -466,4 +449,5 @@
 {
     return [_dicRegisteredFonts copy];
 }
+
 @end

@@ -8,7 +8,7 @@
 
 #import "InputViewController.h"
 #import "ResultViewController.h"
-#import "GONMarkupParser.h"
+#import "GONMarkupParserManager.h"
 
 @interface InputViewController ()
 // Outlets
@@ -28,7 +28,7 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ((ResultViewController *)segue.destinationViewController).resultAttributedString = [[GONMarkupParser sharedInstance] attributedStringFromString:_inputTextView.text
-                                                                                                                                              error:nil];
+    ((ResultViewController *)segue.destinationViewController).resultAttributedString = [[GONMarkupParserManager sharedParser] attributedStringFromString:_inputTextView.text
+                                                                                                                                                   error:nil];
 }
 @end

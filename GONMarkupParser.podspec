@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
   s.dependency  "NSString+Color"
+  s.framework    = 'CoreText'
 end
