@@ -64,8 +64,21 @@
                 size = [UIFont systemFontSize];
         }
 
+        // Try to load font from registered ones
+        UIFont *font = [self.parser fontForKey:value];
+        if (!font)
+        {
+            // No matching font found, try to load it by name
+            font = [UIFont fontWithName:value size:size];
+        }
+        else
+        {
+            // Font found, update its size
+            font = [UIFont fontWithDescriptor:font.fontDescriptor size:[sizeValue floatValue]];
+        }
+
         // Update configuration
-        [aConfigurationDictionary setObject:[UIFont fontWithName:value size:size]
+        [aConfigurationDictionary setObject:font
                                      forKey:NSFontAttributeName];
 
         return;
