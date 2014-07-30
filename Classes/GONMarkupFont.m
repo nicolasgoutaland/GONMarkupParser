@@ -25,25 +25,6 @@
 {
     NSString *value;
 
-    // Font code
-    value = [aDicAttributes objectForKey:GONMarkupFont_TAG_code_ATT];
-    if (value)
-    {
-        // Retrieve font
-        UIFont *font = [self.parser fontForKey:value];
-
-        // Look for size attribute
-        NSString *sizeValue = [aDicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
-        if (sizeValue)
-            font = [UIFont fontWithDescriptor:font.fontDescriptor size:[sizeValue floatValue]];
-
-        // Update configuration
-        [aConfigurationDictionary setObject:font
-                                     forKey:NSFontAttributeName];
-
-        return;
-    }
-
     // Font name
     value = [aDicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
     if (value)
