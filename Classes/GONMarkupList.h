@@ -21,6 +21,8 @@
 #define GONMarkupList_POSITION_KEY        @"GONMarkupList.position"
 #define GONMarkupList_ORDERED_KEY         @"GONMarkupList.ordered"
 
+#warning TODO Hanlde listitems alignment
+
 @interface GONMarkupList : GONMarkup
 /* Return all markups, including list item one */
 + (NSArray *)allMarkups;

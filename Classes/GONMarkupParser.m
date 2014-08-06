@@ -40,6 +40,7 @@
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
     [parser addMarkup:[GONMarkupReset resetMarkup]];
+    [parser addMarkup:[GONMarkupParagrap paragraphMarkup]];
 
     [parser addMarkups:[GONMarkupTextStyle allMarkups]];
     [parser addMarkups:[GONMarkupList allMarkups]];

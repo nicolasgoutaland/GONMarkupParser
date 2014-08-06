@@ -36,7 +36,7 @@
  */
 - (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext;
 
-/* Allows marker to a prefix its content string
+/* Allows marker to prefix its content string
  * This method is called right after opening markup
  */
 - (NSString *)prefixStringForContext:(NSMutableDictionary *)aContext;
@@ -49,7 +49,7 @@
  */
 - (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext;
 
-/* Allows marker to a suffix its content string
+/* Allows marker to suffix its content string
  * This method is called right after opening markup
  */
 - (NSString *)suffixStringForContext:(NSMutableDictionary *)aContext;
