@@ -17,9 +17,11 @@
 //
 #import "GONMarkup.h"
 
-#warning Evolutions : Allow markup to be encoded (NSCoding)
-#warning Evolutions : Loading from PLIST file
-#warning Evolutions : Allows copy
+#warning Evolution : Allow markup to be encoded (NSCoding)
+#warning Evolution : Loading from PLIST file
+#warning Evolution : Allows copy
+#warning Evolution : Add markupString property to text components, using default parser
+#warning Evolution : Add setMarkupString:parser: property to text components, using given parser
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
@@ -70,6 +72,14 @@
  * anError may be set if input string seems malformed, but method will return a valid string. Only last error is returned.
  */
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)aString error:(NSError **)anError;
+
+@property (nonatomic, assign)           BOOL replaceNewLineCharactersFromInputString;                           // If YES, all [NSCharacterSet newlineCharacterSet] will be replaced by spaces from input string.
+                                                                                                                // Replacing process will occur AFTER preprocessingBlock, BEFORE parsing.
+                                                                                                                // Use <br/> and <p> to add new lines. Default is NO.
+
+@property (nonatomic, assign)           BOOL replaceHTMLCharactersFromOutputString;                             // If YES, all HTML entities will be replaced in output string.
+                                                                                                                // Replacing process will occur BEFORE postProcessingBlock, AFTER parsing.
+                                                                                                                // Default is YES
 
 @property (nonatomic, strong, readonly) NSMutableDictionary *defaultConfiguration;                              // Default attributed string configuration
 @property (nonatomic, readonly)         NSArray *markups;                                                       // Retrieve all applied markups

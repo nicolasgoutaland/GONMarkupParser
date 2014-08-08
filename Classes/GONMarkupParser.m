@@ -9,6 +9,7 @@
 #import "GONMarkupParser.h"
 #import "GONMarkup+Private.h"
 #import "GONMarkupDefaultMarkups.h"
+#import "GONMarkupParserUtils.h"
 
 #define REGEX                   @"(.*?)(<[^>]+>|\\Z)"
 #define LOG_IF_DEBUG(msg, ...)  do {if (_debugEnabled) { NSLog(@"MarkupParser : %@", [NSString stringWithFormat:msg, ##__VA_ARGS__]); }} while(0)
@@ -62,9 +63,12 @@
                                                       options:NSRegularExpressionDotMatchesLineSeparators
                                                         error:nil];
 
-        _defaultConfiguration = [[NSMutableDictionary alloc] init];
-        _dicCurrentMarkup     = [[NSMutableDictionary alloc] init];
-        _dicRegisteredFonts   = [[NSMutableDictionary alloc] init];
+        _defaultConfiguration    = [[NSMutableDictionary alloc] init];
+        _dicCurrentMarkup        = [[NSMutableDictionary alloc] init];
+        _dicRegisteredFonts      = [[NSMutableDictionary alloc] init];
+
+        _replaceNewLineCharactersFromInputString = NO;
+        _replaceHTMLCharactersFromOutputString   = YES;
     }
 
     return self;
@@ -137,6 +141,10 @@
     if (_preProcessingBlock)
         _preProcessingBlock(inputString);
 
+    // Replace new line characters
+    if (_replaceNewLineCharactersFromInputString)
+        inputString = [[[inputString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "] mutableCopy];
+
     // Parse input string
     NSMutableAttributedString *resString = [self parseString:inputString error:anError];
 
@@ -147,6 +155,10 @@
         else
             LOG_IF_DEBUG(@"Parsing completed without error");
     }
+
+    // Replace html entities
+    if (_replaceHTMLCharactersFromOutputString)
+        [GONMarkupParserUtils cleanHTMLEntitiesFromString:resString.mutableString];
 
     // Handle post processing
     LOG_IF_DEBUG(@"Postprocessing string");
