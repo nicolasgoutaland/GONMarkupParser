@@ -39,7 +39,7 @@
 - (NSString *)orderedListItemPrefixForIndentation:(NSInteger)anIndentationLevel position:(NSInteger)aPosition listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)aContext
 {
     NSString *indentation = [self listItemIndentation:anIndentationLevel];
-    NSString *bullet = [NSString stringWithFormat:@"%d.", aPosition];
+    NSString *bullet = [NSString stringWithFormat:@"%ld.", (long)aPosition];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
@@ -51,6 +51,16 @@
     NSMutableDictionary *listConfiguration = [[aContext objectForKey:GONMarkupList_CONFIGURATIONS_KEY] lastObject];
     [listConfiguration setObject:@([[listConfiguration objectForKey:GONMarkupList_POSITION_KEY] intValue] + 1)
                           forKey:GONMarkupList_POSITION_KEY];
+    
+    // Retrieve and update paragraph style
+    NSMutableParagraphStyle *paragraphStyle = [self paragraphStyle:aConfigurationDictionary];
+    
+    // Generate prefix string
+    NSAttributedString *prefixString = [[NSAttributedString alloc] initWithString:[self prefixStringForContext:aContext]
+                                                                       attributes:aConfigurationDictionary];
+
+    // Compute prefix string width
+    paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1) options:0 context:nil]);
 }
 
 - (NSString *)prefixStringForContext:(NSMutableDictionary *)aContext
@@ -77,6 +87,19 @@
 }
 
 #pragma mark - Utils
+- (NSMutableParagraphStyle *)paragraphStyle:(NSMutableDictionary *)aConfigurationDictionary
+{
+    NSMutableParagraphStyle *paragraphStyle = [[aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName] mutableCopy];
+    if (!paragraphStyle)
+        paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+
+    // Hold updated paragraph style
+    [aConfigurationDictionary setObject:paragraphStyle
+                                 forKey:NSParagraphStyleAttributeName];
+
+    return paragraphStyle;
+}
+
 - (NSString *)listItemIndentation:(NSInteger)anIndentation
 {
     NSMutableString *indentString = [[NSMutableString alloc] init];

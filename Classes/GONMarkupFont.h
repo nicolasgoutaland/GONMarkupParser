@@ -14,6 +14,9 @@
 //  If "name" isn't set, current defined font will be used with new defined size. If no font is currently used, default system one will be used
 //
 //  If no attribute is set, current defined font will be removed (NSFontAttributeName), and default system one will be used instead
+//
+
+#warning Add markup examples in documentation
 
 #import "GONAttributedMarkup.h"
 
