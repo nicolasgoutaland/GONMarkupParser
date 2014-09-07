@@ -24,6 +24,9 @@
 
 #import "GONMarkup.h"
 
+// Context
+#define GONAttributedMarkup_CONFIGURATIONS_KEY  @"GONAttributedMarkup.configurations"  // Cached attributes in context
+
 @interface GONAttributedMarkup : GONMarkup
 /* This method will be called if markup is matching current opening tag.
  * Object is responsible to update attributed string parameters in "aConfigurationDictionary"

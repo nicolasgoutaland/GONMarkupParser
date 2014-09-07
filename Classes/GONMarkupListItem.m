@@ -8,6 +8,7 @@
 
 #import "GONMarkupListItem.h"
 #import "GONMarkupList.h"
+#import "GONMarkup+Private.h"
 
 @implementation GONMarkupListItem
 #pragma mark - Constructor
@@ -48,13 +49,13 @@
 - (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
 {
     // Retrieve indentation level
-    NSMutableDictionary *listConfiguration = [[aContext objectForKey:GONMarkupList_CONFIGURATIONS_KEY] lastObject];
-    [listConfiguration setObject:@([[listConfiguration objectForKey:GONMarkupList_POSITION_KEY] intValue] + 1)
+    NSMutableDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY fromContext:aContext];
+    [currentConfiguration setObject:@([[currentConfiguration objectForKey:GONMarkupList_POSITION_KEY] intValue] + 1)
                           forKey:GONMarkupList_POSITION_KEY];
-    
+
     // Retrieve and update paragraph style
     NSMutableParagraphStyle *paragraphStyle = [self paragraphStyle:aConfigurationDictionary];
-    
+
     // Generate prefix string
     NSAttributedString *prefixString = [[NSAttributedString alloc] initWithString:[self prefixStringForContext:aContext]
                                                                        attributes:aConfigurationDictionary];

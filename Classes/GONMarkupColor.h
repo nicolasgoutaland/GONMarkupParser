@@ -8,6 +8,12 @@
 //  Define a generic markup to add color
 //  You can specify color value with "value" attribute.
 //  Colors are handled via NSString+Color, using "representedColor" category method
+//
+// Examples
+//
+// <color value="red">text</>
+// <color value="#FFEEAA">text</>
+// <color value="myCustomRegisteredColor">text</>
 
 #import "GONAttributedMarkup.h"
 

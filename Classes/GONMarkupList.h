@@ -7,6 +7,14 @@
 //
 //  Markup used to handle lists
 //  You HAVE to add GONMarkupListItem support to handle list properly
+//
+//  Example
+//
+// <ul>
+//     <li>first item</>
+//     <li>second item</>
+//     <li>third item</>
+// </>
 
 #import "GONMarkup.h"
 
@@ -15,13 +23,11 @@
 #define GONMarkupList_ordered_TAG                   @"ol"
 
 // Context
-#define GONMarkupList_CONFIGURATIONS_KEY  @"GONMarkupList.configurations"   // Reference an array, holding automatically pushed / popped tags configurations
+#define GONMarkupList_CONFIGURATIONS_KEY  @"GONMarkupList.configurations"   // References an array, holding automatically pushed / popped tags configurations
 
 #define GONMarkupList_INDENTATION_KEY     @"GONMarkupList.indentation"
 #define GONMarkupList_POSITION_KEY        @"GONMarkupList.position"
 #define GONMarkupList_ORDERED_KEY         @"GONMarkupList.ordered"
-
-#warning TODO Hanlde listitems alignment
 
 @interface GONMarkupList : GONMarkup
 /* Return all markups, including list item one */

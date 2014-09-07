@@ -10,14 +10,18 @@
 // <red>this text is red<strong>red strong <reset> <yellow> yellow default <yellow> </reset> red strong </strong> red </red>
 //
 // "all" attribute can be used to also remove default configuration
+// sharedContext will also be reset
 
 #import "GONAttributedMarkup.h"
+
+// Context
+#define GONMarkupReset_SAVED_CONTEXT_KEY  @"GONMarkupReset.savedContext"   // Saved context before reset, to be resotred on tag end
 
 // Tag
 #define GONMarkupReset_TAG                 @"reset"
 
 // Attributes
-#define GONMarkupReset_TAG_all_ATT         @"all"   // If true, default is false.
+#define GONMarkupReset_TAG_all_ATT         @"all"   // If true default parser configuration will be set, default is false.
 
 @interface GONMarkupReset : GONAttributedMarkup
 /* Class constructor */

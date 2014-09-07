@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSMutableDictionary *dicCurrentMarkup;         // Dictionary representation of markups
 @property (nonatomic, strong) NSRegularExpression *regex;                    // Regular expression to extract tokens
 
-// Ephemeral internal data. Used to prevent from having too much parameters in internal functions
+// Ephemeral internal data. Used to reduce parameters count in internal methods
 @property (nonatomic, strong) NSMutableArray      *configurationsStack;      // Configurations stack
 @property (nonatomic, strong) NSMutableArray      *markupsStack;             // Markups stack
 @property (nonatomic, strong) NSMutableDictionary *currentContext;           // Current context
@@ -319,6 +319,7 @@
 
             [_configurationsStack removeAllObjects];
             [_markupsStack removeAllObjects];
+            [_currentContext removeAllObjects];
 
             LOG_IF_DEBUG(@"Closing all tags\nStack : %@\n", _configurationsStack);
         }

@@ -7,10 +7,9 @@
 //
 
 #import "GONAttributedMarkup.h"
+#import "GONMarkup+Private.h"
 
 @interface GONAttributedMarkup ()
-// Data
-@property (nonatomic, strong) NSDictionary *cachedAttributes;
 @end
 
 @implementation GONAttributedMarkup
@@ -18,13 +17,17 @@
 - (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
 {
     // Extract attributes
-    [self extractAttributesFromTag:aTag];
+    NSDictionary *attributes = [self extractAttributesFromTag:aTag];
+
+    [self pushConfiguration:attributes
+                  toContext:aContext
+                     forKey:GONAttributedMarkup_CONFIGURATIONS_KEY];
 
     // Transfer event configuration
     [self openingMarkupFound:aTag
                configuration:aConfigurationDictionary
                      context:aContext
-                  attributes:_cachedAttributes];
+                  attributes:attributes];
 }
 
 - (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
@@ -32,11 +35,12 @@
     [self closingMarkupFound:aTag
                configuration:aConfigurationDictionary
                      context:aContext
-                  attributes:_cachedAttributes];
+                  attributes:[self popContextConfiguration:GONAttributedMarkup_CONFIGURATIONS_KEY
+                                               fromContext:aContext]];
 }
 
 #pragma mark - Utils
-- (void)extractAttributesFromTag:(NSString *)aTag
+- (NSDictionary *)extractAttributesFromTag:(NSString *)aTag
 {
     NSMutableDictionary *dicAttributes = [[NSMutableDictionary alloc] init];
     
@@ -71,9 +75,9 @@
                               forKey:attributeKey];
         }
     }
-    
+
     // Hold attributes for reuse
-    _cachedAttributes = dicAttributes;
+    return dicAttributes;
 }
 
 #pragma mark - Behavior

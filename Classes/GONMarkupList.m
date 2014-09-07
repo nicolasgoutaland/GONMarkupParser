@@ -8,6 +8,7 @@
 
 #import "GONMarkupList.h"
 #import "GONMarkupListItem.h"
+#import "GONMarkup+Private.h"
 
 @interface GONMarkupList ()
 // Data
@@ -43,10 +44,21 @@
 #pragma mark - Markup lifecycle
 - (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
 {
-    NSMutableDictionary *listConfiguration = [self pushedConfiguration:aContext];
+    // Compute indentation level
+    NSInteger indentationLevel = 0;
+    NSDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
+                                                               fromContext:aContext];
+    if (currentConfiguration)
+        indentationLevel = [[currentConfiguration objectForKey:GONMarkupList_INDENTATION_KEY] intValue] + 1;
 
-    [listConfiguration setObject:@(_isOrdered)
-                          forKey:GONMarkupList_ORDERED_KEY];
+    NSDictionary *configuration = [@{
+                                     GONMarkupList_ORDERED_KEY       : @(_isOrdered),
+                                     GONMarkupList_INDENTATION_KEY   : @(indentationLevel)
+                                    } mutableCopy];
+
+    [self pushConfiguration:configuration
+                  toContext:aContext
+                     forKey:GONMarkupList_CONFIGURATIONS_KEY];
 }
 
 - (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext
@@ -56,54 +68,8 @@
 
 - (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
 {
-    [self popCurrentConfiguration:aContext];
-}
-
-#pragma mark - Utils
-- (NSMutableDictionary *)pushedConfiguration:(NSMutableDictionary *)aContext
-{
-    // Retrieve lists configuration
-    NSMutableArray *listsConfigurations = [aContext objectForKey:GONMarkupList_CONFIGURATIONS_KEY];
-    if (!listsConfigurations)
-    {
-        // Create configurations array
-        listsConfigurations = [[NSMutableArray alloc] init];
-        [aContext setObject:listsConfigurations
-                     forKey:GONMarkupList_CONFIGURATIONS_KEY];
-    }
-
-    // Create configuration
-    NSMutableDictionary *listConfiguration = [[NSMutableDictionary alloc] init];
-
-    // Hold current indentation
-    [listConfiguration setObject:@(listsConfigurations.count)
-                          forKey:GONMarkupList_INDENTATION_KEY];
-
-    // Hold current configuration
-    [listsConfigurations addObject:listConfiguration];
-
-    return listConfiguration;
-}
-
-- (NSMutableDictionary *)popCurrentConfiguration:(NSMutableDictionary *)aContext
-{
-    // Retrieve lists configuration
-    NSMutableArray *listsConfigurations = [aContext objectForKey:GONMarkupList_CONFIGURATIONS_KEY];
-
-    // Retrieve current list configuration
-    NSMutableDictionary *listConfiguration = [listsConfigurations lastObject];
-
-    // Remove last configuration
-    [listsConfigurations removeLastObject];
-
-    // Check if list is empty
-    if (!listsConfigurations.count)
-    {
-        // Remove lists configurations
-        [aContext removeObjectForKey:GONMarkupList_CONFIGURATIONS_KEY];
-    }
-
-    return listConfiguration;
+    [self popContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
+                      fromContext:aContext];
 }
 
 @end

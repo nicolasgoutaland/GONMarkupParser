@@ -7,6 +7,7 @@
 //
 // Markup using a block as parameters. Useful to add new markup without creating new subclasses
 
+
 #import "GONMarkup.h"
 
 @interface GONMarkupBlock : GONMarkup

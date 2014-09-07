@@ -7,6 +7,13 @@
 //
 //  Tag updating current font style (bold / italic / subscripted / superscripted).
 //  This tag may not work if no bold/italic version of current font is available.
+//
+//  Examples
+//
+// <b>bold text</>
+// <i>italic text</>
+// <sup>superscripted text</>
+// <sub>subscripted text</>
 
 #import "GONMarkup.h"
 

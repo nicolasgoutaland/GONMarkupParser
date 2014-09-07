@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 // Markup to handle <br/> characters, generating a new line
+//
+// Example
+//
+// <br />
 
 #import "GONMarkup.h"
 

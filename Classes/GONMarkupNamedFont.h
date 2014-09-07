@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 //  Define a tag to set font / remove font
+//  When encountered, contained text will use associated font
 
 #import "GONMarkup.h"
 

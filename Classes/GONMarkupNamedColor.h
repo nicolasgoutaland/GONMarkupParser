@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 //  Define a tag to set foreground text color
+//  When encountered, contained text will use associated color
 //
 
 #import "GONMarkup.h"
