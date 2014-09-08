@@ -8,3 +8,4 @@
 #import "GONMarkupParser.h"
 #import "GONMarkupParserManager.h"
 #import "GONMarkupDefaultMarkups.h"
+#import "GONMarkupParser_Categories.h"
