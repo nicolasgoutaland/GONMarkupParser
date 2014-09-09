@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupNamedFont.h"
+#import "GONMarkup+Private.h"
 
 @interface GONMarkupNamedFont ()
 // Data
