@@ -4,6 +4,8 @@
 //
 //  Created by Nicolas Goutaland on 08/08/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
+//
+//  http://www.w3schools.com/charsets/ref_html_entities_4.asp
 
 #import "GONMarkupParserUtils.h"
 

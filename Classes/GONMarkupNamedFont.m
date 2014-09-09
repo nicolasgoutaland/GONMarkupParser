@@ -34,7 +34,16 @@
     }
     else
     {
-        [aConfigurationDictionary removeObjectForKey:NSFontAttributeName];
+        UIFont *defaultfont = [[self.parser defaultConfiguration] objectForKey:NSFontAttributeName];
+        if (defaultfont)
+        {
+            [aConfigurationDictionary setObject:defaultfont
+                                         forKey:NSFontAttributeName];
+        }
+        else
+        {
+            [aConfigurationDictionary removeObjectForKey:NSFontAttributeName];
+        }
     }
 }
 @end

@@ -384,12 +384,12 @@
 		5CE27185195B1226007FCF44 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				5CB3106919BE023300B06D0D /* Categories */,
 				5C34E7D119752C2B009C8012 /* GONMarkupParser_All.h */,
 				5CE27190195B1412007FCF44 /* GONMarkupParser.h */,
 				5CE27191195B1412007FCF44 /* GONMarkupParser.m */,
 				5CD617E119828AA90001C3D9 /* GONMarkupParserManager.h */,
 				5CD617E219828AA90001C3D9 /* GONMarkupParserManager.m */,
+				5CB3106919BE023300B06D0D /* Categories */,
 				5CE271A1195B1437007FCF44 /* DefaultMarkup */,
 				5CE2719C195B141A007FCF44 /* Markup */,
 				5C7C5B221994CA3A003BE47A /* Utils */,

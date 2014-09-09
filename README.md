@@ -68,9 +68,10 @@ Categories
 
 ##Default tags
 #Reset
-
-
 ##How to add new tags
+- subclass
+- use block marker
+- use simple marker
 
 ##How does it works
 - Stacked configuration

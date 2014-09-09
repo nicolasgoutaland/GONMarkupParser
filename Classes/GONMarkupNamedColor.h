@@ -12,7 +12,9 @@
 #import "GONMarkup.h"
 
 @interface GONMarkupNamedColor : GONMarkup
-/* Class constructor */
+/* Class constructor
+ * If aColor is nil, so this tag will reset current color to parser default one
+ */
 + (instancetype)namedColorMarkup:(UIColor *)aColor forTag:(NSString *)aTag;
 
 @property (nonatomic, strong, readonly) UIColor *color;

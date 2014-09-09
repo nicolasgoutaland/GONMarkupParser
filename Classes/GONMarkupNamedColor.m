@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupNamedColor.h"
+#import "GONMarkup+Private.h"
 
 @interface GONMarkupNamedColor ()
 // Data
@@ -34,7 +35,16 @@
     }
     else
     {
-        [aConfigurationDictionary removeObjectForKey:NSForegroundColorAttributeName];
+        UIColor *defaultColor = [[self.parser defaultConfiguration] objectForKey:NSForegroundColorAttributeName];
+        if (defaultColor)
+        {
+            [aConfigurationDictionary setObject:defaultColor
+                                         forKey:NSForegroundColorAttributeName];
+        }
+        else
+        {
+            [aConfigurationDictionary removeObjectForKey:NSForegroundColorAttributeName];
+        }
     }
 }
 

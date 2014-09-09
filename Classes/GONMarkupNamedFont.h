@@ -12,7 +12,7 @@
 
 @interface GONMarkupNamedFont : GONMarkup
 /* Class constructor 
- * If aFont is nil, so this tag will reset current font
+ * If aFont is nil, so this tag will reset current font to parser default one
  */
 + (instancetype)namedFontMarkup:(UIFont *)aFont forTag:(NSString *)aTag;
 
