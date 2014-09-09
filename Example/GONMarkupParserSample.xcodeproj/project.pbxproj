@@ -81,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		17B85795BD5D4A4195265653 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_Categories.h; path = ../Classes/GONMarkupParser_Categories.h; sourceTree = "<group>"; };
 		5C1D1C2C19920D7100F7B642 /* GONMarkupParagrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParagrap.h; path = ../Classes/GONMarkupParagrap.h; sourceTree = "<group>"; };
 		5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParagrap.m; path = ../Classes/GONMarkupParagrap.m; sourceTree = "<group>"; };
 		5C34E7D119752C2B009C8012 /* GONMarkupParser_All.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_All.h; path = ../Classes/GONMarkupParser_All.h; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		5CB3106E19BE026C00B06D0D /* UILabel+GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+GONMarkupParser.m"; sourceTree = "<group>"; };
 		5CB3107019BE027A00B06D0D /* UITextField+GONMarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+GONMarkupParser.h"; sourceTree = "<group>"; };
 		5CB3107119BE027A00B06D0D /* UITextField+GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+GONMarkupParser.m"; sourceTree = "<group>"; };
-		5CB3107319BE047A00B06D0D /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GONMarkupParser_Categories.h; sourceTree = "<group>"; };
 		5CBDC0A0195C334D007279A0 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5CBDC0A1195C3356007279A0 /* GONMarkupParser.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = GONMarkupParser.podspec; path = ../GONMarkupParser.podspec; sourceTree = "<group>"; };
 		5CC284B5197974870009D443 /* GONMarkupSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupSimple.h; path = ../Classes/GONMarkupSimple.h; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		5CB3106919BE023300B06D0D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				5CB3107319BE047A00B06D0D /* GONMarkupParser_Categories.h */,
+				5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */,
 				5CB3106D19BE026C00B06D0D /* UILabel+GONMarkupParser.h */,
 				5CB3106E19BE026C00B06D0D /* UILabel+GONMarkupParser.m */,
 				5CB3107019BE027A00B06D0D /* UITextField+GONMarkupParser.h */,
