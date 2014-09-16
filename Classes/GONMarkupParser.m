@@ -337,7 +337,7 @@
         {
             
             // Extract current markup
-            GONMarkup *markup =[_markupsStack lastObject];
+            GONMarkup *markup = [_markupsStack lastObject];
 
             // Present error when closing an unkwnow markup
             if (markup && ![markup isKindOfClass:[NSNull class]])
@@ -364,7 +364,7 @@
         currentTagConfiguration = [_defaultConfiguration mutableCopy];
     else
         currentTagConfiguration = [[_configurationsStack lastObject] mutableCopy];
-    
+
     // Retrieve rule
     GONMarkup *markup = [_dicCurrentMarkup objectForKey:tag];
     if (!markup)

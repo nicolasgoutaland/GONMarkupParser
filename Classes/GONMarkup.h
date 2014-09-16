@@ -29,7 +29,7 @@
  * Object is responsible to update attributed string parameters in "aConfigurationDictionary"
  *
  * "aTag" is matching tag, allowing you to extract parameters
- * "aContext" is a mutable dictionary use by marker to add contextual information. This dictionary is shared throught all markers in a parser and is reset each time a new parse is started
+ * "aContext" is a mutable dictionary used by marker to add contextual information. This dictionary is shared throught all markers in a parser and is reset each time a new parse is started
  * It is used for example by list markers to handle list type, tabulation index and count
  *
  * You should override this method to implement new behavior

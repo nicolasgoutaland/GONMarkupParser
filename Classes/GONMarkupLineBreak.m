@@ -7,6 +7,10 @@
 //
 
 #import "GONMarkupLineBreak.h"
+#import "GONMarkupList.h"
+
+#define NEW_LINE            @"\n"
+#define CARRIAGE_RETURN     @"\u2028"
 
 @implementation GONMarkupLineBreak
 #pragma mark - Constructor
@@ -18,7 +22,11 @@
 #pragma mark - Content update
 - (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext
 {
-    return @"\n";
+    // If in a list, no new lines
+    if ([aContext objectForKey:GONMarkupList_CONFIGURATIONS_KEY])
+        return CARRIAGE_RETURN;
+
+    return NEW_LINE;
 }
 
 @end
