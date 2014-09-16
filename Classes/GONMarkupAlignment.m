@@ -60,11 +60,11 @@
 {
     NSMutableParagraphStyle *style = [[aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName] mutableCopy];
     if (!style)
-    {
         style = [[NSMutableParagraphStyle alloc] init];
-        [aConfigurationDictionary setObject:style
-                                     forKey:NSParagraphStyleAttributeName];
-    }
+
+    // Hold new configuration
+    [aConfigurationDictionary setObject:style
+                                 forKey:NSParagraphStyleAttributeName];
 
     // Update alignment
     style.alignment = _alignment;
