@@ -96,6 +96,10 @@
         traits |= _trait;
         currentFont = [UIFont fontWithDescriptor:[fontDescriptor fontDescriptorWithSymbolicTraits:traits]
                                             size:currentFont.pointSize];
+
+        // Font may not exists, fallback on system font by default
+        if (!currentFont)
+            currentFont = [UIFont systemFontOfSize:currentFont.pointSize];
     }
 
     // Update configuration
