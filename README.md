@@ -7,7 +7,7 @@ WIP - A simple markup parser for iOS.
 // Default markup
 
 ##Usage
-- instantiate a new __GONMarkupParser__ or use the __sharedInstance__ one.
+- instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supporting tags, default ones, custom ones, etc...
 - parser input string and retrieve result __NSMutableAttributedString__ using __attributedStringFromString__
 
@@ -36,8 +36,12 @@ GONMarkupParserManager
 
 Categories
 - UILabel
-- UITextField
+ - setMarkedUpText:(NSString *)aText parser:(GONMarkupParser *)aParser;
+ - setMarkedUpText:(NSString *)aText;
 
+- UITextField
+ - setMarkedUpText:(NSString *)aText parser:(GONMarkupParser *)aParser;
+ - setMarkedUpText:(NSString *)aText;
 
 ##Default tags summary
 
