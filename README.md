@@ -77,13 +77,13 @@ Categories
 - use block marker
 - use simple marker
 
-##How does it works
+##How does it work
 - Stacked configuration
 - Shared context
 
 
 ## Limitations
-- Indentation prefix in lists need to be improved (add more symbols, etc..)
+- Indentation prefix in lists needs to be improved (add more symbols, etc..)
  
 
 ## Evolutions
@@ -102,5 +102,5 @@ Register fonts
 Special blocks :
 - reset
 
-Example ==> tokenizer ?
-==> Faire un pretraitement pour ajouter les balises
+
+==> Example
