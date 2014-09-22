@@ -63,8 +63,8 @@ Categories
 | *i*      | GONMarkupItalic | none | Set text to italic. Allows user to define a fallback block if no matching italic font found.|
 | *sup*      | GONMarkupTextStyle | none | Set text to superscript |
 | *sub*      | GONMarkupTextStyle | none | Set text to subscript |
-| **N/A**   | GONMarkupBlock | none | When encountered execute associated block |
-| **N/A**   | GONAttributedMarkupBlock | *user defined* | When encountered execute associated block |
+| **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
+| **N/A**   | GONAttributedMarkupBlock | *user defined* | When encountered executes associated block |
 
 ##Default tags
 #Reset
