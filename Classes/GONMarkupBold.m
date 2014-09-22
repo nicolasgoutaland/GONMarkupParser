@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupBold.h"
+#import "GONMarkup+Private.h"
 
 @implementation GONMarkupBold
 #pragma mark - Constructor
@@ -47,7 +48,17 @@
 
             // If no font after block, use default system one
             if (!boldFont)
+            {
+                if (self.parser.debugEnabled)
+                {
+                    if (!_boldFontFallbackBlock)
+                        NSLog(@"%@ : No bold font found for <%@-%@>. Consider setting up <boldFontFallbackBlock> to provide a fallback font", [[self class] description], currentFont.familyName, currentFont.fontName);
+                    else
+                        NSLog(@"%@ : No bold font returned from fallback block for <%@-%@>. Consider seting up one", [[self class] description], currentFont.familyName, currentFont.fontName);
+                }
+
                 boldFont = [UIFont boldSystemFontOfSize:currentFont.pointSize];
+            }
         }
     }
 

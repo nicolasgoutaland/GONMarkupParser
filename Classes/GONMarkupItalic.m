@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupItalic.h"
+#import "GONMarkup+Private.h"
 
 @implementation GONMarkupItalic
 #pragma mark - Constructor
@@ -47,7 +48,17 @@
             
             // If no font after block, use default system one
             if (!italicFont)
+            {
+                if (self.parser.debugEnabled)
+                {
+                    if (!_italicFontFallbackBlock)
+                        NSLog(@"%@ : No italic font found for <%@-%@>. Consider setting up <italicFontFallbackBlock> to provide a fallback font", [[self class] description], currentFont.familyName, currentFont.fontName);
+                    else
+                        NSLog(@"%@ : No italic font returned from fallback block for <%@-%@>. Consider seting up one", [[self class] description], currentFont.familyName, currentFont.fontName);
+                }
+
                 italicFont = [UIFont italicSystemFontOfSize:currentFont.pointSize];
+            }
         }
     }
 
