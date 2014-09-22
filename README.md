@@ -59,8 +59,8 @@ Categories
 | **p**      | GONMarkupParagrap | none | Specify a paragraph. A paragraph will automatically insert a new blanck line after it |
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
 | **N/A**      | GONMarkupSimple | none | Apply a configuration to enclosed text |
-| *b*      | GONMarkupTextStyle | none | Set text to bold |
-| *i*      | GONMarkupTextStyle | none | Set text to italic |
+| *b*      | GONMarkupBold | none | Set text to bold. Allows user to define a fallback block if no matching bold font found.|
+| *i*      | GONMarkupItalic | none | Set text to italic. Allows user to define a fallback block if no matching italic font found.|
 | *sup*      | GONMarkupTextStyle | none | Set text to superscript |
 | *sub*      | GONMarkupTextStyle | none | Set text to subscript |
 | **N/A**   | GONMarkupBlock | none | When encountered execute associated block |
