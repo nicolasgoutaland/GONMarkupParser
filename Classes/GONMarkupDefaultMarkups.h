@@ -8,9 +8,11 @@
 
 #import "GONMarkupAlignment.h"
 #import "GONAttributedMarkupBlock.h"
+#import "GONMarkupBold.h"
 #import "GONMarkupBlock.h"
 #import "GONMarkupColor.h"
 #import "GONMarkupFont.h"
+#import "GONMarkupItalic.h"
 #import "GONMarkupLineBreak.h"
 #import "GONMarkupList.h"
 #import "GONMarkupListItem.h"

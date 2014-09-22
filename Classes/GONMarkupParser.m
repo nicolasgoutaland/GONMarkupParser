@@ -37,6 +37,10 @@
 {
     GONMarkupParser *parser = [[GONMarkupParser alloc] init];
 
+
+    [parser addMarkup:[GONMarkupItalic italicMarkup]];
+    [parser addMarkup:[GONMarkupBold boldMarkup]];
+
     [parser addMarkup:[GONMarkupFont fontMarkup]];
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
@@ -88,6 +92,27 @@
     aMarkup.parser = self;
     [_dicCurrentMarkup setObject:aMarkup
                           forKey:aMarkup.tag];
+}
+
+- (GONMarkup *)markupForTag:(NSString *)aTag
+{
+    // Retrieve markup
+    GONMarkup *markup = [_dicCurrentMarkup objectForKey:aTag];
+    if (!markup)
+    {
+        // Look up throught all markups
+        for (GONMarkup *tmpMarkup in [_dicCurrentMarkup allValues])
+        {
+            if ([tmpMarkup canHandleTag:aTag])
+            {
+                // Rule found
+                markup = tmpMarkup;
+                break;
+            }
+        }
+    }
+
+    return markup;
 }
 
 - (void)addMarkups:(id <NSFastEnumeration>)markups
@@ -365,21 +390,8 @@
     else
         currentTagConfiguration = [[_configurationsStack lastObject] mutableCopy];
 
-    // Retrieve rule
-    GONMarkup *markup = [_dicCurrentMarkup objectForKey:tag];
-    if (!markup)
-    {
-        // Look up throught all markups
-        for (GONMarkup *tmpMarkup in [_dicCurrentMarkup allValues])
-        {
-            if ([tmpMarkup canHandleTag:tag])
-            {
-                // Rule found
-                markup = tmpMarkup;
-                break;
-            }
-        }
-    }
+    // Retrieve markup associated to tag
+    GONMarkup *markup = [self markupForTag:tag];
 
     // Ensure a markup was found
     if (!markup)

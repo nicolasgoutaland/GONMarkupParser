@@ -20,8 +20,6 @@
 #warning Evolution : Allow markup to be encoded (NSCoding)
 #warning Evolution : Loading from PLIST file
 #warning Evolution : Allows copy
-#warning Evolution : Add markupString property to text components, using default parser
-#warning Evolution : Add setMarkupString:parser: property to text components, using given parser
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
@@ -45,6 +43,9 @@
 
 /* Add some markups */
 - (void)addMarkups:(id <NSFastEnumeration>)markups;
+
+/* Return a previously registered markup that can handle given tag */
+- (GONMarkup *)markupForTag:(NSString *)aTag;
 
 /* Remove given markup from parser, if previously added */
 - (void)removeMarkup:(GONMarkup *)aMarkup;

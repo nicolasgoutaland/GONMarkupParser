@@ -17,6 +17,7 @@
 // - Once tag is closed, closingMarkupFound:configuration:context: method will be called
 //
 // Markup instance will be reused each time a matching tag is found. To persist data, use context parameter.
+@class GONMarkupParser;
 
 @interface GONMarkup : NSObject
 /* Class constructor */
@@ -91,5 +92,6 @@
  */
 - (BOOL)canHandleTag:(NSString *)aTag;
 
-@property (nonatomic, copy, readonly) NSString *tag;  // Have to be unique. Used to speed up rules matching, when using tags without parameters
+@property (nonatomic, copy, readonly) NSString *tag;            // Have to be unique. Used to speed up rules matching, when using tags without parameters
+@property (nonatomic, weak, readonly) GONMarkupParser *parser;  // Parser the markup is attached to
 @end
