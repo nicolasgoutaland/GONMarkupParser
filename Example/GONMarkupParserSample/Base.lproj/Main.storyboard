@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vGh-94-DHa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vGh-94-DHa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -19,10 +20,9 @@
             </objects>
             <point key="canvasLocation" x="-495" y="-55"/>
         </scene>
-        <!--Input View Controller - Input-->
+        <!--Input-->
         <scene sceneID="bxa-PH-hOi">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5ry-Lc-Lf6" sceneMemberID="firstResponder"/>
                 <viewController id="MNB-cA-lsk" customClass="InputViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fz9-Hv-iqn"/>
@@ -34,7 +34,6 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsK-Gc-dNf">
                                 <rect key="frame" x="20" y="84" width="280" height="202"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">black &lt;red&gt;gjkldfggdfj&lt;/red&gt; black
 fdgfdg &lt;color value="blue"&gt;blue&lt;/&gt; black </string>
@@ -61,13 +60,14 @@ fdgfdg &lt;color value="blue"&gt;blue&lt;/&gt; black </string>
                         <outlet property="inputTextView" destination="LsK-Gc-dNf" id="LGS-lx-V5E"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ry-Lc-Lf6" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="-55"/>
         </scene>
-        <!--Result View Controller - Result-->
+        <!--Result-->
         <scene sceneID="Y8Z-iO-jF7">
             <objects>
-                <viewController id="9wS-SF-Ydr" customClass="ResultViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9wS-SF-Ydr" customClass="ResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DcR-oW-tdx"/>
                         <viewControllerLayoutGuide type="bottom" id="zk6-AK-4Qs"/>
@@ -78,7 +78,6 @@ fdgfdg &lt;color value="blue"&gt;blue&lt;/&gt; black </string>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSs-5Q-Z1g">
                                 <rect key="frame" x="20" y="84" width="280" height="464"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

@@ -14,14 +14,12 @@
 //
 // <i>italic text</>
 
-#import "GONMarkup.h"
+#import "GONMarkupFontTraits.h"
 
 #define GONMarkupItalic_TAG               @"i"
 
-@interface GONMarkupItalic : GONMarkup
+@interface GONMarkupItalic : GONMarkupFontTraits
 
 /* Default markup to add italic support */
 + (instancetype)italicMarkup;
-
-@property (nonatomic, copy) UIFont *(^italicFontFallbackBlock)(UIFont *font);
 @end

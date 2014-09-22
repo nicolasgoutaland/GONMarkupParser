@@ -14,14 +14,12 @@
 //
 // <b>bold text</>
 
-#import "GONMarkup.h"
+#import "GONMarkupFontTraits.h"
 
 #define GONMarkupBold_TAG                 @"b"
 
-@interface GONMarkupBold : GONMarkup
+@interface GONMarkupBold : GONMarkupFontTraits
 
 /* Default markup to add bold support */
 + (instancetype)boldMarkup;
-
-@property (nonatomic, copy) UIFont *(^boldFontFallbackBlock)(UIFont *font);
 @end
