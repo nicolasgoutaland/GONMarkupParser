@@ -6,9 +6,11 @@
 //  Copyright 2014 Nicolas Goutaland. All rights reserved.
 //
 //  Super class for markers updating font traits
-//  fallbackBlock will be used to determine which font to use ONLY if system cannot find it automatically
+//  overrideBlock allows you to override font. For example, you can used it to return a medium font instead of bold one.
+//  If overrideBlock is set, it will be called first. Is nil is returned, sysytem will try to automatically resolve font
+//  Also note that if an overrideBlock isset, it ill be called even is current font have needed trait.
 //
-// You may not need to use this class directly. Use subclasses instead (GONMarkupBold, GONMarkupItalic)
+//  You may not need to use this class directly. Use subclasses instead (GONMarkupBold, GONMarkupItalic)
 
 #import "GONMarkup.h"
 
@@ -16,8 +18,8 @@
 }
 
 /* Class constructor */
-+ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTraits;
++ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTrait;
 
-@property (nonatomic, copy) UIFont *(^fallbackBlock)(UIFont *font);             // Should return a font. Markup will automatically update font to needed size.
-@property (nonatomic, assign, readonly) UIFontDescriptorSymbolicTraits traits;
+@property (nonatomic, copy) UIFont *(^overrideBlock)(UIFont *font);             // Should return a font. Markup will automatically update font to needed size.
+@property (nonatomic, assign, readonly) UIFontDescriptorSymbolicTraits trait;
 @end

@@ -11,16 +11,16 @@
 
 @interface GONMarkupFontTraits ()
 // Data
-@property (nonatomic, assign) UIFontDescriptorSymbolicTraits traits;
+@property (nonatomic, assign) UIFontDescriptorSymbolicTraits trait;
 @end
 
 @implementation GONMarkupFontTraits
 #pragma mark - Constructor
-+ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTraits
++ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTrait
 {
     GONMarkupFontTraits *markup = [self markupForTag:aTag];
 
-    markup.traits = aTraits;
+    markup.trait = aTrait;
 
     return markup;
 }
@@ -36,52 +36,53 @@
         // No found defined, use default one with default size
         currentFont = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     }
-    
-    // Update font to set trait
-    UIFontDescriptor *fontDescriptor = currentFont.fontDescriptor;
-    UIFontDescriptorSymbolicTraits fontTaits = fontDescriptor.symbolicTraits;
-    
-    // Check if font already has traits
-    UIFont *updatedFont = currentFont;
-    if (!(fontTaits & _traits))
-    {
-        fontTaits |= _traits;
-        updatedFont = [UIFont fontWithDescriptor:[fontDescriptor fontDescriptorWithSymbolicTraits:fontTaits]
-                                            size:currentFont.pointSize];
-        
-        // Font may not exists, fallback
-        // Note : In iOS7, if no fount is found, normal one will be returned. Since iOS8, nil will be returned
-        if (!updatedFont || [currentFont isEqual:updatedFont])
-        {
-            // If a fallback block was defined, try it
-            if (_fallbackBlock)
-                updatedFont = (_fallbackBlock(currentFont));
 
-            // If no font after block, use default system one
-            if (!updatedFont)
+    UIFont *updatedFont = nil;
+
+    // Check override block
+    if (_overrideBlock)
+    {
+        // Try with override block
+        updatedFont = _overrideBlock(currentFont);
+    }
+
+    // Check if font already has traits, and if override blocks didn't return a font
+    if (!updatedFont)
+    {
+        // Update font to set trait
+        UIFontDescriptor *fontDescriptor = currentFont.fontDescriptor;
+        UIFontDescriptorSymbolicTraits fontTaits = fontDescriptor.symbolicTraits;
+
+        if (!(fontTaits & _trait))
+        {
+            fontTaits |= _trait;
+            updatedFont = [UIFont fontWithDescriptor:[fontDescriptor fontDescriptorWithSymbolicTraits:fontTaits]
+                                                size:currentFont.pointSize];
+
+            // Font may not exists, fallback
+            // Note : In iOS7, if no fount is found, normal one will be returned. Since iOS8, nil will be returned
+            if (!updatedFont || [currentFont isEqual:updatedFont])
             {
                 if (self.parser.debugEnabled)
                 {
-                    if (!_fallbackBlock)
-                        NSLog(@"%@ : No font found for <%@-%@> applying traits. Consider setting up <fallbackBlock> to provide a fallback font", [[self class] description], currentFont.familyName, currentFont.fontName);
+                    if (!_overrideBlock)
+                        NSLog(@"%@ : No font found for <%@-%@> applying traits. Consider setting up <overrideBlock> to provide a font", [[self class] description], currentFont.familyName, currentFont.fontName);
                     else
-                        NSLog(@"%@ : No font returned from fallback block for <%@-%@>. Consider seting up one", [[self class] description], currentFont.familyName, currentFont.fontName);
+                        NSLog(@"%@ : No font returned from overrideBlock for <%@-%@>. Consider seting up one", [[self class] description], currentFont.familyName, currentFont.fontName);
                 }
 
                 // Do not update font
                 updatedFont = currentFont;
             }
-            else
-            {
-                // Check for font size
-                if (updatedFont.pointSize != currentFont.pointSize)
-                {
-                    // Build a new font with current size
-                    updatedFont = [UIFont fontWithDescriptor:[updatedFont fontDescriptor]
-                                                        size:currentFont.pointSize];
-                }
-            }
         }
+    }
+
+    // Check for font size
+    if (updatedFont.pointSize != currentFont.pointSize)
+    {
+        // Build a new font with current size
+        updatedFont = [UIFont fontWithDescriptor:[updatedFont fontDescriptor]
+                                            size:currentFont.pointSize];
     }
 
     // Update configuration

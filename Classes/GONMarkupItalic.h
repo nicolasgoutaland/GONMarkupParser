@@ -7,9 +7,8 @@
 //
 //  Tag updating current font style to italic
 //  This tag may not work if no italic version of current font is available.
-//  You can provide a fallback block in order to provide another font if italic version is not found.
-//  This block will be called only if no matching font is found.
-//
+//  overrideBlock (GONMarkupFontTraits) allows you to override font. For example, you can used it to return a medium italic font instead of bold italic one.
+//  If overrideBlock is set, it will be called first. Is nil is returned, system will try to automatically resolve font
 //  Examples
 //
 // <i>italic text</>
