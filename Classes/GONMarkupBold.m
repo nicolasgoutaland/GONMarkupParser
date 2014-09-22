@@ -40,7 +40,8 @@
                                             size:currentFont.pointSize];
 
         // Font may not exists, fallback
-        if (!boldFont)
+        // Note : In iOS7, if no fount is found, normal one will be returned. Since iOS8, nil will be returned
+        if (!boldFont || [currentFont isEqual:boldFont])
         {
             // If a fallback block was defined, try it
             if (_boldFontFallbackBlock)

@@ -39,8 +39,9 @@
         currentFont = [UIFont fontWithDescriptor:[fontDescriptor fontDescriptorWithSymbolicTraits:traits]
                                             size:currentFont.pointSize];
 
-        // Font may not exists, fallback
-        if (!italicFont)
+        // Font may not exists, fallback.
+        // Note : In iOS7, if no fount is found, normal one will be returned. Since iOS8, nil will be returned
+        if (!italicFont || [currentFont isEqual:italicFont])
         {
             // If a fallback block was defined, try it
             if (_italicFontFallbackBlock)
