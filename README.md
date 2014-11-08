@@ -33,22 +33,22 @@ Each time a closing markup is found, current style configuration is popped out, 
 
 ##Syntax
 Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faster to write.
-- Each markup  should be contained between __<__ and __>__ characters
- - __<strong>__
+- Each markup  should be contained between __&gt;__ and __&lt;__ characters
+ - __&gt;strong&lt;__
 - Closing markup should start with __/__ character. There is no need for closing markup to match opening one. You can also leave it blank, with just the __/__ character
- - __</strong>__, __</>__, __</hakuna matata>__
-- You can also close all opened markup by using __<//>__
+ - __&gt;/strong&lt;__, __&gt;/&lt;__, __&gt;/hakuna matata&lt;__
+- You can also close all opened markup by using __&gt;//&lt;__
 - You do not need to balance markup at text end
 
 ##Examples
- This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
- This is a <strong>valid</> string with some <color value="red">red <b>bold text</></>.
- This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>.
- This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
+ This is a &gt;strong&lt;valid&gt;/strong&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/b&lt;&gt;/color&lt;.
+ This is a &gt;strong&lt;valid&gt;/&lt;string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/&lt;&gt;/&lt;.
+ This is a &gt;strong&lt;valid&gt;/Hakuna&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/mata&lt;&gt;/ta&lt;.
+ This is a &gt;strong&lt;valid&gt;/&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;//&lt;.
 
 ##Parser
 GONMarkupParser
-- constructoors
+- constructors
 - configuration
 - registered fonts
 - pre / post processing block
