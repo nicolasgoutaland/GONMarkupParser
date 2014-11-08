@@ -41,10 +41,10 @@ Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faste
 - You do not need to balance markup at text end
 
 ##Examples
- This is a &gt;strong&lt;valid&gt;/strong&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/b&lt;&gt;/color&lt;.
- This is a &gt;strong&lt;valid&gt;/&lt;string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/&lt;&gt;/&lt;.
- This is a &gt;strong&lt;valid&gt;/Hakuna&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;/mata&lt;&gt;/ta&lt;.
- This is a &gt;strong&lt;valid&gt;/&lt; string with some &gt;color value="red"&lt;red &gt;b&lt;bold text&gt;//&lt;.
+ This is a &lt;/strong&gt;valid&lt;/strong&gt; string with some <color value="red">red <b>bold text</b></color>.
+ This is a &lt;/strong&gt;valid&gt;/&lt;string with some <color value="red">red <b>bold text</></>.
+ This is a &lt;/strong&gt;valid&gt;/Hakuna&lt; string with some <color value="red">red <b>bold text</mata></ta>.
+ This is a &lt;/strong&gt;valid&gt;/&lt; string with some <color value="red">red <b>bold text<//>.
 
 ##Parser
 GONMarkupParser
