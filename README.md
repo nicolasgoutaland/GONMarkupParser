@@ -33,11 +33,11 @@ Each time a closing markup is found, current style configuration is popped out, 
 
 ##Syntax
 Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faster to write.
-- Each markup  should be contained between __&gt;__ and __&lt;__ characters
- - __&gt;strong&lt;__
+- Each markup  should be contained between __<__ and __>__ characters
+ - __&lt;strong&gt;__
 - Closing markup should start with __/__ character. There is no need for closing markup to match opening one. You can also leave it blank, with just the __/__ character
- - __&gt;/strong&lt;__, __&gt;/&lt;__, __&gt;/hakuna matata&lt;__
-- You can also close all opened markup by using __&gt;//&lt;__
+ - __&lt;/strong&gt;__, __</>__, __</hakuna matata>__
+- You can also close all opened markup by using __<//>__
 - You do not need to balance markup at text end
 
 ##Examples
