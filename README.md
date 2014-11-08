@@ -1,25 +1,50 @@
 #GONMarkupParser
-
-WIP - A simple markup parser for iOS.
+Easily build NSAttributedString from XML/HTML like strings.
 
 ##Description
+Creating rich text under iOS can be cumbersome, needing a lot of code.
+The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.
+Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markup and apply style on text.
+The purpose of this was to be able to generate different output from the same input string, without editing its content, but editing the markups style.
 
-// Default markup
+##Demo
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
 
 ##Usage
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supporting tags, default ones, custom ones, etc...
-- parser input string and retrieve result __NSMutableAttributedString__ using __attributedStringFromString__
+- parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
 
 ##Installation
 __Cocoapods__: `pod 'GONMarkupParser'`<br> // Not available yet
 __Manual__: Copy the __Classes__ folder in your project<br>
 
 Import wanted headers in your project. .pch is a good place ;)
-You can also import GONMarkupDefaultMarkups.h to reference all markups in your project.
+__GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarkupDefaultMarkups.h__ only references default markup classes.
 
 ##Example
+// TODO
 
+##How does it work ?
+To fully understand how style will be applied to string, you have to imagine a [LIFO stack](http://en.wikipedia.org/wiki/LIFO_(computing)) composed of style description.
+Each time a new markup is found, current style configuration will be saved then stacked. New configuration will be the previous one, updated by current markup configuration.
+Each time a closing markup is found, current style configuration is popped out, and previous one restored.
+
+
+##Syntax
+Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faster to write.
+- Each markup  should be contained between __<__ and __>__ characters
+ - __<strong>__
+- Closing markup should start with __/__ character. There is no need for closing markup to match opening one. You can also leave it blank, with just the __/__ character
+ - __</strong>__, __</>__, __</hakuna matata>__
+- You can also close all opened markup by using __<//>__
+- You do not need to balance markup at text end
+
+##Examples
+ This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
+ This is a <strong>valid</> string with some <color value="red">red <b>bold text</></>.
+ This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>.
+ This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
 
 ##Parser
 GONMarkupParser
@@ -34,14 +59,11 @@ GONMarkupParserManager
 - sharedParser
 - parsers registration
 
-Categories
-- UILabel
- - setMarkedUpText:(NSString *)aText parser:(GONMarkupParser *)aParser;
- - setMarkedUpText:(NSString *)aText;
-
-- UITextField
- - setMarkedUpText:(NSString *)aText parser:(GONMarkupParser *)aParser;
- - setMarkedUpText:(NSString *)aText;
+##Available UIKit Categories
+__UILabel__/__UITextField__
+2 methods were added to UILabel and UITextField, allowing you to easily update its attribtued string using a markedup one.
+__- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
+__- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
 ##Default tags summary
 
@@ -76,9 +98,6 @@ Categories
 - subclass
 - use block marker
 - use simple marker
-
-##How does it work
-- Stacked configuration
 - Shared context
 
 
