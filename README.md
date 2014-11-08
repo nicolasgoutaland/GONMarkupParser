@@ -62,10 +62,10 @@ GONMarkupParserManager
 - parsers registration
 
 ##Available UIKit Categories
-__UILabel__/__UITextField__
-2 methods were added to UILabel and UITextField, allowing you to easily update its attribtued string using a markedup one.
-__- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
-__- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
+__UILabel__/__UITextField__<br/>
+2 methods were added to UILabel and UITextField, allowing you to easily update its attribtued string using a markedup one.<br/>
+- __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
+- __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
 ##Default tags summary
 
