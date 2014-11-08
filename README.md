@@ -2,10 +2,10 @@
 Easily build NSAttributedString from XML/HTML like strings.
 
 ##Description
-Creating rich text under iOS can be cumbersome, needing a lot of code.
-The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.
-Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markup and apply style on text.
-The purpose of this was to be able to generate different output from the same input string, without editing its content, but editing the markups style.
+Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
+The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.<br/>
+Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markup and apply style on text.<br/>
+The purpose of this was to be able to generate different output from the same input string, without editing its content, but editing the markups style.<br/>
 
 ##Demo
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
@@ -26,8 +26,8 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 // TODO
 
 ##How does it work ?
-To fully understand how style will be applied to string, you have to imagine a [LIFO stack](http://en.wikipedia.org/wiki/LIFO_(computing)) composed of style description.
-Each time a new markup is found, current style configuration will be saved then stacked. New configuration will be the previous one, updated by current markup configuration.
+To fully understand how style will be applied to string, you have to imagine a [LIFO stack](http://en.wikipedia.org/wiki/LIFO_(computing)) composed of style description.<br/>
+Each time a new markup is found, current style configuration will be saved then stacked. New configuration will be the previous one, updated by current markup configuration.<br/>
 Each time a closing markup is found, current style configuration is popped out, and previous one restored.
 
 
@@ -41,10 +41,12 @@ Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faste
 - You do not need to balance markup at text end
 
 ##Examples
- This is a &lt;/strong&gt;valid&lt;/strong&gt; string with some <color value="red">red <b>bold text</b></color>.
- This is a &lt;/strong&gt;valid&gt;/&lt;string with some <color value="red">red <b>bold text</></>.
- This is a &lt;/strong&gt;valid&gt;/Hakuna&lt; string with some <color value="red">red <b>bold text</mata></ta>.
- This is a &lt;/strong&gt;valid&gt;/&lt; string with some <color value="red">red <b>bold text<//>.
+```
+ This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
+ This is a <strong>valid</>string with some <color value="red">red <b>bold text</></>.
+ This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>.
+ This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
+```
 
 ##Parser
 GONMarkupParser
