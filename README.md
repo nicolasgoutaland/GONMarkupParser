@@ -41,7 +41,7 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
 - You can also close all opened markup by using __<//>__
 - You do not need to balance markup at text end
 
-##Examples
+###Examples
 ```
  This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
  This is a <strong>valid</>string with some <color value="red">red <b>bold text</></>.
@@ -75,10 +75,13 @@ __A markup can be added to only one parser at a time.__
 To simplify fonts uses, you can register then using __- registerFont:forKey:__ method, then referencing them using given key.<br/>
 Very useful with __&lt;font&gt;__ markup, allowing you to directly use code instead of full font name. You can also use codes such as __mainFont__, __titleFont__ to easily update them later throught all your strings.
 
+###Example
+
+
 ##GONMarkupParserManager
 ###sharedParser
 A shared parser is available, so you don't have to create one and reference it throught all your application.<br/>
-Shared parser is configured with all defualt markups.
+Shared parser is configured with all default markups.
 
 ###parsers registration
 You can register some parser to this class, allowing you to use them from different places in your application.
@@ -127,26 +130,14 @@ Reset is a special tag, allowing you to protect some parts of a string. You can 
 - use simple marker
 - Shared context
 
-
 ## Limitations
 - Indentation prefix in lists needs to be improved (add more symbols, etc..)
  
-
 ## Evolutions
 - Implements **NSCoder** in parser and Markers
 - Allows **copy** on parsers / markers
 
 ##Versions
 0.5   : Initial release<br/>
-
-
-Closing a markup </>, <tag/> 
-<//> ==> close all opened markup
-
-Extending :
-Register fonts
-Special blocks :
-- reset
-
 
 ==> Example
