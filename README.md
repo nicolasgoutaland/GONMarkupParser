@@ -26,10 +26,11 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 // TODO
 
 ##How does it work ?
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
+
 To fully understand how style will be applied to string, you have to imagine a [LIFO stack](http://en.wikipedia.org/wiki/LIFO_(computing)) composed of style description.<br/>
 Each time a new markup is found, current style configuration will be saved then stacked. New configuration will be the previous one, updated by current markup configuration.<br/>
 Each time a closing markup is found, current style configuration is popped out, and previous one restored.
-
 
 ##Syntax
 Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faster to write.
