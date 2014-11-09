@@ -20,16 +20,16 @@
 
 @implementation GONMarkup
 #pragma mark - Constructors
-+ (instancetype)markupForTag:(NSString *)aTag
++ (instancetype)markupForTag:(NSString *)tag
 {
-    return [[self alloc] initWithTag:aTag];
+    return [[self alloc] initWithTag:tag];
 }
 
-- (id)initWithTag:(NSString *)aTag
+- (id)initWithTag:(NSString *)tag
 {
     if (self = [super init])
     {
-        _tag = [[aTag lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _tag = [[tag lowercaseString] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _testedTag = [_tag stringByAppendingString:@" "];
     }
 
@@ -42,30 +42,30 @@
 }
 
 #pragma mark - Test
-- (BOOL)canHandleTag:(NSString *)aTag
+- (BOOL)canHandleTag:(NSString *)tag
 {
-    return ([aTag rangeOfString:_testedTag].location == 0);
+    return ([tag rangeOfString:_testedTag].location == 0);
 }
 
-- (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
 {
-    return aString;
+    return string;
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)aContext
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context
 {
     return @"";
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)aContext;
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context;
 {
     return @"";
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext {}
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context {}
 
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext {}
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context {}
 
 @end
     

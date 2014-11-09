@@ -51,20 +51,20 @@
     return sharedParser;
 }
 
-+ (GONMarkupParser *)registeredMarkupParserForKey:(NSString *)aKey
++ (GONMarkupParser *)registeredMarkupParserForKey:(NSString *)key
 {
-    return [[[self manager] registeredParsers] objectForKey:aKey];
+    return [[[self manager] registeredParsers] objectForKey:key];
 }
 
-+ (void)registerMarkupParser:(GONMarkupParser *)aParser forKey:(NSString *)aKey
++ (void)registerMarkupParser:(GONMarkupParser *)parser forKey:(NSString *)key
 {
-    [[[self manager] registeredParsers] setObject:aParser
-                                           forKey:aKey];
+    [[[self manager] registeredParsers] setObject:parser
+                                           forKey:key];
 }
 
-+ (void)unregisterMarkupParserForKey:(NSString *)aKey
++ (void)unregisterMarkupParserForKey:(NSString *)key
 {
-    [[[self manager] registeredParsers] removeObjectForKey:aKey];
+    [[[self manager] registeredParsers] removeObjectForKey:key];
 }
 
 @end

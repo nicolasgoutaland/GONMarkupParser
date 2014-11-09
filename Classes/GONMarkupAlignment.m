@@ -21,9 +21,9 @@
 }
 
 #pragma mark - Constructors
-+ (instancetype)alignmentMarkup:(NSTextAlignment)alignment tag:(NSString *)atag
++ (instancetype)alignmentMarkup:(NSTextAlignment)alignment tag:(NSString *)tag
 {
-    GONMarkupAlignment *markupAlignment = [self markupForTag:atag];
+    GONMarkupAlignment *markupAlignment = [self markupForTag:tag];
     
     markupAlignment.alignment = alignment;
     
@@ -56,14 +56,14 @@
 }
 
 #pragma mark - Markup lifecycle
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
-    NSMutableParagraphStyle *style = [[aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName] mutableCopy];
+    NSMutableParagraphStyle *style = [[configurationDictionary objectForKey:NSParagraphStyleAttributeName] mutableCopy];
     if (!style)
         style = [[NSMutableParagraphStyle alloc] init];
 
     // Hold new configuration
-    [aConfigurationDictionary setObject:style
+    [configurationDictionary setObject:style
                                  forKey:NSParagraphStyleAttributeName];
 
     // Update alignment

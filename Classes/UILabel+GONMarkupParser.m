@@ -11,19 +11,19 @@
 
 @implementation UILabel (GONMarkupParser)
 #pragma mark - GONMarkupParser
-- (void)setMarkedUpText:(NSString *)aText parser:(GONMarkupParser *)aParser
+- (void)setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser
 {
-    GONMarkupParser *parser = aParser;
-    if (!aParser)
-        parser = [GONMarkupParserManager sharedParser];
-    
-    [self setAttributedText:[parser attributedStringFromString:aText
-                                                         error:nil]];
+    GONMarkupParser *selectedParser = parser;
+    if (!selectedParser)
+        selectedParser = [GONMarkupParserManager sharedParser];
+
+    [self setAttributedText:[selectedParser attributedStringFromString:text
+                                                                 error:nil]];
 }
 
-- (void)setMarkedUpText:(NSString *)aText
+- (void)setMarkedUpText:(NSString *)text
 {
-    [self setMarkedUpText:aText
+    [self setMarkedUpText:text
                    parser:nil];
 }
 @end

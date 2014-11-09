@@ -39,14 +39,14 @@ typedef NS_ENUM(NSInteger, GONMarkupSimpleMergingStrategy) {
 @interface GONMarkupSimple : GONMarkup
 /* Class contructor, allowing to specify a merging strategy.
  * Use this constructor is this markup will update NSParagraphStyleAttributeName key
- * aStrategy can be a combinaison of GONMarkupSimpleMergingStrategy values to define per attribute merging strategy
+ * strategy can be a combinaison of GONMarkupSimpleMergingStrategy values to define per attribute merging strategy
  */
-+ (instancetype)simpleMarkup:(NSString *)aTag style:(NSDictionary *)aStyle mergingStrategy:(GONMarkupSimpleMergingStrategy)aStrategy;
++ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style mergingStrategy:(GONMarkupSimpleMergingStrategy)strategy;
 
 /* Default class contructor, using override as default merging strategy
  * Use this constructor is this markup won't update NSParagraphStyleAttributeName key, will throw an exception otherwise
  */
-+ (instancetype)simpleMarkup:(NSString *)aTag style:(NSDictionary *)aStyle;
++ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style;
 
 @property (nonatomic, copy, readonly) NSDictionary *style;
 @end

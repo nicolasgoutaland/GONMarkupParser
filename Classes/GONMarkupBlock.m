@@ -10,29 +10,29 @@
 
 @implementation GONMarkupBlock
 #pragma mark - Constructor
-+ (instancetype)blockMarkup:(NSString *)aTag
++ (instancetype)blockMarkup:(NSString *)tag
 {
-    return [self markupForTag:aTag];
+    return [self markupForTag:tag];
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     if (_openingMarkupBlock)
-        _openingMarkupBlock(aConfigurationDictionary, aTag, aContext);
+        _openingMarkupBlock(configurationDictionary, tag, context);
 }
 
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     if (_closingMarkupBlock)
-        _closingMarkupBlock(aConfigurationDictionary, aTag, aContext);
+        _closingMarkupBlock(configurationDictionary, tag, context);
 }
 
-- (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
 {
     if (_updatedContentString)
-        return _updatedContentString(aString, aContext);
+        return _updatedContentString(string, context);
 
-    return [super updatedContentString:aString context:aContext];
+    return [super updatedContentString:string context:context];
 }
 @end

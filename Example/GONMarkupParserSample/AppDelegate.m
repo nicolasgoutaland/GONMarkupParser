@@ -31,8 +31,8 @@
 
     // Custom markup block
     GONMarkupBlock *markupBlock = [GONMarkupBlock blockMarkup:@"custom"];
-    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *aConfigurationDictionary, NSString *aTag, NSMutableDictionary *aContext) {
-        [aConfigurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
+    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context) {
+        [configurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
                                      forKey:NSFontAttributeName];
     };
 

@@ -20,14 +20,14 @@
 /* Retrieve a parser registered under given key
  * Return nil if not found
  */
-+ (GONMarkupParser *)registeredMarkupParserForKey:(NSString *)aKey;
++ (GONMarkupParser *)registeredMarkupParserForKey:(NSString *)key;
 
 /* Register given parser under key
  * Use this method to be able to share a parser
  */
-+ (void)registerMarkupParser:(GONMarkupParser *)aParser forKey:(NSString *)aKey;
++ (void)registerMarkupParser:(GONMarkupParser *)parser forKey:(NSString *)key;
 
 /* Unregister parser under given key */
-+ (void)unregisterMarkupParserForKey:(NSString *)aKey;
++ (void)unregisterMarkupParserForKey:(NSString *)key;
 
 @end

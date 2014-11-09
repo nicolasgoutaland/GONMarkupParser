@@ -10,31 +10,31 @@
 
 @implementation GONMarkup (Private)
 #pragma mark - LIFO shared context management
-- (void)pushConfiguration:(id)aConfiguration toContext:(NSMutableDictionary *)aContext forKey:(NSString *)aKey
+- (void)pushConfiguration:(id)configuration toContext:(NSMutableDictionary *)context forKey:(NSString *)key
 {
     // Retrieve FIFO
-    NSMutableArray *configurationsFIFO = [aContext objectForKey:aKey];
+    NSMutableArray *configurationsFIFO = [context objectForKey:key];
     if (!configurationsFIFO)
     {
         // Create FIFO
         configurationsFIFO = [[NSMutableArray alloc] init];
-        [aContext setObject:configurationsFIFO
-                     forKey:aKey];
+        [context setObject:configurationsFIFO
+                    forKey:key];
     }
 
     // Hold current configuration
-    [configurationsFIFO addObject:aConfiguration];
+    [configurationsFIFO addObject:configuration];
 }
 
-- (id)currentContextConfiguration:(NSString *)aKey fromContext:(NSMutableDictionary *)aContext
+- (id)currentContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
 {
-    return [[aContext objectForKey:aKey] lastObject];
+    return [[context objectForKey:key] lastObject];
 }
 
-- (id)popContextConfiguration:(NSString *)aKey fromContext:(NSMutableDictionary *)aContext
+- (id)popContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
 {
     // Retrieve FIFO
-    NSMutableArray *configurationsFIFO = [aContext objectForKey:aKey];
+    NSMutableArray *configurationsFIFO = [context objectForKey:key];
 
     // Retrieve current configuration
     id currentConfiguration = [configurationsFIFO lastObject];
@@ -46,7 +46,7 @@
     if (!configurationsFIFO.count)
     {
         // Remove empty list
-        [aContext removeObjectForKey:aKey];
+        [context removeObjectForKey:key];
     }
 
     return currentConfiguration;

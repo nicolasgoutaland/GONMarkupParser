@@ -16,9 +16,9 @@
 
 @implementation GONMarkupNamedColor
 #pragma mark - Class constructor
-+ (instancetype)namedColorMarkup:(UIColor *)aColor forTag:(NSString *)aTag
++ (instancetype)namedColorMarkup:(UIColor *)aColor forTag:(NSString *)tag
 {
-    GONMarkupNamedColor *markup = [self markupForTag:aTag];
+    GONMarkupNamedColor *markup = [self markupForTag:tag];
 
     markup.color = aColor;
 
@@ -26,11 +26,11 @@
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     if (_color)
     {
-        [aConfigurationDictionary setObject:_color
+        [configurationDictionary setObject:_color
                                      forKey:NSForegroundColorAttributeName];
     }
     else
@@ -38,12 +38,12 @@
         UIColor *defaultColor = [[self.parser defaultConfiguration] objectForKey:NSForegroundColorAttributeName];
         if (defaultColor)
         {
-            [aConfigurationDictionary setObject:defaultColor
+            [configurationDictionary setObject:defaultColor
                                          forKey:NSForegroundColorAttributeName];
         }
         else
         {
-            [aConfigurationDictionary removeObjectForKey:NSForegroundColorAttributeName];
+            [configurationDictionary removeObjectForKey:NSForegroundColorAttributeName];
         }
     }
 }

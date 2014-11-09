@@ -39,16 +39,16 @@
  * A markup can be used in only one parser at a time
  * If you are trying to a markup already used by another parser, an exception willl be thrown
  */
-- (void)addMarkup:(GONMarkup *)aMarkup;
+- (void)addMarkup:(GONMarkup *)markup;
 
 /* Add some markups */
 - (void)addMarkups:(id <NSFastEnumeration>)markups;
 
 /* Return a previously registered markup that can handle given tag */
-- (GONMarkup *)markupForTag:(NSString *)aTag;
+- (GONMarkup *)markupForTag:(NSString *)tag;
 
 /* Remove given markup from parser, if previously added */
-- (void)removeMarkup:(GONMarkup *)aMarkup;
+- (void)removeMarkup:(GONMarkup *)markup;
 
 /* Remove given markups from parser, if previously added */
 - (void)removeMarkups:(id <NSFastEnumeration>)markups;
@@ -58,13 +58,13 @@
 
 // Fonts management
 /* Register given font */
-- (void)registerFont:(UIFont *)aFont forKey:(NSString *)aKey;
+- (void)registerFont:(UIFont *)font forKey:(NSString *)key;
 
 /* Register given font */
-- (UIFont *)fontForKey:(NSString *)aKey;
+- (UIFont *)fontForKey:(NSString *)key;
 
 /* Register given font */
-- (void)unregisterFontForKey:(NSString *)aKey;
+- (void)unregisterFontForKey:(NSString *)key;
 
 /* Convert given string to an attributed string.
  * String will be parsed and updated according to stored markups
@@ -72,7 +72,7 @@
  *
  * anError may be set if input string seems malformed, but method will return a valid string. Only last error is returned.
  */
-- (NSMutableAttributedString *)attributedStringFromString:(NSString *)aString error:(NSError **)anError;
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string error:(NSError **)error;
 
 @property (nonatomic, assign)           BOOL replaceNewLineCharactersFromInputString;                           // If YES, all [NSCharacterSet newlineCharacterSet] will be replaced by spaces from input string.
                                                                                                                 // Replacing process will occur AFTER preprocessingBlock, BEFORE parsing.

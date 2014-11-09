@@ -21,24 +21,24 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     NSString *value;
 
     // Font name
-    value = [aDicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
+    value = [dicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
     if (value)
     {
         // Look for size attribute
         CGFloat size;
-        NSString *sizeValue = [aDicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
+        NSString *sizeValue = [dicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
         if (sizeValue)
         {
             size = [sizeValue floatValue];
         }
         else
         {
-            UIFont *currentFont = [aConfigurationDictionary objectForKey:NSFontAttributeName];
+            UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];
             if (currentFont)
                 size = currentFont.pointSize;
             else
@@ -59,21 +59,21 @@
         }
 
         // Update configuration
-        [aConfigurationDictionary setObject:font
+        [configurationDictionary setObject:font
                                      forKey:NSFontAttributeName];
 
         return;
     }
 
     // Font size only
-    value = [aDicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
+    value = [dicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
     if (value)
     {
         // Extract size
         CGFloat size = [value floatValue];
 
         // Look for current font
-        UIFont *currentFont = [aConfigurationDictionary objectForKey:NSFontAttributeName];
+        UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];
         if (currentFont)
         {
             // Current font found, so update it with new size
@@ -87,14 +87,14 @@
         }
 
         // Update configuration
-        [aConfigurationDictionary setObject:currentFont
+        [configurationDictionary setObject:currentFont
                                      forKey:NSFontAttributeName];
 
         return;
     }
 
     // Empty font parameter, reset configuration
-    [aConfigurationDictionary removeObjectForKey:NSFontAttributeName];
+    [configurationDictionary removeObjectForKey:NSFontAttributeName];
 }
 
 @end

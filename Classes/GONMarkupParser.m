@@ -79,31 +79,31 @@
 }
 
 #pragma mark - Markup management
-- (void)addMarkup:(GONMarkup *)aMarkup
+- (void)addMarkup:(GONMarkup *)markup
 {
     // Nothing to do if already added to parser
-    if (aMarkup.parser == self)
+    if (markup.parser == self)
         return;
 
-    if (aMarkup.parser != nil)
+    if (markup.parser != nil)
         @throw @"Error, a Markup can be used by only one parser at a time";
 
     // Bind to parser
-    aMarkup.parser = self;
-    [_dicCurrentMarkup setObject:aMarkup
-                          forKey:aMarkup.tag];
+    markup.parser = self;
+    [_dicCurrentMarkup setObject:markup
+                          forKey:markup.tag];
 }
 
-- (GONMarkup *)markupForTag:(NSString *)aTag
+- (GONMarkup *)markupForTag:(NSString *)tag
 {
     // Retrieve markup
-    GONMarkup *markup = [_dicCurrentMarkup objectForKey:aTag];
+    GONMarkup *markup = [_dicCurrentMarkup objectForKey:tag];
     if (!markup)
     {
         // Look up throught all markups
         for (GONMarkup *tmpMarkup in [_dicCurrentMarkup allValues])
         {
-            if ([tmpMarkup canHandleTag:aTag])
+            if ([tmpMarkup canHandleTag:tag])
             {
                 // Rule found
                 markup = tmpMarkup;
@@ -121,14 +121,14 @@
         [self addMarkup:markup];
 }
 
-- (void)removeMarkup:(GONMarkup *)aMarkup
+- (void)removeMarkup:(GONMarkup *)markup
 {
-    GONMarkup *currentMarkup = [_dicCurrentMarkup objectForKey:aMarkup.tag];
-    if (currentMarkup == aMarkup)
+    GONMarkup *currentMarkup = [_dicCurrentMarkup objectForKey:markup.tag];
+    if (currentMarkup == markup)
     {
         // Remove parser link
-        aMarkup.parser = nil;
-        [_dicCurrentMarkup removeObjectForKey:aMarkup.tag];
+        markup.parser = nil;
+        [_dicCurrentMarkup removeObjectForKey:markup.tag];
     }
 }
 
@@ -147,19 +147,19 @@
 }
 
 #pragma mark - Parser
-- (NSMutableAttributedString *)attributedStringFromString:(NSString *)aString error:(NSError **)anError
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string error:(NSError **)error
 {
-    LOG_IF_DEBUG(@"Input string :\n%@\n", aString);
+    LOG_IF_DEBUG(@"Input string :\n%@\n", string);
 
     // Check for nil values
-    if (!aString)
+    if (!string)
     {
         LOG_IF_DEBUG(@"Input string was <nil>, returning empty string");
         return [[NSMutableAttributedString alloc] init];
     }
 
     // Make input string mutable
-    NSMutableString *inputString = [aString mutableCopy];
+    NSMutableString *inputString = [string mutableCopy];
 
     // Handle pre processing
     LOG_IF_DEBUG(@"Preprocessing string");
@@ -171,12 +171,12 @@
         inputString = [[[inputString componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] componentsJoinedByString:@" "] mutableCopy];
 
     // Parse input string
-    NSMutableAttributedString *resString = [self parseString:inputString error:anError];
+    NSMutableAttributedString *resString = [self parseString:inputString error:error];
 
     if (_debugEnabled)
     {
-        if (anError)
-            LOG_IF_DEBUG(@"Parsing completed with an error <%@>", *anError);
+        if (error)
+            LOG_IF_DEBUG(@"Parsing completed with an error <%@>", *error);
         else
             LOG_IF_DEBUG(@"Parsing completed without error");
     }
@@ -195,7 +195,7 @@
     return resString;
 }
 
-- (NSMutableAttributedString *)parseString:(NSString *)inputString error:(NSError **)anError
+- (NSMutableAttributedString *)parseString:(NSString *)inputString error:(NSError **)error
 {
     // Init stack
     _configurationsStack = [[NSMutableArray alloc] init];
@@ -234,7 +234,7 @@
             if ([tag rangeOfString:@"/"].location == 0)
             {
                 [resultString appendAttributedString:[self computeSuffixString]];
-                [self handleClosingTag:tag error:anError];
+                [self handleClosingTag:tag error:error];
             }
             else
             {
@@ -245,7 +245,7 @@
                     [tag deleteCharactersInRange:NSMakeRange(tag.length - 1, 1)];
 
                     // Opening tag
-                    [self handleOpeningTag:tag error:anError];
+                    [self handleOpeningTag:tag error:error];
 
                     // Append an extracted empty string
                     [resultString appendAttributedString:[self computePrefixString]];
@@ -253,12 +253,12 @@
                     [resultString appendAttributedString:[self computeSuffixString]];
 
                     // Close tag
-                    [self handleClosingTag:tag error:anError];
+                    [self handleClosingTag:tag error:error];
                 }
                 else
                 {
                     // Opening tag
-                    [self handleOpeningTag:tag error:anError];
+                    [self handleOpeningTag:tag error:error];
                     [resultString appendAttributedString:[self computePrefixString]];
                 }
             }
@@ -268,7 +268,7 @@
     if (_configurationsStack.count != 0)
     {
         LOG_IF_DEBUG(@"Parsing completed, but stack isn't empty, some closing tags seems missing :\nStack :%@\n", _configurationsStack);
-        [self generateError:anError tag:nil];
+        [self generateError:error tag:nil];
     }
 
     // Memory
@@ -318,7 +318,7 @@
 }
 
 #pragma mark - Tag managements
-- (void)handleClosingTag:(NSString *)tag error:(NSError **)anError
+- (void)handleClosingTag:(NSString *)tag error:(NSError **)error
 {
     // Look for full style closing tag
     if ([tag rangeOfString:@"//"].location == 0)
@@ -326,7 +326,7 @@
         if (!_configurationsStack.count)
         {
             LOG_IF_DEBUG(@"Trying to close all tags, but stack is empty");
-            [self generateError:anError tag:tag];
+            [self generateError:error tag:tag];
         }
         else
         {
@@ -356,7 +356,7 @@
         {
             // Closing a tag, but tags stack is empty
             LOG_IF_DEBUG(@"Trying to close last tag, but stack is empty");
-            [self generateError:anError tag:tag];
+            [self generateError:error tag:tag];
         }
         else
         {
@@ -381,7 +381,7 @@
     }
 }
 
-- (void)handleOpeningTag:(NSString *)tag error:(NSError **)anError
+- (void)handleOpeningTag:(NSString *)tag error:(NSError **)error
 {
     // Prepare tag configuration
     NSMutableDictionary *currentTagConfiguration;
@@ -397,7 +397,7 @@
     if (!markup)
     {
         LOG_IF_DEBUG(@"No markup found for tag <%@>\n", tag);
-        [self generateError:anError
+        [self generateError:error
                         tag:tag];
 
         [_markupsStack addObject:[NSNull null]];
@@ -426,42 +426,42 @@
 }
 
 #pragma mark - Fonts management
-- (void)registerFont:(UIFont *)aFont forKey:(NSString *)aKey
+- (void)registerFont:(UIFont *)font forKey:(NSString *)key
 {
-    [_dicRegisteredFonts setObject:aFont
-                            forKey:aKey];
+    [_dicRegisteredFonts setObject:font
+                            forKey:key];
 }
 
-- (UIFont *)fontForKey:(NSString *)aKey
+- (UIFont *)fontForKey:(NSString *)key
 {
-    return [_dicRegisteredFonts objectForKey:aKey];
+    return [_dicRegisteredFonts objectForKey:key];
 }
 
-- (void)unregisterFontForKey:(NSString *)aKey
+- (void)unregisterFontForKey:(NSString *)key
 {
-    [_dicRegisteredFonts removeObjectForKey:aKey];
+    [_dicRegisteredFonts removeObjectForKey:key];
 }
 
 #pragma mark - Error handling
-- (void)generateError:(NSError **)anError tag:(NSString *)aTag
+- (void)generateError:(NSError **)error tag:(NSString *)tag
 {
-    if (anError)
+    if (error)
     {
         // Initialize user info
         NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:@"Input string is malformed. Ouput attributed string may not display correctly"
                                                                            forKey:NSLocalizedDescriptionKey];
 
         // Add tag if avalaible
-        if (aTag)
+        if (tag)
         {
-            [userInfo setObject:aTag
+            [userInfo setObject:tag
                          forKey:GONMarkupParser_incorrectClosingTag_KEY];
         }
 
         // Build error
-        *anError = [NSError errorWithDomain:GONMarkupParser_ERROR_DOMAIN
-                                       code:GONMarkupParser_StringMalformed_ERROR_CODE
-                                   userInfo:userInfo];
+        *error = [NSError errorWithDomain:GONMarkupParser_ERROR_DOMAIN
+                                     code:GONMarkupParser_StringMalformed_ERROR_CODE
+                                 userInfo:userInfo];
     }
 }
 

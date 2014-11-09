@@ -11,14 +11,14 @@
 
 @implementation GONMarkupParserUtils
 #pragma mark - Utils
-+ (void)cleanHTMLEntitiesFromString:(NSMutableString *)anInputString
++ (void)cleanHTMLEntitiesFromString:(NSMutableString *)inputString
 {
     for (NSString *htmlEntity in [dicHTMLEntities allKeys])
     {
-        [anInputString replaceOccurrencesOfString:htmlEntity
-                                       withString:[dicHTMLEntities objectForKey:htmlEntity]
-                                          options:0
-                                            range:NSMakeRange(0, anInputString.length)];
+        [inputString replaceOccurrencesOfString:htmlEntity
+                                     withString:[dicHTMLEntities objectForKey:htmlEntity]
+                                        options:0
+                                          range:NSMakeRange(0, inputString.length)];
     }
 }
 

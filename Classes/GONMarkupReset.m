@@ -17,35 +17,35 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     // Reset configuration
-    [aConfigurationDictionary removeAllObjects];
+    [configurationDictionary removeAllObjects];
 
     // Set it back to default if allowed
-    if (![[aDicAttributes objectForKey:GONMarkupReset_TAG_all_ATT] boolValue])
-        [aConfigurationDictionary addEntriesFromDictionary:self.parser.defaultConfiguration];
+    if (![[dicAttributes objectForKey:GONMarkupReset_TAG_all_ATT] boolValue])
+        [configurationDictionary addEntriesFromDictionary:self.parser.defaultConfiguration];
 
     // Copy current context
-    NSMutableDictionary *contextCopy = [aContext mutableCopy];
+    NSMutableDictionary *contextCopy = [context mutableCopy];
 
     // Reset it
-    [aContext removeAllObjects];
+    [context removeAllObjects];
 
     // Hold saved context
-    [aContext setObject:contextCopy
+    [context setObject:contextCopy
                  forKey:GONMarkupReset_SAVED_CONTEXT_KEY];
 }
 
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     // Copy current context
-    NSMutableDictionary *savedContext = [aContext objectForKey:GONMarkupReset_SAVED_CONTEXT_KEY];
+    NSMutableDictionary *savedContext = [context objectForKey:GONMarkupReset_SAVED_CONTEXT_KEY];
 
     // Reset context
-    [aContext removeAllObjects];
+    [context removeAllObjects];
 
     // Reset current context to previously saved one
-    [aContext addEntriesFromDictionary:savedContext];
+    [context addEntriesFromDictionary:savedContext];
 }
 @end

@@ -16,21 +16,21 @@
 
 @implementation GONMarkupNamedFont
 #pragma mark - Class constructor
-+ (instancetype)namedFontMarkup:(UIFont *)aFont forTag:(NSString *)aTag
++ (instancetype)namedFontMarkup:(UIFont *)font forTag:(NSString *)tag
 {
-    GONMarkupNamedFont *markup = [self markupForTag:aTag];
+    GONMarkupNamedFont *markup = [self markupForTag:tag];
 
-    markup.font = aFont;
+    markup.font = font;
     
     return markup;
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     if (_font)
     {
-        [aConfigurationDictionary setObject:_font
+        [configurationDictionary setObject:_font
                                      forKey:NSFontAttributeName];
     }
     else
@@ -38,12 +38,12 @@
         UIFont *defaultfont = [[self.parser defaultConfiguration] objectForKey:NSFontAttributeName];
         if (defaultfont)
         {
-            [aConfigurationDictionary setObject:defaultfont
+            [configurationDictionary setObject:defaultfont
                                          forKey:NSFontAttributeName];
         }
         else
         {
-            [aConfigurationDictionary removeObjectForKey:NSFontAttributeName];
+            [configurationDictionary removeObjectForKey:NSFontAttributeName];
         }
     }
 }

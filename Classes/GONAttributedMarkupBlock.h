@@ -14,9 +14,9 @@
 /* Class contructor
  * Given block will be executed once tag is detected.
  */
-+ (instancetype)attributedBlockMarkup:(NSString *)aTag;
++ (instancetype)attributedBlockMarkup:(NSString *)tag;
 
-@property (nonatomic, copy) void(^openingMarkupBlock)(NSMutableDictionary *aConfigurationDictionary, NSString *aTag, NSMutableDictionary *aContext, NSDictionary *aDicAttributes);  // Called when opening tag is found
-@property (nonatomic, copy) NSString *(^updatedContentString)(NSString *aString, NSMutableDictionary *aContext, NSDictionary *aDicAttributes);                                      // Called when extracted string is complete
-@property (nonatomic, copy) void(^closingMarkupBlock)(NSMutableDictionary *aConfigurationDictionary, NSString *aTag, NSMutableDictionary *aContext, NSDictionary *aDicAttributes);  // Called when closing tag is found
+@property (nonatomic, copy) void(^openingMarkupBlock)(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes);  // Called when opening tag is found
+@property (nonatomic, copy) NSString *(^updatedContentString)(NSString *string, NSMutableDictionary *context, NSDictionary *dicAttributes);                                      // Called when extracted string is complete
+@property (nonatomic, copy) void(^closingMarkupBlock)(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes);  // Called when closing tag is found
 @end

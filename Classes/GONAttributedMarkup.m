@@ -14,38 +14,38 @@
 
 @implementation GONAttributedMarkup
 #pragma mark - Attributes
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     // Extract attributes
-    NSDictionary *attributes = [self extractAttributesFromTag:aTag];
+    NSDictionary *attributes = [self extractAttributesFromTag:tag];
 
     [self pushConfiguration:attributes
-                  toContext:aContext
+                  toContext:context
                      forKey:GONAttributedMarkup_CONFIGURATIONS_KEY];
 
     // Transfer event configuration
-    [self openingMarkupFound:aTag
-               configuration:aConfigurationDictionary
-                     context:aContext
+    [self openingMarkupFound:tag
+               configuration:configurationDictionary
+                     context:context
                   attributes:attributes];
 }
 
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
-    [self closingMarkupFound:aTag
-               configuration:aConfigurationDictionary
-                     context:aContext
+    [self closingMarkupFound:tag
+               configuration:configurationDictionary
+                     context:context
                   attributes:[self popContextConfiguration:GONAttributedMarkup_CONFIGURATIONS_KEY
-                                               fromContext:aContext]];
+                                               fromContext:context]];
 }
 
 #pragma mark - Utils
-- (NSDictionary *)extractAttributesFromTag:(NSString *)aTag
+- (NSDictionary *)extractAttributesFromTag:(NSString *)tag
 {
     NSMutableDictionary *dicAttributes = [[NSMutableDictionary alloc] init];
     
     // Split string
-    NSArray *attributes = [aTag componentsSeparatedByString:@" "];
+    NSArray *attributes = [tag componentsSeparatedByString:@" "];
     NSArray *valueComponents;
     NSString *attributeKey;
     NSMutableString *attributeValue;
@@ -81,8 +81,8 @@
 }
 
 #pragma mark - Behavior
-- (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes { return aString; }
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes {}
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes {}
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes { return string; }
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
 
 @end

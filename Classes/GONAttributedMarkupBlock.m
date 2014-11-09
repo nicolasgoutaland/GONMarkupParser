@@ -10,29 +10,29 @@
 
 @implementation GONAttributedMarkupBlock
 #pragma mark - Constructor
-+ (instancetype)attributedBlockMarkup:(NSString *)aTag
++ (instancetype)attributedBlockMarkup:(NSString *)tag
 {
-    return [self markupForTag:aTag];
+    return [self markupForTag:tag];
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_openingMarkupBlock)
-        _openingMarkupBlock(aConfigurationDictionary, aTag, aContext, aDicAttributes);
+        _openingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
 }
 
-- (void)closingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_closingMarkupBlock)
-        _closingMarkupBlock(aConfigurationDictionary, aTag, aContext, aDicAttributes);
+        _closingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
 }
 
-- (NSString *)updatedContentString:(NSString *)aString context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_updatedContentString)
-        return _updatedContentString(aString, aContext, aDicAttributes);
+        return _updatedContentString(string, context, dicAttributes);
 
-    return [super updatedContentString:aString context:aContext attributes:aDicAttributes];
+    return [super updatedContentString:string context:context attributes:dicAttributes];
 }
 @end

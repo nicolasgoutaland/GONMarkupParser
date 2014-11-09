@@ -17,12 +17,12 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext attributes:(NSDictionary *)aDicAttributes
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
-    UIColor *colorValue = [[aDicAttributes objectForKey:GONMarkupColor_TAG_value_ATT] representedColor];
+    UIColor *colorValue = [[dicAttributes objectForKey:GONMarkupColor_TAG_value_ATT] representedColor];
     if (colorValue)
     {
-        [aConfigurationDictionary setObject:colorValue
+        [configurationDictionary setObject:colorValue
                                      forKey:NSForegroundColorAttributeName];
     }
 }

@@ -16,21 +16,21 @@
 
 @implementation GONMarkupFontTraits
 #pragma mark - Constructor
-+ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTrait
++ (instancetype)fontTraitsMarkup:(NSString *)tag traits:(UIFontDescriptorSymbolicTraits )trait
 {
-    GONMarkupFontTraits *markup = [self markupForTag:aTag];
+    GONMarkupFontTraits *markup = [self markupForTag:tag];
 
-    markup.trait = aTrait;
+    markup.trait = trait;
 
     return markup;
 }
 
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     // Look for current font
-    UIFont *currentFont = [aConfigurationDictionary objectForKey:NSFontAttributeName];
+    UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];
     if (!currentFont)
     {
         // No found defined, use default one with default size
@@ -86,7 +86,7 @@
     }
 
     // Update configuration
-    [aConfigurationDictionary setObject:updatedFont
+    [configurationDictionary setObject:updatedFont
                                  forKey:NSFontAttributeName];
 }
 

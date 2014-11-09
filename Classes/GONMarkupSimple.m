@@ -18,46 +18,46 @@
 
 @implementation GONMarkupSimple
 #pragma mark - Constructor
-+ (instancetype)simpleMarkup:(NSString *)aTag style:(NSDictionary *)aStyle mergingStrategy:(GONMarkupSimpleMergingStrategy)aStrategy
++ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style mergingStrategy:(GONMarkupSimpleMergingStrategy)strategy
 {
-    GONMarkupSimple *markup = [self markupForTag:aTag];
+    GONMarkupSimple *markup = [self markupForTag:tag];
 
-    markup.style = aStyle;
-    markup.mergingStrategy = aStrategy;
+    markup.style = style;
+    markup.mergingStrategy = strategy;
 
     return markup;
 }
 
-+ (instancetype)simpleMarkup:(NSString *)aTag style:(NSDictionary *)aStyle
++ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style
 {
-    if ([aStyle objectForKey:NSParagraphStyleAttributeName])
+    if ([style objectForKey:NSParagraphStyleAttributeName])
         @throw @"Critical error. You cannot update NSParagraphStyleAttributeName without setting a merging strategy ";
 
-    GONMarkupSimple *markup = [self markupForTag:aTag];
+    GONMarkupSimple *markup = [self markupForTag:tag];
 
-    markup.style = aStyle;
+    markup.style = style;
 
     return markup;
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)aTag configuration:(NSMutableDictionary *)aConfigurationDictionary context:(NSMutableDictionary *)aContext
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
 {
     // No NSParagraphStyleAttributeName update, or set in only one dic, nothing to do
-    if ((![_style objectForKey:NSParagraphStyleAttributeName] && ![aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||
-        ( [_style objectForKey:NSParagraphStyleAttributeName] && ![aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||
-        (![_style objectForKey:NSParagraphStyleAttributeName] &&  [aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName]))
+    if ((![_style objectForKey:NSParagraphStyleAttributeName] && ![configurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||
+        ( [_style objectForKey:NSParagraphStyleAttributeName] && ![configurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||
+        (![_style objectForKey:NSParagraphStyleAttributeName] &&  [configurationDictionary objectForKey:NSParagraphStyleAttributeName]))
     {
-        [aConfigurationDictionary addEntriesFromDictionary:_style];
+        [configurationDictionary addEntriesFromDictionary:_style];
         return;
     }
 
     // Should apply a defined strategy
     NSMutableDictionary *updatedStyleDic = [_style mutableCopy];
-    [updatedStyleDic setObject:[self merge:[_style objectForKey:NSParagraphStyleAttributeName] into:[aConfigurationDictionary objectForKey:NSParagraphStyleAttributeName]]
+    [updatedStyleDic setObject:[self merge:[_style objectForKey:NSParagraphStyleAttributeName] into:[configurationDictionary objectForKey:NSParagraphStyleAttributeName]]
                         forKey:NSParagraphStyleAttributeName];
 
-    [aConfigurationDictionary addEntriesFromDictionary:_style];
+    [configurationDictionary addEntriesFromDictionary:_style];
 }
 
 - (NSParagraphStyle *)merge:(NSParagraphStyle *)sourceStyle into:(NSParagraphStyle *)destStyle

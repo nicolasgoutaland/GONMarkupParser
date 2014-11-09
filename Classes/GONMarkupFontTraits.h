@@ -18,7 +18,7 @@
 }
 
 /* Class constructor */
-+ (instancetype)fontTraitsMarkup:(NSString *)aTag traits:(UIFontDescriptorSymbolicTraits )aTrait;
++ (instancetype)fontTraitsMarkup:(NSString *)tag traits:(UIFontDescriptorSymbolicTraits )trait;
 
 @property (nonatomic, copy) UIFont *(^overrideBlock)(UIFont *font);             // Should return a font. Markup will automatically update font to needed size.
 @property (nonatomic, assign, readonly) UIFontDescriptorSymbolicTraits trait;

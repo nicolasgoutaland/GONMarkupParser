@@ -11,6 +11,6 @@
 
 @interface GONMarkupParserUtils : NSObject
 /* Clean HTML entities from string */
-+ (void)cleanHTMLEntitiesFromString:(NSMutableString *)anInputString;
++ (void)cleanHTMLEntitiesFromString:(NSMutableString *)inputString;
 
 @end
