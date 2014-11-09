@@ -24,7 +24,7 @@
 #import "GONAttributedMarkup.h"
 
 // Tag
-#define GONMarkupFont_TAG                 @"font"
+#define GONMarkupFont_TAG                @"font"
 
 // Attributes
 #define GONMarkupFont_TAG_size_ATT       @"size"                // Is missing

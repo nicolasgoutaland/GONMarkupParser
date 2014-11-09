@@ -15,13 +15,13 @@
 #import "GONAttributedMarkup.h"
 
 // Context
-#define GONMarkupReset_SAVED_CONTEXT_KEY  @"GONMarkupReset.savedContext"   // Saved context before reset, to be resotred on tag end
+#define GONMarkupReset_SAVED_CONTEXT_KEY  @"GONMarkupReset.savedContext"   // Saved context before reset, to be restored on tag end
 
 // Tag
 #define GONMarkupReset_TAG                 @"reset"
 
 // Attributes
-#define GONMarkupReset_TAG_all_ATT         @"all"   // If true default parser configuration will be set, default is false.
+#define GONMarkupReset_TAG_all_ATT         @"all"   // If true default parser configuration won't be set, default is false.
 
 @interface GONMarkupReset : GONAttributedMarkup
 /* Class constructor */

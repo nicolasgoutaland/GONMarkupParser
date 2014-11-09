@@ -8,7 +8,7 @@
 //  Super class for markers updating font traits
 //  overrideBlock allows you to override font. For example, you can used it to return a medium font instead of bold one.
 //  If overrideBlock is set, it will be called first. Is nil is returned, sysytem will try to automatically resolve font
-//  Also note that if an overrideBlock isset, it ill be called even is current font have needed trait.
+//  Also note that if an overrideBlock is set, it will be called even is current font have needed trait.
 //
 //  You may not need to use this class directly. Use subclasses instead (GONMarkupBold, GONMarkupItalic)
 
