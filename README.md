@@ -33,7 +33,7 @@ Each time a new markup is found, current style configuration will be saved then 
 Each time a closing markup is found, current style configuration is popped out, and previous one restored.
 
 ##Syntax
-Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faster to write.
+Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster to write.
 - Each markup  should be contained between __<__ and __>__ characters
  - __&lt;strong&gt;__
 - Closing markup should start with __/__ character. There is no need for closing markup to match opening one. You can also leave it blank, with just the __/__ character
@@ -50,17 +50,38 @@ Syntax is pretty easy. It's like XML, but, non valid one, to be easier and faste
 ```
 
 ##Parser
-GONMarkupParser
-- constructors
-- configuration
-- registered fonts
-- pre / post processing block
-- replaceNewLineCharactersFromInputString
-- replaceHTMLCharactersFromOutputString
+###Constructor
+__GONMarkupParser__ class provide to class constructor.
+- __+ defaultMarkupParser__ is a parser with all default tags registered (See __Default tags summary__ for more information)
+- __+ emptyMarkupParser__ is a parser without any registered tags
 
-GONMarkupParserManager
-- sharedParser
-- parsers registration
+###Properties
+A parser can have a pre / post processing block, that will be called prior and after parsing. This allows you to perform some string replace before parsing for example. 
+
+Parsers have two interesting properties :
+- __replaceNewLineCharactersFromInputString__, is intended to strip all newlines characters from input string. Use __br__ markup to add new lines. Default is __NO__.
+- __replaceHTMLCharactersFromOutputString__, is intended to replace all HTML entities contained in string, after parsing. Default is __YES__.
+
+__defaultConfiguration__ will contains default style configuration for generated attributed string. Content should be valid attributes parameters, as you may pass to __- addAttributes:range:__ of __NSMutableAttributedString__ objects.
+
+For debugging purpose, you can set __debug__ to YES.
+
+###Configuration
+A parser must have some registered markups to correctly handling strings.<br/>
+Use __- addMarkup:__, __- addMarkups:__, __- removeMarkups:__ and __- removeAllMarkups__ methods for that purpose.<br/>
+__A markup can be added to only one parser at a time.__
+
+###Registered fonts
+To simplify fonts uses, you can register then using __- registerFont:forKey:__ method, then referencing them using given key.<br/>
+Very useful with __&lt;font&gt;__ markup, allowing you to directly use code instead of full font name. You can also use codes such as __mainFont__, __titleFont__ to easily update them later throught all your strings.
+
+##GONMarkupParserManager
+###sharedParser
+A shared parser is available, so you don't have to create one and reference it throught all your application.<br/>
+Shared parser is configured with all defualt markups.
+
+###parsers registration
+You can register some parser to this class, allowing you to use them from different places in your application.
 
 ##Available UIKit Categories
 __UILabel__/__UITextField__<br/>
@@ -68,8 +89,8 @@ __UILabel__/__UITextField__<br/>
 - __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
 - __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
-##Default tags summary
-
+##Default tags
+###Summary
 | Tag        | Class | Parameters           | Effect |
 |:-------------:|-------------| -----|---|
 | **left** | GONMarkupAlignment | none | Force text alignment to left |
@@ -79,7 +100,7 @@ __UILabel__/__UITextField__<br/>
 | **natural** | GONMarkupAlignment | none | Force text alignment to natural  |
 | **color**      | GONMarkupColor | **value** | Set text color |
 | **N/A**      | GONMarkupNamedColor | none | Set text color. Can be used to reset text color to parser default one if specified color is nil |
-| **font**      | GONMarkupFont | **size**, **name**  | Set text font, text size or both |
+| **font**      | GONMarkupFont | **size**, **name**  | Set text font, text size or both. |
 | **N/A**      | GONMarkupNamedFont | none  | Set text font and size. Can be used to reset font to parser default one if specified font is nil |
 | **br**      | GONMarkupLineBreak | none | Add a new line |
 | **ul**      | GONMarkupList | none  | Create an unordered list |
@@ -88,15 +109,18 @@ __UILabel__/__UITextField__<br/>
 | **p**      | GONMarkupParagrap | none | Specify a paragraph. A paragraph will automatically insert a new blanck line after it |
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
 | **N/A**      | GONMarkupSimple | none | Apply a configuration to enclosed text |
-| *b*      | GONMarkupBold | none | Set text to bold. Allows user to define a fallback block if no matching bold font found.|
-| *i*      | GONMarkupItalic | none | Set text to italic. Allows user to define a fallback block if no matching italic font found.|
+| *b*      | GONMarkupBold | none | Set text to bold. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
+| *i*      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
 | *sup*      | GONMarkupTextStyle | none | Set text to superscript |
 | *sub*      | GONMarkupTextStyle | none | Set text to subscript |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 | **N/A**   | GONAttributedMarkupBlock | *user defined* | When encountered executes associated block |
 
-##Default tags
-#Reset
+###Reset
+Reset is a special tag, allowing you to protect some parts of a string. You can also force markup to ignore default parser configuration by setting __all__ attribute.
+
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-reset.gif)
+
 ##How to add new tags
 - subclass
 - use block marker
