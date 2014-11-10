@@ -156,6 +156,8 @@ __UILabel__/__UITextField__<br/>
 | **ol**      | GONMarkupList | none | Create an ordered list | 
 | **li**      | GONMarkupListItem | none | Add a list item to current list |
 | **p**      | GONMarkupParagrap | none | Specify a paragraph. A paragraph will automatically insert a new blanck line after it |
+| **inc**      | GONMarkupInc | **value** | Increment text font size. If __value__ is missing, font will be increased by one point  |
+| **dec**      | GONMarkupDec | **value** | Decrement text font size. If __value__ is missing, font will be decreased by one point  |
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
 | **N/A**      | GONMarkupSimple | none | Apply a configuration to enclosed text |
 | *b*      | GONMarkupBold | none | Set text to bold. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
@@ -175,10 +177,10 @@ You can add new markup in your application, to add new style, or to just add som
 There is 3 ways to do it.
 
 ###Adding a new simple marker
-The simpler way to add a new markup in your application is to use one of theses 3 follwoing classes :
+The simpler way to add a new markup in your application is to use one of theses 3 following classes :
 - __GONMarkupNamedColor__, allows you to add a markup that updates text color
 - __GONMarkupNamedFont__, allows you to add a markup that updates text font
-- __GONMarkupSimple__, allows you to add a markup that updates all text attribtues. Dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method.
+- __GONMarkupSimple__, allows you to add a markup that updates all text attributes. Dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method.
 
 ####Example
 ```
@@ -215,6 +217,26 @@ They both have blocks 5 parameters :
 - __updatedContentStringBlock__, called right after __closingMarkupBlock__, allowing you to override returned string
 - __prefixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a prefix
 - __suffixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a suffix
+
+####Example
+```
+    // Retrieve shared parser
+    GONMarkupParser *parser = [GONMarkupParserManager sharedParser];
+    
+    // Custom markup, based on block
+    GONMarkupBlock *markupBlock = [GONMarkupBlock blockMarkup:@"custom"];
+    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context) {
+        // Update font size
+        [configurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
+                                    forKey:NSFontAttributeName];
+        
+        // Update text color
+        [configurationDictionary setObject:[@"brown" representedColor]
+                                    forKey:NSForegroundColorAttributeName];
+    };
+
+    [parser addMarkup:markupBlock];
+````
 
 ###Creating a new GONMarkup subclass
 // TODO
