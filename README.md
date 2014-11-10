@@ -1,10 +1,10 @@
 #GONMarkupParser
+Easily build NSAttributedString from XML/HTML like strings.
+
 ##Demo
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
 
 ##TL;DR;
-Easily build NSAttributedString from XML/HTML like strings.
-
 ```
     NSString *inputText = @"Simple input text, using a preconfigured parser.\n<color value=\"red\">This text will be displayed in red</>.\n<font size="8">This one will be displayed in small</>.\nNow a list:\n<ul><li>First item</><li>Second item</><li><color value="blue">Third blue item</></><li><b><color value="green">Fourth bold green item<//>";
 
