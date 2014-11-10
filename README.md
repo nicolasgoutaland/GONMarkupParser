@@ -239,8 +239,13 @@ They both have blocks 5 parameters :
 ````
 
 ###Creating a new GONMarkup subclass
-// TODO
-// Shared context usage
+You can add a custom markup by subclassing __GONMarkup__ or __GONAttributedMarkup__ classes.
+__GONMarkup__ is for simple markups,  __GONAttributedMarkup__ add support for attributes.
+
+Adding a new markup by subclassing is useful if you want to reuse your markups between several projets, or addto implement more complex behavior. When subclassing, you have access to a shared object, allowing you to persists data and share it between each markup handling.
+
+For examples, have a look a currently defined markups ;)
+See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shared context.
 
 ## Evolutions
 - Indentation prefix in lists needs to be improved (add more symbols, etc..)
