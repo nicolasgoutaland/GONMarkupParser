@@ -147,7 +147,7 @@ __UILabel__/__UITextField__<br/>
 | **center** | GONMarkupAlignment | none | Force text alignment to center |
 | **justified** | GONMarkupAlignment | none | Force text alignment to justified |
 | **natural** | GONMarkupAlignment | none | Force text alignment to natural  |
-| **color**      | GONMarkupColor | **value** | Set text color. For supported syntaxes, check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). |
+| **color**      | GONMarkupColor | **value** | Set text color. For supported __value__ syntaxes, check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method. |
 | **N/A**      | GONMarkupNamedColor | none | Set text color. Can be used to reset text color to parser default one if specified color is nil |
 | **font**      | GONMarkupFont | **size**, **name**  | Set text font, text size or both. |
 | **N/A**      | GONMarkupNamedFont | none  | Set text font and size. Can be used to reset font to parser default one if specified font is nil |
