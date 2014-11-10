@@ -11,6 +11,7 @@
 		5C44A9D119D0690A00CF6957 /* GONMarkupFontTraits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */; };
 		5C65F3EA1A1114EC005A76A3 /* GONMarkupInc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3E91A1114EC005A76A3 /* GONMarkupInc.m */; };
 		5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */; };
+		5C65F3F11A112231005A76A3 /* samples.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F3F01A112231005A76A3 /* samples.plist */; };
 		5C7C5B291994CB55003BE47A /* GONMarkupParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */; };
 		5C7C5B2A1994CB55003BE47A /* GONMarkupParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */; };
 		5CB1C580195B19C400590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
@@ -95,6 +96,7 @@
 		5C65F3E91A1114EC005A76A3 /* GONMarkupInc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupInc.m; path = ../Classes/GONMarkupInc.m; sourceTree = "<group>"; };
 		5C65F3EB1A11150A005A76A3 /* GONMarkupDec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupDec.h; path = ../Classes/GONMarkupDec.h; sourceTree = "<group>"; };
 		5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupDec.m; path = ../Classes/GONMarkupDec.m; sourceTree = "<group>"; };
+		5C65F3F01A112231005A76A3 /* samples.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = samples.plist; sourceTree = "<group>"; };
 		5C7C5B271994CB55003BE47A /* GONMarkupParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParserUtils.h; path = ../Classes/GONMarkupParserUtils.h; sourceTree = "<group>"; };
 		5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParserUtils.m; path = ../Classes/GONMarkupParserUtils.m; sourceTree = "<group>"; };
 		5CB1C57E195B19C400590186 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				5CE27168195B11E0007FCF44 /* Images.xcassets */,
 				5CE27162195B11E0007FCF44 /* Main.storyboard */,
 				5CE2718A195B12E6007FCF44 /* PodFile */,
+				5C65F3F01A112231005A76A3 /* samples.plist */,
 				5CB1C5A7195B3B7400590186 /* DefaultText */,
 			);
 			name = Resources;
@@ -589,6 +592,7 @@
 				5CB1C5A8195B3B7400590186 /* DefaultText in Resources */,
 				5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */,
 				5CE27164195B11E0007FCF44 /* Main.storyboard in Resources */,
+				5C65F3F11A112231005A76A3 /* samples.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

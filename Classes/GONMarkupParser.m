@@ -76,6 +76,10 @@
 
         _replaceNewLineCharactersFromInputString = NO;
         _replaceHTMLCharactersFromOutputString   = YES;
+
+        // Set default color in configuration
+        [_defaultConfiguration setObject:[UIColor blackColor]
+                                  forKey:NSForegroundColorAttributeName];
     }
 
     return self;
