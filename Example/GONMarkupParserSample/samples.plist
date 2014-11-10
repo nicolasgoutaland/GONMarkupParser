@@ -4,11 +4,27 @@
 <array>
 	<dict>
 		<key>title</key>
-		<string></string>
-		<key>description</key>
-		<string></string>
+		<string>Playground</string>
+		<key>viewController</key>
+		<string>PlaygroundViewController</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Bold, Italic, Sup, Sub</string>
 		<key>sample</key>
-		<string></string>
+		<string>This text is &lt;b&gt;in bold&lt;/&gt;&lt;br/&gt;This text is &lt;i&gt;in italic&lt;/&gt;&lt;br/&gt;This text is &lt;sup&gt;superscripted&lt;/&gt;&lt;br/&gt;This text is &lt;sub&gt;subscripted&lt;/&gt;</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>List</string>
+		<key>sample</key>
+		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;second &lt;b&gt;bold&lt;/&gt;item&lt;/&gt;&lt;li&gt;thirs item&lt;/&gt;&lt;/&gt;</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Color</string>
+		<key>sample</key>
+		<string>Default, &lt;color value=&quot;red&quot;&gt;red&lt;/&gt;, &lt;color value=&quot;blue&quot;&gt;blue&lt;/&gt;, &lt;color value=&quot;magenta&quot;&gt;magenta&lt;/&gt;, &lt;color value=&quot;FF5533&quot;&gt;FF5533&lt;/&gt;</string>
 	</dict>
 </array>
 </plist>

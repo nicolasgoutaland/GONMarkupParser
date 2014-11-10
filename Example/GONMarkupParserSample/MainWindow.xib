@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIApplication">
+            <connections>
+                <outlet property="delegate" destination="gwP-y8-sxd" id="GEv-tk-vmS"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <window opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Na2-4i-xf1">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="rootViewController" destination="VUy-Hf-22c" id="wIg-8K-Ekf"/>
+            </connections>
+            <point key="canvasLocation" x="435" y="389"/>
+        </window>
+        <customObject id="gwP-y8-sxd" userLabel="AppDelegate" customClass="AppDelegate"/>
+        <navigationController id="VUy-Hf-22c">
+            <navigationBar key="navigationBar" contentMode="scaleToFill" id="jSj-b3-qCe">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+            </navigationBar>
+            <viewControllers>
+                <viewController nibName="RootViewController" id="yXb-Vn-s4H" customClass="RootViewController">
+                    <navigationItem key="navigationItem" title="Item" id="AwQ-rR-fzr"/>
+                </viewController>
+            </viewControllers>
+            <point key="canvasLocation" x="324" y="758"/>
+        </navigationController>
+    </objects>
+</document>

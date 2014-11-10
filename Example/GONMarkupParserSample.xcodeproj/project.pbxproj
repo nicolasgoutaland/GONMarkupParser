@@ -12,6 +12,14 @@
 		5C65F3EA1A1114EC005A76A3 /* GONMarkupInc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3E91A1114EC005A76A3 /* GONMarkupInc.m */; };
 		5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */; };
 		5C65F3F11A112231005A76A3 /* samples.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F3F01A112231005A76A3 /* samples.plist */; };
+		5C65F3F31A112EBE005A76A3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F3F21A112EBE005A76A3 /* MainWindow.xib */; };
+		5C65F3F81A112F3A005A76A3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3F61A112F3A005A76A3 /* RootViewController.m */; };
+		5C65F3F91A112F3A005A76A3 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F3F71A112F3A005A76A3 /* RootViewController.xib */; };
+		5C65F3FE1A1133F8005A76A3 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3FC1A1133F8005A76A3 /* SampleViewController.m */; };
+		5C65F3FF1A1133F8005A76A3 /* SampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F3FD1A1133F8005A76A3 /* SampleViewController.xib */; };
+		5C65F4041A1139CD005A76A3 /* PlaygroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F4021A1139CD005A76A3 /* PlaygroundViewController.m */; };
+		5C65F4051A1139CD005A76A3 /* PlaygroundViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F4031A1139CD005A76A3 /* PlaygroundViewController.xib */; };
+		5C65F4071A1153A2005A76A3 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C65F4061A1153A2005A76A3 /* ResultViewController.xib */; };
 		5C7C5B291994CB55003BE47A /* GONMarkupParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */; };
 		5C7C5B2A1994CB55003BE47A /* GONMarkupParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */; };
 		5CB1C580195B19C400590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
@@ -20,7 +28,6 @@
 		5CB1C58F195B250A00590186 /* GONMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C58D195B24F200590186 /* GONMarkupBlock.m */; };
 		5CB1C590195B250A00590186 /* GONMarkupNamedColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */; };
 		5CB1C591195B250A00590186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27160195B11E0007FCF44 /* AppDelegate.m */; };
-		5CB1C592195B250A00590186 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27166195B11E0007FCF44 /* InputViewController.m */; };
 		5CB1C593195B250A00590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
 		5CB1C594195B250A00590186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2715C195B11E0007FCF44 /* main.m */; };
 		5CB1C597195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */; };
@@ -54,8 +61,6 @@
 		5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27159195B11E0007FCF44 /* InfoPlist.strings */; };
 		5CE2715D195B11E0007FCF44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2715C195B11E0007FCF44 /* main.m */; };
 		5CE27161195B11E0007FCF44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27160195B11E0007FCF44 /* AppDelegate.m */; };
-		5CE27164195B11E0007FCF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27162195B11E0007FCF44 /* Main.storyboard */; };
-		5CE27167195B11E0007FCF44 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27166195B11E0007FCF44 /* InputViewController.m */; };
 		5CE27169195B11E0007FCF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CE27168195B11E0007FCF44 /* Images.xcassets */; };
 		5CE27170195B11E0007FCF44 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE2716F195B11E0007FCF44 /* XCTest.framework */; };
 		5CE27171195B11E0007FCF44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE27150195B11E0007FCF44 /* Foundation.framework */; };
@@ -97,6 +102,17 @@
 		5C65F3EB1A11150A005A76A3 /* GONMarkupDec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupDec.h; path = ../Classes/GONMarkupDec.h; sourceTree = "<group>"; };
 		5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupDec.m; path = ../Classes/GONMarkupDec.m; sourceTree = "<group>"; };
 		5C65F3F01A112231005A76A3 /* samples.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = samples.plist; sourceTree = "<group>"; };
+		5C65F3F21A112EBE005A76A3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		5C65F3F51A112F3A005A76A3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		5C65F3F61A112F3A005A76A3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		5C65F3F71A112F3A005A76A3 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		5C65F3FB1A1133F8005A76A3 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
+		5C65F3FC1A1133F8005A76A3 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
+		5C65F3FD1A1133F8005A76A3 /* SampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleViewController.xib; sourceTree = "<group>"; };
+		5C65F4011A1139CD005A76A3 /* PlaygroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaygroundViewController.h; sourceTree = "<group>"; };
+		5C65F4021A1139CD005A76A3 /* PlaygroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaygroundViewController.m; sourceTree = "<group>"; };
+		5C65F4031A1139CD005A76A3 /* PlaygroundViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaygroundViewController.xib; sourceTree = "<group>"; };
+		5C65F4061A1153A2005A76A3 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		5C7C5B271994CB55003BE47A /* GONMarkupParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParserUtils.h; path = ../Classes/GONMarkupParserUtils.h; sourceTree = "<group>"; };
 		5C7C5B281994CB55003BE47A /* GONMarkupParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParserUtils.m; path = ../Classes/GONMarkupParserUtils.m; sourceTree = "<group>"; };
 		5CB1C57E195B19C400590186 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
@@ -151,9 +167,6 @@
 		5CE2715E195B11E0007FCF44 /* GONMarkupParserSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GONMarkupParserSample-Prefix.pch"; sourceTree = "<group>"; };
 		5CE2715F195B11E0007FCF44 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5CE27160195B11E0007FCF44 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5CE27163195B11E0007FCF44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5CE27165195B11E0007FCF44 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
-		5CE27166195B11E0007FCF44 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		5CE27168195B11E0007FCF44 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5CE2716E195B11E0007FCF44 /* GONMarkupParserSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GONMarkupParserSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE2716F195B11E0007FCF44 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -212,6 +225,36 @@
 			name = TextSize;
 			sourceTree = "<group>";
 		};
+		5C65F3F41A112F1E005A76A3 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				5C65F3F51A112F3A005A76A3 /* RootViewController.h */,
+				5C65F3F61A112F3A005A76A3 /* RootViewController.m */,
+				5C65F3F71A112F3A005A76A3 /* RootViewController.xib */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		5C65F3FA1A1133E6005A76A3 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				5C65F3FB1A1133F8005A76A3 /* SampleViewController.h */,
+				5C65F3FC1A1133F8005A76A3 /* SampleViewController.m */,
+				5C65F3FD1A1133F8005A76A3 /* SampleViewController.xib */,
+			);
+			name = Sample;
+			sourceTree = "<group>";
+		};
+		5C65F4001A1139B5005A76A3 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				5C65F4011A1139CD005A76A3 /* PlaygroundViewController.h */,
+				5C65F4021A1139CD005A76A3 /* PlaygroundViewController.m */,
+				5C65F4031A1139CD005A76A3 /* PlaygroundViewController.xib */,
+			);
+			name = Playground;
+			sourceTree = "<group>";
+		};
 		5C7C5B221994CA3A003BE47A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +269,7 @@
 			children = (
 				5CB1C57E195B19C400590186 /* ResultViewController.h */,
 				5CB1C57F195B19C400590186 /* ResultViewController.m */,
+				5C65F4061A1153A2005A76A3 /* ResultViewController.xib */,
 			);
 			name = Result;
 			sourceTree = "<group>";
@@ -394,6 +438,7 @@
 				5CE27159195B11E0007FCF44 /* InfoPlist.strings */,
 				5CE2715C195B11E0007FCF44 /* main.m */,
 				5CE2715E195B11E0007FCF44 /* GONMarkupParserSample-Prefix.pch */,
+				5C65F3F21A112EBE005A76A3 /* MainWindow.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -446,7 +491,6 @@
 			isa = PBXGroup;
 			children = (
 				5CE27168195B11E0007FCF44 /* Images.xcassets */,
-				5CE27162195B11E0007FCF44 /* Main.storyboard */,
 				5CE2718A195B12E6007FCF44 /* PodFile */,
 				5C65F3F01A112231005A76A3 /* samples.plist */,
 				5CB1C5A7195B3B7400590186 /* DefaultText */,
@@ -457,19 +501,12 @@
 		5CE27188195B126A007FCF44 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5CE27189195B1274007FCF44 /* Input */,
+				5C65F4001A1139B5005A76A3 /* Playground */,
 				5CB1C581195B19C800590186 /* Result */,
+				5C65F3F41A112F1E005A76A3 /* Root */,
+				5C65F3FA1A1133E6005A76A3 /* Sample */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		5CE27189195B1274007FCF44 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				5CE27165195B11E0007FCF44 /* InputViewController.h */,
-				5CE27166195B11E0007FCF44 /* InputViewController.m */,
-			);
-			name = Input;
 			sourceTree = "<group>";
 		};
 		5CE2719C195B141A007FCF44 /* Markup */ = {
@@ -589,9 +626,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CE27169195B11E0007FCF44 /* Images.xcassets in Resources */,
+				5C65F4051A1139CD005A76A3 /* PlaygroundViewController.xib in Resources */,
 				5CB1C5A8195B3B7400590186 /* DefaultText in Resources */,
+				5C65F3FF1A1133F8005A76A3 /* SampleViewController.xib in Resources */,
+				5C65F3F31A112EBE005A76A3 /* MainWindow.xib in Resources */,
 				5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */,
-				5CE27164195B11E0007FCF44 /* Main.storyboard in Resources */,
+				5C65F3F91A112F3A005A76A3 /* RootViewController.xib in Resources */,
+				5C65F4071A1153A2005A76A3 /* ResultViewController.xib in Resources */,
 				5C65F3F11A112231005A76A3 /* samples.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,8 +693,8 @@
 				5CE27198195B1412007FCF44 /* GONMarkupParser.m in Sources */,
 				5CB1C5A0195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
 				5CB1C58E195B24F200590186 /* GONMarkupBlock.m in Sources */,
+				5C65F4041A1139CD005A76A3 /* PlaygroundViewController.m in Sources */,
 				5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */,
-				5CE27167195B11E0007FCF44 /* InputViewController.m in Sources */,
 				5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */,
 				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
 				5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */,
@@ -663,6 +704,7 @@
 				5CE1493A19CC2B6300B73518 /* GONMarkupItalic.m in Sources */,
 				5CB3106F19BE026C00B06D0D /* UILabel+GONMarkupParser.m in Sources */,
 				5CE27196195B1412007FCF44 /* GONMarkupColor.m in Sources */,
+				5C65F3F81A112F3A005A76A3 /* RootViewController.m in Sources */,
 				5CB1C59C195B25E800590186 /* GONMarkupReset.m in Sources */,
 				5C65F3EA1A1114EC005A76A3 /* GONMarkupInc.m in Sources */,
 				5CB1C58A195B1EE600590186 /* GONMarkupNamedColor.m in Sources */,
@@ -676,6 +718,7 @@
 				5CE27194195B1412007FCF44 /* GONMarkup.m in Sources */,
 				5CC43CD5197E616600E46A03 /* GONMarkupAlignment.m in Sources */,
 				5CB1C580195B19C400590186 /* ResultViewController.m in Sources */,
+				5C65F3FE1A1133F8005A76A3 /* SampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,7 +730,6 @@
 				5CB1C5AE195B4FA000590186 /* GONMarkupList.m in Sources */,
 				5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */,
 				5CB1C591195B250A00590186 /* AppDelegate.m in Sources */,
-				5CB1C592195B250A00590186 /* InputViewController.m in Sources */,
 				5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
 				5CB1C598195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */,
 				5C7C5B2A1994CB55003BE47A /* GONMarkupParserUtils.m in Sources */,
@@ -723,14 +765,6 @@
 				5CE2715A195B11E0007FCF44 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5CE27162195B11E0007FCF44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5CE27163195B11E0007FCF44 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5CE27178195B11E0007FCF44 /* InfoPlist.strings */ = {

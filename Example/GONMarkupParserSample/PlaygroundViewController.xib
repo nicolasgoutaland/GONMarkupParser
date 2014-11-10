@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlaygroundViewController">
+            <connections>
+                <outlet property="inputTextView" destination="POq-EJ-nFs" id="tde-IK-RHB"/>
+                <outlet property="validateButton" destination="eLD-U2-qOP" id="dM4-Fu-LKp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POq-EJ-nFs">
+                    <rect key="frame" x="10" y="10" width="580" height="580"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="POq-EJ-nFs" secondAttribute="bottom" constant="10" id="K5f-js-Zsa"/>
+                <constraint firstAttribute="trailing" secondItem="POq-EJ-nFs" secondAttribute="trailing" constant="10" id="RDw-de-k2F"/>
+                <constraint firstItem="POq-EJ-nFs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="WDX-hM-WMF"/>
+                <constraint firstItem="POq-EJ-nFs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="cNO-p5-NOK"/>
+            </constraints>
+        </view>
+        <barButtonItem systemItem="done" id="eLD-U2-qOP">
+            <connections>
+                <action selector="showResult" destination="-1" id="3Ry-4t-Nyu"/>
+            </connections>
+        </barButtonItem>
+    </objects>
+</document>

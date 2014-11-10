@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "GONMarkupParser_All.h"
-#import "InputViewController.h"
 
 @implementation AppDelegate
 
@@ -21,6 +20,7 @@
     [GONMarkupParserManager sharedParser].debugEnabled = YES; // Fuck yeah, error logging
 #endif
     
+    /*
     // Set default string configuration
     [[GONMarkupParserManager sharedParser].defaultConfiguration setObject:[UIFont systemFontOfSize:25.0] forKey:NSFontAttributeName];
     
@@ -57,7 +57,7 @@
     
     // Set input string for demo. Do not do this king of thing in a real project, please don't ;)
     ((InputViewController *)[((UINavigationController *)[self.window rootViewController]) topViewController]).defaultString = defaultString;
-
+*/
     return YES;
 }
 

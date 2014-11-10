@@ -15,6 +15,14 @@
 
 @implementation ResultViewController
 #pragma mark - View management
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    // Title
+    self.title = @"Result";
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

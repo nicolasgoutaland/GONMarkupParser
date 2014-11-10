@@ -15,4 +15,6 @@
     #import <Foundation/Foundation.h>
     #import <NSString+Color.h>
     #import <CoreText/CoreText.h>
+    #import <LazyProperty.h>
+    #import "GONMarkupParser_All.h"
 #endif
