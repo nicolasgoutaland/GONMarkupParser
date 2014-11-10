@@ -12,7 +12,7 @@
 //
 //  Examples
 //
-// <b>bold text</>
+//  <b>bold text</>
 
 #import "GONMarkupFontTraits.h"
 

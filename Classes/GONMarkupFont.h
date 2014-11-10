@@ -15,11 +15,11 @@
 //
 //  If no attribute is set, current defined font will be removed (NSFontAttributeName), and default system one will be used instead
 //
-// Examples
+//  Examples
 //
-// <font size="18">This text will use current font, set to 18</>
-// <font name="Helvetica">This text will use Helvetica as font, using current font size</>
-// <font name="Helvetica" size="18">This text will use Helvetica, set to 18</>
+//  <font size="18">This text will use current font, set to 18</>
+//  <font name="Helvetica">This text will use Helvetica as font, using current font size</>
+//  <font name="Helvetica" size="18">This text will use Helvetica, set to 18</>
 
 #import "GONAttributedMarkup.h"
 

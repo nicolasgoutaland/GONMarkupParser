@@ -10,11 +10,11 @@
 //
 //  Example
 //
-// <ul>
-//     <li>first item</>
-//     <li>second item</>
-//     <li>third item</>
-// </>
+//  <ul>
+//      <li>first item</>
+//      <li>second item</>
+//      <li>third item</>
+//  </>
 
 #import "GONMarkup.h"
 

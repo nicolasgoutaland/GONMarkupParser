@@ -9,13 +9,13 @@
 //  This markup will set a NSMutableParagraphStyle object under NSParagraphStyleAttributeName key.
 //  Be sure to make a mutable copy of it before updating when adding new tags
 //
-// Examples
+//  Examples
 //
-// <left>left aligned text</>
-// <right>right aligned text</>
-// <center>center aligned text</>
-// <justified>justified aligned text</>
-// <natural>natural aligned text</>
+//  <left>left aligned text</>
+//  <right>right aligned text</>
+//  <center>center aligned text</>
+//  <justified>justified aligned text</>
+//  <natural>natural aligned text</>
 
 #import "GONMarkup.h"
 

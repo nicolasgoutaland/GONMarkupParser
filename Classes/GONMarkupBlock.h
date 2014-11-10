@@ -5,7 +5,7 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
-// Markup using a block as parameters. Useful to add new markup without creating new subclasses
+//  Markup using a block as parameters. Useful to add new markup without creating new subclasses
 
 
 #import "GONMarkup.h"

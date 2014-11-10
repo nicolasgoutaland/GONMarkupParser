@@ -9,8 +9,8 @@
 //
 //  Examples
 //
-// <sup>superscripted text</>
-// <sub>subscripted text</>
+//  <sup>superscripted text</>
+//  <sub>subscripted text</>
 
 #import "GONMarkup.h"
 

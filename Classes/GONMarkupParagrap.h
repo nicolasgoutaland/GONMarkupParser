@@ -8,9 +8,9 @@
 //  Markup to handle paragraphs
 //  A paragraph will automatically insert a new line after text
 //
-// Example
+//  Example
 //
-// <p>First paragraph</p>
+//  <p>First paragraph</p>
 //
 #import "GONMarkup.h"
 

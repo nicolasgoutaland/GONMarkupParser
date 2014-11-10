@@ -5,18 +5,19 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland All rights reserved.
 //
-// Simple class defining a markup
-// You can use it as it, or override it to add more configuration
+//  Simple class defining a markup
+//  You can use it as it, or override it to add more configuration
 //
-// Tag name will be stored lowercased, so be careful when using multiple tags
+//  Tag name will be stored lowercased, so be careful when using multiple tags
 //
-// Tag lifecycle :
-// - canHandleTag: may be called to determine if markup match found tag
-// - Once a tag is found, openingMarkupFound:configuration:context: method will be called
-// - Before parser append extracted string to result, updatedContentString:context: will be called, allowing tag to update it
-// - Once tag is closed, closingMarkupFound:configuration:context: method will be called
+//  Tag lifecycle :
+//  - canHandleTag: may be called to determine if markup match found tag
+//  - Once a tag is found, openingMarkupFound:configuration:context: method will be called
+//  - Before parser append extracted string to result, updatedContentString:context: will be called, allowing tag to update it
+//  - Once tag is closed, closingMarkupFound:configuration:context: method will be called
 //
-// Markup instance will be reused each time a matching tag is found. To persist data, use context parameter.
+//  Markup instance will be reused each time a matching tag is found. To persist data, use context parameter.
+
 @class GONMarkupParser;
 
 @interface GONMarkup : NSObject

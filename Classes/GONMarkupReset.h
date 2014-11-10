@@ -5,12 +5,12 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
-// Reset tag is used to reset all current configuration, and use default one
-// It allows you to protect a string portion, for example :
-// <red>this text is red<strong>red strong <reset> <yellow> yellow default <yellow> </reset> red strong </strong> red </red>
+//  Reset tag is used to reset all current configuration, and use default one
+//  It allows you to protect a string portion, for example :
+//  <red>this text is red<strong>red strong <reset> <yellow> yellow default <yellow> </reset> red strong </strong> red </red>
 //
-// "all" attribute can be used to also remove default configuration
-// sharedContext will also be reset
+//  "all" attribute can be used to also remove default configuration
+//  sharedContext will also be reset
 
 #import "GONAttributedMarkup.h"
 

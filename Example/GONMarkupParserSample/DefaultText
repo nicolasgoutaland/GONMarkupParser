@@ -10,6 +10,8 @@ You can also change text alignment
 <right>Right</>
 <justified>Justified paragraph Lorem ipsum dolor sit amet, consectetur adipiscing elit. In <red>rhoncus diam nec sem consequat</red> tincidunt. Etiam eu lacus a lorem cursus sodales et nec sapien. </>
 <normal>Normal</>
+<inc>Text <inc>size <inc>can <inc>also <inc>be <inc>incremented <dec>or <dec>decremented<dec>, <dec>1 <dec>per <dec>1, <inc value="15">or specifying <dec value="10">a value.<//>
+
 <custom>Another Custom tag here, but with <reset all="true">a full protected section</reset>, pretty cool huh ?</>
 And now, an unordered list
 <ul>

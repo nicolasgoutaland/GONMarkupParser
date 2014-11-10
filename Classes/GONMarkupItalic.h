@@ -9,9 +9,10 @@
 //  This tag may not work if no italic version of current font is available.
 //  overrideBlock (GONMarkupFontTraits) allows you to override font. For example, you can used it to return a medium italic font instead of bold italic one.
 //  If overrideBlock is set, it will be called first. Is nil is returned, system will try to automatically resolve font
+//
 //  Examples
 //
-// <i>italic text</>
+//  <i>italic text</>
 
 #import "GONMarkupFontTraits.h"
 

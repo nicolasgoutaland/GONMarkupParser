@@ -5,7 +5,7 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
-// AttributedMarkup using a block as parameter. Usuful to add new markup without creating new classes
+//  AttributedMarkup using a block as parameter. Useful to add new markup without creating new classes
 
 #import "GONAttributedMarkup.h"
 

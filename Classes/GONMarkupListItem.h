@@ -5,8 +5,8 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
-// Class describing a list item
-// You can subclass it and override methods to handle custom bullets behavior
+//  Class describing a list item
+//  You can subclass it and override methods to handle custom bullets behavior
 
 #import "GONMarkup.h"
 

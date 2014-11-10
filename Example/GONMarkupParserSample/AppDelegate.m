@@ -45,6 +45,8 @@
     markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context) {
         [configurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
                                     forKey:NSFontAttributeName];
+        [configurationDictionary setObject:[@"brown" representedColor]
+                                    forKey:NSForegroundColorAttributeName];
     };
     
     [[GONMarkupParserManager sharedParser] addMarkup:markupBlock];

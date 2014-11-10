@@ -41,6 +41,9 @@
     [parser addMarkup:[GONMarkupItalic italicMarkup]];
     [parser addMarkup:[GONMarkupBold boldMarkup]];
 
+    [parser addMarkup:[GONMarkupDec decMarkup]];
+    [parser addMarkup:[GONMarkupInc incMarkup]];
+
     [parser addMarkup:[GONMarkupFont fontMarkup]];
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];

@@ -20,6 +20,9 @@
 //
 //  When subclassing, override openingMarkupFound:configuration:fromTag:attributes: instead of openingMarkupFound:configuration:fromTag:
 //  When subclassing, override closingMarkupFound:configuration:fromTag:attributes: instead of closingMarkupFound:configuration:fromTag:
+//  When subclassing, override updatedContentString:context:attributes:   instead of updatedContentString:context:
+//  When subclassing, override prefixStringForContext:context:attributes: instead of prefixStringForContext:context:
+//  When subclassing, override suffixStringForContext:context:attributes: instead of suffixStringForContext:context:
 //
 
 #import "GONMarkup.h"
