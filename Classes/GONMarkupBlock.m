@@ -30,9 +30,25 @@
 
 - (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
 {
-    if (_updatedContentString)
-        return _updatedContentString(string, context);
+    if (_updatedContentStringBlock)
+        return _updatedContentStringBlock(string, context);
 
     return [super updatedContentString:string context:context];
+}
+
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context
+{
+    if (_prefixStringForContextBlock)
+        return _prefixStringForContextBlock(context);
+
+    return [super prefixStringForContext:context];
+}
+
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context
+{
+    if (_suffixStringForContextBlock)
+        return _suffixStringForContextBlock(context);
+
+    return [super suffixStringForContext:context];
 }
 @end

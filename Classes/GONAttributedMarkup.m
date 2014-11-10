@@ -39,6 +39,28 @@
                                                fromContext:context]];
 }
 
+#pragma mark - String update
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context
+{
+    return [self prefixStringForContext:context
+                             attributes:[self currentContextConfiguration:GONAttributedMarkup_CONFIGURATIONS_KEY
+                                                              fromContext:context]];
+}
+
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context
+{
+    return [self suffixStringForContext:context
+                             attributes:[self currentContextConfiguration:GONAttributedMarkup_CONFIGURATIONS_KEY
+                                                              fromContext:context]];
+}
+
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
+{
+    return [self updatedContentString:string context:context
+                           attributes:[self currentContextConfiguration:GONAttributedMarkup_CONFIGURATIONS_KEY
+                                                            fromContext:context]];
+}
+
 #pragma mark - Utils
 - (NSDictionary *)extractAttributesFromTag:(NSString *)tag
 {
@@ -81,8 +103,11 @@
 }
 
 #pragma mark - Behavior
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes { return string; }
 - (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
 - (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
+
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes { return string; }
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes { return @""; }
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes { return @""; }
 
 @end

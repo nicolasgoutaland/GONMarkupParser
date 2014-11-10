@@ -49,6 +49,16 @@
  */
 - (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
+/* Allows marker to prefix its content string
+ * This method is called right after opening markup
+ */
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
+
+/* Allows marker to suffix its content string
+ * This method is called right after opening markup
+ */
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
+
 /* This method will be called if markup is matching current closing tag.
  * Object is responsible to update attributed string parameters in "configurationDictionary"
  *

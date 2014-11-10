@@ -17,6 +17,9 @@
 + (instancetype)attributedBlockMarkup:(NSString *)tag;
 
 @property (nonatomic, copy) void(^openingMarkupBlock)(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes);  // Called when opening tag is found
-@property (nonatomic, copy) NSString *(^updatedContentString)(NSString *string, NSMutableDictionary *context, NSDictionary *dicAttributes);                                      // Called when extracted string is complete
 @property (nonatomic, copy) void(^closingMarkupBlock)(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes);  // Called when closing tag is found
+
+@property (nonatomic, copy) NSString *(^prefixStringForContextBlock)(NSMutableDictionary *context, NSDictionary *dicAttributes);                 // Called to generate prefix
+@property (nonatomic, copy) NSString *(^suffixStringForContextBlock)(NSMutableDictionary *context, NSDictionary *dicAttributes);                 // Called to generate suffix
+@property (nonatomic, copy) NSString *(^updatedContentStringBlock)(NSString *string, NSMutableDictionary *context, NSDictionary *dicAttributes); // Called when extracted string is complete
 @end
