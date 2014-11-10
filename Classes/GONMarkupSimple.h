@@ -7,6 +7,7 @@
 //
 //  Define a markup to automatically add attributes to current string
 //  Content of style dictionary is added to current style dictionary
+//  "style" dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method
 //
 //  If overriding NSParagraphStyleAttributeName, check merging strategy to use
 //  - override (default)
@@ -38,13 +39,15 @@ typedef NS_ENUM(NSInteger, GONMarkupSimpleMergingStrategy) {
 
 @interface GONMarkupSimple : GONMarkup
 /* Class contructor, allowing to specify a merging strategy.
- * Use this constructor is this markup will update NSParagraphStyleAttributeName key
+ * Use this constructor if this markup will update NSParagraphStyleAttributeName key
  * strategy can be a combinaison of GONMarkupSimpleMergingStrategy values to define per attribute merging strategy
+ * "style" dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method
  */
 + (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style mergingStrategy:(GONMarkupSimpleMergingStrategy)strategy;
 
 /* Default class contructor, using override as default merging strategy
  * Use this constructor is this markup won't update NSParagraphStyleAttributeName key, will throw an exception otherwise
+ * "style" dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method
  */
 + (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style;
 
