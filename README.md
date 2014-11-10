@@ -173,6 +173,7 @@ Reset is a special tag, allowing you to protect some parts of a string. You can 
 ##How to add new markup
 You can add new markup in your application, to add new style, or to just add some semantic to your text, allowing you to update rendering, without changing input string.<br/>
 There is 3 ways to do it.
+
 ###Adding a new simple marker
 The simpler way to add a new markup in your application is to use one of theses 3 follwoing classes :
 - __GONMarkupNamedColor__, allows you to add a markup that updates text color
@@ -204,7 +205,16 @@ The simpler way to add a new markup in your application is to use one of theses 
 ````
 
 ###Adding a new block based marker
-// TODO
+For more complexe markup, you can add __GONMarkupBlock__ and __GONAttributedMarkupBlock__ instances.<br />
+First one is simple, without markup parameters handling.
+If you want to handle parameters in your markup, you better have to use second one.
+
+They both have blocks 5 parameters :
+- __openingMarkupBlock__, called when markup opening is found. Used to pushed your custom configuration to stack
+- __closingMarkupBlock__, called once markup is closed.
+- __updatedContentStringBlock__, called right after __closingMarkupBlock__, allowing you to override returned string
+- __prefixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a prefix
+- __suffixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a suffix
 
 ###Creating a new GONMarkup subclass
 // TODO
