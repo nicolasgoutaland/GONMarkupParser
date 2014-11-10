@@ -1,6 +1,20 @@
 #GONMarkupParser
 ##TL;DR;
 Easily build NSAttributedString from XML/HTML like strings.
+
+```
+    NSString *inputText = @"Simple input text, using a preconfigured parser.\n<color value=\"red\">This text will be displayed in red</>.\n<font size="8">This one will be displayed in small</>.\nNow a list:\n<ul><li>First item</><li>Second item</><li><color value="blue">Third blue item</></><li><b><color value="green">Fourth bold green item<//>";
+
+    // No custom configuration, use default tags only
+
+    // Affect text to label
+    label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
+                                                                                       error:nil];
+````
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example1.png)
+
+Need a more complex example  ?
+
 ```
     NSString *inputText = @"Simple input text, using a preconfigured parser.\n<red>This text will be displayed in red</>.\n<small>This one will be displayed in small</>.\n<pwet>This one is a custom one, to demonstrate how easy it is to declare a new markup.</>";
 
@@ -33,19 +47,9 @@ Easily build NSAttributedString from XML/HTML like strings.
     label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
                                                                                        error:nil];
 ````
-![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example1.png)
-
-Need a shorter example  ?
-```
-    NSString *inputText = @"Simple input text, using a preconfigured parser.\n<color value=\"red\">This text will be displayed in red</>.\n<font size="8">This one will be displayed in small</>.\nNow a list:\n<ul><li>First item</><li>Second item</><li><color value="blue">Third blue item</></><li><b><color value="green">Fourth bold green item<//>";
-
-    // No custom configuration, use default tags only
-
-    // Affect text to label
-    label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
-                                                                                       error:nil];
-````
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example2.png)
+
+
 
 ##Description
 Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
