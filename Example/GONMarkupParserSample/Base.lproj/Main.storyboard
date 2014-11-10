@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vGh-94-DHa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vGh-94-DHa">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -23,7 +23,7 @@
         <!--Input-->
         <scene sceneID="bxa-PH-hOi">
             <objects>
-                <viewController id="MNB-cA-lsk" customClass="InputViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="MNB-cA-lsk" customClass="InputViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fz9-Hv-iqn"/>
                         <viewControllerLayoutGuide type="bottom" id="iuo-Kl-Fkb"/>
@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LsK-Gc-dNf">
-                                <rect key="frame" x="20" y="84" width="280" height="202"/>
+                                <rect key="frame" x="20" y="84" width="280" height="464"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">black &lt;red&gt;gjkldfggdfj&lt;/red&gt; black
 fdgfdg &lt;color value="blue"&gt;blue&lt;/&gt; black </string>
@@ -45,7 +45,7 @@ fdgfdg &lt;color value="blue"&gt;blue&lt;/&gt; black </string>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="LsK-Gc-dNf" secondAttribute="trailing" constant="20" id="6zF-pn-F3n"/>
                             <constraint firstItem="LsK-Gc-dNf" firstAttribute="leading" secondItem="RaP-pg-L4r" secondAttribute="leading" constant="20" id="A0h-R4-FGE"/>
-                            <constraint firstItem="iuo-Kl-Fkb" firstAttribute="top" secondItem="LsK-Gc-dNf" secondAttribute="bottom" constant="282" id="Hbj-6X-Ymi"/>
+                            <constraint firstItem="iuo-Kl-Fkb" firstAttribute="top" secondItem="LsK-Gc-dNf" secondAttribute="bottom" constant="20" id="Hbj-6X-Ymi"/>
                             <constraint firstItem="LsK-Gc-dNf" firstAttribute="top" secondItem="fz9-Hv-iqn" secondAttribute="bottom" constant="20" id="vJK-HC-srm"/>
                         </constraints>
                     </view>

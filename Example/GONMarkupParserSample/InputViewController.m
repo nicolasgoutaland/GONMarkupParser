@@ -21,6 +21,7 @@
 {
     [super viewDidLoad];
 
+    // Default text
     _inputTextView.text = _defaultString;
     [_inputTextView becomeFirstResponder];
 }

@@ -147,6 +147,12 @@
 }
 
 #pragma mark - Parser
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string
+{
+    return [self attributedStringFromString:string
+                                      error:nil];
+}
+
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string error:(NSError **)error
 {
     LOG_IF_DEBUG(@"Input string :\n%@\n", string);

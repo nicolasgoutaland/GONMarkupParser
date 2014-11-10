@@ -5,8 +5,8 @@
 //  Created by Nicolas Goutaland on 25/07/14.
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
-//  This class help you to manage shared parsers
-//  It also provide a default shared parser for your application
+//  This class helps you to manage shared parsers
+//  It also provides a default shared parser for your application
 
 #import "GONMarkupParser.h"
 

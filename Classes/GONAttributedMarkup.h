@@ -5,21 +5,21 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland All rights reserved.
 //
-// Subclass for Markup, but handling ( markups
-// This class will automatically extract attributes from given tag
-// Tags should be space separated, values affected using equal sign, and between double quotes. To escape double quotes, use \
+//  Subclass for Markup, but handling ( markups
+//  This class will automatically extract attributes from given tag
+//  Tags should be space separated, values affected using equal sign, and between double quotes. To escape double quotes, use \
 //
-// Example :
-// Tag                     | Supported
-// -----------------------------------
-// <color value="red">     | YES
-// <color value = "red">   | YES
-// <color value = red>     | NO
-// <color value = "re"d">  | NO
-// <color value = "re\"d"> | YES
+//  Example :
+//  Tag                     | Supported
+//  -----------------------------------
+//  <color value="red">     | YES
+//  <color value = "red">   | YES
+//  <color value = red>     | NO
+//  <color value = "re"d">  | NO
+//  <color value = "re\"d"> | YES
 //
-// When subclassing, override openingMarkupFound:configuration:fromTag:attributes: instead of openingMarkupFound:configuration:fromTag:
-// When subclassing, override closingMarkupFound:configuration:fromTag:attributes: instead of closingMarkupFound:configuration:fromTag:
+//  When subclassing, override openingMarkupFound:configuration:fromTag:attributes: instead of openingMarkupFound:configuration:fromTag:
+//  When subclassing, override closingMarkupFound:configuration:fromTag:attributes: instead of closingMarkupFound:configuration:fromTag:
 //
 
 #import "GONMarkup.h"

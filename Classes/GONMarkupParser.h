@@ -11,10 +11,7 @@
 // To close a tag, you do not have to specity its name, </> is valid
 // <//> is also valid to close all previoulsy opened tags
 //
-// This class also provide a shared instance you can user throught you whole project
-//
-// This class is not thread safe, so be careful when using sharedInstance in multiple threads
-//
+
 #import "GONMarkup.h"
 
 #warning Evolution : Allow markup to be encoded (NSCoding)
@@ -73,6 +70,11 @@
  * anError may be set if input string seems malformed, but method will return a valid string. Only last error is returned.
  */
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string error:(NSError **)error;
+
+/* Same as attributedStringFromString:string error:nil.
+ * Because sometimes, you don't care about errors.
+ */
+- (NSMutableAttributedString *)attributedStringFromString:(NSString *)string;
 
 @property (nonatomic, assign)           BOOL replaceNewLineCharactersFromInputString;                           // If YES, all [NSCharacterSet newlineCharacterSet] will be replaced by spaces from input string.
                                                                                                                 // Replacing process will occur AFTER preprocessingBlock, BEFORE parsing.
