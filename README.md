@@ -72,9 +72,6 @@ __Manual__: Copy the __Classes__ folder in your project<br>
 Import wanted headers in your project. .pch is a good place ;)
 __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarkupDefaultMarkups.h__ only references default markup classes.
 
-##Example
-// TODO
-
 ##How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
 
@@ -127,9 +124,6 @@ __A markup can be added to only one parser at a time.__
 To simplify fonts uses, you can register then using __- registerFont:forKey:__ method, then referencing them using given key.<br/>
 Very useful with __&lt;font&gt;__ markup, allowing you to directly use code instead of full font name. You can also use codes such as __mainFont__, __titleFont__ to easily update them later throught all your strings.
 
-###Example
-
-
 ##GONMarkupParserManager
 ###sharedParser
 A shared parser is available, so you don't have to create one and reference it throught all your application.<br/>
@@ -176,20 +170,50 @@ Reset is a special tag, allowing you to protect some parts of a string. You can 
 
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-reset.gif)
 
-##How to add new tags
-- subclass
-- use block marker
-- use simple marker
-- Shared context
+##How to add new markup
+You can add new markup in your application, to add new style, or to just add some semantic to your text, allowing you to update rendering, without changing input string.<br/>
+There is 3 ways to do it.
+###Adding a new simple marker
+The simpler way to add a new markup in your application is to use one of theses 3 follwoing classes :
+- __GONMarkupNamedColor__, allows you to add a markup that updates text color
+- __GONMarkupNamedFont__, allows you to add a markup that updates text font
+- __GONMarkupSimple__, allows you to add a markup that updates all text attribtues. Dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method.
 
-## Limitations
-- Indentation prefix in lists needs to be improved (add more symbols, etc..)
- 
+####Example
+```
+    // Retrieve shared parser
+    GONMarkupParser *parser = [GONMarkupParserManager sharedParser];
+    
+    // Add a named color markup
+    [parser addMarkup:[GONMarkupNamedColor namedColorMarkup:[UIColor redColor]
+               forTag:@"red"]];
+
+    // Add a named font markup
+    [parser addMarkup:[GONMarkupNamedFont namedFontMarkup:[UIFont systemFontOfSize:12.0] 
+               forTag:@"small"]];
+
+    // Add a custom markup, that will center text when used, and display it in pink.
+    NSMutableParagraphStyle *defaultParagraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    defaultParagraphStyle.alignment = NSTextAlignmentCenter;
+    [parser addMarkup:[GONMarkupSimple simpleMarkup:@"pwet"
+                                              style:@{
+                                                        NSParagraphStyleAttributeName : defaultParagraphStyle,
+                                                        NSForegroundColorAttributeName : [@"pink" representedColor] // NSString+Color
+                                                     }
+                                    mergingStrategy:GONMarkupSimpleMergingStrategyMergeAll]];
+````
+
+###Adding a new block based marker
+// TODO
+
+###Creating a new GONMarkup subclass
+// TODO
+// Shared context usage
+
 ## Evolutions
+- Indentation prefix in lists needs to be improved (add more symbols, etc..)
 - Implements **NSCoder** in parser and Markers
 - Allows **copy** on parsers / markers
 
 ##Versions
 0.5   : Initial release<br/>
-
-==> Example
