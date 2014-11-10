@@ -160,10 +160,10 @@ __UILabel__/__UITextField__<br/>
 | **dec**      | GONMarkupDec | **value** | Decrement text font size. If __value__ is missing, font will be decreased by one point  |
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
 | **N/A**      | GONMarkupSimple | none | Apply a configuration to enclosed text |
-| *b*      | GONMarkupBold | none | Set text to bold. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
-| *i*      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
-| *sup*      | GONMarkupTextStyle | none | Set text to superscript |
-| *sub*      | GONMarkupTextStyle | none | Set text to subscript |
+| **b**      | GONMarkupBold | none | Set text to bold. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
+| **i**      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
+| **sup**      | GONMarkupTextStyle | none | Set text to superscript |
+| **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 | **N/A**   | GONAttributedMarkupBlock | *user defined* | When encountered executes associated block |
 
