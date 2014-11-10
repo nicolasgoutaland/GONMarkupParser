@@ -1,4 +1,7 @@
 #GONMarkupParser
+##Demo
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
+
 ##TL;DR;
 Easily build NSAttributedString from XML/HTML like strings.
 
@@ -56,9 +59,6 @@ Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
 The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.<br/>
 Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markup and apply style on text.<br/>
 The purpose of this was to be able to generate different output from the same input string, without editing its content, but editing the markups style.<br/>
-
-##Demo
-![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
 
 ##Usage
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
