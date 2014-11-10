@@ -1,5 +1,51 @@
 #GONMarkupParser
+##TL;DR;
 Easily build NSAttributedString from XML/HTML like strings.
+```
+    NSString *inputText = @"Simple input text, using a preconfigured parser.\n<red>This text will be displayed in red</>.\n<small>This one will be displayed in small</>.\n<pwet>This one is a custom one, to demonstrate how easy it is to declare a new markup.</>";
+
+    // Set your custom configuration here
+#ifdef DEBUG
+    [GONMarkupParserManager sharedParser].debugEnabled = YES; // Fuck yeah, error logging
+#endif
+    
+    // Set default string configuration
+    [[GONMarkupParserManager sharedParser].defaultConfiguration setObject:[UIFont systemFontOfSize:25.0] forKey:NSFontAttributeName];
+    
+    // Add a custom markup, that will center text when used, and display it in pink.
+    NSMutableParagraphStyle *defaultParagraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    defaultParagraphStyle.alignment = NSTextAlignmentCenter;
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupSimple simpleMarkup:@"pwet"
+                                                                             style:@{
+                                                                                     NSParagraphStyleAttributeName : defaultParagraphStyle,
+                                                                                     NSForegroundColorAttributeName : [@"pink" representedColor] // NSString+Color
+                                                                                     }
+                                                                   mergingStrategy:GONMarkupSimpleMergingStrategyMergeAll]];
+    
+    // Add add font markup, to display small text when encountered
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupNamedFont namedFontMarkup:[UIFont systemFontOfSize:12.0] forTag:@"small"]];
+
+    // Add a convenient tag for red color
+    [[GONMarkupParserManager sharedParser] addMarkup:[GONMarkupNamedColor namedColorMarkup:[UIColor redColor]
+                                                                                    forTag:@"red"]];
+
+    // Affect text to label
+    label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
+                                                                                       error:nil];
+````
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example1.png)
+
+Need a shorter example  ?
+```
+    NSString *inputText = @"Simple input text, using a preconfigured parser.\n<color value=\"red\">This text will be displayed in red</>.\n<font size="8">This one will be displayed in small</>.\nNow a list:\n<ul><li>First item</><li>Second item</><li><color value="blue">Third blue item</></><li><b><color value="green">Fourth bold green item<//>";
+
+    // No custom configuration, use default tags only
+
+    // Affect text to label
+    label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
+                                                                                       error:nil];
+````
+![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example2.png)
 
 ##Description
 Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
@@ -52,8 +98,10 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
 ##Parser
 ###Constructor
 __GONMarkupParser__ class provide to class constructor.
-- __+ defaultMarkupParser__ is a parser with all default tags registered (See __Default tags summary__ for more information)
+- __+ defaultMarkupParser__ is a parser with all default tags registered (See [Default tags summary](#default-tags) for more information)
 - __+ emptyMarkupParser__ is a parser without any registered tags
+
+https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/README.md
 
 ###Properties
 A parser can have a pre / post processing block, that will be called prior and after parsing. This allows you to perform some string replace before parsing for example. 
