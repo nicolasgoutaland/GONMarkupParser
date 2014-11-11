@@ -13,17 +13,17 @@
 - (void)pushConfiguration:(id)configuration toContext:(NSMutableDictionary *)context forKey:(NSString *)key
 {
     // Retrieve FIFO
-    NSMutableArray *configurationsFIFO = [context objectForKey:key];
-    if (!configurationsFIFO)
+    NSMutableArray *configurationsLIFO = [context objectForKey:key];
+    if (!configurationsLIFO)
     {
         // Create FIFO
-        configurationsFIFO = [[NSMutableArray alloc] init];
-        [context setObject:configurationsFIFO
+        configurationsLIFO = [[NSMutableArray alloc] init];
+        [context setObject:configurationsLIFO
                     forKey:key];
     }
 
     // Hold current configuration
-    [configurationsFIFO addObject:configuration];
+    [configurationsLIFO addObject:configuration];
 }
 
 - (id)currentContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
@@ -33,17 +33,17 @@
 
 - (id)popContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
 {
-    // Retrieve FIFO
-    NSMutableArray *configurationsFIFO = [context objectForKey:key];
+    // Retrieve LIFO
+    NSMutableArray *configurationsLIFO = [context objectForKey:key];
 
     // Retrieve current configuration
-    id currentConfiguration = [configurationsFIFO lastObject];
+    id currentConfiguration = [configurationsLIFO lastObject];
 
     // Remove last configuration
-    [configurationsFIFO removeLastObject];
+    [configurationsLIFO removeLastObject];
 
     // Check if list is empty
-    if (!configurationsFIFO.count)
+    if (!configurationsLIFO.count)
     {
         // Remove empty list
         [context removeObjectForKey:key];

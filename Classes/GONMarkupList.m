@@ -53,7 +53,7 @@
 
     NSDictionary *configuration = [@{
                                      GONMarkupList_ORDERED_KEY       : @(_isOrdered),
-                                     GONMarkupList_INDENTATION_KEY   : @(indentationLevel)
+                                     GONMarkupList_INDENTATION_KEY   : @(indentationLevel),
                                     } mutableCopy];
 
     [self pushConfiguration:configuration

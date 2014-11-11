@@ -17,7 +17,7 @@
 #warning Evolution : Allow markup to be encoded (NSCoding)
 #warning Evolution : Loading from PLIST file
 #warning Evolution : Allows copy
-#warning Evolution : Refactor deleting non attributed markups, update tag matching without lowercasing parameters
+#warning Evolution : Refactor deleting non attributed markups class, update tag matching without lowercasing parameters
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69

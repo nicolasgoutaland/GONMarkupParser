@@ -18,13 +18,13 @@
 		<key>title</key>
 		<string>Ordered list</string>
 		<key>sample</key>
-		<string>This text is a list.&lt;br/&gt;&lt;ol&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ol&gt;&lt;li&gt;second.first&lt;/&gt;&lt;li&gt;second.second&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;third item&lt;/&gt;&lt;/&gt;</string>
+		<string>This text is a list.&lt;br/&gt;&lt;ol&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ol&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Unordered list</string>
 		<key>sample</key>
-		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;second.first&lt;/&gt;&lt;li&gt;second.second&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;third item&lt;/&gt;&lt;/&gt;</string>
+		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -56,7 +56,7 @@
 		<key>title</key>
 		<string>Reset</string>
 		<key>sample</key>
-		<string>&lt;font size=&quot;20&quot;&gt;&lt;color value=&quot;red&quot;&gt;&lt;right&gt;Reset tag allows you to&lt;br/&gt; &lt;reset&gt;&lt;center&gt;protect&lt;/&gt;&lt;/reset&gt;&lt;br/&gt; certains part of your text, making &lt;br/&gt;&lt;reset&gt;&lt;color value=&quot;green&quot;&gt;easier&lt;/&gt;&lt;/&gt;&lt;br/&gt; to reconfigure it.&lt;//&gt;</string>
+		<string>&lt;font size=&quot;20&quot;&gt;&lt;color value=&quot;red&quot;&gt;&lt;right&gt;Reset tag allows you to&lt;br/&gt;&lt;reset&gt;&lt;center&gt;protect&lt;/&gt;&lt;/reset&gt;&lt;br/&gt; certains parts of your text, making it&lt;br/&gt;&lt;reset&gt;&lt;color value=&quot;green&quot;&gt; easier&lt;/&gt;&lt;/&gt;&lt;br/&gt; to be reconfigured.&lt;//&gt;</string>
 	</dict>
 	<dict>
 		<key>title</key>

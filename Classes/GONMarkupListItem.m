@@ -29,18 +29,18 @@
     return [bullets objectAtIndex:MIN(anIndentation, bullets.count - 1)];
 }
 
-- (NSString *)unorderedListItemPrefixForIndentation:(NSInteger)anIndentationLevel position:(NSInteger)aPosition listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
+- (NSString *)unorderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
 {
-    NSString *indentation = [self listItemIndentation:anIndentationLevel];
-    NSString *bullet = [[self class] bulletForIndentation:anIndentationLevel];
+    NSString *indentation = [self listItemIndentation:indentationLevel];
+    NSString *bullet = [[self class] bulletForIndentation:indentationLevel];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
 
-- (NSString *)orderedListItemPrefixForIndentation:(NSInteger)anIndentationLevel position:(NSInteger)aPosition listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
+- (NSString *)orderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
 {
-    NSString *indentation = [self listItemIndentation:anIndentationLevel];
-    NSString *bullet = [NSString stringWithFormat:@"%ld.", (long)aPosition];
+    NSString *indentation = [self listItemIndentation:indentationLevel];
+    NSString *bullet = [NSString stringWithFormat:@"%ld.", (long)position];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
