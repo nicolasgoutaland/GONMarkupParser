@@ -26,7 +26,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     // Affect result string
     _resultTextView.attributedText = _resultAttributedString;
 }
