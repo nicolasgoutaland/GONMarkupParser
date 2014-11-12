@@ -98,11 +98,9 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
 
 ##Parser
 ###Constructor
-__GONMarkupParser__ class provide to class constructor.
+__GONMarkupParser__ class provide two class constructors.
 - __+ defaultMarkupParser__ is a parser with all default tags registered (See [Default tags summary](#default-tags) for more information)
 - __+ emptyMarkupParser__ is a parser without any registered tags
-
-https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/README.md
 
 ###Properties
 A parser can have a pre / post processing block, that will be called prior and after parsing. This allows you to perform some string replace before parsing for example. 
