@@ -163,7 +163,6 @@ __UILabel__/__UITextField__<br/>
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
-| **N/A**   | GONAttributedMarkupBlock | *user defined* | When encountered executes associated block |
 
 ###Reset
 Reset is a special tag, allowing you to protect some parts of a string. You can also force markup to ignore default parser configuration by setting __all__ attribute.
@@ -205,11 +204,9 @@ The simpler way to add a new markup in your application is to use one of theses 
 ````
 
 ###Adding a new block based marker
-For more complexe markup, you can add __GONMarkupBlock__ and __GONAttributedMarkupBlock__ instances.<br />
-First one is simple, without markup parameters handling.
-If you want to handle parameters in your markup, you better have to use second one.
+For more complexe markup, you can add __GONMarkupBlock__ instances.<br />
 
-They both have blocks 5 parameters :
+It have blocks 5 parameters :
 - __openingMarkupBlock__, called when markup opening is found. Used to pushed your custom configuration to stack
 - __closingMarkupBlock__, called once markup is closed.
 - __updatedContentStringBlock__, called right after __closingMarkupBlock__, allowing you to override returned string
@@ -223,7 +220,7 @@ They both have blocks 5 parameters :
     
     // Custom markup, based on block
     GONMarkupBlock *markupBlock = [GONMarkupBlock blockMarkup:@"custom"];
-    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context) {
+    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *attributes) {
         // Update font size
         [configurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
                                     forKey:NSFontAttributeName];
@@ -237,10 +234,9 @@ They both have blocks 5 parameters :
 ````
 
 ###Creating a new GONMarkup subclass
-You can add a custom markup by subclassing __GONMarkup__ or __GONAttributedMarkup__ classes.
-__GONMarkup__ is for simple markups,  __GONAttributedMarkup__ add support for attributes.
+You can add a custom markup by subclassing __GONMarkup__  class.
 
-Adding a new markup by subclassing is useful if you want to reuse your markups between several projets, or addto implement more complex behavior. When subclassing, you have access to a shared object, allowing you to persists data and share it between each markup handling.
+Adding a new markup by subclassing is useful if you want to reuse your markups between several projets, or to implement more complex behavior. When subclassing, you have access to a shared object, allowing you to persists data and share it between each markup handling.
 
 For examples, have a look a currently defined markups ;)
 See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shared context.
