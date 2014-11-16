@@ -42,7 +42,7 @@
 }
 
 #pragma mark - Markup lifecycle
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     // Compute indentation level
     NSInteger indentationLevel = 0;
@@ -61,12 +61,12 @@
                      forKey:GONMarkupList_CONFIGURATIONS_KEY];
 }
 
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     return @"";
 }
 
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     [self popContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
                       fromContext:context];

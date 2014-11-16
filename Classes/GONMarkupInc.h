@@ -13,7 +13,7 @@
 //  <inc>text</>
 //  <inc value="5">text</>
 
-#import "GONAttributedMarkup.h"
+#import "GONMarkup.h"
 
 // Tag
 #define GONMarkupInc_TAG                 @"inc"
@@ -21,7 +21,7 @@
 // Attributes
 #define GONMarkupInc_TAG_value_ATT       @"value"
 
-@interface GONMarkupInc : GONAttributedMarkup
+@interface GONMarkupInc : GONMarkup
 /* Default markup to add text size increment support */
 + (instancetype)incMarkup;
 @end

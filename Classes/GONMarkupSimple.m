@@ -41,7 +41,7 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     // No NSParagraphStyleAttributeName update, or set in only one dic, nothing to do
     if ((![_style objectForKey:NSParagraphStyleAttributeName] && ![configurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||

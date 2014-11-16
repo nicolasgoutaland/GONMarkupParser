@@ -17,7 +17,7 @@
 //  <color value="#FFEEAA">text</>
 //  <color value="myCustomRegisteredColor">text</>
 
-#import "GONAttributedMarkup.h"
+#import "GONMarkup.h"
 
 // Tag
 #define GONMarkupColor_TAG                 @"color"
@@ -25,7 +25,7 @@
 // Attributes
 #define GONMarkupColor_TAG_value_ATT       @"value"
 
-@interface GONMarkupColor : GONAttributedMarkup
+@interface GONMarkupColor : GONMarkup
 /* Default markup to add color support */
 + (instancetype)colorMarkup;
 @end

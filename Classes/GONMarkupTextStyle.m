@@ -40,7 +40,7 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     [configurationDictionary setObject:_superscriptValue
                                  forKey:(NSString *)kCTSuperscriptAttributeName];

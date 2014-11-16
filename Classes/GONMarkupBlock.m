@@ -16,39 +16,39 @@
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_openingMarkupBlock)
-        _openingMarkupBlock(configurationDictionary, tag, context);
+        _openingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
 }
 
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_closingMarkupBlock)
-        _closingMarkupBlock(configurationDictionary, tag, context);
+        _closingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
 }
 
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_updatedContentStringBlock)
-        return _updatedContentStringBlock(string, context);
+        return _updatedContentStringBlock(string, context, dicAttributes);
 
-    return [super updatedContentString:string context:context];
+    return [super updatedContentString:string context:context attributes:dicAttributes];
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_prefixStringForContextBlock)
-        return _prefixStringForContextBlock(context);
+        return _prefixStringForContextBlock(context, dicAttributes);
 
-    return [super prefixStringForContext:context];
+    return [super prefixStringForContext:context attributes:dicAttributes];
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     if (_suffixStringForContextBlock)
-        return _suffixStringForContextBlock(context);
+        return _suffixStringForContextBlock(context, dicAttributes);
 
-    return [super suffixStringForContext:context];
+    return [super suffixStringForContext:context attributes:dicAttributes];
 }
 @end

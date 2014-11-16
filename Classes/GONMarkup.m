@@ -42,30 +42,25 @@
 }
 
 #pragma mark - Test
-- (BOOL)canHandleTag:(NSString *)tag
-{
-    return ([tag rangeOfString:_testedTag].location == 0);
-}
-
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     return string;
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     return @"";
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context;
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     return @"";
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context {}
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
 
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context {}
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
 
 @end
     

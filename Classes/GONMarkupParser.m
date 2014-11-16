@@ -28,6 +28,7 @@
 // Ephemeral internal data. Used to reduce parameters count in internal methods
 @property (nonatomic, strong) NSMutableArray      *configurationsStack;      // Configurations stack
 @property (nonatomic, strong) NSMutableArray      *markupsStack;             // Markups stack
+@property (nonatomic, strong) NSMutableArray      *markupAttributesStack;    // Markups attributes stack
 @property (nonatomic, strong) NSMutableDictionary *currentContext;           // Current context
 @end
 
@@ -104,22 +105,7 @@
 - (GONMarkup *)markupForTag:(NSString *)tag
 {
     // Retrieve markup
-    GONMarkup *markup = [_dicCurrentMarkup objectForKey:tag];
-    if (!markup)
-    {
-        // Look up throught all markups
-        for (GONMarkup *tmpMarkup in [_dicCurrentMarkup allValues])
-        {
-            if ([tmpMarkup canHandleTag:tag])
-            {
-                // Rule found
-                markup = tmpMarkup;
-                break;
-            }
-        }
-    }
-
-    return markup;
+    return [_dicCurrentMarkup objectForKey:tag];
 }
 
 - (void)addMarkups:(id <NSFastEnumeration>)markups
@@ -211,10 +197,11 @@
 - (NSMutableAttributedString *)parseString:(NSString *)inputString error:(NSError **)error
 {
     // Init stack
-    _configurationsStack = [[NSMutableArray alloc] init];
-    _currentContext      = [[NSMutableDictionary alloc] init];
-    _markupsStack        = [[NSMutableArray alloc] init];
-    
+    _configurationsStack   = [[NSMutableArray alloc] init];
+    _currentContext        = [[NSMutableDictionary alloc] init];
+    _markupsStack          = [[NSMutableArray alloc] init];
+    _markupAttributesStack = [[NSMutableArray alloc] init];
+
     // Parse string
     NSArray *results = [_regex matchesInString:inputString
                                        options:0
@@ -224,8 +211,8 @@
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] init];
 
     // Browse chunks
-    NSString *tmpTag;
-    NSMutableString *tag;
+    NSString *tag;
+    BOOL autoclosingMarkup;
     for (NSTextCheckingResult *result in results)
     {
         // Split string
@@ -238,25 +225,34 @@
         if (parts.count > 1)
         {
             // Extract tag and clean it
-            tmpTag = [[parts objectAtIndex:1] lowercaseString];
-            tmpTag = [tmpTag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-            tag = [tmpTag mutableCopy];
-            [tag deleteCharactersInRange:NSMakeRange(tag.length - 1, 1)];
+            tag = [parts objectAtIndex:1];
+            tag = [tag substringToIndex:tag.length - 1]; // Remove final >
+            tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
             if ([tag rangeOfString:@"/"].location == 0)
             {
+                // Lowercase tag
+                tag = [tag lowercaseString];
+                
+                // Closing current tag, so append result string
                 [resultString appendAttributedString:[self computeSuffixString]];
                 [self handleClosingTag:tag error:error];
             }
             else
             {
-                // Look for autoclosing tags
-                if ([tag rangeOfString:@"/" options:NSBackwardsSearch].location == (tag.length - 1))
-                {
-                    // Trim autoclose character
-                    [tag deleteCharactersInRange:NSMakeRange(tag.length - 1, 1)];
+                // Check if autoclosing markup or not
+                autoclosingMarkup = [tag rangeOfString:@"/" options:NSBackwardsSearch].location == (tag.length - 1);
 
+                // If autoclosing markup, trim last /
+                if (autoclosingMarkup)
+                    tag = [tag substringToIndex:tag.length - 1];
+
+                // Split tag / attributes
+                tag = [self extractTagAndPushAttributesFromTag:tag];
+
+                // Handle autoclosing markup
+                if (autoclosingMarkup)
+                {
                     // Opening tag
                     [self handleOpeningTag:tag error:error];
 
@@ -284,12 +280,88 @@
         [self generateError:error tag:nil];
     }
 
-    // Memory
-    _markupsStack        = nil;
-    _configurationsStack = nil;
-    _currentContext      = nil;
+    // Flush unuseful data
+    _markupsStack          = nil;
+    _configurationsStack   = nil;
+    _currentContext        = nil;
+    _markupAttributesStack = nil;
 
     return resultString;
+}
+
+#pragma mark - Utils
+- (NSString *)extractTagAndPushAttributesFromTag:(NSString *)tag
+{
+    // Check for attributes
+    NSRange range = [tag rangeOfString:@" "];
+    NSDictionary *attributes = nil;
+    NSString *extractedTag;
+    if (range.location == NSNotFound)
+    {
+        // No attributed to extract, and tag is full string
+        extractedTag = tag;
+    }
+    else
+    {
+        // There may be some attributes, so extract tag
+        extractedTag = [tag substringToIndex:range.location];
+
+        attributes = [self extractAttributesFromString:[tag substringFromIndex:range.location]];
+    }
+
+    // Check if some attributes were found
+    [_markupAttributesStack addObject:(attributes.count ? attributes : [NSNull null])];
+
+    return [extractedTag lowercaseString];
+}
+
+- (NSDictionary *)attributesForCurrentTag
+{
+    id attributes = [_markupAttributesStack lastObject];
+    if (attributes == [NSNull null])
+        return nil;
+
+    return attributes;
+}
+
+- (NSDictionary *)extractAttributesFromString:(NSString *)string
+{
+    NSMutableDictionary *dicAttributes = [[NSMutableDictionary alloc] init];
+    
+    // Split string
+    NSArray *attributes = [string componentsSeparatedByString:@" "];
+    NSArray *valueComponents;
+    NSString *attributeKey;
+    NSMutableString *attributeValue;
+
+    // Browse attributes
+    for (NSInteger i=0; i<attributes.count; i++)
+    {
+        // Split value
+        valueComponents = [[attributes objectAtIndex:i] componentsSeparatedByString:@"="];
+        
+        // Check if parameter was valid
+        if (valueComponents.count == 2)
+        {
+            // Extract string
+            attributeKey    = [valueComponents firstObject];
+            attributeValue  = [[valueComponents lastObject] mutableCopy];
+            
+            // Unescape value
+            [attributeValue replaceOccurrencesOfString:@"\\\"" withString:@"\"" options:0 range:NSMakeRange(0, attributeValue.length)];
+            
+            // Remove surrounding double quotes
+            [attributeValue deleteCharactersInRange:NSMakeRange(0, 1)];
+            [attributeValue deleteCharactersInRange:NSMakeRange(attributeValue.length - 1, 1)];
+            
+            // Store value
+            [dicAttributes setObject:attributeValue
+                              forKey:attributeKey];
+        }
+    }
+    
+    // Hold attributes for reuse
+    return dicAttributes;
 }
 
 #pragma mark - Tag content managements
@@ -298,7 +370,7 @@
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
-        return [[NSAttributedString alloc] initWithString:[currentMarker prefixStringForContext:_currentContext]
+        return [[NSAttributedString alloc] initWithString:[currentMarker prefixStringForContext:_currentContext attributes:[self attributesForCurrentTag]]
                                                attributes:[self currentConfiguration]];
     }
 
@@ -310,7 +382,8 @@
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
-        return [[NSAttributedString alloc] initWithString:[currentMarker suffixStringForContext:_currentContext]
+        return [[NSAttributedString alloc] initWithString:[currentMarker suffixStringForContext:_currentContext
+                                                                                     attributes:[self attributesForCurrentTag]]
                                                attributes:[self currentConfiguration]];
     }
 
@@ -323,7 +396,8 @@
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
         return [[NSAttributedString alloc] initWithString:[currentMarker updatedContentString:inputString
-                                                                                      context:_currentContext]
+                                                                                      context:_currentContext
+                                                                                   attributes:[self attributesForCurrentTag]]
                                                attributes:[self currentConfiguration]];
     }
 
@@ -352,12 +426,14 @@
 
                 [markup closingMarkupFound:tag
                              configuration:currentTagConfiguration
-                                   context:_currentContext];
+                                   context:_currentContext
+                                attributes:([_markupAttributesStack objectAtIndex:i] == [NSNull null] ? nil : [_markupAttributesStack objectAtIndex:i])];
             }
 
             [_configurationsStack removeAllObjects];
             [_markupsStack removeAllObjects];
             [_currentContext removeAllObjects];
+            [_markupAttributesStack removeAllObjects];
 
             LOG_IF_DEBUG(@"Closing all tags\nStack : %@\n", _configurationsStack);
         }
@@ -382,12 +458,14 @@
             {
                 [markup closingMarkupFound:tag
                              configuration:[_configurationsStack lastObject]
-                                   context:_currentContext];
+                                   context:_currentContext
+                                attributes:[self attributesForCurrentTag]];
             }
 
             // Remove last tag objet
             [_configurationsStack removeLastObject];
             [_markupsStack removeLastObject];
+            [_markupAttributesStack removeLastObject];
 
             LOG_IF_DEBUG(@"Closing tag (%@)\nStack : %@\n", tag, _configurationsStack);
         }
@@ -419,7 +497,8 @@
     {
         [markup openingMarkupFound:tag
                      configuration:currentTagConfiguration
-                           context:_currentContext];
+                           context:_currentContext
+                        attributes:[self attributesForCurrentTag]];
 
         [_markupsStack addObject:markup];
     }

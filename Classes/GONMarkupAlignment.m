@@ -56,7 +56,7 @@
 }
 
 #pragma mark - Markup lifecycle
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     NSMutableParagraphStyle *style = [[configurationDictionary objectForKey:NSParagraphStyleAttributeName] mutableCopy];
     if (!style)

@@ -13,7 +13,7 @@
 //  <dec>text</>
 //  <dec value="5">text</>
 
-#import "GONAttributedMarkup.h"
+#import "GONMarkup.h"
 
 // Tag
 #define GONMarkupDec_TAG                   @"dec"
@@ -21,7 +21,7 @@
 // Attributes
 #define GONMarkupDec_TAG_value_ATT       @"value"
 
-@interface GONMarkupDec : GONAttributedMarkup
+@interface GONMarkupDec : GONMarkup
 /* Default markup to add text size decrement support */
 + (instancetype)decMarkup;
 @end

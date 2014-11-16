@@ -12,7 +12,7 @@
 //  "all" attribute can be used to also remove default configuration
 //  sharedContext will also be reset
 
-#import "GONAttributedMarkup.h"
+#import "GONMarkup.h"
 
 // Context
 #define GONMarkupReset_SAVED_CONTEXT_KEY  @"GONMarkupReset.savedContext"   // Saved context before reset, to be restored on tag end
@@ -23,7 +23,7 @@
 // Attributes
 #define GONMarkupReset_TAG_all_ATT         @"all"   // If true default parser configuration won't be set, default is false.
 
-@interface GONMarkupReset : GONAttributedMarkup
+@interface GONMarkupReset : GONMarkup
 /* Class constructor */
 + (instancetype)resetMarkup;
 

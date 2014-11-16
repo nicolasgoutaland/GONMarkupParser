@@ -32,8 +32,6 @@
 		5CB1C591195B250A00590186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27160195B11E0007FCF44 /* AppDelegate.m */; };
 		5CB1C593195B250A00590186 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C57F195B19C400590186 /* ResultViewController.m */; };
 		5CB1C594195B250A00590186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2715C195B11E0007FCF44 /* main.m */; };
-		5CB1C597195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */; };
-		5CB1C598195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */; };
 		5CB1C59C195B25E800590186 /* GONMarkupReset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59B195B25E800590186 /* GONMarkupReset.m */; };
 		5CB1C59D195B25E800590186 /* GONMarkupReset.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59B195B25E800590186 /* GONMarkupReset.m */; };
 		5CB1C5A0195B2B7700590186 /* GONMarkupNamedFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB1C59F195B2B7700590186 /* GONMarkupNamedFont.m */; };
@@ -77,8 +75,6 @@
 		5CE27199195B1412007FCF44 /* GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27191195B1412007FCF44 /* GONMarkupParser.m */; };
 		5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
 		5CE2719B195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
-		5CE2719F195B1431007FCF44 /* GONAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */; };
-		5CE271A0195B1431007FCF44 /* GONAttributedMarkup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */; };
 		6C6DD8957B134FA9B1AE1824 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B85795BD5D4A4195265653 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -127,8 +123,6 @@
 		5CB1C589195B1EE600590186 /* GONMarkupNamedColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupNamedColor.m; path = ../Classes/GONMarkupNamedColor.m; sourceTree = "<group>"; };
 		5CB1C58C195B24F200590186 /* GONMarkupBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupBlock.h; path = ../Classes/GONMarkupBlock.h; sourceTree = "<group>"; };
 		5CB1C58D195B24F200590186 /* GONMarkupBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupBlock.m; path = ../Classes/GONMarkupBlock.m; sourceTree = "<group>"; };
-		5CB1C595195B251F00590186 /* GONAttributedMarkupBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONAttributedMarkupBlock.h; path = ../Classes/GONAttributedMarkupBlock.h; sourceTree = "<group>"; };
-		5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONAttributedMarkupBlock.m; path = ../Classes/GONAttributedMarkupBlock.m; sourceTree = "<group>"; };
 		5CB1C59A195B25E800590186 /* GONMarkupReset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupReset.h; path = ../Classes/GONMarkupReset.h; sourceTree = "<group>"; };
 		5CB1C59B195B25E800590186 /* GONMarkupReset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupReset.m; path = ../Classes/GONMarkupReset.m; sourceTree = "<group>"; };
 		5CB1C59E195B2B7700590186 /* GONMarkupNamedFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupNamedFont.h; path = ../Classes/GONMarkupNamedFont.h; sourceTree = "<group>"; };
@@ -187,8 +181,6 @@
 		5CE27191195B1412007FCF44 /* GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParser.m; path = ../Classes/GONMarkupParser.m; sourceTree = "<group>"; };
 		5CE27192195B1412007FCF44 /* GONMarkupFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupFont.h; path = ../Classes/GONMarkupFont.h; sourceTree = "<group>"; };
 		5CE27193195B1412007FCF44 /* GONMarkupFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupFont.m; path = ../Classes/GONMarkupFont.m; sourceTree = "<group>"; };
-		5CE2719D195B1431007FCF44 /* GONAttributedMarkup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONAttributedMarkup.h; path = ../Classes/GONAttributedMarkup.h; sourceTree = "<group>"; };
-		5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONAttributedMarkup.m; path = ../Classes/GONAttributedMarkup.m; sourceTree = "<group>"; };
 		F78DE98B74DE149CC7A5ADC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FD6D14F3EF0F1EE075363E64 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -314,8 +306,6 @@
 		5CB1C58B195B24DB00590186 /* Block */ = {
 			isa = PBXGroup;
 			children = (
-				5CB1C595195B251F00590186 /* GONAttributedMarkupBlock.h */,
-				5CB1C596195B251F00590186 /* GONAttributedMarkupBlock.m */,
 				5CB1C58C195B24F200590186 /* GONMarkupBlock.h */,
 				5CB1C58D195B24F200590186 /* GONMarkupBlock.m */,
 			);
@@ -528,8 +518,6 @@
 		5CE2719C195B141A007FCF44 /* Markup */ = {
 			isa = PBXGroup;
 			children = (
-				5CE2719D195B1431007FCF44 /* GONAttributedMarkup.h */,
-				5CE2719E195B1431007FCF44 /* GONAttributedMarkup.m */,
 				5CE2718C195B1412007FCF44 /* GONMarkup.h */,
 				5CE2718D195B1412007FCF44 /* GONMarkup.m */,
 				5CB1C5A6195B333B00590186 /* Private */,
@@ -704,7 +692,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CB1C5B9195B55BE00590186 /* GONMarkupLineBreak.m in Sources */,
-				5CB1C597195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */,
 				5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */,
 				5CE1493D19CC2B6900B73518 /* GONMarkupBold.m in Sources */,
 				5CE27198195B1412007FCF44 /* GONMarkupParser.m in Sources */,
@@ -729,7 +716,6 @@
 				5CE27161195B11E0007FCF44 /* AppDelegate.m in Sources */,
 				5CB1C5AD195B4FA000590186 /* GONMarkupList.m in Sources */,
 				5CD617E319828AA90001C3D9 /* GONMarkupParserManager.m in Sources */,
-				5CE2719F195B1431007FCF44 /* GONAttributedMarkup.m in Sources */,
 				5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */,
 				5CE2715D195B11E0007FCF44 /* main.m in Sources */,
 				5CB1C5A4195B333700590186 /* GONMarkup+Private.m in Sources */,
@@ -749,10 +735,8 @@
 				5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */,
 				5CB1C591195B250A00590186 /* AppDelegate.m in Sources */,
 				5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
-				5CB1C598195B251F00590186 /* GONAttributedMarkupBlock.m in Sources */,
 				5C7C5B2A1994CB55003BE47A /* GONMarkupParserUtils.m in Sources */,
 				5CB1C593195B250A00590186 /* ResultViewController.m in Sources */,
-				5CE271A0195B1431007FCF44 /* GONAttributedMarkup.m in Sources */,
 				5CB1C5B6195B4FB600590186 /* GONMarkupListItem.m in Sources */,
 				5CB1C5A5195B333700590186 /* GONMarkup+Private.m in Sources */,
 				5CE27195195B1412007FCF44 /* GONMarkup.m in Sources */,

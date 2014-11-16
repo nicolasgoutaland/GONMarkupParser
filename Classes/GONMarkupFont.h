@@ -21,7 +21,7 @@
 //  <font name="Helvetica">This text will use Helvetica as font, using current font size</>
 //  <font name="Helvetica" size="18">This text will use Helvetica, set to 18</>
 
-#import "GONAttributedMarkup.h"
+#import "GONMarkup.h"
 
 // Tag
 #define GONMarkupFont_TAG                @"font"
@@ -30,7 +30,7 @@
 #define GONMarkupFont_TAG_size_ATT       @"size"                // Is missing
 #define GONMarkupFont_TAG_name_ATT       @"name"                // Full font name, including style
 
-@interface GONMarkupFont : GONAttributedMarkup
+@interface GONMarkupFont : GONMarkup
 /* Default markup to add font support */
 + (instancetype)fontMarkup;
 

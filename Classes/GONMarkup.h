@@ -10,11 +10,25 @@
 //
 //  Tag name will be stored lowercased, so be careful when using multiple tags
 //
-//  Tag lifecycle :
-//  - canHandleTag: may be called to determine if markup match found tag
+//  Markup lifecycle :
 //  - Once a tag is found, openingMarkupFound:configuration:context: method will be called
-//  - Before parser append extracted string to result, updatedContentString:context: will be called, allowing tag to update it
+//  - Before parser append extracted string to result, following methods will be called
+//      - prefixStringForContext:attributes: will be called, allowing tag to generate a prefix
+//      - updatedContentString:context:attributes: will be called, allowing tag to update its content string (without prefix included)
+//      - suffixStringForContext:attributes: will be called, allowing tag to generate a suffix
 //  - Once tag is closed, closingMarkupFound:configuration:context: method will be called
+//
+//  Attributes should be space separated, values affected using equal sign, and between double quotes. To escape double quotes, use \
+//
+//  Example :
+//  Attribute               | Supported
+//  -----------------------------------
+//  <color value="red">     | YES
+//  <color value = "red">   | YES
+//  <color value = red>     | NO
+//  <color value = "re"d">  | NO
+//  <color value = "re\"d"> | YES
+//
 //
 //  Markup instance will be reused each time a matching tag is found. To persist data, use context parameter.
 
@@ -36,12 +50,12 @@
  *
  * You should override this method to implement new behavior
  */
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context;
+- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
 /* Allows marker to prefix its content string
  * This method is called right after opening markup
  */
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context;
+- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
 /* This method will be called once current marker tag is closed
  * This allows marker to update string content
@@ -49,12 +63,12 @@
  *
  * Default implementation return input string
  */
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context;
+- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
 /* Allows marker to suffix its content string
  * This method is called right after opening markup
  */
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context;
+- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
 /* This method will be called if markup is matching current closing tag.
  * Object is responsible to update attributed string parameters in "configurationDictionary"
@@ -65,33 +79,8 @@
  *
  * You should override this method to implement new behavior
  */
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context;
+- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
 
-/* Ask markup rule if it can handle given tag.
- * This method is not always called, because tag property is used first to check tag handling
- * Default implementation compare given tag to Markup tag.
- *
- * If both strings are equals (caseInsensitiveCompare: == NSOrderedSame), method will return YES
- * If Markup tag start with tested tag, and is followed by a space, method will return YES
- * All other cases will return NO
- *
- * Examples :
- *
- * Tested tag        |  Markup tag         |    result
- * ----------------------------------------------------
- * red               |  red                |    YES
- * redColor          |  red                |    NO
- * red               |  redColor           |    NO
- * color             |  color              |    YES
- * color             |  colorRed           |    NO
- * colorRed          |  color              |    NO
- * color red         |  color              |    YES
- * color value="red" |  color              |    YES
- *
- * You can override this method to implement your own comparison method
- * "tag" will be lowercased, and trimmed
- */
-- (BOOL)canHandleTag:(NSString *)tag;
 
 @property (nonatomic, copy, readonly) NSString *tag;            // Have to be unique. Used to speed up rules matching, when using tags without parameters
 @property (nonatomic, weak, readonly) GONMarkupParser *parser;  // Parser the markup is attached to
