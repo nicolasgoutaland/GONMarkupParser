@@ -15,7 +15,7 @@
 {
     // Set your custom configuration here
 #ifdef DEBUG
-    [GONMarkupParserManager sharedParser].debugEnabled = YES; // Fuck yeah, error logging
+    [GONMarkupParserManager sharedParser].logLevel = GONMarkupParserLogLevelErrors; // Fuck yeah, error logging
 #endif
 
     return YES;

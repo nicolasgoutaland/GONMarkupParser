@@ -18,11 +18,21 @@
 #warning Evolution : Loading from PLIST file
 #warning Evolution : Allows copy
 #warning Evolution : Update attributes extraction method, to handle spaces in tags
-#warning Evolution : Refactor deleting non attributed markups class, update tag matching without lowercasing parameters
+#warning Evolution : Imprve lists
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
 #define GONMarkupParser_incorrectClosingTag_KEY        @"incorrectClosingTag"
+
+typedef enum : NSUInteger {
+    GONMarkupParserLogLevelNone           = 0,              // No logs
+    GONMarkupParserLogLevelUnbalancedTags = 0x01 << 0,      // Logs when unbalanced tags are found
+    GONMarkupParserLogLevelUnknownTag     = 0x01 << 1,      // Logs when an unknow tag is found
+    GONMarkupParserLogLevelWorkflow       = 0x01 << 2,      // Logs parser workflow (Very verbose)
+    GONMarkupParserLogLevelFonts          = 0x01 << 3,      // Logs fonts errors (Very useful to detect missing bold / italic fonts)
+    GONMarkupParserLogLevelAll            = 0xFF,            // Logs all
+    GONMarkupParserLogLevelErrors         = GONMarkupParserLogLevelFonts | GONMarkupParserLogLevelUnknownTag | GONMarkupParserLogLevelUnbalancedTags
+} GONMarkupParserLogLevel;
 
 @interface GONMarkupParser : NSObject
 // Constructors
@@ -91,5 +101,6 @@
 @property (nonatomic, readonly)         NSDictionary *registeredFonts;                                          // Retrieve all applied markups
 @property (nonatomic, copy)             void (^preProcessingBlock)(NSMutableString *inputString);               // Block automatically called to preprocess input string
 @property (nonatomic, copy)             void (^postProcessingBlock)(NSMutableAttributedString *inputString);    // Block automatically called to postprocess result attributed string
-@property (nonatomic, assign)           BOOL debugEnabled;                                                      // Enable debug output
+@property (nonatomic, assign)           GONMarkupParserLogLevel logLevel;                                       // Bitmask to select displayed logs
+@property (nonatomic, assign)           BOOL assertOnError;                                                     // Enables assert when an error is generated. Useful when debugging.
 @end

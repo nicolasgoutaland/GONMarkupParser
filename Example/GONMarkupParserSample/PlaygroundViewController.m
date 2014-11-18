@@ -33,7 +33,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     [_inputTextView becomeFirstResponder];
 }
 

@@ -12,7 +12,7 @@
 #import "GONMarkupParserUtils.h"
 
 #define REGEX                   @"(.*?)(<[^>]+>|\\Z)"
-#define LOG_IF_DEBUG(msg, ...)  do {if (_debugEnabled) { NSLog(@"MarkupParser : %@", [NSString stringWithFormat:msg, ##__VA_ARGS__]); }} while(0)
+#define LOG_IF_DEBUG(level, msg, ...)  do {if (_logLevel & level) { NSLog(@"MarkupParser : %@", [NSString stringWithFormat:msg, ##__VA_ARGS__]); }} while(0)
 
 @interface GONMarkupParser ()
 // Style
@@ -71,16 +71,14 @@
                                                       options:NSRegularExpressionDotMatchesLineSeparators
                                                         error:nil];
 
+        _assertOnError           = NO;
+        _logLevel                = GONMarkupParserLogLevelNone;
         _defaultConfiguration    = [[NSMutableDictionary alloc] init];
         _dicCurrentMarkup        = [[NSMutableDictionary alloc] init];
         _dicRegisteredFonts      = [[NSMutableDictionary alloc] init];
 
         _replaceNewLineCharactersFromInputString = NO;
         _replaceHTMLCharactersFromOutputString   = YES;
-
-        // Set default color in configuration
-        [_defaultConfiguration setObject:[UIColor blackColor]
-                                  forKey:NSForegroundColorAttributeName];
     }
 
     return self;
@@ -148,12 +146,12 @@
 
 - (NSMutableAttributedString *)attributedStringFromString:(NSString *)string error:(NSError **)error
 {
-    LOG_IF_DEBUG(@"Input string :\n%@\n", string);
+    LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Input string :\n%@\n", string);
 
     // Check for nil values
     if (!string)
     {
-        LOG_IF_DEBUG(@"Input string was <nil>, returning empty string");
+        LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Input string was <nil>, returning empty string");
         return [[NSMutableAttributedString alloc] init];
     }
 
@@ -161,7 +159,7 @@
     NSMutableString *inputString = [string mutableCopy];
 
     // Handle pre processing
-    LOG_IF_DEBUG(@"Preprocessing string");
+    LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Preprocessing string");
     if (_preProcessingBlock)
         _preProcessingBlock(inputString);
 
@@ -172,24 +170,21 @@
     // Parse input string
     NSMutableAttributedString *resString = [self parseString:inputString error:error];
 
-    if (_debugEnabled)
-    {
-        if (error)
-            LOG_IF_DEBUG(@"Parsing completed with an error <%@>", *error);
-        else
-            LOG_IF_DEBUG(@"Parsing completed without error");
-    }
+    if (error)
+        LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Parsing completed with an error <%@>", *error);
+    else
+        LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Parsing completed without error");
 
     // Replace html entities
     if (_replaceHTMLCharactersFromOutputString)
         [GONMarkupParserUtils cleanHTMLEntitiesFromString:resString.mutableString];
 
     // Handle post processing
-    LOG_IF_DEBUG(@"Postprocessing string");
+    LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Postprocessing string");
     if (_postProcessingBlock)
         _postProcessingBlock(resString);
 
-    LOG_IF_DEBUG(@"Result string :\n%@\n", resString);
+    LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Result string :\n%@\n", resString);
 
     return resString;
 }
@@ -231,9 +226,12 @@
 
             if ([tag rangeOfString:@"/"].location == 0)
             {
-                // Lowercase tag
-                tag = [tag lowercaseString];
-                
+                // Lowercase tag, trim closing character
+                tag = [[tag substringFromIndex:1] lowercaseString];
+
+                // Trim potential remaining white spaces
+                tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
                 // Closing current tag, so append result string
                 [resultString appendAttributedString:[self computeSuffixString]];
                 [self handleClosingTag:tag error:error];
@@ -246,6 +244,9 @@
                 // If autoclosing markup, trim last /
                 if (autoclosingMarkup)
                     tag = [tag substringToIndex:tag.length - 1];
+
+                // Trim potential remaining white spaces
+                tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
                 // Split tag / attributes
                 tag = [self extractTagAndPushAttributesFromTag:tag];
@@ -276,7 +277,7 @@
 
     if (_configurationsStack.count != 0)
     {
-        LOG_IF_DEBUG(@"Parsing completed, but stack isn't empty, some closing tags seems missing :\nStack :%@\n", _configurationsStack);
+        LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Parsing completed, but stack isn't empty, some closing tags seems missing :\nStack :%@\n", _configurationsStack);
         [self generateError:error tag:nil];
     }
 
@@ -407,12 +408,13 @@
 #pragma mark - Tag managements
 - (void)handleClosingTag:(NSString *)tag error:(NSError **)error
 {
-    // Look for full style closing tag
-    if ([tag rangeOfString:@"//"].location == 0)
+    // Look for full style closing tag, @"//"
+    // Checking only for one /, because first one was trimmed
+    if ([tag rangeOfString:@"/"].location == 0)
     {
         if (!_configurationsStack.count)
         {
-            LOG_IF_DEBUG(@"Trying to close all tags, but stack is empty");
+            LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Trying to close all tags, but stack is empty");
             [self generateError:error tag:tag];
         }
         else
@@ -435,7 +437,7 @@
             [_currentContext removeAllObjects];
             [_markupAttributesStack removeAllObjects];
 
-            LOG_IF_DEBUG(@"Closing all tags\nStack : %@\n", _configurationsStack);
+            LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Closing all tags\nStack : %@\n", _configurationsStack);
         }
     }
     else
@@ -444,7 +446,7 @@
         if (!_configurationsStack.count)
         {
             // Closing a tag, but tags stack is empty
-            LOG_IF_DEBUG(@"Trying to close last tag, but stack is empty");
+            LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Trying to close last tag, but stack is empty");
             [self generateError:error tag:tag];
         }
         else
@@ -456,6 +458,16 @@
             // Present error when closing an unkwnow markup
             if (markup && ![markup isKindOfClass:[NSNull class]])
             {
+                // Check that closing that is matching opening one
+                if (tag.length)
+                {
+                    if (![tag isEqualToString:markup.tag])
+                    {
+                        LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Closing tag found <%@>, is not matching currently opened one <%@>", tag, markup.tag);
+                        [self generateError:error tag:tag];
+                    }
+                }
+
                 [markup closingMarkupFound:tag
                              configuration:[_configurationsStack lastObject]
                                    context:_currentContext
@@ -467,7 +479,7 @@
             [_markupsStack removeLastObject];
             [_markupAttributesStack removeLastObject];
 
-            LOG_IF_DEBUG(@"Closing tag (%@)\nStack : %@\n", tag, _configurationsStack);
+            LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Closing tag (%@)\nStack : %@\n", tag, _configurationsStack);
         }
     }
 }
@@ -487,7 +499,7 @@
     // Ensure a markup was found
     if (!markup)
     {
-        LOG_IF_DEBUG(@"No markup found for tag <%@>\n", tag);
+        LOG_IF_DEBUG(GONMarkupParserLogLevelUnknownTag, @"No markup found for tag <%@>\n", tag);
         [self generateError:error
                         tag:tag];
 
@@ -506,7 +518,7 @@
     // Hold configuration
     [_configurationsStack addObject:currentTagConfiguration];
 
-    LOG_IF_DEBUG(@"Opening tag (%@)\nStack : %@\n", tag, _configurationsStack);
+    LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Opening tag (%@)\nStack : %@\n", tag, _configurationsStack);
 }
 
 - (NSDictionary *)currentConfiguration
@@ -537,10 +549,14 @@
 #pragma mark - Error handling
 - (void)generateError:(NSError **)error tag:(NSString *)tag
 {
+    // Assert only is requested
+    if (_assertOnError)
+        NSAssert1(NO, @"An error was generated parsing following text, found at markup <%@>", tag);
+
     if (error)
     {
         // Initialize user info
-        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:@"Input string is malformed. Ouput attributed string may not display correctly"
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:@"Input string is malformed. Ouput attributed string may not be displayed correctly"
                                                                            forKey:NSLocalizedDescriptionKey];
 
         // Add tag if avalaible

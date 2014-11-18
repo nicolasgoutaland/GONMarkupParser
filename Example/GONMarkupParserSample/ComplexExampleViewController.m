@@ -47,7 +47,7 @@
 
     // Set your custom configuration here
 #ifdef DEBUG
-    _parser.debugEnabled = YES; // Fuck yeah, error logging
+    _parser.logLevel = GONMarkupParserLogLevelErrors; // Fuck yeah, error logging
 #endif
 
     // Set default text configuration

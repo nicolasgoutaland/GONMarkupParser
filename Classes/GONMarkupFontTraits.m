@@ -63,7 +63,7 @@
             // Note : In iOS7, if no fount is found, normal one will be returned. Since iOS8, nil will be returned
             if (!updatedFont || [currentFont isEqual:updatedFont])
             {
-                if (self.parser.debugEnabled)
+                if (self.parser.logLevel & GONMarkupParserLogLevelFonts)
                 {
                     if (!_overrideBlock)
                         NSLog(@"%@ : No font found for <%@-%@> applying traits. Consider setting up <overrideBlock> to provide a font", [[self class] description], currentFont.familyName, currentFont.fontName);
