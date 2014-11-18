@@ -64,23 +64,5 @@
 		<key>viewController</key>
 		<string>ComplexExampleViewController</string>
 	</dict>
-	<dict>
-		<key>title</key>
-		<string>fsdklsdfjskldf</string>
-		<key>sample</key>
-		<string>&lt;ul&gt;
-&lt;ul&gt;
-&lt;li&gt; Item&lt;/li&gt;
-&lt;ul&gt;
-&lt;li&gt;Item&lt;br /&gt;with a new line inside.....&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;Item&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/ul&gt;
-&lt;li&gt;&lt;red&gt;Item&lt;/red&gt;&lt;/li&gt;
-&lt;li&gt;Item&lt;/li&gt;
-&lt;/ul&gt;</string>
-	</dict>
 </array>
 </plist>
