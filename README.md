@@ -243,6 +243,12 @@ Adding a new markup by subclassing is useful if you want to reuse your markups b
 For examples, have a look a currently defined markups ;)
 See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shared context.
 
+## Troubleshooting
+- Text default color
+- Label default font
+- Crash on font set
+- ....
+
 ## Evolutions
 - Indentation prefix in lists needs to be improved (add more symbols, etc..)
 - Implements **NSCoder** in parser and Markers
