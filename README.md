@@ -139,6 +139,8 @@ __UILabel__/__UITextField__<br/>
 - __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
 - __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
+If no parser default configuration is set for __NSForegroundColorAttributeName__ and __NSFontAttributeName__, components __textColor__ and __font__ properties will be used as default.
+
 ##Default tags
 ###Summary
 | Tag        | Class | Parameters           | Effect |
