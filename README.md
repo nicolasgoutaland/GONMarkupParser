@@ -23,7 +23,7 @@ Need a more complex example  ?
 
     // Set your custom configuration here
 #ifdef DEBUG
-    [GONMarkupParserManager sharedParser].debugEnabled = YES; // Fuck yeah, error logging
+    [GONMarkupParserManager sharedParser].logLevel = GONMarkupParserLogLevelAll; // Fuck yeah, error debugging
 #endif
     
     // Set default string configuration
@@ -85,16 +85,15 @@ Each time a closing markup is found, current style configuration is popped out, 
 Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster to write.
 - Each markup  should be contained between __<__ and __>__ characters
  - __&lt;strong&gt;__
-- Closing markup should start with __/__ character. There is no need for closing markup to match opening one. You can also leave it blank, with just the __/__ character
- - __&lt;/strong&gt;__, __</>__, __</hakuna matata>__
+- Like XML, closing markup should start with __/__ character. You can omit markup name in closing tag. If closing tag isn't matching currently opened one, an error will be generated, but no crash will occur, and generated text may not be be as expected
+ - __&lt;/strong&gt;__, __</>__
 - You can also close all opened markup by using __<//>__
-- You do not need to balance markup at text end
 
 ###Examples
 ```
  This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
  This is a <strong>valid</>string with some <color value="red">red <b>bold text</></>.
- This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>.
+ This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>. // Will work but generate an error
  This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
 ```
 
@@ -113,7 +112,9 @@ Parsers have two interesting properties :
 
 __defaultConfiguration__ will contains default style configuration for generated attributed string. Content should be valid attributes parameters, as you may pass to __- addAttributes:range:__ of __NSMutableAttributedString__ objects.
 
-For debugging purpose, you can set __debug__ to YES.
+For debugging purpose, you can configure __debugLevel__ property.
+
+__assertOnError__ property is also available to generate an assert when an error is encountered.
 
 ###Configuration
 A parser must have some registered markups to correctly handling strings.<br/>
