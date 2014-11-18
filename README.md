@@ -247,6 +247,7 @@ See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shar
 - Text default color
 - Label default font
 - Crash on font set
+- <BR>
 - ....
 
 ## Evolutions
