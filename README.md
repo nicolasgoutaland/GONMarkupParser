@@ -111,7 +111,7 @@ Parsers have two interesting properties :
 - __replaceNewLineCharactersFromInputString__, is intended to strip all newlines characters from input string. Use __br__ markup to add new lines. Default is __NO__.
 - __replaceHTMLCharactersFromOutputString__, is intended to replace all HTML entities contained in string, after parsing. Default is __YES__.
 
-__defaultConfiguration__ will contains default style configuration for generated attributed string. Content should be valid attributes parameters, as you may pass to __- addAttributes:range:__ of __NSMutableAttributedString__ objects.
+__defaultConfiguration__ will contains default style configuration for generated attributed string. Content should be valid attributes parameters, as you may pass to __- addAttributes:range:__ of __NSMutableAttributedString__ objects. For default text color, you can set __NSForegroundColorAttributeName__ for example.
 
 For debugging purpose, you can configure __debugLevel__ property.
 
@@ -251,13 +251,22 @@ See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shar
 
 ## Troubleshooting
 ###Some text is missing
-Check that your markup is correclty registered and that your tags are right balanced.
+Check that your markup is correctly registered and that your tags are right balanced.
 
 ###Text color is still applied after my tag is closed.
-- Label default font
-- Crash on font set
-- <BR>
-- ....
+This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.
+To prevent this problem, be sure to have set a default text color in your parser (__defaultConfiguration__ / __NSForegroundColorAttributeName__ key). You can use __setMarkedUpText:__ on __UILabel__ / __UITextField__ to use default component configuration.
+
+###I am encountering some crash when using custom font
+Be sure to use correct font name, or that font code you are using is right registered to your parser. 
+Want to dump all available fonts on your device and check real names ?
+Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
+
+###No new line are inserted
+*<br>* alone is not valid in __GONMArkupParser__. Be sure to use <br/>.
+
+### Did Kim Kardashian broke the Internet ?
+No, definitely not. I was still able to commit to github yesterday.
 
 ## Evolutions
 - Indentation prefix in lists needs to be improved (add more symbols, etc..)
