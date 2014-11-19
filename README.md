@@ -13,6 +13,7 @@ Easily build NSAttributedString from XML/HTML like strings.
     // Affect text to label
     label.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:inputText                  
                                                                                        error:nil];
+    // You can also use [label setMarkedUpText:inputText];
 ````
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-example1.png)
 
@@ -140,6 +141,8 @@ __UILabel__/__UITextField__<br/>
 - __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
 If no parser default configuration is set for __NSForegroundColorAttributeName__, __NSFontAttributeName__ and NSParagraphStyleAttributeName, components __textColor__, __textAlignment__ and __font__ properties will be used as default.
+
+You are stronlgy encouraged to use these methods if you want to use your component style as default parser configuration.
 
 ##Default tags
 ###Summary
