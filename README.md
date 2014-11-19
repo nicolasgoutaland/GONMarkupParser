@@ -265,6 +265,10 @@ Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMa
 ###No new line are inserted
 *<br>* alone is not valid in __GONMArkupParser__. Be sure to use <br/>.
 
+###Color isn't applied
+Check that you color value synthax is correct.
+For more information on supported synthaxe, have a look at [NSString+UIColor here](https://github.com/nicolasgoutaland/NSString-Color#nsstringcolor-), that is used to compute colors from your string values.
+
 ### Did Kim Kardashian broke the Internet ?
 No, definitely not. I was still able to commit to github yesterday.
 
