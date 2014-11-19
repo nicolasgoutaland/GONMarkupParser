@@ -93,7 +93,7 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
 ```
  This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
  This is a <strong>valid</>string with some <color value="red">red <b>bold text</></>.
- This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>. // Will work but generate an error
+ This is a <strong>valid</Hakuna> string with some <color value="red">red <b>bold text</mata></ta>. // Will work but generates an error
  This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
 ```
 
@@ -139,7 +139,7 @@ __UILabel__/__UITextField__<br/>
 - __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
 - __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
-If no parser default configuration is set for __NSForegroundColorAttributeName__ and __NSFontAttributeName__, components __textColor__ and __font__ properties will be used as default.
+If no parser default configuration is set for __NSForegroundColorAttributeName__, __NSFontAttributeName__ and NSParagraphStyleAttributeName, components __textColor__, __textAlignment__ and __font__ properties will be used as default.
 
 ##Default tags
 ###Summary
