@@ -262,8 +262,8 @@ Be sure to use correct font name, or that font code you are using is right regis
 Want to dump all available fonts on your device and check real names ?
 Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
 
-###No new line are inserted
-*<br>* alone is not valid in __GONMArkupParser__. Be sure to use <br/>.
+###No new line are inserted using __&lt;br&gt;__
+*__&lt;br&gt;__* alone is not valid in __GONMArkupParser__. Be sure to use __&lt;br/&gt;__.
 
 ###Color isn't applied
 Check that you color value synthax is correct.
