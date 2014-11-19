@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SampleViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DefaultConfigurationViewController">
             <connections>
                 <outlet property="inputLabel" destination="vH7-rZ-Mou" id="y06-d9-8vk"/>
                 <outlet property="resultLabel" destination="HKj-5h-IlX" id="Esd-16-6cg"/>

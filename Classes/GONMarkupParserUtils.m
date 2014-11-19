@@ -22,6 +22,55 @@
     }
 }
 
++ (NSAttributedString *)attributedString:(GONMarkupParser *)parser
+                              withString:(NSString *)inputString
+                             defautColor:(UIColor *)defaultColor
+                             defaultFont:(UIFont *)defaultFont
+                        defaultAlignment:(NSTextAlignment)defaultAlignment
+{
+    GONMarkupParser *selectedParser = parser;
+    if (!selectedParser)
+        selectedParser = [GONMarkupParserManager sharedParser];
+
+    // Hold initial default configuration
+    NSDictionary *defaultConfiguration = [selectedParser.defaultConfiguration copy];
+
+    // Check if parser has default configuration for color / font / alignment. If not, use default configuration
+    // Text color
+    if (![selectedParser.defaultConfiguration objectForKey:NSForegroundColorAttributeName])
+    {
+        [selectedParser.defaultConfiguration setObject:defaultColor
+                                                forKey:NSForegroundColorAttributeName];
+    }
+
+    // Font
+    if (![selectedParser.defaultConfiguration objectForKey:NSFontAttributeName] && defaultFont)
+    {
+        [selectedParser.defaultConfiguration setObject:defaultFont
+                                                forKey:NSFontAttributeName];
+    }
+
+    // Alignment
+    if (![selectedParser.defaultConfiguration objectForKey:NSParagraphStyleAttributeName])
+    {
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.alignment = defaultAlignment;
+        [selectedParser.defaultConfiguration setObject:paragraphStyle
+                                                forKey:NSParagraphStyleAttributeName];
+    }
+
+    // Compute attributed string
+    NSAttributedString *attributedString = [selectedParser attributedStringFromString:inputString
+                                                                                error:nil];
+    
+    // Reset default configuration
+    [selectedParser.defaultConfiguration removeAllObjects];
+    [selectedParser.defaultConfiguration addEntriesFromDictionary:defaultConfiguration];
+    
+
+    return attributedString;
+}
+
 #pragma mark - Config
 static NSDictionary *dicHTMLEntities;
 + (void)initialize

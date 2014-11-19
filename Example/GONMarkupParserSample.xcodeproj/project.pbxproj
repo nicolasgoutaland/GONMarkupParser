@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */; };
+		5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */; };
+		5C404BD01A1C951F007DCB2C /* DefaultConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */; };
 		5C44A9D119D0690A00CF6957 /* GONMarkupFontTraits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */; };
 		5C65F3EA1A1114EC005A76A3 /* GONMarkupInc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3E91A1114EC005A76A3 /* GONMarkupInc.m */; };
 		5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */; };
@@ -93,6 +95,9 @@
 		5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_Categories.h; path = ../Classes/GONMarkupParser_Categories.h; sourceTree = "<group>"; };
 		5C1D1C2C19920D7100F7B642 /* GONMarkupParagrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParagrap.h; path = ../Classes/GONMarkupParagrap.h; sourceTree = "<group>"; };
 		5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParagrap.m; path = ../Classes/GONMarkupParagrap.m; sourceTree = "<group>"; };
+		5C404BCA1A1C9115007DCB2C /* DefaultConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultConfigurationViewController.h; sourceTree = "<group>"; };
+		5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultConfigurationViewController.m; sourceTree = "<group>"; };
+		5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultConfigurationViewController.xib; sourceTree = "<group>"; };
 		5C44A9CF19D0690A00CF6957 /* GONMarkupFontTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupFontTraits.h; path = ../Classes/GONMarkupFontTraits.h; sourceTree = "<group>"; };
 		5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupFontTraits.m; path = ../Classes/GONMarkupFontTraits.m; sourceTree = "<group>"; };
 		5C65F3E81A1114EC005A76A3 /* GONMarkupInc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupInc.h; path = ../Classes/GONMarkupInc.h; sourceTree = "<group>"; };
@@ -211,6 +216,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C404BC91A1C90E0007DCB2C /* DefaultConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				5C404BCA1A1C9115007DCB2C /* DefaultConfigurationViewController.h */,
+				5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */,
+				5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */,
+			);
+			name = DefaultConfiguration;
+			sourceTree = "<group>";
+		};
 		5C65F3DF1A111468005A76A3 /* TextSize */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				5C65F4081A11FD87005A76A3 /* ComplexExample */,
+				5C404BC91A1C90E0007DCB2C /* DefaultConfiguration */,
 				5C65F4001A1139B5005A76A3 /* Playground */,
 				5CB1C581195B19C800590186 /* Result */,
 				5C65F3F41A112F1E005A76A3 /* Root */,
@@ -636,6 +652,7 @@
 				5C65F3F31A112EBE005A76A3 /* MainWindow.xib in Resources */,
 				5CE2715B195B11E0007FCF44 /* InfoPlist.strings in Resources */,
 				5C65F3F91A112F3A005A76A3 /* RootViewController.xib in Resources */,
+				5C404BD01A1C951F007DCB2C /* DefaultConfigurationViewController.xib in Resources */,
 				5C65F4071A1153A2005A76A3 /* ResultViewController.xib in Resources */,
 				5C65F40D1A11FFFE005A76A3 /* ComplexExampleViewController.xib in Resources */,
 				5C65F3F11A112231005A76A3 /* samples.plist in Resources */,
@@ -702,6 +719,7 @@
 				5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */,
 				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
 				5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */,
+				5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */,
 				5C65F40B1A11FDB2005A76A3 /* ComplexExampleViewController.m in Sources */,
 				5C44A9D119D0690A00CF6957 /* GONMarkupFontTraits.m in Sources */,
 				5CB3107219BE027A00B06D0D /* UITextField+GONMarkupParser.m in Sources */,

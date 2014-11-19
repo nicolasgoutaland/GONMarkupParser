@@ -22,6 +22,6 @@
 
     // Configure labels
     _inputLabel.text            = _sampleText;
-    _resultLabel.attributedText = [[GONMarkupParserManager sharedParser] attributedStringFromString:_sampleText];
+    [_resultLabel setMarkedUpText:_sampleText];
 }
 @end

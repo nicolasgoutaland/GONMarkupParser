@@ -64,5 +64,11 @@
 		<key>viewController</key>
 		<string>ComplexExampleViewController</string>
 	</dict>
+	<dict>
+		<key>title</key>
+		<string>Default label configuration</string>
+		<key>viewController</key>
+		<string>DefaultConfigurationViewController</string>
+	</dict>
 </array>
 </plist>

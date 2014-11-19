@@ -8,41 +8,17 @@
 
 #import "UILabel+GONMarkupParser.h"
 #import "GONMarkupParserManager.h"
+#import "GONMarkupParserUtils.h"
 
 @implementation UILabel (GONMarkupParser)
 #pragma mark - GONMarkupParser
 - (void)setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser
 {
-    GONMarkupParser *selectedParser = parser;
-    if (!selectedParser)
-        selectedParser = [GONMarkupParserManager sharedParser];
-
-    // Hold initial default configuration
-    NSDictionary *defaultConfiguration = [selectedParser.defaultConfiguration copy];
-
-    // Check if parser has default configuration for color / font. If not, use component configuration
-    if (![selectedParser.defaultConfiguration objectForKey:NSForegroundColorAttributeName])
-    {
-        [selectedParser.defaultConfiguration setObject:self.textColor
-                                                forKey:NSForegroundColorAttributeName];
-    }
-
-    if (![selectedParser.defaultConfiguration objectForKey:NSFontAttributeName])
-    {
-        if (self.font)
-        {
-            [selectedParser.defaultConfiguration setObject:self.font
-                                                    forKey:NSFontAttributeName];
-        }
-    }
-
-    // Affect attributed text
-    [self setAttributedText:[selectedParser attributedStringFromString:text
-                                                                 error:nil]];
-
-    // Reset default configuration
-    [selectedParser.defaultConfiguration removeAllObjects];
-    [selectedParser.defaultConfiguration addEntriesFromDictionary:defaultConfiguration];
+    self.attributedText = [GONMarkupParserUtils attributedString:parser
+                                                      withString:text
+                                                     defautColor:self.textColor
+                                                     defaultFont:self.font
+                                                defaultAlignment:self.textAlignment];
 }
 
 - (void)setMarkedUpText:(NSString *)text
