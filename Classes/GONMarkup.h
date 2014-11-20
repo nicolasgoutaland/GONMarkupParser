@@ -18,7 +18,9 @@
 //      - suffixStringForContext:attributes: will be called, allowing tag to generate a suffix
 //  - Once tag is closed, closingMarkupFound:configuration:context: method will be called
 //
-//  Attributes should be space separated, values affected using equal sign, and between double quotes. To escape double quotes, use \
+//  Attributes should be space separated, values affected using equal sign, and between quotes or double quotes. To escape quotes / double quotes, use \
+//  Be careful,text heere is intended to be loaded from a file, not directly set in code. If so, do not forget to escape \.
+//  You can also use &quot;
 //
 //  Example :
 //  Attribute               | Supported
@@ -28,6 +30,11 @@
 //  <color value = red>     | NO
 //  <color value = "re"d">  | NO
 //  <color value = "re\"d"> | YES
+//  <color value='red'>     | YES
+//  <color value = 'red'>   | YES
+//  <color value = red>     | NO
+//  <color value = "re'd">  | YES
+//  <color value = 're"d'>  | YES
 //
 //
 //  Markup instance will be reused each time a matching tag is found. To persist data, use context parameter.

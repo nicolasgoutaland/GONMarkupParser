@@ -17,7 +17,7 @@
 #ifdef DEBUG
     [GONMarkupParserManager sharedParser].logLevel = GONMarkupParserLogLevelErrors; // Fuck yeah, error logging
 #endif
-
+    
     return YES;
 }
 

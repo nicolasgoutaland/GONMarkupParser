@@ -11,8 +11,9 @@
 #import "GONMarkupDefaultMarkups.h"
 #import "GONMarkupParserUtils.h"
 
-#define REGEX                   @"(.*?)(<[^>]+>|\\Z)"
-#define LOG_IF_DEBUG(level, msg, ...)  do {if (_logLevel & level) { NSLog(@"MarkupParser : %@", [NSString stringWithFormat:msg, ##__VA_ARGS__]); }} while(0)
+#define MARKUP_REGEX                           @"(.*?)(<[^>]+>|\\Z)"
+#define ATTRIBUTES_REGEX                       @"([^\\s=]+)\\s*=\\s*('(\\\\'|[^']*')|\"(\\\\\"|[^\"])*\")"
+#define LOG_IF_DEBUG(level, msg, ...)          do {if (_logLevel & level) { NSLog(@"MarkupParser : %@", [NSString stringWithFormat:msg, ##__VA_ARGS__]); }} while(0)
 
 @interface GONMarkupParser ()
 // Style
@@ -23,7 +24,8 @@
 
 // Data
 @property (nonatomic, strong) NSMutableDictionary *dicCurrentMarkup;         // Dictionary representation of markups
-@property (nonatomic, strong) NSRegularExpression *regex;                    // Regular expression to extract tokens
+@property (nonatomic, strong) NSRegularExpression *markupRegex;              // Regular expression to extract tokens
+@property (nonatomic, strong) NSRegularExpression *attributesRegex;          // Attributes regex
 
 // Ephemeral internal data. Used to reduce parameters count in internal methods
 @property (nonatomic, strong) NSMutableArray      *configurationsStack;      // Configurations stack
@@ -37,7 +39,6 @@
 + (GONMarkupParser *)defaultMarkupParser
 {
     GONMarkupParser *parser = [[GONMarkupParser alloc] init];
-
 
     [parser addMarkup:[GONMarkupItalic italicMarkup]];
     [parser addMarkup:[GONMarkupBold boldMarkup]];
@@ -54,7 +55,7 @@
     [parser addMarkups:[GONMarkupTextStyle allMarkups]];
     [parser addMarkups:[GONMarkupList allMarkups]];
     [parser addMarkups:[GONMarkupAlignment allMarkups]];
-    
+
     return parser;
 }
 
@@ -67,9 +68,13 @@
 {
     if (self = [super init])
     {
-        _regex = [[NSRegularExpression alloc] initWithPattern:REGEX
-                                                      options:NSRegularExpressionDotMatchesLineSeparators
-                                                        error:nil];
+        _markupRegex = [[NSRegularExpression alloc] initWithPattern:MARKUP_REGEX
+                                                            options:NSRegularExpressionDotMatchesLineSeparators
+                                                              error:nil];
+
+        _attributesRegex = [[NSRegularExpression alloc] initWithPattern:ATTRIBUTES_REGEX
+                                                                options:NSRegularExpressionDotMatchesLineSeparators
+                                                                  error:nil];
 
         _assertOnError           = NO;
         _logLevel                = GONMarkupParserLogLevelNone;
@@ -198,9 +203,9 @@
     _markupAttributesStack = [[NSMutableArray alloc] init];
 
     // Parse string
-    NSArray *results = [_regex matchesInString:inputString
-                                       options:0
-                                         range:NSMakeRange(0, inputString.length)];
+    NSArray *results = [_markupRegex matchesInString:inputString
+                                             options:0
+                                               range:NSMakeRange(0, inputString.length)];
 
     // Prepare result string
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] init];
@@ -328,40 +333,41 @@
 - (NSDictionary *)extractAttributesFromString:(NSString *)string
 {
     NSMutableDictionary *dicAttributes = [[NSMutableDictionary alloc] init];
-    
-    // Split string
-    NSArray *attributes = [string componentsSeparatedByString:@" "];
-    NSArray *valueComponents;
+
+    // Parse string
+    NSArray *results = [_attributesRegex matchesInString:string
+                                                 options:0
+                                                   range:NSMakeRange(0, string.length)];
+
+    // Browse chunks
+    NSString *matchedString;
+    NSRange range;
     NSString *attributeKey;
     NSMutableString *attributeValue;
-
-    // Browse attributes
-    for (NSInteger i=0; i<attributes.count; i++)
+    for (NSTextCheckingResult *result in results)
     {
-        // Split value
-        valueComponents = [[attributes objectAtIndex:i] componentsSeparatedByString:@"="];
+        // Extract matched string
+        matchedString = [string substringWithRange:result.range];
         
-        // Check if parameter was valid
-        if (valueComponents.count == 2)
-        {
-            // Extract string
-            attributeKey    = [valueComponents firstObject];
-            attributeValue  = [[valueComponents lastObject] mutableCopy];
-            
-            // Unescape value
-            [attributeValue replaceOccurrencesOfString:@"\\\"" withString:@"\"" options:0 range:NSMakeRange(0, attributeValue.length)];
-            
-            // Remove surrounding double quotes
-            [attributeValue deleteCharactersInRange:NSMakeRange(0, 1)];
-            [attributeValue deleteCharactersInRange:NSMakeRange(attributeValue.length - 1, 1)];
-            
-            // Store value
-            [dicAttributes setObject:attributeValue
-                              forKey:attributeKey];
-        }
+        // Look for character to split string
+        range = [matchedString rangeOfString:@"="];
+
+        // Extract key
+        attributeKey    = [[matchedString substringToIndex:range.location] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        
+        // Extract value
+        attributeValue  = [[[matchedString substringFromIndex:range.location + 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] mutableCopy];
+
+        // Clean value, by trimming enclosing quotes / double quotes, cleaning potential &quot; entities
+        [attributeValue replaceCharactersInRange:NSMakeRange(attributeValue.length - 1, 1) withString:@""];
+        [attributeValue replaceCharactersInRange:NSMakeRange(0, 1)                         withString:@""];
+        [attributeValue replaceOccurrencesOfString:@"&quot;" withString:@"\"" options:0 range:NSMakeRange(0, attributeValue.length)];
+
+        // Clean pontential html entities in string
+        [dicAttributes setObject:attributeValue
+                          forKey:attributeKey];
     }
-    
-    // Hold attributes for reuse
+
     return dicAttributes;
 }
 
