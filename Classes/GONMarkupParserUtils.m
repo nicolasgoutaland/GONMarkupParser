@@ -8,6 +8,7 @@
 //  http://www.w3schools.com/charsets/ref_html_entities_4.asp
 
 #import "GONMarkupParserUtils.h"
+#import "GONMarkupParserManager.h"
 
 @implementation GONMarkupParserUtils
 #pragma mark - Utils

@@ -8,6 +8,7 @@
 //  Utils
 //  Why not using some categories Sir ? Because I'm pretty sure everyone already have a cleanHTMLEntities method on their strings,
 //  and I don't want to conflict with existing methods, nor adding a pod dependency that will add tons of new methods
+@class GONMarkupParser;
 
 @interface GONMarkupParserUtils : NSObject
 /* Clean HTML entities from string */
