@@ -58,7 +58,7 @@ Need a more complex example  ?
 ##Description
 Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
 The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.<br/>
-Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markup and apply style on text.<br/>
+Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markups and apply style on text.<br/>
 The purpose of this was to be able to generate different outputs from the same input string, without editing its content, but editing the markups style.<br/>
 
 GONMarkupParser is **not** an out of the box solution to parse HTML files.
@@ -72,7 +72,7 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 
 ##Usage
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
-- configure your parser adding supporting tags, default ones, custom ones, etc...
+- configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
 - you can also set text on __UILabel__ / __UITextField__ by using [__setMarkedUpText:__](#available-uikit-categories) methods 
 ##How does it work ?
@@ -86,7 +86,7 @@ Each time a closing markup is found, current style configuration is popped out, 
 Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster to write.
 - Each markup  should be contained between __<__ and __>__ characters
  - __&lt;strong&gt;__
-- Like XML, closing markup should start with __/__ character. You can omit markup name in closing tag. If closing tag isn't matching currently opened one, an error will be generated, but no crash will occur, and generated text may not be be as expected
+- Like XML, closing markup should start with __/__ character. You can omit markup name in closing tag. If closing tag isn't matching currently opened one, an error will be generated, no crash will occur and generated text may not be be as expected
  - __&lt;/strong&gt;__, __</>__
 - You can also close all opened markup by using __<//>__
 
@@ -257,17 +257,17 @@ Check that your markup is correctly registered and that your tags are right bala
 This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.
 To prevent this problem, be sure to have set a default text color in your parser (__defaultConfiguration__ / __NSForegroundColorAttributeName__ key). You can use __setMarkedUpText:__ on __UILabel__ / __UITextField__ to use default component configuration.
 
-###I am encountering some crash when using custom font
-Be sure to use correct font name, or that font code you are using is right registered to your parser. 
+###I am encountering some crashes when using custom font
+Be sure to use correct font name, or that font code you are using is correctly registered to your parser. 
 Want to dump all available fonts on your device and check real names ?
 Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
 
-###No new line are inserted using __&lt;br&gt;__
+###No new lines are inserted using __&lt;br&gt;__
 *__&lt;br&gt;__* alone is not valid in __GONMArkupParser__. Be sure to use __&lt;br/&gt;__.
 
 ###Color isn't applied
 Check that you color value synthax is correct.
-For more information on supported synthaxe, have a look at [NSString+UIColor here](https://github.com/nicolasgoutaland/NSString-Color#nsstringcolor-), that is used to compute colors from your string values.
+For more information on supported synthax, have a look at [NSString+UIColor here](https://github.com/nicolasgoutaland/NSString-Color#nsstringcolor-), that is used to compute colors from your string values.
 
 ### Did Kim Kardashian broke the Internet ?
 No, definitely not. I was still able to push to GitHub yesterday.
