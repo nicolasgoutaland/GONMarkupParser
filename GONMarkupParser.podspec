@@ -19,7 +19,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/nicolasgoutaland/GONMarkupParser.git", :tag => "0.5" }
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
-  s.screenshots  = "https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/Assets/sample.gif"
   s.requires_arc = true
   s.dependency  "NSString+Color"
   s.framework    = 'CoreText'
