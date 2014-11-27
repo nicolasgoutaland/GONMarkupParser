@@ -273,9 +273,9 @@ For more information on supported synthax, have a look at [NSString+UIColor here
 No, definitely not. I was still able to push to GitHub yesterday.
 
 ## Evolutions
-- Indentation prefix in lists needs to be improved (add more symbols, etc..)
-- Implements **NSCoder** in parser and Markers
-- Allows **copy** on parsers / markers
+- Allow indentation prefix in lists customisation
+- Implement **NSCoder** in parser and Markers
+- Allow **copy** on parsers / markers
 
 ##Versions
 0.5   : Initial release<br/>
