@@ -40,7 +40,7 @@
 - (NSString *)orderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
 {
     NSString *indentation = [self listItemIndentation:indentationLevel];
-    NSString *bullet = [NSString stringWithFormat:@"%ld.%ld.", indentationLevel + 1, position];
+    NSString *bullet = [NSString stringWithFormat:@"%ld.%ld.", (long)indentationLevel + 1, (long)position];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
