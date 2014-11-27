@@ -64,8 +64,9 @@ The purpose of this was to be able to generate different outputs from the same i
 GONMarkupParser is **not** an out of the box solution to parse HTML files.
 
 ##Installation
-__Cocoapods__: `pod 'GONMarkupParser'`<br> // Not available yet
-__Manual__: Copy the __Classes__ folder in your project<br>
+__Cocoapods__:
+    `pod 'GONMarkupParser'`<br>
+__Manual__: Copy the __Classes__ folder in your project. You will also need to __manually__ install [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). Seriously, consider using [cocoapods](http://cocoapods.org) instead ;) <br>
 
 Import wanted headers in your project. .pch is a good place ;)
 __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarkupDefaultMarkups.h__ only references default markup classes.
