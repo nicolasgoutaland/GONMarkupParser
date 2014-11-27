@@ -24,7 +24,7 @@
 		<key>title</key>
 		<string>Unordered list</string>
 		<key>sample</key>
-		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
+		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;ul&gt;&lt;li&gt;Third&lt;/&gt;&lt;ul&gt;&lt;li&gt;Fourth&lt;/li&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
 	</dict>
 	<dict>
 		<key>title</key>

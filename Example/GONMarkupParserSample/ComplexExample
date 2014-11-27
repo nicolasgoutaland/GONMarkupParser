@@ -9,7 +9,7 @@ You can also change text alignment
 <left>Left</>
 <right>Right</>
 <justified>Justified paragraph Lorem ipsum dolor sit amet, consectetur adipiscing elit. In <red>rhoncus diam nec sem consequat</red> tincidunt. Etiam eu lacus a lorem cursus sodales et nec sapien. </>
-<normal>Normal</>
+<natural>Natural</>
 <inc>Text <inc>size <inc>can <inc>also <inc>be <inc>incremented <dec>or <dec>decremented<dec>, <dec>1 <dec>per <dec>1, <inc value="15">or specifying <dec value="10">a value.<//>
 
 <font name="customfont">This text will be written using a registered font on your parser, allowing to use it specifying a code, instead of its full name.</>

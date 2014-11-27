@@ -23,10 +23,10 @@
     static NSArray *bullets = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        bullets = @[@"\u2022"];
+        bullets = @[@"\u2022", @"\u25E6"];   // Next should be @"\u25A0", @"\u25A1", but they are displayed too big
     });
 
-    return [bullets objectAtIndex:MIN(anIndentation, bullets.count - 1)];
+    return [bullets objectAtIndex:anIndentation % bullets.count];
 }
 
 - (NSString *)unorderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
@@ -40,7 +40,7 @@
 - (NSString *)orderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
 {
     NSString *indentation = [self listItemIndentation:indentationLevel];
-    NSString *bullet = [NSString stringWithFormat:@"%ld.", (long)position];
+    NSString *bullet = [NSString stringWithFormat:@"%ld.%ld.", indentationLevel + 1, position];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }

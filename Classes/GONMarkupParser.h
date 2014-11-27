@@ -16,8 +16,7 @@
 
 #warning Evolution : Allow markup to be encoded (NSCoding)
 #warning Evolution : Loading from PLIST file
-#warning Evolution : Allows copy
-#warning Evolution : Improve lists numerotation
+#warning Evolution : Allow copy for parsers / markup
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
