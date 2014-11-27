@@ -5,18 +5,23 @@
 //  Created by Nicolas Goutaland on 25/06/14.
 //  Copyright (c) 2014 Nicolas Goutaland All rights reserved.
 //
-// A simple string parser, allowing string manipulation, usually used to parse HTML like string.
-// You have to define your own rules and ensure that tags are wellformed
+//  A simple string parser, allowing string manipulation, usually used to parse HTML like string.
+//  You have to define your own rules and ensure that tags are wellformed
 //
-// To close a tag, you do not have to specity its name, </> is valid
-// <//> is also valid to close all previoulsy opened tags
+//  To close a tag, you do not have to specity its name, </> is valid
+//  <//> is also valid to close all previoulsy opened tags
 //
+// History
+// -------
+// 0.5 Initial release
+
+// Roadmap
+// -------
+// Evolution : Allow markup to be encoded (NSCoding)
+// Evolution : Loading from PLIST file
+// Evolution : Allow copy for parsers / markup
 
 #import "GONMarkup.h"
-
-#warning Evolution : Allow markup to be encoded (NSCoding)
-#warning Evolution : Loading from PLIST file
-#warning Evolution : Allow copy for parsers / markup
 
 #define GONMarkupParser_ERROR_DOMAIN                   @"error.markupParser"
 #define GONMarkupParser_StringMalformed_ERROR_CODE     69
@@ -28,7 +33,7 @@ typedef enum : NSUInteger {
     GONMarkupParserLogLevelUnknownTag     = 0x01 << 1,      // Logs when an unknow tag is found
     GONMarkupParserLogLevelWorkflow       = 0x01 << 2,      // Logs parser workflow (Very verbose)
     GONMarkupParserLogLevelFonts          = 0x01 << 3,      // Logs fonts errors (Very useful to detect missing bold / italic fonts)
-    GONMarkupParserLogLevelAll            = 0xFF,            // Logs all
+    GONMarkupParserLogLevelAll            = 0xFF,           // Logs all
     GONMarkupParserLogLevelErrors         = GONMarkupParserLogLevelFonts | GONMarkupParserLogLevelUnknownTag | GONMarkupParserLogLevelUnbalancedTags
 } GONMarkupParserLogLevel;
 
