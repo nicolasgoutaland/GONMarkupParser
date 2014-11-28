@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GONMarkupParser"
-  s.version      = "0.5"
+  s.version      = "0.5.1"
   s.summary      = "NSAttributedString generation from NSString using XML, that can be easily extended."
   s.platform     = :ios, "7.0"
   s.description  = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/nicolasgoutaland/GONMarkupParser"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
   s.author       = { "nicolasgoutaland" => "nicolas.goutaland@gmail.com" }
-  s.source       = { :git => "https://github.com/nicolasgoutaland/GONMarkupParser.git", :tag => "0.5" }
+  s.source       = { :git => "https://github.com/nicolasgoutaland/GONMarkupParser.git", :tag => "0.5.1" }
   s.source_files  = 'Classes', 'Classes/**/*.{h,m}'
   s.exclude_files = 'Classes/Exclude'
   s.requires_arc = true
