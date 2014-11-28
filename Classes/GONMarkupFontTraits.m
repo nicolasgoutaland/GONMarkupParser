@@ -75,6 +75,11 @@
                 updatedFont = currentFont;
             }
         }
+        else
+        {
+            // Font has already requested trait, so use it
+            updatedFont = currentFont;
+        }
     }
 
     // Check for font size
