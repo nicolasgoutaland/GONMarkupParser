@@ -254,8 +254,8 @@ See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shar
 ###Some text is missing
 Check that your markup is correctly registered and that your tags are right balanced.
 
-###When using &gt; / &lt;, some text is missing
-Use &amp;gt; and &amp;lt; in text.
+###When using &lt; / &gt;, some text is missing
+Use &amp;lt; and &amp;gt; in text.
 
 ###Text color is still applied after my tag is closed.
 This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.
