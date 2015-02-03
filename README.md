@@ -171,6 +171,8 @@ You are stronlgy encouraged to use these methods if you want to use your compone
 | **i**      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
+| **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot) and __style__ (**single**, thick, double) | Underline text |
+| **strike**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot) and __style__ (**single**, thick, double) | Strikethrough text |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
 ###Reset
@@ -267,7 +269,7 @@ Want to dump all available fonts on your device and check real names ?
 Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
 
 ###No new lines are inserted using __&lt;br&gt;__
-*__&lt;br&gt;__* alone is not valid in __GONMArkupParser__. Be sure to use __&lt;br/&gt;__.
+*__&lt;br&gt;__* alone is not valid in __GONMarkupParser__. Be sure to use __&lt;br/&gt;__.
 
 ###Color isn't applied
 Check that you color value synthax is correct.
@@ -280,6 +282,9 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Allow indentation prefix in lists customisation
 - Implement **NSCoder** in parser and Markers
 - Allow **copy** on parsers / markers
+- Improve closing tag
+- Add link support  (Issue #1)
 
 ##Versions
+0.6   : Added support for underline / strikethrough text
 0.5   : Initial release<br/>

@@ -22,6 +22,22 @@
 	</dict>
 	<dict>
 		<key>title</key>
+		<string>Underline text</string>
+		<key>sample</key>
+		<string>&lt;u&gt;Text underline&lt;/&gt;.
+&lt;u word=&quot;true&quot;&gt;Text underline&lt;/&gt;.
+&lt;u word=&quot;true&quot; pattern=&quot;dashdotdot&quot; style=&quot;double&quot;&gt;Text underline&lt;/&gt;.</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Strikethrough text</string>
+		<key>sample</key>
+		<string>&lt;strike&gt;Text strikethrough&lt;/&gt;.
+&lt;strike word=&quot;true&quot;&gt;Text strikethrough&lt;/&gt;.
+&lt;strike word=&quot;true&quot; pattern=&quot;dashdotdot&quot; style=&quot;double&quot;&gt;Text strikethrough&lt;/&gt;.</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>Unordered list</string>
 		<key>sample</key>
 		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;ul&gt;&lt;li&gt;Third&lt;/&gt;&lt;ul&gt;&lt;li&gt;Fourth&lt;/li&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>

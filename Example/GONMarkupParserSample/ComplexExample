@@ -50,3 +50,7 @@ and an ordered list
 
 
 Finally, you can set <b>bold text</>, <i>italic text</> or <b><i>both</></>
+
+<u>Underline</> and <strike>strikethrough</> text is also available.
+You can customize line <u pattern="dash">pattern</>, <strike style="double">style</> and <u word="true">limit style to words only</>.
+<strike pattern="dashdotdot" words="true"><u style="double">Ugly style is also available ;)</></>

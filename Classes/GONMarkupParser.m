@@ -52,6 +52,7 @@
     [parser addMarkup:[GONMarkupReset resetMarkup]];
     [parser addMarkup:[GONMarkupParagrap paragraphMarkup]];
 
+    [parser addMarkups:[GONMarkupLineStyle allMarkups]];
     [parser addMarkups:[GONMarkupTextStyle allMarkups]];
     [parser addMarkups:[GONMarkupList allMarkups]];
     [parser addMarkups:[GONMarkupAlignment allMarkups]];

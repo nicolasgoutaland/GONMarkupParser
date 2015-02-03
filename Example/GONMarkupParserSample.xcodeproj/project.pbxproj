@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */; };
+		5C396DD21A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */; };
+		5C396DD31A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */; };
 		5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */; };
 		5C404BD01A1C951F007DCB2C /* DefaultConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */; };
 		5C44A9D119D0690A00CF6957 /* GONMarkupFontTraits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */; };
@@ -95,6 +97,8 @@
 		5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_Categories.h; path = ../Classes/GONMarkupParser_Categories.h; sourceTree = "<group>"; };
 		5C1D1C2C19920D7100F7B642 /* GONMarkupParagrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParagrap.h; path = ../Classes/GONMarkupParagrap.h; sourceTree = "<group>"; };
 		5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParagrap.m; path = ../Classes/GONMarkupParagrap.m; sourceTree = "<group>"; };
+		5C396DD01A80D80800AC8E45 /* GONMarkupLineStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupLineStyle.h; path = ../Classes/GONMarkupLineStyle.h; sourceTree = "<group>"; };
+		5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupLineStyle.m; path = ../Classes/GONMarkupLineStyle.m; sourceTree = "<group>"; };
 		5C404BCA1A1C9115007DCB2C /* DefaultConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultConfigurationViewController.h; sourceTree = "<group>"; };
 		5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultConfigurationViewController.m; sourceTree = "<group>"; };
 		5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultConfigurationViewController.xib; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				5CE1493C19CC2B6900B73518 /* GONMarkupBold.m */,
 				5CE1493619CC253600B73518 /* GONMarkupItalic.h */,
 				5CE1493919CC2B6300B73518 /* GONMarkupItalic.m */,
+				5C396DD01A80D80800AC8E45 /* GONMarkupLineStyle.h */,
+				5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */,
 				5CD617E519828B1C0001C3D9 /* GONMarkupTextStyle.h */,
 				5CD617E619828B1C0001C3D9 /* GONMarkupTextStyle.m */,
 			);
@@ -712,6 +718,7 @@
 				5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */,
 				5CE1493D19CC2B6900B73518 /* GONMarkupBold.m in Sources */,
 				5CE27198195B1412007FCF44 /* GONMarkupParser.m in Sources */,
+				5C396DD21A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */,
 				5CB1C5A0195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
 				5CB1C58E195B24F200590186 /* GONMarkupBlock.m in Sources */,
 				5C65F4041A1139CD005A76A3 /* PlaygroundViewController.m in Sources */,
@@ -750,6 +757,7 @@
 			files = (
 				5CB1C590195B250A00590186 /* GONMarkupNamedColor.m in Sources */,
 				5CB1C5AE195B4FA000590186 /* GONMarkupList.m in Sources */,
+				5C396DD31A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */,
 				5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */,
 				5CB1C591195B250A00590186 /* AppDelegate.m in Sources */,
 				5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
