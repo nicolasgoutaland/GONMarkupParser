@@ -40,7 +40,7 @@ static NSDictionary *dicPatterns;
 #pragma mark - Constructor
 + (NSArray *)allMarkups
 {
-    return @[[self underlineMarkup], [self strikethroughtMarkup]];
+    return @[[self underlineMarkup], [self strikethroughMarkup]];
 }
 
 + (instancetype)underlineMarkup
@@ -52,7 +52,7 @@ static NSDictionary *dicPatterns;
     return markup;
 }
 
-+ (instancetype)strikethroughtMarkup
++ (instancetype)strikethroughMarkup
 {
     GONMarkupLineStyle *markup = [self markupForTag:GONMarkupLineStyle_Strikethrough_TAG];
 

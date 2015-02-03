@@ -39,6 +39,6 @@
 /* Default markup to add underline support */
 + (instancetype)underlineMarkup;
 
-/* Default markup to add strikethrought support */
-+ (instancetype)strikethroughtMarkup;
+/* Default markup to add strikethrough support */
++ (instancetype)strikethroughMarkup;
 @end
