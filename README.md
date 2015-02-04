@@ -260,19 +260,19 @@ Check that your markup is correctly registered and that your tags are right bala
 Use &amp;lt; and &amp;gt; in text.
 
 ###Text color is still applied after my tag is closed.
-This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.
+This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.<br/>
 To prevent this problem, be sure to have set a default text color in your parser (__defaultConfiguration__ / __NSForegroundColorAttributeName__ key). You can use __setMarkedUpText:__ on __UILabel__ / __UITextField__ to use default component configuration.
 
 ###I am encountering some crashes when using custom font
-Be sure to use correct font name, or that font code you are using is correctly registered to your parser. 
-Want to dump all available fonts on your device and check real names ?
+Be sure to use correct font name, or that font code you are using is correctly registered to your parser. <br/>
+Want to dump all available fonts on your device and check real names ?<br/>
 Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
 
 ###No new lines are inserted using __&lt;br&gt;__
 *__&lt;br&gt;__* alone is not valid in __GONMarkupParser__. Be sure to use __&lt;br/&gt;__.
 
 ###Color isn't applied
-Check that you color value synthax is correct.
+Check that you color value synthax is correct.<br/>
 For more information on supported synthax, have a look at [NSString+UIColor here](https://github.com/nicolasgoutaland/NSString-Color#nsstringcolor-), that is used to compute colors from your string values.
 
 ### Did Kim Kardashian broke the Internet ?
@@ -286,5 +286,5 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Add link support  (Issue #1)
 
 ##Versions
-0.6   : Added support for underline / strikethrough text
+0.6   : Added support for underline / strikethrough text<br/>
 0.5   : Initial release<br/>
