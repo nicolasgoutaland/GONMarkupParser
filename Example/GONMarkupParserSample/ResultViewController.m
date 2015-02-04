@@ -30,4 +30,22 @@
     // Affect result string
     _resultTextView.attributedText = _resultAttributedString;
 }
+
+#pragma mark - UITextViewDelegate methods
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange
+{
+    NSString *attachementValue = [[NSString alloc] initWithData:textAttachment.contents
+                                                       encoding:NSUTF8StringEncoding];
+    
+    // Show link value
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                    message:attachementValue
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    return NO;
+}
+
 @end

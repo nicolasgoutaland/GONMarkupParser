@@ -16,6 +16,7 @@
 #import "GONMarkupItalic.h"
 #import "GONMarkupLineBreak.h"
 #import "GONMarkupLineStyle.h"
+#import "GONMarkupLink.h"
 #import "GONMarkupList.h"
 #import "GONMarkupListItem.h"
 #import "GONMarkupNamedColor.h"
