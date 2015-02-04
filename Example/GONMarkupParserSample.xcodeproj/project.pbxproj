@@ -14,6 +14,8 @@
 		5C404BD01A1C951F007DCB2C /* DefaultConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */; };
 		5C43EE491A8251920053A667 /* GONMarkupLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE481A8251920053A667 /* GONMarkupLink.m */; };
 		5C43EE4A1A8251920053A667 /* GONMarkupLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE481A8251920053A667 /* GONMarkupLink.m */; };
+		5C43EE511A8267D60053A667 /* UITextView+GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE501A8267D60053A667 /* UITextView+GONMarkupParser.m */; };
+		5C43EE521A8267D60053A667 /* UITextView+GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE501A8267D60053A667 /* UITextView+GONMarkupParser.m */; };
 		5C44A9D119D0690A00CF6957 /* GONMarkupFontTraits.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */; };
 		5C65F3EA1A1114EC005A76A3 /* GONMarkupInc.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3E91A1114EC005A76A3 /* GONMarkupInc.m */; };
 		5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C65F3EC1A11150A005A76A3 /* GONMarkupDec.m */; };
@@ -106,6 +108,8 @@
 		5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultConfigurationViewController.xib; sourceTree = "<group>"; };
 		5C43EE471A8251920053A667 /* GONMarkupLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupLink.h; path = ../Classes/GONMarkupLink.h; sourceTree = "<group>"; };
 		5C43EE481A8251920053A667 /* GONMarkupLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupLink.m; path = ../Classes/GONMarkupLink.m; sourceTree = "<group>"; };
+		5C43EE4F1A8267D60053A667 /* UITextView+GONMarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+GONMarkupParser.h"; path = "../Classes/UITextView+GONMarkupParser.h"; sourceTree = "<group>"; };
+		5C43EE501A8267D60053A667 /* UITextView+GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+GONMarkupParser.m"; path = "../Classes/UITextView+GONMarkupParser.m"; sourceTree = "<group>"; };
 		5C44A9CF19D0690A00CF6957 /* GONMarkupFontTraits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupFontTraits.h; path = ../Classes/GONMarkupFontTraits.h; sourceTree = "<group>"; };
 		5C44A9D019D0690A00CF6957 /* GONMarkupFontTraits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupFontTraits.m; path = ../Classes/GONMarkupFontTraits.m; sourceTree = "<group>"; };
 		5C65F3E81A1114EC005A76A3 /* GONMarkupInc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupInc.h; path = ../Classes/GONMarkupInc.h; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 				5CB3106E19BE026C00B06D0D /* UILabel+GONMarkupParser.m */,
 				5CB3107019BE027A00B06D0D /* UITextField+GONMarkupParser.h */,
 				5CB3107119BE027A00B06D0D /* UITextField+GONMarkupParser.m */,
+				5C43EE4F1A8267D60053A667 /* UITextView+GONMarkupParser.h */,
+				5C43EE501A8267D60053A667 /* UITextView+GONMarkupParser.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -757,6 +763,7 @@
 				5CB1C5AD195B4FA000590186 /* GONMarkupList.m in Sources */,
 				5CD617E319828AA90001C3D9 /* GONMarkupParserManager.m in Sources */,
 				5C65F3ED1A11150A005A76A3 /* GONMarkupDec.m in Sources */,
+				5C43EE511A8267D60053A667 /* UITextView+GONMarkupParser.m in Sources */,
 				5CE2715D195B11E0007FCF44 /* main.m in Sources */,
 				5CB1C5A4195B333700590186 /* GONMarkup+Private.m in Sources */,
 				5CE27194195B1412007FCF44 /* GONMarkup.m in Sources */,
@@ -775,6 +782,7 @@
 				5CB1C5AE195B4FA000590186 /* GONMarkupList.m in Sources */,
 				5C396DD31A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */,
 				5CE2717C195B11E0007FCF44 /* GONMarkupParserSampleTests.m in Sources */,
+				5C43EE521A8267D60053A667 /* UITextView+GONMarkupParser.m in Sources */,
 				5CB1C591195B250A00590186 /* AppDelegate.m in Sources */,
 				5CB1C5A1195B2B7700590186 /* GONMarkupNamedFont.m in Sources */,
 				5C7C5B2A1994CB55003BE47A /* GONMarkupParserUtils.m in Sources */,
