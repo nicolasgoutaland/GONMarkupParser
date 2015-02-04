@@ -11,6 +11,7 @@
 @interface GONMarkupLineStyle ()
 // Data
 @property (nonatomic, strong) NSString *configurationKey;
+@property (nonatomic, strong) NSString *colorConfigurationKey;
 @end
 
 @implementation GONMarkupLineStyle
@@ -24,7 +25,7 @@ static NSDictionary *dicPatterns;
         dicStyles = @{
                         @"single" : @(NSUnderlineStyleSingle),
                         @"double" : @(NSUnderlineStyleDouble),
-                        @"thick"  : @(NSUnderlineStyleThick)
+                        @"thick"  : @(NSUnderlineStyleThick),
                      };
 
         dicPatterns = @{
@@ -47,7 +48,8 @@ static NSDictionary *dicPatterns;
 {
     GONMarkupLineStyle *markup = [self markupForTag:GONMarkupLineStyle_Underline_TAG];
 
-    markup.configurationKey = NSUnderlineStyleAttributeName;
+    markup.configurationKey      = NSUnderlineStyleAttributeName;
+    markup.colorConfigurationKey = NSUnderlineColorAttributeName;
 
     return markup;
 }
@@ -56,7 +58,8 @@ static NSDictionary *dicPatterns;
 {
     GONMarkupLineStyle *markup = [self markupForTag:GONMarkupLineStyle_Strikethrough_TAG];
 
-    markup.configurationKey = NSStrikethroughStyleAttributeName;
+    markup.configurationKey      = NSStrikethroughStyleAttributeName;
+    markup.colorConfigurationKey = NSStrikethroughColorAttributeName;
 
     return markup;
 }
@@ -67,6 +70,14 @@ static NSDictionary *dicPatterns;
     // Hold new configuration
     [configurationDictionary setObject:@([self extractStyleFromAttributes:dicAttributes])
                                 forKey:_configurationKey];
+    
+    // Color
+    UIColor *color = [[dicAttributes objectForKey:GONMarkupLineStyle_TAG_color_ATT] representedColor];
+    if (color)
+    {
+        [configurationDictionary setObject:color
+                                    forKey:_colorConfigurationKey];
+    }
 }
 
 - (NSInteger)extractStyleFromAttributes:(NSDictionary *)dicAttributes
