@@ -11,5 +11,6 @@
 
 #import "UILabel+GONMarkupParser.h"
 #import "UITextField+GONMarkupParser.h"
+#import "UITextView+GONMarkupParser.h"
 
 #endif

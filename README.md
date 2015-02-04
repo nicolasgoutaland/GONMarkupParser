@@ -75,7 +75,7 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
-- you can also set text on __UILabel__ / __UITextField__ by using [__setMarkedUpText:__](#available-uikit-categories) methods 
+- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods 
 ##How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
 
@@ -136,14 +136,14 @@ Shared parser is configured with all default markups.
 You can register some parser to this class, allowing you to use them from different places in your application.
 
 ##Available UIKit Categories
-__UILabel__/__UITextField__<br/>
-2 methods were added to UILabel and UITextField, allowing you to easily update its attribtued string using a markedup one.<br/>
-- __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributedOne.
+__UILabel__/__UITextField__/__UITextView__<br/>
+2 methods were added to UILabel, UITextField and UITextView, allowing you to easily update its attributed string using a markedup one.<br/>
+- __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributed one.
 - __- setMarkedUpText:(NSString *)text__ will use shared one, aka __[GONMarkupParserManager sharedParser]__
 
 If no parser default configuration is set for __NSForegroundColorAttributeName__, __NSFontAttributeName__ and NSParagraphStyleAttributeName, components __textColor__, __textAlignment__ and __font__ properties will be used as default.
 
-You are stronlgy encouraged to use these methods if you want to use your component style as default parser configuration.
+You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
 ##Default tags
 ###Summary
@@ -171,8 +171,8 @@ You are stronlgy encouraged to use these methods if you want to use your compone
 | **i**      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
-| **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot) and __style__ (**single**, thick, double) | Underline text |
-| **strike**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot) and __style__ (**single**, thick, double) | Strikethrough text |
+| **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Underline text |
+| **strike**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Strikethrough text |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
 ###Reset

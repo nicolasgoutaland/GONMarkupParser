@@ -210,6 +210,7 @@
 
     // Prepare result string
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] init];
+    [resultString beginEditing];
 
     // Browse chunks
     NSString *tag;
@@ -280,6 +281,9 @@
             }
         }
     }
+
+    // Stop editing
+    [resultString endEditing];
 
     if (_configurationsStack.count != 0)
     {
