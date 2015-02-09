@@ -76,9 +76,9 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Link</string>
+		<string>Anchor</string>
 		<key>sample</key>
-		<string>&lt;link value=&quot;Hello&quot;&gt;A simple link&lt;/&gt;. &lt;link value=&quot;http://www.apple.com&quot;&gt;An internet link&lt;/&gt;.</string>
+		<string>&lt;a href=&quot;Hello&quot;&gt;A simple link&lt;/&gt;. &lt;link value=&quot;http://www.apple.com&quot;&gt;An internet link&lt;/&gt;.</string>
 	</dict>
 	<dict>
 		<key>title</key>

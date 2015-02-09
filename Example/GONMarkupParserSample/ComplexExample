@@ -48,6 +48,12 @@ and an ordered list
 <li>Item 3</li>
 </ol>
 
+<dec><dec><color value="gray">
+Anchor are also supported. If you are using a UITextView to display your attributed string, set it non editable, but selectionnable, set its delegate and implements
+<b>- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange</>
+method to handle user interaction.
+<a href="https://github.com/nicolasgoutaland/GONMarkupParser">Link example ;)<//>
+
 
 Finally, you can set <b>bold text</>, <i>italic text</> or <b><i>both</></>
 

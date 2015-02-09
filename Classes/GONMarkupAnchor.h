@@ -1,11 +1,11 @@
 //
-//  GONMarkupLink.h
+//  GONMarkupAnchor.h
 //  GONMarkupParserSample
 //
 //  Created by Nicolas Goutaland on 04/02/15.
 //  Copyright 2015 Nicolas Goutaland. All rights reserved.
 //
-//  Define a markup to add link support
+//  Define a markup to add anchor support
 //  You can specify link value with "value" attribute.
 //
 //  To detect user touch on link :
@@ -16,19 +16,19 @@
 //
 //  Examples
 //
-//  <link value="#1">Link 1</>
-//  <link value="http://www.apple.com">Link to apple.com</>
-//  <link value="myscheme://myapp">Custom link</>
+//  <a href="#1">Link 1</>
+//  <a href="http://www.apple.com">Link to apple.com</>
+//  <a href="myscheme://myapp">Custom link</>
 
 #import "GONMarkup.h"
 
 // Tag
-#define GONMarkupLink_TAG                 @"link"
+#define GONMarkupAnchor_TAG                 @"a"
 
 // Attributes
-#define GONMarkupLink_TAG_value_ATT       @"value"
+#define GONMarkupAnchor_TAG_href_ATT       @"href"
 
-@interface GONMarkupLink : GONMarkup
-/* Default markup to add link support */
-+ (instancetype)linkMarkup;
+@interface GONMarkupAnchor : GONMarkup
+/* Default markup to add anchor support */
++ (instancetype)anchorMarkup;
 @end

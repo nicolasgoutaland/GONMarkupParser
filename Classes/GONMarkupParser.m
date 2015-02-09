@@ -46,10 +46,10 @@
     [parser addMarkup:[GONMarkupDec decMarkup]];
     [parser addMarkup:[GONMarkupInc incMarkup]];
 
+    [parser addMarkup:[GONMarkupAnchor anchorMarkup]];
     [parser addMarkup:[GONMarkupFont fontMarkup]];
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
-    [parser addMarkup:[GONMarkupLink linkMarkup]];
     [parser addMarkup:[GONMarkupReset resetMarkup]];
     [parser addMarkup:[GONMarkupParagrap paragraphMarkup]];
 

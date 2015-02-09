@@ -1,27 +1,27 @@
 //
-//  GONMarkupLink.m
+//  GONMarkupAnchor.m
 //  GONMarkupParserSample
 //
 //  Created by Nicolas Goutaland on 04/02/15.
 //  Copyright 2015 Nicolas Goutaland. All rights reserved.
 //
 
-#import "GONMarkupLink.h"
+#import "GONMarkupAnchor.h"
 
-@interface GONMarkupLink ()
+@interface GONMarkupAnchor ()
 @end
 
-@implementation GONMarkupLink
+@implementation GONMarkupAnchor
 #pragma mark - Constructor
-+ (instancetype)linkMarkup
++ (instancetype)anchorMarkup
 {
-    return [self markupForTag:GONMarkupLink_TAG];
+    return [self markupForTag:GONMarkupAnchor_TAG];
 }
 
 #pragma mark - Style
 - (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
-    NSString *value = [dicAttributes objectForKey:GONMarkupLink_TAG_value_ATT];
+    NSString *value = [dicAttributes objectForKey:GONMarkupAnchor_TAG_href_ATT];
     if (value)
     {
         NSTextAttachment *attachment = [[NSTextAttachment alloc] initWithData:[[value stringByRemovingPercentEncoding] dataUsingEncoding:NSUTF8StringEncoding] ofType:nil];
