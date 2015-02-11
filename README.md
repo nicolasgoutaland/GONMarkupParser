@@ -298,5 +298,6 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Improve closing tag
 
 ##Versions
+0.6.1 : Added anchor support
 0.6   : Added support for underline / strikethrough text<br/>
 0.5   : Initial release<br/>
