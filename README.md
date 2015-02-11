@@ -146,10 +146,12 @@ If no parser default configuration is set for __NSForegroundColorAttributeName__
 You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
 ##Anchor support
-Anchor support is supported using __&lta href="..."&gt__ markup.
-If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.
-Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.
-Then, in your delegate, implements ```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` method.
+Anchor support is supported using __&lta href="..."&gt__ markup.<br/>
+If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.<br/>
+Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.<br/>
+Then, in your delegate, implements<br/>
+```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` <br/>
+method.
 
 
 ##Default tags
@@ -180,7 +182,7 @@ Then, in your delegate, implements ```- (BOOL)textView:(UITextView *)textView sh
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Underline text |
 | **strike**      | GONMarkupLineStyle | __href__ to define link value | Add a link. [See anchor support for more information](#anchor-support). |
-| **a**      | GONMarkupAnchor | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Strikethrough text |
+| **a**      | GONMarkupAnchor | __href__ link value | Support an anchor link. See [Anchor support](#anchor-support) for more information. |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
 ###Reset
