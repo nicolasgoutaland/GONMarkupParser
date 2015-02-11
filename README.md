@@ -299,7 +299,7 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Improve closing tag
 
 ##Versions
-0.6.2 : Added anchor support
-0.6.1 : Added support for underline and strikethrough color
-0.6   : Added support for underline / strikethrough text<br/>
-0.5   : Initial release<br/>
+__0.6.2__ : Added anchor support<br/>
+__0.6.1__ : Added support for underline and strikethrough color<br/>
+__0.6__   : Added support for underline / strikethrough text<br/>
+__0.5__   : Initial release<br/>
