@@ -145,6 +145,13 @@ If no parser default configuration is set for __NSForegroundColorAttributeName__
 
 You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
+##Anchor support
+Anchor support is supported using __&lta href="..."&gt__ markup.
+If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.
+Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.
+Then, in your delegate, implements ```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` method.
+
+
 ##Default tags
 ###Summary
 | Tag        | Class | Parameters           | Effect |
@@ -172,7 +179,8 @@ You are strongly encouraged to use these methods if you want to use your compone
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Underline text |
-| **strike**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Strikethrough text |
+| **strike**      | GONMarkupLineStyle | __href__ to define link value | Add a link. [See anchor support for more information](#anchor-support). |
+| **a**      | GONMarkupAnchor | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Strikethrough text |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
 ###Reset
@@ -188,7 +196,7 @@ There is 3 ways to do it.
 The simpler way to add a new markup in your application is to use one of theses 3 following classes :
 - __GONMarkupNamedColor__, allows you to add a markup that updates text color
 - __GONMarkupNamedFont__, allows you to add a markup that updates text font
-- __GONMarkupSimple__, allows you to add a markup that updates all text attributes. Dictionary is intended to be the same as you may pass to configure an NSMutableAttributedString using -setAttributes:range: method.
+- __GONMarkupSimple__, allows you to add a markup that updates all text attributes. Dictionary is intended to be the same as you may pass to configure an __NSMutableAttributedString__ using -setAttributes:range: method.
 
 ####Example
 ```
@@ -263,6 +271,9 @@ Use &amp;lt; and &amp;gt; in text.
 This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.<br/>
 To prevent this problem, be sure to have set a default text color in your parser (__defaultConfiguration__ / __NSForegroundColorAttributeName__ key). You can use __setMarkedUpText:__ on __UILabel__ / __UITextField__ to use default component configuration.
 
+###Text style isn't applied to my link
+See [Anchor support](#anchor-support) for more information.
+
 ###I am encountering some crashes when using custom font
 Be sure to use correct font name, or that font code you are using is correctly registered to your parser. <br/>
 Want to dump all available fonts on your device and check real names ?<br/>
@@ -283,7 +294,6 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Implement **NSCoder** in parser and Markers
 - Allow **copy** on parsers / markers
 - Improve closing tag
-- Add link support  (Issue #1)
 
 ##Versions
 0.6   : Added support for underline / strikethrough text<br/>

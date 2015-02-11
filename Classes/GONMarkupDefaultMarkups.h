@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupAlignment.h"
+#import "GONMarkupAnchor.h"
 #import "GONMarkupBold.h"
 #import "GONMarkupBlock.h"
 #import "GONMarkupColor.h"

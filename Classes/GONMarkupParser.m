@@ -46,6 +46,7 @@
     [parser addMarkup:[GONMarkupDec decMarkup]];
     [parser addMarkup:[GONMarkupInc incMarkup]];
 
+    [parser addMarkup:[GONMarkupAnchor anchorMarkup]];
     [parser addMarkup:[GONMarkupFont fontMarkup]];
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
@@ -210,16 +211,15 @@
 
     // Prepare result string
     NSMutableAttributedString *resultString = [[NSMutableAttributedString alloc] init];
-    [resultString beginEditing];
 
     // Browse chunks
     NSString *tag;
     BOOL autoclosingMarkup;
+    [resultString beginEditing];
     for (NSTextCheckingResult *result in results)
     {
         // Split string
         NSArray *parts = [[inputString substringWithRange:result.range] componentsSeparatedByString:@"<"];
-
         // Append extracted string
         [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]]];
 
@@ -282,7 +282,6 @@
         }
     }
 
-    // Stop editing
     [resultString endEditing];
 
     if (_configurationsStack.count != 0)

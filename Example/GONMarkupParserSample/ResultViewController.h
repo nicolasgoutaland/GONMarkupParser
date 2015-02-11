@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController <UITextViewDelegate>
 @property (nonatomic, strong) NSAttributedString *resultAttributedString;
 @end
