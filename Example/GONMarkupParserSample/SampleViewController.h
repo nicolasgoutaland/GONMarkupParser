@@ -6,6 +6,6 @@
 //  Copyright (c) 2014 Nicolas Goutaland. All rights reserved.
 //
 
-@interface SampleViewController : UIViewController
+@interface SampleViewController : UIViewController <UITextViewDelegate>
 @property (nonatomic, strong) NSString *sampleText;
 @end

@@ -40,14 +40,14 @@
     // Text color
     if (![selectedParser.defaultConfiguration objectForKey:NSForegroundColorAttributeName])
     {
-        [selectedParser.defaultConfiguration setObject:defaultColor
+        [selectedParser.defaultConfiguration setObject:(defaultColor ? defaultColor : [UIColor blackColor])
                                                 forKey:NSForegroundColorAttributeName];
     }
 
     // Font
     if (![selectedParser.defaultConfiguration objectForKey:NSFontAttributeName] && defaultFont)
     {
-        [selectedParser.defaultConfiguration setObject:defaultFont
+        [selectedParser.defaultConfiguration setObject:(defaultFont ? defaultFont : [UIFont systemFontOfSize:[UIFont systemFontSize]])
                                                 forKey:NSFontAttributeName];
     }
 

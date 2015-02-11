@@ -7,26 +7,80 @@
 		<string>Playground</string>
 		<key>viewController</key>
 		<string>PlaygroundViewController</string>
+		<key>background</key>
+		<string>eeeeee</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Complex example</string>
+		<key>viewController</key>
+		<string>ComplexExampleViewController</string>
+		<key>background</key>
+		<string>eeeeee</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Anchor</string>
+		<key>sample</key>
+		<string>&lt;a href=&quot;Hello&quot;&gt;A simple link&lt;/&gt;. &lt;a href=&quot;http://www.apple.com&quot;&gt;An internet link&lt;/&gt;.</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Bold, Italic, Sup, Sub</string>
 		<key>sample</key>
 		<string>This text is &lt;b&gt;in bold&lt;/&gt;&lt;br/&gt;This text is &lt;i&gt;in italic&lt;/&gt;&lt;br/&gt;This text is &lt;sup&gt;superscripted&lt;/&gt;&lt;br/&gt;This text is &lt;sub&gt;subscripted&lt;/&gt;&lt;br/&gt;&lt;b&gt;&lt;i&gt;This text is bold italic&lt;//&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Color</string>
+		<key>sample</key>
+		<string>Default, &lt;color value=&quot;red&quot;&gt;red&lt;/&gt;, &lt;color value=&quot;blue&quot;&gt;blue&lt;/&gt;, &lt;color value=&quot;magenta&quot;&gt;magenta&lt;/&gt;, &lt;color value=&quot;FF5533&quot;&gt;FF5533&lt;/&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Default label configuration</string>
+		<key>viewController</key>
+		<string>DefaultConfigurationViewController</string>
+		<key>background</key>
+		<string>ABB7B7</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Font</string>
+		<key>sample</key>
+		<string>Default&lt;br/&gt;&lt;font size=&quot;30&quot;&gt;Size to 30&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;Didot&quot;&gt;font name Didot&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;AmericanTypewriter&quot; size=&quot;20&quot;&gt;font name AmericanTypewriter and size 20&lt;/&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Inc / Dec</string>
+		<key>sample</key>
+		<string>Default size, &lt;inc&gt;inc 1 &lt;inc&gt; inc 1 &lt;inc value=&quot;10&quot;&gt;inc 10&lt;//&gt;  &lt;dec&gt;dec 1 &lt;dec&gt; dec 1 &lt;dec value=&quot;10&quot;&gt;dec 10&lt;//&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>Ordered list</string>
 		<key>sample</key>
 		<string>This text is a list.&lt;br/&gt;&lt;ol&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ol&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;ol&gt;&lt;li&gt;Third&lt;/&gt;&lt;ol&gt;&lt;li&gt;Fourth&lt;/li&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Underline text</string>
+		<string>Reset</string>
 		<key>sample</key>
-		<string>&lt;u&gt;Text underline&lt;/&gt;.
-&lt;u word=&quot;true&quot;&gt;Text underline&lt;/&gt;.
-&lt;u word=&quot;true&quot; pattern=&quot;dashdotdot&quot; style=&quot;double&quot; color=&quot;red&quot;&gt;Text underline&lt;/&gt;.</string>
+		<string>&lt;font size=&quot;20&quot;&gt;&lt;color value=&quot;red&quot;&gt;&lt;right&gt;Reset tag allows you to&lt;br/&gt;&lt;reset&gt;&lt;center&gt;protect&lt;/&gt;&lt;/reset&gt;&lt;br/&gt; certains parts of your text, making it&lt;br/&gt;&lt;reset&gt;&lt;color value=&quot;green&quot;&gt; easier&lt;/&gt;&lt;/&gt;&lt;br/&gt; to be reconfigured.&lt;//&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -35,30 +89,8 @@
 		<string>&lt;strike&gt;Text strikethrough&lt;/&gt;.
 &lt;strike word=&quot;true&quot;&gt;Text strikethrough&lt;/&gt;.
 &lt;strike word=&quot;true&quot; pattern=&quot;dashdotdot&quot; style=&quot;double&quot; color=&quot;green&quot;&gt;Text strikethrough&lt;/&gt;.</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Unordered list</string>
-		<key>sample</key>
-		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;ul&gt;&lt;li&gt;Third&lt;/&gt;&lt;ul&gt;&lt;li&gt;Fourth&lt;/li&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Color</string>
-		<key>sample</key>
-		<string>Default, &lt;color value=&quot;red&quot;&gt;red&lt;/&gt;, &lt;color value=&quot;blue&quot;&gt;blue&lt;/&gt;, &lt;color value=&quot;magenta&quot;&gt;magenta&lt;/&gt;, &lt;color value=&quot;FF5533&quot;&gt;FF5533&lt;/&gt;</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Inc / Dec</string>
-		<key>sample</key>
-		<string>Default size, &lt;inc&gt;inc 1 &lt;inc&gt; inc 1 &lt;inc value=&quot;10&quot;&gt;inc 10&lt;//&gt;  &lt;dec&gt;dec 1 &lt;dec&gt; dec 1 &lt;dec value=&quot;10&quot;&gt;dec 10&lt;//&gt;</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Font</string>
-		<key>sample</key>
-		<string>Default&lt;br/&gt;&lt;font size=&quot;30&quot;&gt;Size to 30&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;Didot&quot;&gt;font name Didot&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;AmericanTypewriter&quot; size=&quot;20&quot;&gt;font name AmericanTypewriter and size 20&lt;/&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -67,30 +99,26 @@
 		<string>&lt;left&gt;Left&lt;/&gt;&lt;br/&gt;&lt;center&gt;center&lt;/&gt;&lt;br/&gt;&lt;right&gt;Right&lt;/&gt;&lt;br/&gt;&lt;justified&gt;Justified paragraph Lorem ipsum dolor sit amet, consectetur adipiscing elit. In&lt;//&gt;
 &lt;normal&gt;Normal&lt;/&gt;
 </string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Reset</string>
+		<string>Underline text</string>
 		<key>sample</key>
-		<string>&lt;font size=&quot;20&quot;&gt;&lt;color value=&quot;red&quot;&gt;&lt;right&gt;Reset tag allows you to&lt;br/&gt;&lt;reset&gt;&lt;center&gt;protect&lt;/&gt;&lt;/reset&gt;&lt;br/&gt; certains parts of your text, making it&lt;br/&gt;&lt;reset&gt;&lt;color value=&quot;green&quot;&gt; easier&lt;/&gt;&lt;/&gt;&lt;br/&gt; to be reconfigured.&lt;//&gt;</string>
+		<string>&lt;u&gt;Text underline&lt;/&gt;.
+&lt;u word=&quot;true&quot;&gt;Text underline&lt;/&gt;.
+&lt;u word=&quot;true&quot; pattern=&quot;dashdotdot&quot; style=&quot;double&quot; color=&quot;red&quot;&gt;Text underline&lt;/&gt;.</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Anchor</string>
+		<string>Unordered list</string>
 		<key>sample</key>
-		<string>&lt;a href=&quot;Hello&quot;&gt;A simple link&lt;/&gt;. &lt;link value=&quot;http://www.apple.com&quot;&gt;An internet link&lt;/&gt;.</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Custom markups</string>
-		<key>viewController</key>
-		<string>ComplexExampleViewController</string>
-	</dict>
-	<dict>
-		<key>title</key>
-		<string>Default label configuration</string>
-		<key>viewController</key>
-		<string>DefaultConfigurationViewController</string>
+		<string>This text is a list.&lt;br/&gt;&lt;ul&gt;&lt;li&gt;First item&lt;/li&gt;&lt;li&gt;Second &lt;b&gt;bold&lt;/&gt; item &lt;/&gt;&lt;ul&gt;&lt;li&gt;Second.first&lt;/&gt;&lt;li&gt;Second.second&lt;/&gt;&lt;ul&gt;&lt;li&gt;Third&lt;/&gt;&lt;ul&gt;&lt;li&gt;Fourth&lt;/li&gt;&lt;/&gt;&lt;/&gt;&lt;/&gt;&lt;li&gt;Third item&lt;/&gt;&lt;/&gt;</string>
+		<key>background</key>
+		<string>ABB7B7</string>
 	</dict>
 </array>
 </plist>
