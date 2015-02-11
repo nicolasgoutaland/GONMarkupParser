@@ -147,7 +147,7 @@ If no parser default configuration is set for __NSForegroundColorAttributeName__
 You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
 ##Anchor support
-Anchor support is supported using __&lta href="..."&gt__ markup.<br/>
+Anchor support is supported using __&lt;a href="..."&gt;__ markup.<br/>
 If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.<br/>
 Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.<br/>
 Then, in your delegate, implements<br/>
