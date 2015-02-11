@@ -75,7 +75,8 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
-- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods 
+- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods
+
 ##How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
 
