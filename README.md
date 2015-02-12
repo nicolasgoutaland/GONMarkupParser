@@ -151,7 +151,7 @@ Anchor support is supported using __&lt;a href="..."&gt;__ markup.<br/>
 If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.<br/>
 Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.<br/>
 Then, in your delegate, implements<br/>
-```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` <br/>
+```- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange``` <br/>
 method.
 
 
@@ -299,6 +299,7 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Improve closing tag
 
 ##Versions
+__0.6.3__ : Fixed a bug in anchor support<br/>
 __0.6.2__ : Added anchor support<br/>
 __0.6.1__ : Added support for underline and strikethrough color<br/>
 __0.6__   : Added support for underline / strikethrough text<br/>

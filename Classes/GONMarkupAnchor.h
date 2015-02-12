@@ -12,7 +12,7 @@
 //  - display attributed string in a UITextView
 //  - configure UITextView selectable property to YES and isEditable to NO
 //  - set delegate
-//  - implement "textView:shouldInteractWithTextAttachment:inRange:" method
+//  - implement "textView:shouldInteractWithURL:inRange:" method
 //
 //  Examples
 //
