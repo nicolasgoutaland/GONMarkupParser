@@ -13,6 +13,7 @@
 
 #define TITLE_KEY               @"title"
 #define SAMPLE_KEY              @"sample"
+#define BACKGROUND_KEY          @"background"
 #define VIEW_CONTROLLER_KEY     @"viewController"
 
 @interface RootViewController ()
@@ -48,8 +49,13 @@
 #pragma mark - UITableViewDelegate methods
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary *sampleData = [_samplesData objectAtIndex:indexPath.row];
+
     // Set sample title
-    cell.textLabel.text = [[_samplesData objectAtIndex:indexPath.row] objectForKey:TITLE_KEY];
+    cell.textLabel.text = [sampleData objectForKey:TITLE_KEY];
+
+    // Set sample cell background color
+    cell.backgroundColor = [[sampleData objectForKey:BACKGROUND_KEY] representedColor];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

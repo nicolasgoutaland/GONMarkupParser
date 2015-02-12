@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -7,51 +7,62 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SampleViewController">
             <connections>
-                <outlet property="inputLabel" destination="vH7-rZ-Mou" id="y06-d9-8vk"/>
-                <outlet property="resultLabel" destination="HKj-5h-IlX" id="Esd-16-6cg"/>
+                <outlet property="inputTextView" destination="2bg-WY-COJ" id="pVi-sl-Zk6"/>
+                <outlet property="resultTextView" destination="Kay-pb-0HH" id="XfX-LS-Nw8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKj-5h-IlX">
-                    <rect key="frame" x="20" y="310" width="560" height="270"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vH7-rZ-Mou">
-                    <rect key="frame" x="20" y="20" width="560" height="270"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbL-6G-pYC">
-                    <rect key="frame" x="0.0" y="299" width="600" height="2"/>
+                    <rect key="frame" x="0.0" y="283" width="320" height="2"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="2" id="ixd-lx-qtw"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kay-pb-0HH" userLabel="result">
+                    <rect key="frame" x="20" y="295" width="280" height="253"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="jLa-gR-YBF"/>
+                    </connections>
+                </textView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bg-WY-COJ" userLabel="input">
+                    <rect key="frame" x="20" y="20" width="280" height="253"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="HKj-5h-IlX" secondAttribute="trailing" constant="20" id="4wW-rc-vBZ"/>
-                <constraint firstAttribute="bottom" secondItem="HKj-5h-IlX" secondAttribute="bottom" constant="20" id="Byl-lH-cOq"/>
-                <constraint firstItem="vH7-rZ-Mou" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="FnY-YM-rG7"/>
-                <constraint firstAttribute="trailing" secondItem="vH7-rZ-Mou" secondAttribute="trailing" constant="20" id="LBF-Yc-AvB"/>
+                <constraint firstItem="Kay-pb-0HH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="8jX-bl-Ar9"/>
                 <constraint firstAttribute="trailing" secondItem="DbL-6G-pYC" secondAttribute="trailing" id="NCI-UJ-9fr"/>
                 <constraint firstItem="DbL-6G-pYC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PjP-OV-WfK"/>
-                <constraint firstItem="HKj-5h-IlX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="biS-M5-3Kb"/>
-                <constraint firstItem="vH7-rZ-Mou" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="qpp-el-1eP"/>
-                <constraint firstItem="vH7-rZ-Mou" firstAttribute="height" secondItem="HKj-5h-IlX" secondAttribute="height" id="urq-eY-wb2"/>
+                <constraint firstAttribute="trailing" secondItem="2bg-WY-COJ" secondAttribute="trailing" constant="20" id="Q3o-Lt-qHP"/>
+                <constraint firstItem="2bg-WY-COJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="ZYt-g0-57r"/>
+                <constraint firstItem="Kay-pb-0HH" firstAttribute="top" secondItem="DbL-6G-pYC" secondAttribute="bottom" constant="10" id="atK-dh-19o"/>
+                <constraint firstItem="2bg-WY-COJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="bpK-Vi-Wi7"/>
+                <constraint firstItem="DbL-6G-pYC" firstAttribute="top" secondItem="2bg-WY-COJ" secondAttribute="bottom" constant="10" id="q2o-Jm-Uq2"/>
+                <constraint firstAttribute="bottom" secondItem="Kay-pb-0HH" secondAttribute="bottom" constant="20" id="sX1-Kz-GN6"/>
+                <constraint firstAttribute="trailing" secondItem="Kay-pb-0HH" secondAttribute="trailing" constant="20" id="wlN-fq-1qp"/>
                 <constraint firstAttribute="centerY" secondItem="DbL-6G-pYC" secondAttribute="centerY" id="y6c-MW-W5L"/>
-                <constraint firstItem="HKj-5h-IlX" firstAttribute="top" secondItem="vH7-rZ-Mou" secondAttribute="bottom" constant="20" id="ysq-1V-eha"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="416" y="345"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

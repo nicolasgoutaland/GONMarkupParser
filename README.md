@@ -65,17 +65,18 @@ GONMarkupParser is **not** an out of the box solution to parse HTML files.
 
 ##Installation
 __Cocoapods__:
-    `pod 'GONMarkupParser'`<br>
-__Manual__: Copy the __Classes__ folder in your project. You will also need to __manually__ install [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). Seriously, consider using [cocoapods](http://cocoapods.org) instead ;) <br>
+    `pod 'GONMarkupParser'`<br/>
+__Manual__: Copy the __Classes__ folder in your project. You will also need to __manually__ install [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). Seriously, consider using [cocoapods](http://cocoapods.org) instead ;) <br/>
 
-Import wanted headers in your project. .pch is a good place ;)
+Import wanted headers in your project. .pch is a good place ;)<br/>
 __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarkupDefaultMarkups.h__ only references default markup classes.
 
 ##Usage
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
-- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods 
+- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods
+
 ##How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
 
@@ -146,10 +147,12 @@ If no parser default configuration is set for __NSForegroundColorAttributeName__
 You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
 ##Anchor support
-Anchor support is supported using __&lta href="..."&gt__ markup.
-If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.
-Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.
-Then, in your delegate, implements ```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` method.
+Anchor support is supported using __&lt;a href="..."&gt;__ markup.<br/>
+If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.<br/>
+Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.<br/>
+Then, in your delegate, implements<br/>
+```- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange``` <br/>
+method.
 
 
 ##Default tags
@@ -180,7 +183,7 @@ Then, in your delegate, implements ```- (BOOL)textView:(UITextView *)textView sh
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Underline text |
 | **strike**      | GONMarkupLineStyle | __href__ to define link value | Add a link. [See anchor support for more information](#anchor-support). |
-| **a**      | GONMarkupAnchor | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Strikethrough text |
+| **a**      | GONMarkupAnchor | __href__ link value | Support an anchor link. See [Anchor support](#anchor-support) for more information. |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
 ###Reset
@@ -296,5 +299,7 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Improve closing tag
 
 ##Versions
-0.6   : Added support for underline / strikethrough text<br/>
-0.5   : Initial release<br/>
+__0.6.2__ : Added anchor support<br/>
+__0.6.1__ : Added support for underline and strikethrough color<br/>
+__0.6__   : Added support for underline / strikethrough text<br/>
+__0.5__   : Initial release<br/>

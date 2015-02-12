@@ -7,6 +7,7 @@
 //
 
 #import "GONMarkupLineStyle.h"
+#import <NSString+Color.h>
 
 @interface GONMarkupLineStyle ()
 // Data
