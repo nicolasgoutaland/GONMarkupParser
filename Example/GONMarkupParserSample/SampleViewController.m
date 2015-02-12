@@ -28,12 +28,12 @@
 #pragma mark - UITextViewDelegate methods
 - (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange
 {
-    NSString *attachementValue = [[NSString alloc] initWithData:textAttachment.contents
-                                                       encoding:NSUTF8StringEncoding];
+    NSString *attachmentValue = [[NSString alloc] initWithData:textAttachment.contents
+                                                      encoding:NSUTF8StringEncoding];
     
     // Show link value
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                    message:attachementValue
+                                                    message:attachmentValue
                                                    delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil];
