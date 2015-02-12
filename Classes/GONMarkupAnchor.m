@@ -24,9 +24,8 @@
     NSString *value = [dicAttributes objectForKey:GONMarkupAnchor_TAG_href_ATT];
     if (value)
     {
-        NSTextAttachment *attachment = [[NSTextAttachment alloc] initWithData:[[value stringByRemovingPercentEncoding] dataUsingEncoding:NSUTF8StringEncoding] ofType:nil];
-
-        [configurationDictionary setObject:attachment
+        // Create URL based on value
+        [configurationDictionary setObject:value
                                     forKey:NSLinkAttributeName];
     }
 }
