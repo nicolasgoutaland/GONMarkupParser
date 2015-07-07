@@ -299,6 +299,8 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Improve closing tag
 
 ##Versions
+__0.6.5__ : Updated HTML chars tables<br/>
+__0.6.4__ : Updated HTML chars tables<br/>
 __0.6.3__ : Fixed a bug in anchor support<br/>
 __0.6.2__ : Added anchor support<br/>
 __0.6.1__ : Added support for underline and strikethrough color<br/>

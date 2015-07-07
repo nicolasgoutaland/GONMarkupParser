@@ -13,7 +13,13 @@
 //
 // History
 // -------
-// 0.5 Initial release
+// 0.6.5 : Updated HTML chars tables
+// 0.6.4 : Updated HTML chars tables
+// 0.6.3 : Fixed a bug in anchor support
+// 0.6.2 : Added anchor support
+// 0.6.1 : Added support for underline and strikethrough color
+// 0.6   : Added support for underline / strikethrough text
+// 0.5   : Initial release
 
 // Roadmap
 // -------
