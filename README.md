@@ -2,7 +2,7 @@
 Easily build NSAttributedString from XML/HTML like strings.
 
 ##Demo
-![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
+![ScreenShot](https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/Assets/sample.gif)
 
 ##TL;DR;
 ```
