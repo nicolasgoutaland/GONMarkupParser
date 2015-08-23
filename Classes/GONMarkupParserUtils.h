@@ -14,7 +14,7 @@
 /* Clean HTML entities from string */
 + (void)cleanHTMLEntitiesFromString:(NSMutableString *)inputString;
 
-/* Helper method to generate an attribtued string from a parser, but allowing to set default text color, text alignment and font 
+/* Helper method to generate an attributed string from a parser, but allowing to set default text color, text alignment and font 
  * if they are not set in parser default configuration.
  * This mthod will update parser default configuration, generate string, then revert configuration back to previous state
  * Used in UILAbel+GONMarkupParser and UITextField+GONMarkupParser categories to prevent duplicated code

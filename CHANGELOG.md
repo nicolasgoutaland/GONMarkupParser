@@ -1,5 +1,6 @@
 #Change Log
-
+##[__0.6.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.6)
+Added UIButton+GONMarkupParser category
 ##[__0.6.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.5)
 Updated HTML chars tables
 ##[__0.6.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.4)
