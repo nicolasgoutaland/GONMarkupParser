@@ -54,7 +54,7 @@
 		<key>title</key>
 		<string>Font</string>
 		<key>sample</key>
-		<string>Default&lt;br/&gt;&lt;font size=&quot;30&quot;&gt;Size to 30&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;Didot&quot;&gt;font name Didot&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;AmericanTypewriter&quot; size=&quot;20&quot;&gt;font name AmericanTypewriter and size 20&lt;/&gt;</string>
+		<string>Default&lt;br/&gt;&lt;font size=&quot;30&quot;&gt;Size to 30&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;Didot&quot;&gt;font name Didot&lt;/&gt;&lt;br/&gt;&lt;font name=&quot;AmericanTypewriter&quot; color=&quot;red&quot; size=&quot;20&quot;&gt;font name AmericanTypewriter, size 20, red&lt;/&gt;</string>
 		<key>background</key>
 		<string>ABB7B7</string>
 	</dict>
