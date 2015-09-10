@@ -166,7 +166,7 @@ method.
 | **natural** | GONMarkupAlignment | none | Force text alignment to natural  |
 | **color**      | GONMarkupColor | **value** | Set text color. For supported __value__ syntaxes, check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method. |
 | **N/A**      | GONMarkupNamedColor | none | Set text color. Can be used to reset text color to parser default one if specified color is nil |
-| **font**      | GONMarkupFont | **size**, **name**  | Set text font, text size or both. |
+| **font**      | GONMarkupFont | **size**, **name**, **color**  | Set text font, text size or both. Can be used also to set text color |
 | **N/A**      | GONMarkupNamedFont | none  | Set text font and size. Can be used to reset font to parser default one if specified font is nil |
 | **br**      | GONMarkupLineBreak | none | Add a new line |
 | **ul**      | GONMarkupList | none  | Create an unordered list |
@@ -298,7 +298,11 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Allow **copy** on parsers / markers
 - Improve closing tag
 
+## Contributors
+See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
+
 ##Versions
+__0.6.7__ : Added **color** attribute to **font** markup<br/>
 __0.6.6__ : Added UIButton+GONMarkupParser category<br/>
 __0.6.5__ : Updated HTML chars tables<br/>
 __0.6.4__ : Updated HTML chars tables<br/>

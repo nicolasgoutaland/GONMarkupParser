@@ -13,6 +13,8 @@
 //
 // History
 // -------
+// 0.6.7 : Added color attribute to font markup
+// 0.6.6 : Added UIButton+GONMarkupParser category
 // 0.6.5 : Updated HTML chars tables
 // 0.6.4 : Updated HTML chars tables
 // 0.6.3 : Fixed a bug in anchor support

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "GONMarkupParser"
-  s.version      = "0.6.6"
+  s.version      = "0.6.7"
   s.summary      = "NSAttributedString generation from NSString using XML, that can be easily extended."
   s.platform     = :ios, "7.0"
   s.description  = <<-DESC
