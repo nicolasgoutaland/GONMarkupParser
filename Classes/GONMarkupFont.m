@@ -8,6 +8,7 @@
 
 #import "GONMarkupFont.h"
 #import "GONMarkup+Private.h"
+#import <NSString+Color.h>
 
 @interface GONMarkupFont ()
 
