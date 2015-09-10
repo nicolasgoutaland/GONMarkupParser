@@ -25,6 +25,15 @@
 {
     NSString *value;
 
+    //Font color
+    if ([dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT]) {
+        UIColor *colorValue = [[dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT] representedColor];
+        if (colorValue)
+        {
+            [configurationDictionary setObject:colorValue forKey:NSForegroundColorAttributeName];
+        }
+    }
+    
     // Font name
     value = [dicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
     if (value)

@@ -28,6 +28,7 @@
 
 // Attributes
 #define GONMarkupFont_TAG_size_ATT       @"size"                // Is missing
+#define GONMarkupFont_TAG_color_ATT      @"color"               // text color
 #define GONMarkupFont_TAG_name_ATT       @"name"                // Full font name, including style
 
 @interface GONMarkupFont : GONMarkup
