@@ -1,4 +1,6 @@
 #Change Log
+##[__0.6.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.8)
+Fixed import problems with cocoa Pods 0.39
 ##[__0.6.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.7)
 Added color attribute to font markup
 ##[__0.6.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.6)
