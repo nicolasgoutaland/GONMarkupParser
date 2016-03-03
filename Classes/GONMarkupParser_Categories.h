@@ -9,6 +9,7 @@
 #ifndef GONMarkupParserSample_GONMarkupParser_Categories_h
 #define GONMarkupParserSample_GONMarkupParser_Categories_h
 
+#import "UIButton+GONMarkupParser.h"
 #import "UILabel+GONMarkupParser.h"
 #import "UITextField+GONMarkupParser.h"
 #import "UITextView+GONMarkupParser.h"

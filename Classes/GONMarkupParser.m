@@ -220,6 +220,7 @@
     {
         // Split string
         NSArray *parts = [[inputString substringWithRange:result.range] componentsSeparatedByString:@"<"];
+
         // Append extracted string
         [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]]];
 

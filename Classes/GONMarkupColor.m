@@ -7,7 +7,7 @@
 //
 
 #import "GONMarkupColor.h"
-#import <NSString+Color.h>
+#import <NSString+Color/NSString+Color.h>
 
 @implementation GONMarkupColor
 #pragma mark - Constructor

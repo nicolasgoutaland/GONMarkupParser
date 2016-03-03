@@ -27,7 +27,8 @@
 #define GONMarkupFont_TAG                @"font"
 
 // Attributes
-#define GONMarkupFont_TAG_size_ATT       @"size"                // Is missing
+#define GONMarkupFont_TAG_size_ATT       @"size"                // Font size. If missing, will use default font size, or one previously set on stack
+#define GONMarkupFont_TAG_color_ATT      @"color"               // Text color
 #define GONMarkupFont_TAG_name_ATT       @"name"                // Full font name, including style
 
 @interface GONMarkupFont : GONMarkup

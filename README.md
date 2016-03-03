@@ -2,7 +2,7 @@
 Easily build NSAttributedString from XML/HTML like strings.
 
 ##Demo
-![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/sample.gif)
+![ScreenShot](https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/Assets/sample.gif)
 
 ##TL;DR;
 ```
@@ -64,7 +64,7 @@ The purpose of this was to be able to generate different outputs from the same i
 GONMarkupParser is **not** an out of the box solution to parse HTML files.
 
 ##Installation
-__Cocoapods__:
+__CocoaPods__:
     `pod 'GONMarkupParser'`<br/>
 __Manual__: Copy the __Classes__ folder in your project. You will also need to __manually__ install [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). Seriously, consider using [cocoapods](http://cocoapods.org) instead ;) <br/>
 
@@ -75,7 +75,7 @@ __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarku
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
-- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ by using [__setMarkedUpText:__](#available-uikit-categories) methods
+- you can also set text on __UILabel__ / __UITextField__ / __UITextView__ / __UIButton__ by using [__setMarkedUpText:__](#available-uikit-categories) methods
 
 ##How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
@@ -104,7 +104,7 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
 ###Constructor
 __GONMarkupParser__ class provide two class constructors.
 - __+ defaultMarkupParser__ is a parser with all default tags registered (See [Default tags summary](#default-tags) for more information)
-- __+ emptyMarkupParser__ is a parser without any registered tags
+- __+ emptyMarkgiupParser__ is a parser without any registered tags
 
 ###Properties
 A parser can have a pre / post processing block, that will be called prior and after parsing. This allows you to perform some string replace before parsing for example. 
@@ -166,7 +166,7 @@ method.
 | **natural** | GONMarkupAlignment | none | Force text alignment to natural  |
 | **color**      | GONMarkupColor | **value** | Set text color. For supported __value__ syntaxes, check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method. |
 | **N/A**      | GONMarkupNamedColor | none | Set text color. Can be used to reset text color to parser default one if specified color is nil |
-| **font**      | GONMarkupFont | **size**, **name**  | Set text font, text size or both. |
+| **font**      | GONMarkupFont | **size**, **name**, **color**  | Set text font, text size or both. Can be used also to set text color |
 | **N/A**      | GONMarkupNamedFont | none  | Set text font and size. Can be used to reset font to parser default one if specified font is nil |
 | **br**      | GONMarkupLineBreak | none | Add a new line |
 | **ul**      | GONMarkupList | none  | Create an unordered list |
@@ -182,7 +182,7 @@ method.
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
 | **u**      | GONMarkupLineStyle | __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)| Underline text |
-| **strike**      | GONMarkupLineStyle | __href__ to define link value | Add a link. [See anchor support for more information](#anchor-support). |
+| **strike**      | GONMarkupLineStyle |  __words__ to apply style only on words (true, **false**), __pattern__ (**solid**, dot, dash, dashdot, dashdotdot), __style__ (**single**, thick, double) and __color__ (Check [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color) [__representedColor__](https://github.com/nicolasgoutaland/NSString-Color#example) method)|strikethrough text |
 | **a**      | GONMarkupAnchor | __href__ link value | Support an anchor link. See [Anchor support](#anchor-support) for more information. |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
@@ -298,7 +298,14 @@ No, definitely not. I was still able to push to GitHub yesterday.
 - Allow **copy** on parsers / markers
 - Improve closing tag
 
+## Contributors
+See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
+
 ##Versions
+__0.6.7__ : Added **color** attribute to **font** markup<br/>
+__0.6.6__ : Added UIButton+GONMarkupParser category<br/>
+__0.6.5__ : Updated HTML chars tables<br/>
+__0.6.4__ : Updated HTML chars tables<br/>
 __0.6.3__ : Fixed a bug in anchor support<br/>
 __0.6.2__ : Added anchor support<br/>
 __0.6.1__ : Added support for underline and strikethrough color<br/>

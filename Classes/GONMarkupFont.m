@@ -8,6 +8,7 @@
 
 #import "GONMarkupFont.h"
 #import "GONMarkup+Private.h"
+#import <NSString+Color/NSString+Color.h>
 
 @interface GONMarkupFont ()
 
@@ -25,6 +26,17 @@
 {
     NSString *value;
 
+    // Text color
+    if ([dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT])
+    {
+        UIColor *colorValue = [[dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT] representedColor];
+        if (colorValue)
+        {
+            [configurationDictionary setObject:colorValue
+                                        forKey:NSForegroundColorAttributeName];
+        }
+    }
+    
     // Font name
     value = [dicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
     if (value)
