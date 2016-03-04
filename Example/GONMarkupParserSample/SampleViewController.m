@@ -22,7 +22,8 @@
 
     // Configure textviews
     _inputTextView.text             = _sampleText;
-    [_resultTextView setMarkedUpText:_sampleText];
+    [_resultTextView setMarkedUpText:_sampleText
+                              parser:[GONMarkupParser defaultMarkupParser]];
 }
 
 #pragma mark - UITextViewDelegate methods

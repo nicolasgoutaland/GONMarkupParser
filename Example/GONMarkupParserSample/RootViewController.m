@@ -20,9 +20,6 @@
 // Data
 @property (nonatomic, strong) NSArray             *samplesData;
 @property (nonatomic, strong) NSMutableDictionary *viewControllerCache;
-
-// View controllers
-@property (nonatomic, strong) SampleViewController *sampleViewController;
 @end
 
 @implementation RootViewController
@@ -80,9 +77,10 @@
     else
     {
         // Configure sample view controller
-        self.sampleViewController.sampleText = [[_samplesData objectAtIndex:indexPath.row] objectForKey:SAMPLE_KEY];
+        SampleViewController *sampleViewController = [[SampleViewController alloc] init];
+        sampleViewController.sampleText            = [[_samplesData objectAtIndex:indexPath.row] objectForKey:SAMPLE_KEY];
 
-        viewController = self.sampleViewController;
+        viewController = sampleViewController;
     }
 
     // Push associated view controller
@@ -121,5 +119,4 @@
     [_viewControllerCache removeAllObjects];
 }
 
-LAZY_PROPERTY(sampleViewController);
 @end
