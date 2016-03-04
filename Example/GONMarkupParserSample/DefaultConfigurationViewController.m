@@ -31,6 +31,7 @@
 
     // Configure labels
     _inputLabel.text            = inputText;
-    [_resultLabel setMarkedUpText:inputText];
+    [_resultLabel setMarkedUpText:inputText
+                           parser:[GONMarkupParser defaultMarkupParser]];
 }
 @end

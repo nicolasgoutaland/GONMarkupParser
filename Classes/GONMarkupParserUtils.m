@@ -50,7 +50,7 @@
     // Font
     if (![selectedParser.defaultConfiguration objectForKey:NSFontAttributeName] && defaultFont)
     {
-        [selectedParser.defaultConfiguration setObject:(defaultFont ? defaultFont : [UIFont systemFontOfSize:[UIFont systemFontSize]])
+        [selectedParser.defaultConfiguration setObject:defaultFont
                                                 forKey:NSFontAttributeName];
     }
 
