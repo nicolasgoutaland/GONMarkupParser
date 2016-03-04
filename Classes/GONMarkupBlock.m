@@ -28,27 +28,27 @@
         _closingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
 }
 
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
     if (_updatedContentStringBlock)
-        return _updatedContentStringBlock(string, context, dicAttributes);
+        return _updatedContentStringBlock(string, context, dicAttributes, stringAttributes);
 
-    return [super updatedContentString:string context:context attributes:dicAttributes];
+    return [super updatedContentString:string context:context attributes:dicAttributes stringAttributes:stringAttributes];
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
     if (_prefixStringForContextBlock)
-        return _prefixStringForContextBlock(context, dicAttributes);
+        return _prefixStringForContextBlock(context, dicAttributes, stringAttributes);
 
-    return [super prefixStringForContext:context attributes:dicAttributes];
+    return [super prefixStringForContext:context attributes:dicAttributes stringAttributes:stringAttributes];
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
     if (_suffixStringForContextBlock)
-        return _suffixStringForContextBlock(context, dicAttributes);
+        return _suffixStringForContextBlock(context, dicAttributes, stringAttributes);
 
-    return [super suffixStringForContext:context attributes:dicAttributes];
+    return [super suffixStringForContext:context attributes:dicAttributes stringAttributes:stringAttributes];
 }
 @end

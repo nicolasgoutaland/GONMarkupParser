@@ -13,6 +13,8 @@
 		5C396DD31A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */; };
 		5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */; };
 		5C404BD01A1C951F007DCB2C /* DefaultConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */; };
+		5C4241B71C89982000E5B289 /* GONMarkupImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4241B61C89982000E5B289 /* GONMarkupImage.m */; };
+		5C4241B91C89995A00E5B289 /* lama.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4241B81C89995A00E5B289 /* lama.png */; };
 		5C43EE491A8251920053A667 /* GONMarkupAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE481A8251920053A667 /* GONMarkupAnchor.m */; };
 		5C43EE4A1A8251920053A667 /* GONMarkupAnchor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE481A8251920053A667 /* GONMarkupAnchor.m */; };
 		5C43EE511A8267D60053A667 /* UITextView+GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43EE501A8267D60053A667 /* UITextView+GONMarkupParser.m */; };
@@ -110,6 +112,9 @@
 		5C404BCA1A1C9115007DCB2C /* DefaultConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultConfigurationViewController.h; sourceTree = "<group>"; };
 		5C404BCB1A1C9115007DCB2C /* DefaultConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultConfigurationViewController.m; sourceTree = "<group>"; };
 		5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DefaultConfigurationViewController.xib; sourceTree = "<group>"; };
+		5C4241B51C89982000E5B289 /* GONMarkupImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupImage.h; path = ../Classes/GONMarkupImage.h; sourceTree = "<group>"; };
+		5C4241B61C89982000E5B289 /* GONMarkupImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupImage.m; path = ../Classes/GONMarkupImage.m; sourceTree = "<group>"; };
+		5C4241B81C89995A00E5B289 /* lama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lama.png; sourceTree = "<group>"; };
 		5C43EE471A8251920053A667 /* GONMarkupAnchor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupAnchor.h; path = ../Classes/GONMarkupAnchor.h; sourceTree = "<group>"; };
 		5C43EE481A8251920053A667 /* GONMarkupAnchor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupAnchor.m; path = ../Classes/GONMarkupAnchor.m; sourceTree = "<group>"; };
 		5C43EE4F1A8267D60053A667 /* UITextView+GONMarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+GONMarkupParser.h"; path = "../Classes/UITextView+GONMarkupParser.h"; sourceTree = "<group>"; };
@@ -240,6 +245,15 @@
 				5C404BCF1A1C951F007DCB2C /* DefaultConfigurationViewController.xib */,
 			);
 			name = DefaultConfiguration;
+			sourceTree = "<group>";
+		};
+		5C4241B41C8997F500E5B289 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				5C4241B51C89982000E5B289 /* GONMarkupImage.h */,
+				5C4241B61C89982000E5B289 /* GONMarkupImage.m */,
+			);
+			name = Image;
 			sourceTree = "<group>";
 		};
 		5C43EE461A8251510053A667 /* Anchor */ = {
@@ -542,6 +556,7 @@
 		5CE27187195B1241007FCF44 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5C4241B81C89995A00E5B289 /* lama.png */,
 				5CE27168195B11E0007FCF44 /* Images.xcassets */,
 				5CE2718A195B12E6007FCF44 /* PodFile */,
 				5C65F3F01A112231005A76A3 /* samples.plist */,
@@ -583,6 +598,7 @@
 				5CB1C583195B1A3100590186 /* Color */,
 				5CB1C584195B1A3500590186 /* Font */,
 				5CB1C5AA195B4F8900590186 /* List */,
+				5C4241B41C8997F500E5B289 /* Image */,
 				5CC284B41979746D0009D443 /* Simple */,
 				5CB1C599195B25A400590186 /* Special */,
 				5C65F3DF1A111468005A76A3 /* TextSize */,
@@ -680,6 +696,7 @@
 			files = (
 				5CE27169195B11E0007FCF44 /* Images.xcassets in Resources */,
 				5C65F4051A1139CD005A76A3 /* PlaygroundViewController.xib in Resources */,
+				5C4241B91C89995A00E5B289 /* lama.png in Resources */,
 				5CB1C5A8195B3B7400590186 /* ComplexExample in Resources */,
 				5C65F3FF1A1133F8005A76A3 /* SampleViewController.xib in Resources */,
 				5C65F3F31A112EBE005A76A3 /* MainWindow.xib in Resources */,
@@ -753,6 +770,7 @@
 				5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */,
 				5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */,
 				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
+				5C4241B71C89982000E5B289 /* GONMarkupImage.m in Sources */,
 				5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */,
 				5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */,
 				5C65F40B1A11FDB2005A76A3 /* ComplexExampleViewController.m in Sources */,

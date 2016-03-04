@@ -40,6 +40,8 @@
 {
     GONMarkupParser *parser = [[GONMarkupParser alloc] init];
 
+    [parser addMarkup:[GONMarkupImage imageMarkup]];
+
     [parser addMarkup:[GONMarkupItalic italicMarkup]];
     [parser addMarkup:[GONMarkupBold boldMarkup]];
 
@@ -382,11 +384,13 @@
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
-        return [[NSAttributedString alloc] initWithString:[currentMarker prefixStringForContext:_currentContext attributes:[self attributesForCurrentTag]]
-                                               attributes:[self currentConfiguration]];
+        return [currentMarker prefixStringForContext:_currentContext
+                                          attributes:[self attributesForCurrentTag]
+                                    stringAttributes:[self currentConfiguration]];
+
     }
 
-    return [[NSAttributedString alloc] initWithString:@"" attributes:[self currentConfiguration]];
+    return [[NSAttributedString alloc] initWithString:@""];
 }
 
 - (NSAttributedString *)computeSuffixString
@@ -394,9 +398,10 @@
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
-        return [[NSAttributedString alloc] initWithString:[currentMarker suffixStringForContext:_currentContext
-                                                                                     attributes:[self attributesForCurrentTag]]
-                                               attributes:[self currentConfiguration]];
+        return [currentMarker suffixStringForContext:_currentContext
+                                          attributes:[self attributesForCurrentTag]
+                                    stringAttributes:[self currentConfiguration]];
+
     }
 
     return [[NSAttributedString alloc] initWithString:@"" attributes:[self currentConfiguration]];
@@ -407,10 +412,10 @@
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
-        return [[NSAttributedString alloc] initWithString:[currentMarker updatedContentString:inputString
-                                                                                      context:_currentContext
-                                                                                   attributes:[self attributesForCurrentTag]]
-                                               attributes:[self currentConfiguration]];
+        return [currentMarker updatedContentString:inputString
+                                           context:_currentContext
+                                        attributes:[self attributesForCurrentTag]
+                                  stringAttributes:[self currentConfiguration]];
     }
 
     return [[NSAttributedString alloc] initWithString:inputString attributes:[self currentConfiguration]];

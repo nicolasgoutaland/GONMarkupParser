@@ -42,19 +42,19 @@
 }
 
 #pragma mark - Test
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
-    return string;
+    return [[NSAttributedString alloc] initWithString:string attributes:stringAttributes];
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
-    return @"";
+    return [[NSAttributedString alloc] initWithString:@""];
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
-    return @"";
+    return [[NSAttributedString alloc] initWithString:@""];
 }
 
 #pragma mark - Style
