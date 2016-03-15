@@ -154,6 +154,7 @@ Then, in your delegate, implements<br/>
 ```- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange``` <br/>
 method.
 
+Color style won't be applied to links. You have to use __linkTextAttributes__ attribute from your __UITextView__ to set it.
 
 ##Default tags
 ###Summary
