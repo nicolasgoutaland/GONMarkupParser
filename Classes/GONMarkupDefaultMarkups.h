@@ -13,6 +13,7 @@
 #import "GONMarkupColor.h"
 #import "GONMarkupDec.h"
 #import "GONMarkupFont.h"
+#import "GONMarkupImage.h"
 #import "GONMarkupInc.h"
 #import "GONMarkupItalic.h"
 #import "GONMarkupLineBreak.h"
