@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Nicolas Goutaland All rights reserved.
 //
 //  Define a generic markup to configure font
+//  "color" is used to change text color
+//       Colors are handled via NSString+Color, using "representedColor" category method
+//       Have a look at https://github.com/nicolasgoutaland/NSString-Color for more information
 //  "size" is used to define font size
 //      If missing, current font size will be used. If not found is set, default system font size will be used
 //  "name" define a registered font name or full font name
@@ -20,6 +23,7 @@
 //  <font size="18">This text will use current font, set to 18</>
 //  <font name="Helvetica">This text will use Helvetica as font, using current font size</>
 //  <font name="Helvetica" size="18">This text will use Helvetica, set to 18</>
+//  <font name="Helvetica" size="18" color="red">This text will use Helvetica, set to 18, in red</>
 
 #import "GONMarkup.h"
 
