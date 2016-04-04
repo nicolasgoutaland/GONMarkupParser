@@ -1,4 +1,6 @@
 #Change Log
+##[__0.6.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.9)
+Fixed bug #12
 ##[__0.6.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.8)
 Fixed import problems with cocoa Pods 0.39
 ##[__0.6.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.7)
