@@ -25,18 +25,17 @@
 - (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     NSString *value;
+    BOOL resetFontAttribute = YES;
 
     // Text color
-    if ([dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT])
+    value = [dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT];
+    if (value)
     {
-        UIColor *colorValue = [[dicAttributes objectForKey:GONMarkupFont_TAG_color_ATT] representedColor];
-        if (colorValue)
-        {
-            [configurationDictionary setObject:colorValue
-                                        forKey:NSForegroundColorAttributeName];
-        }
+        [configurationDictionary setObject:[value representedColor]
+                                    forKey:NSForegroundColorAttributeName];
+        resetFontAttribute = NO;
     }
-    
+
     // Font name
     value = [dicAttributes objectForKey:GONMarkupFont_TAG_name_ATT];
     if (value)
@@ -74,39 +73,42 @@
         [configurationDictionary setObject:font
                                      forKey:NSFontAttributeName];
 
-        return;
+        resetFontAttribute = NO;
     }
-
-    // Font size only
-    value = [dicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
-    if (value)
+    else
     {
-        // Extract size
-        CGFloat size = [value floatValue];
-
-        // Look for current font
-        UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];
-        if (currentFont)
+        // Font size only
+        value = [dicAttributes objectForKey:GONMarkupFont_TAG_size_ATT];
+        if (value)
         {
-            // Current font found, so update it with new size
-            currentFont = [UIFont fontWithDescriptor:currentFont.fontDescriptor
-                                                size:size];
-        }
-        else
-        {
-            // No found defined, use default one with defined size
-            currentFont = [UIFont systemFontOfSize:size];
-        }
+            // Extract size
+            CGFloat size = [value floatValue];
+            
+            // Look for current font
+            UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];
+            if (currentFont)
+            {
+                // Current font found, so update it with new size
+                currentFont = [UIFont fontWithDescriptor:currentFont.fontDescriptor
+                                                    size:size];
+            }
+            else
+            {
+                // No found defined, use default one with defined size
+                currentFont = [UIFont systemFontOfSize:size];
+            }
+            
+            // Update configuration
+            [configurationDictionary setObject:currentFont
+                                        forKey:NSFontAttributeName];
 
-        // Update configuration
-        [configurationDictionary setObject:currentFont
-                                     forKey:NSFontAttributeName];
-
-        return;
+            resetFontAttribute = NO;
+        }
     }
 
     // Empty font parameter, reset configuration
-    [configurationDictionary removeObjectForKey:NSFontAttributeName];
+    if (resetFontAttribute)
+        [configurationDictionary removeObjectForKey:NSFontAttributeName];
 }
 
 @end

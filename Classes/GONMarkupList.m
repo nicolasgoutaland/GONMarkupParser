@@ -61,9 +61,9 @@
                      forKey:GONMarkupList_CONFIGURATIONS_KEY];
 }
 
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
-    return @"";
+    return [[NSAttributedString alloc] initWithString:@""];
 }
 
 - (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes

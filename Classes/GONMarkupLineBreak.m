@@ -20,13 +20,13 @@
 }
 
 #pragma mark - Content update
-- (NSString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
     // If in a list, no new lines
     if ([context objectForKey:GONMarkupList_CONFIGURATIONS_KEY])
-        return CARRIAGE_RETURN;
+        return [[NSAttributedString alloc] initWithString:CARRIAGE_RETURN attributes:stringAttributes];
 
-    return NEW_LINE;
+    return [[NSAttributedString alloc] initWithString:NEW_LINE attributes:stringAttributes];
 }
 
 @end

@@ -57,14 +57,13 @@
     NSMutableParagraphStyle *paragraphStyle = [self paragraphStyle:configurationDictionary];
 
     // Generate prefix string
-    NSAttributedString *prefixString = [[NSAttributedString alloc] initWithString:[self prefixStringForContext:context attributes:dicAttributes]
-                                                                       attributes:configurationDictionary];
+    NSAttributedString *prefixString = [self prefixStringForContext:context attributes:dicAttributes stringAttributes:configurationDictionary];
 
     // Compute prefix string width
     paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1) options:0 context:nil]);
 }
 
-- (NSString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
     // Retrieve configuration
     NSDictionary *listConfiguration = [[context objectForKey:GONMarkupList_CONFIGURATIONS_KEY] lastObject];
@@ -79,12 +78,12 @@
     else
         prefix = [self unorderedListItemPrefixForIndentation:indentation position:position listConfiguration:listConfiguration context:context];
 
-    return prefix;
+    return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];
 }
 
-- (NSString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
 {
-    return @"\n";
+    return [[NSAttributedString alloc] initWithString:@"\n"];
 }
 
 #pragma mark - Utils
