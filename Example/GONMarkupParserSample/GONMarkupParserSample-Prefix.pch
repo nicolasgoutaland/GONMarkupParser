@@ -13,8 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <NSString+Color/NSString+Color.h>
+    #import "NSString+Color.h"
     #import <CoreText/CoreText.h>
-    #import <LazyProperty.h>
+    #import "LazyProperty.h"
     #import "GONMarkupParser_All.h"
 #endif
