@@ -303,8 +303,9 @@ No, definitely not. I was still able to push to GitHub yesterday.
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
 ##Versions
+__0.7.0__ : Fixed bug #15<br/>
 __0.6.9__ : Fixed bug #12<br/>
-__0.6.9__ : Fixed cocoapods import problem<br/>
+__0.6.8__ : Fixed cocoapods import problem<br/>
 __0.6.7__ : Added **color** attribute to **font** markup<br/>
 __0.6.6__ : Added UIButton+GONMarkupParser category<br/>
 __0.6.5__ : Updated HTML chars tables<br/>
