@@ -40,7 +40,8 @@
 {
     GONMarkupParser *parser = [[GONMarkupParser alloc] init];
 
-    [parser addMarkup:[GONMarkupImage imageMarkup]];
+    // WIP
+    // [parser addMarkup:[GONMarkupImage imageMarkup]];
 
     [parser addMarkup:[GONMarkupItalic italicMarkup]];
     [parser addMarkup:[GONMarkupBold boldMarkup]];
