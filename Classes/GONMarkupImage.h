@@ -15,10 +15,10 @@
 //  <image src="#FFEEAA"/>
 //  <image src="myCustomRegisteredColor"/>
 
-#warning TODO Support alt
-#warning TODO Add an override block
-#warning TODO Add size support
-#warning TODO Add scale support
+//#warning TODO Support alt
+//#warning TODO Add an override block
+//#warning TODO Add size support
+//#warning TODO Add scale support
 
 #import "GONMarkup.h"
 
