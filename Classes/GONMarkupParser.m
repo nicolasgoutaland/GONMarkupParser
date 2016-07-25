@@ -423,8 +423,11 @@
 }
 
 #pragma mark - Tag managements
-- (void)handleClosingTag:(NSString *)tag error:(NSError **)error
+- (BOOL)handleClosingTag:(NSString *)tag error:(NSError **)error
 {
+    // Hold error status
+    BOOL errorGenerated = NO;
+
     // Look for full style closing tag, @"//"
     // Checking only for one /, because first one was trimmed
     if ([tag rangeOfString:@"/"].location == 0)
@@ -432,7 +435,7 @@
         if (!_configurationsStack.count)
         {
             LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Trying to close all tags, but stack is empty");
-            [self generateError:error tag:tag];
+            errorGenerated = [self generateError:error tag:tag];
         }
         else
         {
@@ -464,7 +467,7 @@
         {
             // Closing a tag, but tags stack is empty
             LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Trying to close last tag, but stack is empty");
-            [self generateError:error tag:tag];
+            errorGenerated = [self generateError:error tag:tag];
         }
         else
         {
@@ -481,7 +484,7 @@
                     if (![tag isEqualToString:markup.tag])
                     {
                         LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Closing tag found <%@>, is not matching currently opened one <%@>", tag, markup.tag);
-                        [self generateError:error tag:tag];
+                        errorGenerated = [self generateError:error tag:tag];
                     }
                 }
 
@@ -499,10 +502,15 @@
             LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Closing tag (%@)\nStack : %@\n", tag, _configurationsStack);
         }
     }
+
+    return errorGenerated;
 }
 
-- (void)handleOpeningTag:(NSString *)tag error:(NSError **)error
+- (BOOL)handleOpeningTag:(NSString *)tag error:(NSError **)error
 {
+    // Hold error status
+    BOOL errorGenerated = NO;
+
     // Prepare tag configuration
     NSMutableDictionary *currentTagConfiguration;
     if (!_configurationsStack.count)
@@ -517,8 +525,7 @@
     if (!markup)
     {
         LOG_IF_DEBUG(GONMarkupParserLogLevelUnknownTag, @"No markup found for tag <%@>\n", tag);
-        [self generateError:error
-                        tag:tag];
+        errorGenerated = [self generateError:error tag:tag];
 
         [_markupsStack addObject:[NSNull null]];
     }
@@ -536,6 +543,8 @@
     [_configurationsStack addObject:currentTagConfiguration];
 
     LOG_IF_DEBUG(GONMarkupParserLogLevelWorkflow, @"Opening tag (%@)\nStack : %@\n", tag, _configurationsStack);
+
+    return errorGenerated;
 }
 
 - (NSDictionary *)currentConfiguration
@@ -564,7 +573,7 @@
 }
 
 #pragma mark - Error handling
-- (void)generateError:(NSError **)error tag:(NSString *)tag
+- (BOOL)generateError:(NSError **)error tag:(NSString *)tag
 {
     // Assert only is requested
     if (_assertOnError)
@@ -587,7 +596,11 @@
         *error = [NSError errorWithDomain:GONMarkupParser_ERROR_DOMAIN
                                      code:GONMarkupParser_StringMalformed_ERROR_CODE
                                  userInfo:userInfo];
+        
+        return YES;
     }
+
+    return NO;
 }
 
 #pragma mark - Getters

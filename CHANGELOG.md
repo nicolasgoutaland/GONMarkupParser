@@ -1,4 +1,6 @@
 #Change Log
+##[__0.7.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.1)
+Fixed warning #18
 ##[__0.7.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.0)
 Fixed bug #15
 ##[__0.6.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.9)
