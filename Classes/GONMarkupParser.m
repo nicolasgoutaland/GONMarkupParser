@@ -446,10 +446,19 @@
                 markup = [_markupsStack objectAtIndex:i];
                 currentTagConfiguration = [_configurationsStack objectAtIndex:i];
 
-                [markup closingMarkupFound:tag
-                             configuration:currentTagConfiguration
-                                   context:_currentContext
-                                attributes:([_markupAttributesStack objectAtIndex:i] == [NSNull null] ? nil : [_markupAttributesStack objectAtIndex:i])];
+                // If we are closing an unknown tag, skip it
+                if (![markup isKindOfClass:[NSNull class]])
+                {
+                    [markup closingMarkupFound:tag
+                                 configuration:currentTagConfiguration
+                                       context:_currentContext
+                                    attributes:([_markupAttributesStack objectAtIndex:i] == [NSNull null] ? nil : [_markupAttributesStack objectAtIndex:i])];
+                }
+                else
+                {
+                    LOG_IF_DEBUG(GONMarkupParserLogLevelUnknownTag, @"Closing unkown found tag <%@>", tag);
+                    errorGenerated = [self generateError:error tag:tag];
+                }
             }
 
             [_configurationsStack removeAllObjects];
