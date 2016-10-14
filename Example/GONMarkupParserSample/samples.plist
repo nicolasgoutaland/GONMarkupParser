@@ -20,6 +20,14 @@
 	</dict>
 	<dict>
 		<key>title</key>
+		<string>Invalid format</string>
+		<key>sample</key>
+		<string>&lt;br&gt;&gt;&lt;&lt;body&gt;This is expected string&lt;font color=\&quot;&gt;Color&lt;/xxxx&gt;&lt;/body&gt;&lt;</string>
+		<key>background</key>
+		<string>D91E18</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>Anchor</string>
 		<key>sample</key>
 		<string>&lt;a href=&quot;Hello&quot;&gt;A simple link&lt;/&gt;. &lt;a href=&quot;http://www.apple.com&quot;&gt;An internet link&lt;/&gt;.</string>

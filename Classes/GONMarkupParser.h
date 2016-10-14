@@ -13,6 +13,9 @@
 //
 // History
 // -------
+// 0.7.2 : Fixed bug #21
+// 0.7.1 : Fixed warning #18
+// 0.7.0 : Fixed bug #15
 // 0.6.9 : Fixed bug #12
 // 0.6.8 : Fixed import problems with cocoa Pods 0.39
 // 0.6.7 : Added color attribute to font markup

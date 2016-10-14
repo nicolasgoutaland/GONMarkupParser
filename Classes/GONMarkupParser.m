@@ -218,79 +218,88 @@
     // Browse chunks
     NSString *tag;
     BOOL autoclosingMarkup;
-    [resultString beginEditing];
-    for (NSTextCheckingResult *result in results)
+    @try
     {
-        // Split string
-        NSArray *parts = [[inputString substringWithRange:result.range] componentsSeparatedByString:@"<"];
+        [resultString beginEditing];
 
-        // Append extracted string
-        [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]]];
-
-        // Check if a tag was found
-        if (parts.count > 1)
+        for (NSTextCheckingResult *result in results)
         {
-            // Extract tag and clean it
-            tag = [parts objectAtIndex:1];
-            tag = [tag substringToIndex:tag.length - 1]; // Remove final >
-            tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-            if ([tag rangeOfString:@"/"].location == 0)
+            // Split string
+            NSArray *parts = [[inputString substringWithRange:result.range] componentsSeparatedByString:@"<"];
+            
+            // Append extracted string
+            [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]]];
+            
+            // Check if a tag was found
+            if (parts.count > 1)
             {
-                // Lowercase tag, trim closing character
-                tag = [[tag substringFromIndex:1] lowercaseString];
-
-                // Trim potential remaining white spaces
+                // Extract tag and clean it
+                tag = [parts objectAtIndex:1];
+                tag = [tag substringToIndex:tag.length - 1]; // Remove final >
                 tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-                // Closing current tag, so append result string
-                [resultString appendAttributedString:[self computeSuffixString]];
-                [self handleClosingTag:tag error:error];
-            }
-            else
-            {
-                // Check if autoclosing markup or not
-                autoclosingMarkup = [tag rangeOfString:@"/" options:NSBackwardsSearch].location == (tag.length - 1);
-
-                // If autoclosing markup, trim last /
-                if (autoclosingMarkup)
-                    tag = [tag substringToIndex:tag.length - 1];
-
-                // Trim potential remaining white spaces
-                tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
-                // Split tag / attributes
-                tag = [self extractTagAndPushAttributesFromTag:tag];
-
-                // Handle autoclosing markup
-                if (autoclosingMarkup)
+                
+                if ([tag rangeOfString:@"/"].location == 0)
                 {
-                    // Opening tag
-                    [self handleOpeningTag:tag error:error];
-
-                    // Append an extracted empty string
-                    [resultString appendAttributedString:[self computePrefixString]];
-                    [resultString appendAttributedString:[self computeFinalExtractedString:@""]];
+                    // Lowercase tag, trim closing character
+                    tag = [[tag substringFromIndex:1] lowercaseString];
+                    
+                    // Trim potential remaining white spaces
+                    tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    
+                    // Closing current tag, so append result string
                     [resultString appendAttributedString:[self computeSuffixString]];
-
-                    // Close tag
                     [self handleClosingTag:tag error:error];
                 }
                 else
                 {
-                    // Opening tag
-                    [self handleOpeningTag:tag error:error];
-                    [resultString appendAttributedString:[self computePrefixString]];
+                    // Check if autoclosing markup or not
+                    autoclosingMarkup = [tag rangeOfString:@"/" options:NSBackwardsSearch].location == (tag.length - 1);
+                    
+                    // If autoclosing markup, trim last /
+                    if (autoclosingMarkup)
+                        tag = [tag substringToIndex:tag.length - 1];
+                    
+                    // Trim potential remaining white spaces
+                    tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+                    
+                    // Split tag / attributes
+                    tag = [self extractTagAndPushAttributesFromTag:tag];
+                    
+                    // Handle autoclosing markup
+                    if (autoclosingMarkup)
+                    {
+                        // Opening tag
+                        [self handleOpeningTag:tag error:error];
+                        
+                        // Append an extracted empty string
+                        [resultString appendAttributedString:[self computePrefixString]];
+                        [resultString appendAttributedString:[self computeFinalExtractedString:@""]];
+                        [resultString appendAttributedString:[self computeSuffixString]];
+                        
+                        // Close tag
+                        [self handleClosingTag:tag error:error];
+                    }
+                    else
+                    {
+                        // Opening tag
+                        [self handleOpeningTag:tag error:error];
+                        [resultString appendAttributedString:[self computePrefixString]];
+                    }
                 }
             }
         }
+        [resultString endEditing];
+
+        if (_configurationsStack.count != 0)
+        {
+            LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Parsing completed, but stack isn't empty, some closing tags seems missing :\nStack :%@\n", _configurationsStack);
+            [self generateError:error tag:nil];
+        }
     }
-
-    [resultString endEditing];
-
-    if (_configurationsStack.count != 0)
+    @catch (NSException *exception)
     {
-        LOG_IF_DEBUG(GONMarkupParserLogLevelUnbalancedTags, @"Parsing completed, but stack isn't empty, some closing tags seems missing :\nStack :%@\n", _configurationsStack);
+        LOG_IF_DEBUG(GONMarkupParserLogLevelErrors, @"An error did occur while parsing :%@\n", exception);
+        LOG_IF_DEBUG(GONMarkupParserLogLevelErrors, @"Parsed string so for :\n%@\n", resultString.string);
         [self generateError:error tag:nil];
     }
 
@@ -591,7 +600,7 @@
     if (error)
     {
         // Initialize user info
-        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:@"Input string is malformed. Ouput attributed string may not be displayed correctly"
+        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithObject:@"Input string is malformed. Output attributed string may not be displayed correctly"
                                                                            forKey:NSLocalizedDescriptionKey];
 
         // Add tag if avalaible
