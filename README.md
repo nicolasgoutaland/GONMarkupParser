@@ -173,7 +173,7 @@ Color style won't be applied to links. You have to use __linkTextAttributes__ at
 | **ul**      | GONMarkupList | none  | Create an unordered list |
 | **ol**      | GONMarkupList | none | Create an ordered list | 
 | **li**      | GONMarkupListItem | none | Add a list item to current list |
-| **p**      | GONMarkupParagrap | none | Specify a paragraph. A paragraph will automatically insert a new blanck line after it |
+| **p**      | GONMarkupParagraph | none | Specify a paragraph. A paragraph will automatically insert a new blanck line after it |
 | **inc**      | GONMarkupInc | **value** | Increment text font size. If __value__ is missing, font will be increased by one point  |
 | **dec**      | GONMarkupDec | **value** | Decrement text font size. If __value__ is missing, font will be decreased by one point  |
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
