@@ -1,10 +1,10 @@
-#GONMarkupParser
+# GONMarkupParser
 Easily build NSAttributedString from XML/HTML like strings.
 
-##Demo
+## Demo
 ![ScreenShot](https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/Assets/sample.gif)
 
-##TL;DR;
+## TL;DR;
 ```
     NSString *inputText = @"Simple input text, using a preconfigured parser.\n<color value=\"red\">This text will be displayed in red</>.\n<font size="8">This one will be displayed in small</>.\nNow a list:\n<ul><li>First item</><li>Second item</><li><color value="blue">Third blue item</></><li><b><color value="green">Fourth bold green item<//>";
 
@@ -55,7 +55,7 @@ Need a more complex example  ?
 
 
 
-##Description
+## Description
 Creating rich text under iOS can be cumbersome, needing a lot of code.<br/>
 The main goal of GONMarkupParser is to provide an easy to use syntax, near XML/HTML, but more flexible.<br/>
 Some others projects exists, allowing you to build NSAttributedString from HTML, but my main goal here was to focus on text semantic. In fact, the parser will detect registered markups and apply style on text.<br/>
@@ -63,7 +63,7 @@ The purpose of this was to be able to generate different outputs from the same i
 
 GONMarkupParser is **not** an out of the box solution to parse HTML files.
 
-##Installation
+## Installation
 __CocoaPods__:
     `pod 'GONMarkupParser'`<br/>
 __Manual__: Copy the __Classes__ folder in your project. You will also need to __manually__ install [NSString+Color](https://github.com/nicolasgoutaland/NSString-Color). Seriously, consider using [cocoapods](http://cocoapods.org) instead ;) <br/>
@@ -71,20 +71,20 @@ __Manual__: Copy the __Classes__ folder in your project. You will also need to _
 Import wanted headers in your project. .pch is a good place ;)<br/>
 __GONMarkupParser_All.h__ will reference all library headers, whereas __GONMarkupDefaultMarkups.h__ only references default markup classes.
 
-##Usage
+## Usage
 - instantiate a new __GONMarkupParser__ or use the  __+ GONMarkupParserManager sharedParser__ one.
 - configure your parser adding supported tags, default ones, custom ones, etc...
 - parse input string and retrieve result __NSMutableAttributedString__ using __- attributedStringFromString:error:__ method from __GONMarkupParser__
 - you can also set text on __UILabel__ / __UITextField__ / __UITextView__ / __UIButton__ by using [__setMarkedUpText:__](#available-uikit-categories) methods
 
-##How does it work ?
+## How does it work ?
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-howdoesitworks.gif)
 
 To fully understand how style will be applied to string, you have to imagine a [LIFO stack](http://en.wikipedia.org/wiki/LIFO_(computing)) composed of style description.<br/>
 Each time a new markup is found, current style configuration will be saved then stacked. New configuration will be the previous one, updated by current markup configuration.<br/>
 Each time a closing markup is found, current style configuration is popped out, and previous one restored.
 
-##Syntax
+## Syntax
 Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster to write.
 - Each markup  should be contained between __<__ and __>__ characters
  - __&lt;strong&gt;__
@@ -92,7 +92,7 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
  - __&lt;/strong&gt;__, __</>__
 - You can also close all opened markup by using __<//>__
 
-###Examples
+### Examples
 ```
  This is a <strong>valid</strong> string with some <color value="red">red <b>bold text</b></color>.
  This is a <strong>valid</>string with some <color value="red">red <b>bold text</></>.
@@ -100,13 +100,13 @@ Syntax is pretty easy. It's like XML, but non valid one, to be easier and faster
  This is a <strong>valid</> string with some <color value="red">red <b>bold text<//>.
 ```
 
-##Parser
-###Constructor
+## Parser
+### Constructor
 __GONMarkupParser__ class provide two class constructors.
 - __+ defaultMarkupParser__ is a parser with all default tags registered (See [Default tags summary](#default-tags) for more information)
 - __+ emptyMarkgiupParser__ is a parser without any registered tags
 
-###Properties
+### Properties
 A parser can have a pre / post processing block, that will be called prior and after parsing. This allows you to perform some string replace before parsing for example. 
 
 Parsers have two interesting properties :
@@ -119,24 +119,24 @@ For debugging purpose, you can configure __debugLevel__ property.
 
 __assertOnError__ property is also available to generate an assert when an error is encountered.
 
-###Configuration
+### Configuration
 A parser must have some registered markups to correctly handling strings.<br/>
 Use __- addMarkup:__, __- addMarkups:__, __- removeMarkups:__ and __- removeAllMarkups__ methods for that purpose.<br/>
 __A markup can be added to only one parser at a time.__
 
-###Registered fonts
+### Registered fonts
 To simplify fonts uses, you can register then using __- registerFont:forKey:__ method, then referencing them using given key.<br/>
 Very useful with __&lt;font&gt;__ markup, allowing you to directly use code instead of full font name. You can also use codes such as __mainFont__, __titleFont__ to easily update them later throught all your strings.
 
-##GONMarkupParserManager
-###sharedParser
+## GONMarkupParserManager
+### sharedParser
 A shared parser is available, so you don't have to create one and reference it throught all your application.<br/>
 Shared parser is configured with all default markups.
 
-###parsers registration
+### Parsers registration
 You can register some parser to this class, allowing you to use them from different places in your application.
 
-##Available UIKit Categories
+## Available UIKit Categories
 __UILabel__/__UITextField__/__UITextView__<br/>
 2 methods were added to UILabel, UITextField and UITextView, allowing you to easily update its attributed string using a markedup one.<br/>
 - __- setMarkedUpText:(NSString *)text parser:(GONMarkupParser *)parser__ will use given parser to handle string and generate attributed one.
@@ -146,7 +146,7 @@ If no parser default configuration is set for __NSForegroundColorAttributeName__
 
 You are strongly encouraged to use these methods if you want to use your component style as default parser configuration.
 
-##Anchor support
+## Anchor support
 Anchor support is supported using __&lt;a href="..."&gt;__ markup.<br/>
 If __NSAttributedString__ is displayed in a UITextView, you can handle user clicks on it.<br/>
 Be sure your UITextView is __non editable__, __selectable__ and have its __delegate__ set.<br/>
@@ -156,8 +156,8 @@ method.
 
 Color style won't be applied to links. You have to use __linkTextAttributes__ attribute from your __UITextView__ to set it.
 
-##Default tags
-###Summary
+## Default tags
+### Summary
 | Tag        | Class | Parameters           | Effect |
 |:-------------:|-------------| -----|---|
 | **left** | GONMarkupAlignment | none | Force text alignment to left |
@@ -187,22 +187,22 @@ Color style won't be applied to links. You have to use __linkTextAttributes__ at
 | **a**      | GONMarkupAnchor | __href__ link value | Support an anchor link. See [Anchor support](#anchor-support) for more information. |
 | **N/A**   | GONMarkupBlock | none | When encountered executes associated block |
 
-###Reset
+### Reset
 Reset is a special tag, allowing you to protect some parts of a string. You can also force markup to ignore default parser configuration by setting __all__ attribute.
 
 ![ScreenShot](https://raw.github.com/nicolasgoutaland/GONMarkupParser/master/Assets/GONMarkupParser-reset.gif)
 
-##How to add new markup
+## How to add new markup
 You can add new markup in your application, to add new style, or to just add some semantic to your text, allowing you to update rendering, without changing input string.<br/>
 There is 3 ways to do it.
 
-###Adding a new simple marker
+### Adding a new simple marker
 The simpler way to add a new markup in your application is to use one of theses 3 following classes :
 - __GONMarkupNamedColor__, allows you to add a markup that updates text color
 - __GONMarkupNamedFont__, allows you to add a markup that updates text font
 - __GONMarkupSimple__, allows you to add a markup that updates all text attributes. Dictionary is intended to be the same as you may pass to configure an __NSMutableAttributedString__ using -setAttributes:range: method.
 
-####Example
+#### Example
 ```
     // Retrieve shared parser
     GONMarkupParser *parser = [GONMarkupParserManager sharedParser];
@@ -226,7 +226,7 @@ The simpler way to add a new markup in your application is to use one of theses 
                                     mergingStrategy:GONMarkupSimpleMergingStrategyMergeAll]];
 ````
 
-###Adding a new block based marker
+### Adding a new block based marker
 For more complexe markup, you can add __GONMarkupBlock__ instances.<br />
 
 It have blocks 5 parameters :
@@ -236,7 +236,7 @@ It have blocks 5 parameters :
 - __prefixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a prefix
 - __suffixStringForContextBlock__, called right after __openingMarkupBlock__, allowing you to return a suffix
 
-####Example
+#### Example
 ```
     // Retrieve shared parser
     GONMarkupParser *parser = [GONMarkupParserManager sharedParser];
@@ -256,7 +256,7 @@ It have blocks 5 parameters :
     [parser addMarkup:markupBlock];
 ````
 
-###Creating a new GONMarkup subclass
+### Creating a new GONMarkup subclass
 You can add a custom markup by subclassing __GONMarkup__  class.
 
 Adding a new markup by subclassing is useful if you want to reuse your markups between several projets, or to implement more complex behavior. When subclassing, you have access to a shared object, allowing you to persists data and share it between each markup handling.
@@ -265,28 +265,28 @@ For examples, have a look a currently defined markups ;)
 See __GONMarkupList__ and __GONMarkupListItem__ for an implementation using shared context.
 
 ## Troubleshooting
-###Some text is missing
+### Some text is missing
 Check that your markup is correctly registered and that your tags are right balanced.
 
-###When using &lt; / &gt;, some text is missing
+### When using &lt; / &gt;, some text is missing
 Use &amp;lt; and &amp;gt; in text.
 
-###Text color is still applied after my tag is closed.
+### Text color is still applied after my tag is closed.
 This is caused by __NSAttributedString__ internal behavior. Once a color is set, it is applied until a new one is set.<br/>
 To prevent this problem, be sure to have set a default text color in your parser (__defaultConfiguration__ / __NSForegroundColorAttributeName__ key). You can use __setMarkedUpText:__ on __UILabel__ / __UITextField__ to use default component configuration.
 
-###Text style isn't applied to my link
+### Text style isn't applied to my link
 See [Anchor support](#anchor-support) for more information.
 
-###I am encountering some crashes when using custom font
+### I am encountering some crashes when using custom font
 Be sure to use correct font name, or that font code you are using is correctly registered to your parser. <br/>
 Want to dump all available fonts on your device and check real names ?<br/>
 Have a look [at DUMP_FONT_LIST() here](https://github.com/nicolasgoutaland/GONMacros#gonutilsmacrosh)
 
-###No new lines are inserted using __&lt;br&gt;__
+### No new lines are inserted using __&lt;br&gt;__
 *__&lt;br&gt;__* alone is not valid in __GONMarkupParser__. Be sure to use __&lt;br/&gt;__.
 
-###Color isn't applied
+### Color isn't applied
 Check that you color value synthax is correct.<br/>
 For more information on supported synthax, have a look at [NSString+UIColor here](https://github.com/nicolasgoutaland/NSString-Color#nsstringcolor-), that is used to compute colors from your string values.
 
@@ -302,7 +302,7 @@ No, definitely not. I was still able to push to GitHub yesterday.
 ## Contributors
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
-##Versions
+## Versions
 __0.7.2__ : Fixed bug #21<br/>
 __0.7.1__ : Fixed warning #18<br/>
 __0.7.0__ : Fixed bug #15<br/>
