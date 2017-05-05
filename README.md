@@ -303,7 +303,8 @@ No, definitely not. I was still able to push to GitHub yesterday.
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
 ## Versions
-__0.7.3__ : Fixed new line charater bug on lists<br/>
+__0.7.4__ : Fixed (again -_-) new line character bug on lists<br/>
+__0.7.3__ : Fixed new line character bug on lists<br/>
 __0.7.2__ : Fixed bug #21<br/>
 __0.7.1__ : Fixed warning #18<br/>
 __0.7.0__ : Fixed bug #15<br/>

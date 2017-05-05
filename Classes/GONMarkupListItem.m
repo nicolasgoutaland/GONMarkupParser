@@ -79,7 +79,7 @@
         prefix = [self unorderedListItemPrefixForIndentation:indentation position:position listConfiguration:listConfiguration context:context];
 
     // Force new line
-    if (position != 0)
+    if (position > 1)
         prefix = [@"\n" stringByAppendingString:prefix];
     
     return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];

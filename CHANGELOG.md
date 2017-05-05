@@ -1,4 +1,6 @@
 # Change Log
+## [__0.7.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.4)
+Fixed (again -_-) new line character bug on lists<br/>
 ## [__0.7.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.3)
 Fixed new line charater bug on lists<br/>
 ## [__0.7.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.2)
