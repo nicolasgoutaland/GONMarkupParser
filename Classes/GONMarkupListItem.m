@@ -49,7 +49,8 @@
 - (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
 {
     // Retrieve indentation level
-    NSMutableDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY fromContext:context];
+    NSMutableDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
+                                                                      fromContext:context];
     [currentConfiguration setObject:@([[currentConfiguration objectForKey:GONMarkupList_POSITION_KEY] intValue] + 1)
                           forKey:GONMarkupList_POSITION_KEY];
 
@@ -57,10 +58,14 @@
     NSMutableParagraphStyle *paragraphStyle = [self paragraphStyle:configurationDictionary];
 
     // Generate prefix string
-    NSAttributedString *prefixString = [self prefixStringForContext:context attributes:dicAttributes stringAttributes:configurationDictionary];
+    NSAttributedString *prefixString = [self prefixStringForContext:context
+                                                         attributes:dicAttributes
+                                                   stringAttributes:configurationDictionary];
 
     // Compute prefix string width
-    paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1) options:0 context:nil]);
+    paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1) 
+                                                                          options:NSStringDrawingUsesLineFragmentOrigin
+                                                                          context:nil]);
 }
 
 - (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
@@ -74,12 +79,21 @@
 
     NSString *prefix;
     if (isOrdered)
-        prefix = [self orderedListItemPrefixForIndentation:indentation position:position listConfiguration:listConfiguration context:context];
+    {
+        prefix = [self orderedListItemPrefixForIndentation:indentation
+                                                  position:position
+                                         listConfiguration:listConfiguration
+                                                   context:context];
+    }
     else
-        prefix = [self unorderedListItemPrefixForIndentation:indentation position:position listConfiguration:listConfiguration context:context];
+    {    prefix = [self unorderedListItemPrefixForIndentation:indentation
+                                                     position:position
+                                            listConfiguration:listConfiguration
+                                                      context:context];
+    }
 
     // Force new line
-    if (position > 1)
+    if (position > 1 || indentation > 0)
         prefix = [@"\n" stringByAppendingString:prefix];
     
     return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];
