@@ -1,8 +1,12 @@
 # Change Log
+## [__0.7.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.5)
+Fixed a bug on lists heading alignment<br/>
+Fixed a bug on lists, with subitems not aligned<br/>
+Added support for strong tag (yoohoo \o/)<br/>
 ## [__0.7.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.4)
 Fixed (again -_-) new line character bug on lists<br/>
 ## [__0.7.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.3)
-Fixed new line charater bug on lists<br/>
+Fixed new line character bug on lists<br/>
 ## [__0.7.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.2)
 Fixed bug #21
 ## [__0.7.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.1)

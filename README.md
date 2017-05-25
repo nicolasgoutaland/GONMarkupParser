@@ -179,6 +179,7 @@ Color style won't be applied to links. You have to use __linkTextAttributes__ at
 | **reset**      | GONMarkupReset | **all** | All enclosed text will use default parser configuration |
 | **N/A**      | GONMarkupSimple | none | Apply a configuration to enclosed text |
 | **b**      | GONMarkupBold | none | Set text to bold. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
+| **strong**      | GONMarkupStrong | none | Set text to strong (bold). Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium font instead of bold one for example.|
 | **i**      | GONMarkupItalic | none | Set text to italic. Allows user to define an override block overrideBlock to provide another font. Useful to provide a medium italic font instead of bold italic one for example.|
 | **sup**      | GONMarkupTextStyle | none | Set text to superscript |
 | **sub**      | GONMarkupTextStyle | none | Set text to subscript |
@@ -303,19 +304,20 @@ No, definitely not. I was still able to push to GitHub yesterday.
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
 ## Versions
-__0.7.4__ : Fixed (again -_-) new line character bug on lists<br/>
-__0.7.3__ : Fixed new line character bug on lists<br/>
-__0.7.2__ : Fixed bug #21<br/>
-__0.7.1__ : Fixed warning #18<br/>
-__0.7.0__ : Fixed bug #15<br/>
-__0.6.9__ : Fixed bug #12<br/>
-__0.6.8__ : Fixed cocoapods import problem<br/>
-__0.6.7__ : Added **color** attribute to **font** markup<br/>
-__0.6.6__ : Added UIButton+GONMarkupParser category<br/>
-__0.6.5__ : Updated HTML chars tables<br/>
-__0.6.4__ : Updated HTML chars tables<br/>
-__0.6.3__ : Fixed a bug in anchor support<br/>
-__0.6.2__ : Added anchor support<br/>
-__0.6.1__ : Added support for underline and strikethrough color<br/>
-__0.6__   : Added support for underline / strikethrough text<br/>
-__0.5__   : Initial release<br/>
+[__0.7.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.5) : Fixed bugs on lists, Added support for strong tag
+[__0.7.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.4) : Fixed (again -_-) new line character bug on lists<br/>
+[__0.7.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.3) : Fixed new line character bug on lists<br/>
+[__0.7.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.2) : Fixed bug #21<br/>
+[__0.7.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.1) : Fixed warning #18<br/>
+[__0.7.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.0) : Fixed bug #15<br/>
+[__0.6.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.9) : Fixed bug #12<br/>
+[__0.6.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.8) : Fixed cocoapods import problem<br/>
+[__0.6.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.7) : Added **color** attribute to **font** markup<br/>
+[__0.6.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.6) : Added UIButton+GONMarkupParser category<br/>
+[__0.6.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.5) : Updated HTML chars tables<br/>
+[__0.6.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.4) : Updated HTML chars tables<br/>
+[__0.6.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.3) : Fixed a bug in anchor support<br/>
+[__0.6.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.2) : Added anchor support<br/>
+[__0.6.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.1) : Added support for underline and strikethrough color<br/>
+[__0.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6)  : Added support for underline / strikethrough text<br/>
+[__0.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.5)   : Initial release<br/>

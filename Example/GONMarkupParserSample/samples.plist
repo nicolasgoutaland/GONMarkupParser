@@ -36,9 +36,9 @@
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>Bold, Italic, Sup, Sub</string>
+		<string>Bold, Italic, Strong, Sup, Sub</string>
 		<key>sample</key>
-		<string>This text is &lt;b&gt;in bold&lt;/&gt;&lt;br/&gt;This text is &lt;i&gt;in italic&lt;/&gt;&lt;br/&gt;This text is &lt;sup&gt;superscripted&lt;/&gt;&lt;br/&gt;This text is &lt;sub&gt;subscripted&lt;/&gt;&lt;br/&gt;&lt;b&gt;&lt;i&gt;This text is bold italic&lt;//&gt;</string>
+		<string>This text is &lt;b&gt;in bold&lt;/&gt;&lt;br/&gt;This text is &lt;i&gt;in italic&lt;/&gt;&lt;br/&gt;This text is &lt;strong&gt;in strong&lt;/&gt;&lt;br/&gt;This text is &lt;sup&gt;superscripted&lt;/&gt;&lt;br/&gt;This text is &lt;sub&gt;subscripted&lt;/&gt;&lt;br/&gt;&lt;b&gt;&lt;i&gt;This text is bold italic&lt;//&gt;</string>
 		<key>background</key>
 		<string>ABB7B7</string>
 	</dict>

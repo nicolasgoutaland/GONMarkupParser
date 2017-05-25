@@ -7,7 +7,6 @@
 //
 
 #import "GONMarkupBold.h"
-#import "GONMarkup+Private.h"
 
 @implementation GONMarkupBold
 #pragma mark - Constructor

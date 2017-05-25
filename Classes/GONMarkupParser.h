@@ -13,6 +13,9 @@
 //
 // History
 // -------
+// 0.7.5 : Fixed bugs on lists, Added support for strong tag
+// 0.7.4 : Fixed (again -_-) new line character bug on lists
+// 0.7.3 : Fixed new line character bug on lists
 // 0.7.2 : Fixed bug #21
 // 0.7.1 : Fixed warning #18
 // 0.7.0 : Fixed bug #15

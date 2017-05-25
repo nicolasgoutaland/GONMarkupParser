@@ -26,4 +26,5 @@
 #import "GONMarkupParagrap.h"
 #import "GONMarkupReset.h"
 #import "GONMarkupSimple.h"
+#import "GONMarkupStrong.h"
 #import "GONMarkupTextStyle.h"
