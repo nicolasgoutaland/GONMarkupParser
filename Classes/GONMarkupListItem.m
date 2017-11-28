@@ -52,7 +52,7 @@
     NSMutableDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
                                                                       fromContext:context];
     [currentConfiguration setObject:@([[currentConfiguration objectForKey:GONMarkupList_POSITION_KEY] intValue] + 1)
-                          forKey:GONMarkupList_POSITION_KEY];
+                             forKey:GONMarkupList_POSITION_KEY];
 
     // Retrieve and update paragraph style
     NSMutableParagraphStyle *paragraphStyle = [self paragraphStyle:configurationDictionary];
