@@ -531,11 +531,7 @@
     BOOL errorGenerated = NO;
 
     // Prepare tag configuration
-    NSMutableDictionary *currentTagConfiguration;
-    if (!_configurationsStack.count)
-        currentTagConfiguration = [_defaultConfiguration mutableCopy];
-    else
-        currentTagConfiguration = [[_configurationsStack lastObject] mutableCopy];
+    NSMutableDictionary *currentTagConfiguration = [self mutableCurrentConfiguration];
 
     // Retrieve markup associated to tag
     GONMarkup *markup = [self markupForTag:tag];
@@ -544,7 +540,8 @@
     if (!markup)
     {
         LOG_IF_DEBUG(GONMarkupParserLogLevelUnknownTag, @"No markup found for tag <%@>\n", tag);
-        errorGenerated = [self generateError:error tag:tag];
+        errorGenerated = [self generateError:error
+                                         tag:tag];
 
         [_markupsStack addObject:[NSNull null]];
     }
@@ -568,10 +565,26 @@
 
 - (NSDictionary *)currentConfiguration
 {
+    // Extract configuration on top of stack
     if (!_configurationsStack.count)
-        return [_defaultConfiguration copy];
+        return _defaultConfiguration;
 
-    return [[_configurationsStack lastObject] copy];
+    return [_configurationsStack lastObject];
+}
+
+- (NSMutableDictionary *)mutableCurrentConfiguration
+{
+    NSMutableDictionary *mutableConfiguration = [[self currentConfiguration] mutableCopy];
+
+    // Force paragraph style mutability
+    NSParagraphStyle *paragraphStyle = [mutableConfiguration objectForKey:NSParagraphStyleAttributeName];
+    if (paragraphStyle)
+    {
+        [mutableConfiguration setObject:[paragraphStyle mutableCopy]
+                                 forKey:NSParagraphStyleAttributeName];
+    }
+
+    return mutableConfiguration;
 }
 
 #pragma mark - Fonts management
