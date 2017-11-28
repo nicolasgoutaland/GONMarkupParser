@@ -1,4 +1,6 @@
 # Change Log
+## [__0.7.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.6)
+Fixed a bug on NSParagraphStyle mutability<br/>
 ## [__0.7.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.5)
 Fixed a bug on lists heading alignment<br/>
 Fixed a bug on lists, with subitems not aligned<br/>
