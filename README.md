@@ -304,6 +304,7 @@ No, definitely not. I was still able to push to GitHub yesterday.
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
 ## Versions
+[__0.7.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.7) : Fixed sample Podfile<br/>
 [__0.7.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.6) : Fixed a bug on NSParagraphStyle mutability<br/>
 [__0.7.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.5) : Fixed bugs on lists, Added support for strong tag<br/>
 [__0.7.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.4) : Fixed (again -_-) new line character bug on lists<br/>
