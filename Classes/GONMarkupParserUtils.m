@@ -28,7 +28,9 @@
                             options:0
                               range:NSMakeRange(0, inputString.length)
                          usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-                             [inputString replaceCharactersInRange:result.range withString:[dicEntities objectForKey:[inputString substringWithRange:result.range]]];
+                             NSString *entity = [dicEntities objectForKey:[inputString substringWithRange:result.range]];
+                             if (entity)
+                                 [inputString replaceCharactersInRange:result.range withString:entity];
                          }];
 }
 
