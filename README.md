@@ -303,23 +303,5 @@ No, definitely not. I was still able to push to GitHub yesterday.
 ## Contributors
 See the [Contributors page](https://github.com/nicolasgoutaland/GONMarkupParser/graphs/contributors) on github.
 
-## Versions
-[__0.7.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.7) : Fixed sample Podfile<br/>
-[__0.7.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.6) : Fixed a bug on NSParagraphStyle mutability<br/>
-[__0.7.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.5) : Fixed bugs on lists, Added support for strong tag<br/>
-[__0.7.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.4) : Fixed (again -_-) new line character bug on lists<br/>
-[__0.7.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.3) : Fixed new line character bug on lists<br/>
-[__0.7.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.2) : Fixed bug #21<br/>
-[__0.7.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.1) : Fixed warning #18<br/>
-[__0.7.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.0) : Fixed bug #15<br/>
-[__0.6.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.9) : Fixed bug #12<br/>
-[__0.6.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.8) : Fixed cocoapods import problem<br/>
-[__0.6.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.7) : Added **color** attribute to **font** markup<br/>
-[__0.6.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.6) : Added UIButton+GONMarkupParser category<br/>
-[__0.6.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.5) : Updated HTML chars tables<br/>
-[__0.6.4__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.4) : Updated HTML chars tables<br/>
-[__0.6.3__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.3) : Fixed a bug in anchor support<br/>
-[__0.6.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.2) : Added anchor support<br/>
-[__0.6.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6.1) : Added support for underline and strikethrough color<br/>
-[__0.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.6)  : Added support for underline / strikethrough text<br/>
-[__0.5__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.5)   : Initial release<br/>
+## Changelog
+Changelog can be found [here](https://github.com/nicolasgoutaland/GONMarkupParser/blob/master/CHANGELOG.md)

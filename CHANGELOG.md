@@ -1,4 +1,6 @@
 # Change Log
+## [__0.7.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.8)
+GONMarkupParserUtils optimisation<br/>
 ## [__0.7.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.7)
 Fixed sample Podfile<br/>
 ## [__0.7.6__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.6)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401E32021B281142C6BABB70 /* libPods-defaults-GONMarkupParserSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6D2CD1AD599D4565EAA3ED /* libPods-defaults-GONMarkupParserSample.a */; };
 		5C0790A81ED74D0B0011FF0E /* GONMarkupStrong.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0790A71ED74D0B0011FF0E /* GONMarkupStrong.m */; };
 		5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */; };
 		5C2E11E41B8A146D0065D29C /* UIButton+GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E11E31B8A146D0065D29C /* UIButton+GONMarkupParser.m */; };
@@ -86,8 +87,6 @@
 		5CE27199195B1412007FCF44 /* GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27191195B1412007FCF44 /* GONMarkupParser.m */; };
 		5CE2719A195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
 		5CE2719B195B1412007FCF44 /* GONMarkupFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE27193195B1412007FCF44 /* GONMarkupFont.m */; };
-		6C6DD8957B134FA9B1AE1824 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B85795BD5D4A4195265653 /* libPods.a */; };
-		AD657A810CFC90EF7829443F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B85795BD5D4A4195265653 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +100,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17B85795BD5D4A4195265653 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C0790A61ED74D0B0011FF0E /* GONMarkupStrong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupStrong.h; path = ../Classes/GONMarkupStrong.h; sourceTree = "<group>"; };
 		5C0790A71ED74D0B0011FF0E /* GONMarkupStrong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupStrong.m; path = ../Classes/GONMarkupStrong.m; sourceTree = "<group>"; };
 		5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_Categories.h; path = ../Classes/GONMarkupParser_Categories.h; sourceTree = "<group>"; };
@@ -210,8 +208,9 @@
 		5CE27191195B1412007FCF44 /* GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParser.m; path = ../Classes/GONMarkupParser.m; sourceTree = "<group>"; };
 		5CE27192195B1412007FCF44 /* GONMarkupFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupFont.h; path = ../Classes/GONMarkupFont.h; sourceTree = "<group>"; };
 		5CE27193195B1412007FCF44 /* GONMarkupFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupFont.m; path = ../Classes/GONMarkupFont.m; sourceTree = "<group>"; };
-		F78DE98B74DE149CC7A5ADC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		FD6D14F3EF0F1EE075363E64 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8E6D2CD1AD599D4565EAA3ED /* libPods-defaults-GONMarkupParserSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-defaults-GONMarkupParserSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11B08D3B67C671A7C1F41EB /* Pods-defaults-GONMarkupParserSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-GONMarkupParserSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-GONMarkupParserSample/Pods-defaults-GONMarkupParserSample.debug.xcconfig"; sourceTree = "<group>"; };
+		CB19407DB2362C93C6FF1BC5 /* Pods-defaults-GONMarkupParserSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-defaults-GONMarkupParserSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-defaults-GONMarkupParserSample/Pods-defaults-GONMarkupParserSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +222,7 @@
 				5CE27153195B11E0007FCF44 /* CoreGraphics.framework in Frameworks */,
 				5CE27155195B11E0007FCF44 /* UIKit.framework in Frameworks */,
 				5CE27151195B11E0007FCF44 /* Foundation.framework in Frameworks */,
-				6C6DD8957B134FA9B1AE1824 /* libPods.a in Frameworks */,
+				401E32021B281142C6BABB70 /* libPods-defaults-GONMarkupParserSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,13 +233,21 @@
 				5CE27170195B11E0007FCF44 /* XCTest.framework in Frameworks */,
 				5CE27172195B11E0007FCF44 /* UIKit.framework in Frameworks */,
 				5CE27171195B11E0007FCF44 /* Foundation.framework in Frameworks */,
-				AD657A810CFC90EF7829443F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2686016DECE5E515511864F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A11B08D3B67C671A7C1F41EB /* Pods-defaults-GONMarkupParserSample.debug.xcconfig */,
+				CB19407DB2362C93C6FF1BC5 /* Pods-defaults-GONMarkupParserSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5C404BC91A1C90E0007DCB2C /* DefaultConfiguration */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +474,7 @@
 				5CE27175195B11E0007FCF44 /* GONMarkupParserSampleTests */,
 				5CE2714F195B11E0007FCF44 /* Frameworks */,
 				5CE2714E195B11E0007FCF44 /* Products */,
-				9ED8BC75C581B1C9016D9AE7 /* Pods */,
+				2686016DECE5E515511864F6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -488,7 +495,7 @@
 				5CE27152195B11E0007FCF44 /* CoreGraphics.framework */,
 				5CE27154195B11E0007FCF44 /* UIKit.framework */,
 				5CE2716F195B11E0007FCF44 /* XCTest.framework */,
-				17B85795BD5D4A4195265653 /* libPods.a */,
+				8E6D2CD1AD599D4565EAA3ED /* libPods-defaults-GONMarkupParserSample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -613,15 +620,6 @@
 			name = DefaultMarkup;
 			sourceTree = "<group>";
 		};
-		9ED8BC75C581B1C9016D9AE7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FD6D14F3EF0F1EE075363E64 /* Pods.debug.xcconfig */,
-				F78DE98B74DE149CC7A5ADC1 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -629,12 +627,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CE2717F195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSample" */;
 			buildPhases = (
-				EC3DF1B1D208418697196C2B /* Check Pods Manifest.lock */,
+				F5CFB22B9E5CC0864471E289 /* [CP] Check Pods Manifest.lock */,
 				5CE27149195B11E0007FCF44 /* Sources */,
 				5CE2714A195B11E0007FCF44 /* Frameworks */,
 				5CE2714B195B11E0007FCF44 /* Resources */,
-				AF75F26F4574437294323C3C /* Copy Pods Resources */,
-				76B316C8E587F0981B66B953 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -649,12 +645,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CE27182195B11E0007FCF44 /* Build configuration list for PBXNativeTarget "GONMarkupParserSampleTests" */;
 			buildPhases = (
-				A00223591121399D271132D1 /* Check Pods Manifest.lock */,
 				5CE2716A195B11E0007FCF44 /* Sources */,
 				5CE2716B195B11E0007FCF44 /* Frameworks */,
 				5CE2716C195B11E0007FCF44 /* Resources */,
-				CA98D5286576877426AD6D21 /* Embed Pods Frameworks */,
-				4987DEF503902DACA3129A7C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -731,94 +724,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4987DEF503902DACA3129A7C /* Copy Pods Resources */ = {
+		F5CFB22B9E5CC0864471E289 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-defaults-GONMarkupParserSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		76B316C8E587F0981B66B953 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A00223591121399D271132D1 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AF75F26F4574437294323C3C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA98D5286576877426AD6D21 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC3DF1B1D208418697196C2B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -999,7 +924,7 @@
 		};
 		5CE27180195B11E0007FCF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD6D14F3EF0F1EE075363E64 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A11B08D3B67C671A7C1F41EB /* Pods-defaults-GONMarkupParserSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1018,7 +943,7 @@
 		};
 		5CE27181195B11E0007FCF44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F78DE98B74DE149CC7A5ADC1 /* Pods.release.xcconfig */;
+			baseConfigurationReference = CB19407DB2362C93C6FF1BC5 /* Pods-defaults-GONMarkupParserSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1037,7 +962,6 @@
 		};
 		5CE27183195B11E0007FCF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD6D14F3EF0F1EE075363E64 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GONMarkupParserSample.app/GONMarkupParserSample";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1061,7 +985,6 @@
 		};
 		5CE27184195B11E0007FCF44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F78DE98B74DE149CC7A5ADC1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GONMarkupParserSample.app/GONMarkupParserSample";
 				FRAMEWORK_SEARCH_PATHS = (
