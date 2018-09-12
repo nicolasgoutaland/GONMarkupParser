@@ -84,9 +84,6 @@
 }
 
 #pragma mark - Config
-static NSDictionary *dicHTMLEntities;
-static NSDictionary *dicDecHTMLEntities;
-static NSDictionary *dicHexaHTMLEntities;
 static NSDictionary *dicEntities;
 + (void)initialize
 {
