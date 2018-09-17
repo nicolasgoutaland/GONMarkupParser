@@ -24,14 +24,24 @@
                                                             error:nil];
     });
 
-    [regex enumerateMatchesInString:[inputString copy]
-                            options:0
-                              range:NSMakeRange(0, inputString.length)
-                         usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
-                             NSString *entity = [dicEntities objectForKey:[inputString substringWithRange:result.range]];
-                             if (entity)
-                                 [inputString replaceCharactersInRange:result.range withString:entity];
-                         }];
+    NSRange range                = NSMakeRange(0, inputString.length);
+    NSTextCheckingResult *result = nil;
+    NSString *entity             = nil;
+ 
+    while ((result = [regex firstMatchInString:inputString options:0 range:range]) != nil) {
+
+        // Check if entity is known
+        entity = [dicEntities objectForKey:[inputString substringWithRange:result.range]];
+        if (entity)
+            [inputString replaceCharactersInRange:result.range withString:entity];
+
+        // Update range
+        range = NSMakeRange(result.range.location + 1, inputString.length - result.range.location - 1);
+
+        // Break if reaching end of string
+        if (range.location + range.length > inputString.length)
+            break;
+    };
 }
 
 + (NSAttributedString *)attributedString:(GONMarkupParser *)parser

@@ -1,4 +1,6 @@
 # Change Log
+## [__0.7.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.9)
+Fixed bug in GONMarkupParserUtils<br/>
 ## [__0.7.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.8)
 GONMarkupParserUtils optimisation<br/>
 ## [__0.7.7__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.7)
