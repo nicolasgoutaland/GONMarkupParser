@@ -19,7 +19,11 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     NSString *value = [dicAttributes objectForKey:GONMarkupAnchor_TAG_href_ATT];
     if (value)

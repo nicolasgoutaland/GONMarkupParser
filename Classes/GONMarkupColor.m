@@ -17,7 +17,11 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     UIColor *colorValue = [[dicAttributes objectForKey:GONMarkupColor_TAG_value_ATT] representedColor];
     if (colorValue)

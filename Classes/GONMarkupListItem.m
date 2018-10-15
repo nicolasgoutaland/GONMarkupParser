@@ -29,7 +29,10 @@
     return [bullets objectAtIndex:anIndentation % bullets.count];
 }
 
-- (NSString *)unorderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
+- (NSString *)unorderedListItemPrefixForIndentation:(NSInteger)indentationLevel
+                                           position:(NSInteger)position
+                                  listConfiguration:(NSDictionary *)aListConfiguration
+                                            context:(NSMutableDictionary *)context
 {
     NSString *indentation = [self listItemIndentation:indentationLevel];
     NSString *bullet = [[self class] bulletForIndentation:indentationLevel];
@@ -37,7 +40,10 @@
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
 
-- (NSString *)orderedListItemPrefixForIndentation:(NSInteger)indentationLevel position:(NSInteger)position listConfiguration:(NSDictionary *)aListConfiguration context:(NSMutableDictionary *)context
+- (NSString *)orderedListItemPrefixForIndentation:(NSInteger)indentationLevel
+                                         position:(NSInteger)position
+                                listConfiguration:(NSDictionary *)aListConfiguration
+                                          context:(NSMutableDictionary *)context
 {
     NSString *indentation = [self listItemIndentation:indentationLevel];
     NSString *bullet = [NSString stringWithFormat:@"%ld.%ld.", (long)indentationLevel + 1, (long)position];
@@ -46,7 +52,11 @@
 }
 
 #pragma mark - Content update
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     // Retrieve indentation level
     NSMutableDictionary *currentConfiguration = [self currentContextConfiguration:GONMarkupList_CONFIGURATIONS_KEY
@@ -60,7 +70,8 @@
     // Generate prefix string
     NSAttributedString *prefixString = [self prefixStringForContext:context
                                                          attributes:dicAttributes
-                                                   stringAttributes:configurationDictionary];
+                                                   stringAttributes:configurationDictionary
+                                                       resultString:resultString];
 
     // Compute prefix string width
     paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1) 
@@ -68,7 +79,10 @@
                                                                           context:nil]);
 }
 
-- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     // Retrieve configuration
     NSDictionary *listConfiguration = [[context objectForKey:GONMarkupList_CONFIGURATIONS_KEY] lastObject];
@@ -93,17 +107,30 @@
     }
 
     // Force new line
-    if (position == 0)
+    if (position == 1)
+    {
+        // Do not add a new line, is user did add a newline before
+        if (resultString.string.length > 0 && [resultString.string characterAtIndex:resultString.string.length - 1] != '\n')
+        {
+            prefix = [@"\n" stringByAppendingString:prefix];
+        }
+    }
+    else
+    {
         prefix = [@"\n" stringByAppendingString:prefix];
-    
+    }
+
     return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];
 }
-
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+/*
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     return [[NSAttributedString alloc] initWithString:@"\n" attributes:stringAttributes];
 }
-
+*/
 #pragma mark - Utils
 - (NSMutableParagraphStyle *)paragraphStyle:(NSMutableDictionary *)configurationDictionary
 {

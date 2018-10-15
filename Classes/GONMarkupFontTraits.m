@@ -27,7 +27,11 @@
 
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     // Look for current font
     UIFont *currentFont = [configurationDictionary objectForKey:NSFontAttributeName];

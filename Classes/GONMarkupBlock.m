@@ -16,39 +16,67 @@
 }
 
 #pragma mark - Configuration
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     if (_openingMarkupBlock)
-        _openingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
+        _openingMarkupBlock(configurationDictionary, tag, context, dicAttributes, resultString);
 }
 
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)closingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     if (_closingMarkupBlock)
-        _closingMarkupBlock(configurationDictionary, tag, context, dicAttributes);
+        _closingMarkupBlock(configurationDictionary, tag, context, dicAttributes, resultString);
 }
 
-- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+                                resultString:(NSAttributedString *)resultString
 {
     if (_updatedContentStringBlock)
-        return _updatedContentStringBlock(string, context, dicAttributes, stringAttributes);
+        return _updatedContentStringBlock(string, context, dicAttributes, stringAttributes, resultString);
 
-    return [super updatedContentString:string context:context attributes:dicAttributes stringAttributes:stringAttributes];
+    return [super updatedContentString:string
+                               context:context
+                            attributes:dicAttributes
+                      stringAttributes:stringAttributes
+                          resultString:resultString];
 }
 
-- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     if (_prefixStringForContextBlock)
-        return _prefixStringForContextBlock(context, dicAttributes, stringAttributes);
+        return _prefixStringForContextBlock(context, dicAttributes, stringAttributes, resultString);
 
-    return [super prefixStringForContext:context attributes:dicAttributes stringAttributes:stringAttributes];
+    return [super prefixStringForContext:context
+                              attributes:dicAttributes
+                        stringAttributes:stringAttributes
+                            resultString:resultString];
 }
 
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     if (_suffixStringForContextBlock)
-        return _suffixStringForContextBlock(context, dicAttributes, stringAttributes);
+        return _suffixStringForContextBlock(context, dicAttributes, stringAttributes, resultString);
 
-    return [super suffixStringForContext:context attributes:dicAttributes stringAttributes:stringAttributes];
+    return [super suffixStringForContext:context
+                              attributes:dicAttributes
+                        stringAttributes:stringAttributes
+                            resultString:resultString];
 }
 @end

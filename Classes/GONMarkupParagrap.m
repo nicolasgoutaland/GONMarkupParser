@@ -17,7 +17,10 @@
 }
 
 #pragma mark - Content update
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     return [[NSAttributedString alloc] initWithString:@"\n\n" attributes:stringAttributes];
 }

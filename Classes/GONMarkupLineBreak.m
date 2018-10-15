@@ -20,7 +20,11 @@
 }
 
 #pragma mark - Content update
-- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+                                resultString:(NSAttributedString *)resultString 
 {
     // If in a list, no new lines
     if ([context objectForKey:GONMarkupList_CONFIGURATIONS_KEY])
