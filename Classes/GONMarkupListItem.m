@@ -122,15 +122,7 @@
 
     return [[NSAttributedString alloc] initWithString:prefix attributes:stringAttributes];
 }
-/*
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
-                                    attributes:(NSDictionary *)dicAttributes
-                              stringAttributes:(NSDictionary *)stringAttributes
-                                  resultString:(NSAttributedString *)resultString
-{
-    return [[NSAttributedString alloc] initWithString:@"\n" attributes:stringAttributes];
-}
-*/
+
 #pragma mark - Utils
 - (NSMutableParagraphStyle *)paragraphStyle:(NSMutableDictionary *)configurationDictionary
 {
