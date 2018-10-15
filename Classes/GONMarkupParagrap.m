@@ -17,12 +17,15 @@
 }
 
 #pragma mark - Content update
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
                                     attributes:(NSDictionary *)dicAttributes
                               stringAttributes:(NSDictionary *)stringAttributes
                                   resultString:(NSAttributedString *)resultString
 {
-    return [[NSAttributedString alloc] initWithString:@"\n\n" attributes:stringAttributes];
+    if (resultString.string.length > 0 && [resultString.string characterAtIndex:resultString.string.length - 1] != '\n')
+        return [[NSAttributedString alloc] initWithString:@"\n" attributes:stringAttributes];
+    
+    return [[NSAttributedString alloc] initWithString:@"" attributes:stringAttributes];
 }
 
 @end
