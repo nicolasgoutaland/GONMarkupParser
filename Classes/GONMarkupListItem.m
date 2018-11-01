@@ -46,7 +46,7 @@
                                           context:(NSMutableDictionary *)context
 {
     NSString *indentation = [self listItemIndentation:indentationLevel];
-    NSString *bullet = [NSString stringWithFormat:@"%ld.%ld.", (long)indentationLevel + 1, (long)position];
+    NSString *bullet = [NSString stringWithFormat:@"%ld.", (long)position];
 
     return [NSString stringWithFormat:@"%@%@ ", indentation, bullet];
 }
