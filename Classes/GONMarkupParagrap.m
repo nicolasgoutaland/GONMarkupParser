@@ -23,7 +23,7 @@
                                   resultString:(NSAttributedString *)resultString
 {
     if (resultString.string.length > 0 && [resultString.string characterAtIndex:resultString.string.length - 1] != '\n')
-        return [[NSAttributedString alloc] initWithString:@"\n" attributes:stringAttributes];
+        return [[NSAttributedString alloc] initWithString:@"\n\n" attributes:stringAttributes];
     
     return [[NSAttributedString alloc] initWithString:@"" attributes:stringAttributes];
 }
