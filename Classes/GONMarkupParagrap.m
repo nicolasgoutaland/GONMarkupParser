@@ -22,7 +22,7 @@
                               stringAttributes:(NSDictionary *)stringAttributes
                                   resultString:(NSAttributedString *)resultString
 {
-    if (resultString.string.length > 0 && [resultString.string characterAtIndex:resultString.string.length - 1] != '\n')
+    if (resultString.string.length > 0 && [[NSCharacterSet newlineCharacterSet] characterIsMember:[resultString.string characterAtIndex:resultString.string.length - 1]])
         return [[NSAttributedString alloc] initWithString:@"\n\n" attributes:stringAttributes];
     
     return [[NSAttributedString alloc] initWithString:@"" attributes:stringAttributes];
