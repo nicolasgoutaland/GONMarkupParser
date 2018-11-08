@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		401E32021B281142C6BABB70 /* libPods-defaults-GONMarkupParserSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6D2CD1AD599D4565EAA3ED /* libPods-defaults-GONMarkupParserSample.a */; };
 		5C0790A81ED74D0B0011FF0E /* GONMarkupStrong.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0790A71ED74D0B0011FF0E /* GONMarkupStrong.m */; };
-		5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */; };
+		5C1D1C2E19920D7100F7B642 /* GONMarkupParagraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C1D1C2D19920D7100F7B642 /* GONMarkupParagraph.m */; };
 		5C2E11E41B8A146D0065D29C /* UIButton+GONMarkupParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C2E11E31B8A146D0065D29C /* UIButton+GONMarkupParser.m */; };
 		5C396DD21A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */; };
 		5C396DD31A80D80800AC8E45 /* GONMarkupLineStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C396DD11A80D80800AC8E45 /* GONMarkupLineStyle.m */; };
@@ -103,8 +103,8 @@
 		5C0790A61ED74D0B0011FF0E /* GONMarkupStrong.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupStrong.h; path = ../Classes/GONMarkupStrong.h; sourceTree = "<group>"; };
 		5C0790A71ED74D0B0011FF0E /* GONMarkupStrong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupStrong.m; path = ../Classes/GONMarkupStrong.m; sourceTree = "<group>"; };
 		5C1BA2E419BF45BD00E3D67C /* GONMarkupParser_Categories.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GONMarkupParser_Categories.h; path = ../Classes/GONMarkupParser_Categories.h; sourceTree = "<group>"; };
-		5C1D1C2C19920D7100F7B642 /* GONMarkupParagrap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParagrap.h; path = ../Classes/GONMarkupParagrap.h; sourceTree = "<group>"; };
-		5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParagrap.m; path = ../Classes/GONMarkupParagrap.m; sourceTree = "<group>"; };
+		5C1D1C2C19920D7100F7B642 /* GONMarkupParagraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GONMarkupParagraph.h; path = ../Classes/GONMarkupParagraph.h; sourceTree = "<group>"; };
+		5C1D1C2D19920D7100F7B642 /* GONMarkupParagraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GONMarkupParagraph.m; path = ../Classes/GONMarkupParagraph.m; sourceTree = "<group>"; };
 		5C2E11E21B8A146D0065D29C /* UIButton+GONMarkupParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+GONMarkupParser.h"; path = "../Classes/UIButton+GONMarkupParser.h"; sourceTree = "<group>"; };
 		5C2E11E31B8A146D0065D29C /* UIButton+GONMarkupParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+GONMarkupParser.m"; path = "../Classes/UIButton+GONMarkupParser.m"; sourceTree = "<group>"; };
 		5C2E11E51B8A175F0065D29C /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
@@ -384,8 +384,8 @@
 				5CB1C59B195B25E800590186 /* GONMarkupReset.m */,
 				5CB1C5B7195B55BE00590186 /* GONMarkupLineBreak.h */,
 				5CB1C5B8195B55BE00590186 /* GONMarkupLineBreak.m */,
-				5C1D1C2C19920D7100F7B642 /* GONMarkupParagrap.h */,
-				5C1D1C2D19920D7100F7B642 /* GONMarkupParagrap.m */,
+				5C1D1C2C19920D7100F7B642 /* GONMarkupParagraph.h */,
+				5C1D1C2D19920D7100F7B642 /* GONMarkupParagraph.m */,
 			);
 			name = Special;
 			sourceTree = "<group>";
@@ -763,7 +763,7 @@
 				5CB1C58E195B24F200590186 /* GONMarkupBlock.m in Sources */,
 				5C65F4041A1139CD005A76A3 /* PlaygroundViewController.m in Sources */,
 				5CB1C5B5195B4FB600590186 /* GONMarkupListItem.m in Sources */,
-				5C1D1C2E19920D7100F7B642 /* GONMarkupParagrap.m in Sources */,
+				5C1D1C2E19920D7100F7B642 /* GONMarkupParagraph.m in Sources */,
 				5CC284B7197974870009D443 /* GONMarkupSimple.m in Sources */,
 				5CD617E719828B1C0001C3D9 /* GONMarkupTextStyle.m in Sources */,
 				5C404BCC1A1C9115007DCB2C /* DefaultConfigurationViewController.m in Sources */,

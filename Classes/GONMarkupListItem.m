@@ -106,11 +106,11 @@
                                                       context:context];
     }
 
-    // Force new line
+    // Force new line // Force new line
     if (position == 1)
     {
         // Do not add a new line, is user did add a newline before
-        if (resultString.string.length > 0 && [resultString.string characterAtIndex:resultString.string.length - 1] != '\n')
+        if (resultString.string.length > 0 && ![[NSCharacterSet newlineCharacterSet] characterIsMember:[resultString.string characterAtIndex:resultString.string.length - 1]])
         {
             prefix = [@"\n" stringByAppendingString:prefix];
         }

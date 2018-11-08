@@ -1,5 +1,5 @@
 //
-//  GONMarkupParagrap.h
+//  GONMarkupParagraph.h
 //  GONMarkupParserSample
 //
 //  Created by Nicolas Goutaland on 06/08/14.
@@ -15,9 +15,9 @@
 #import "GONMarkup.h"
 
 // Tag
-#define GONMarkupParagrap_TAG                 @"p"
+#define GONMarkupParagraph_TAG                 @"p"
 
-@interface GONMarkupParagrap : GONMarkup
+@interface GONMarkupParagraph : GONMarkup
 /* Class constructor */
 + (instancetype)paragraphMarkup;
 @end

@@ -84,6 +84,14 @@
 	</dict>
 	<dict>
 		<key>title</key>
+		<string>Paragraph</string>
+		<key>sample</key>
+		<string>No paragraph&lt;p&gt;first paragraph&lt;/p&gt;&lt;p&gt;second one&lt;/p&gt;&lt;br/&gt;Still no paragraph</string>
+		<key>background</key>
+		<string>ABB7B7</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>Reset</string>
 		<key>sample</key>
 		<string>&lt;font size=&quot;20&quot;&gt;&lt;color value=&quot;red&quot;&gt;&lt;right&gt;Reset tag allows you to&lt;br/&gt;&lt;reset&gt;&lt;center&gt;protect&lt;/&gt;&lt;/reset&gt;&lt;br/&gt; certains parts of your text, making it&lt;br/&gt;&lt;reset&gt;&lt;color value=&quot;green&quot;&gt; easier&lt;/&gt;&lt;/&gt;&lt;br/&gt; to be reconfigured.&lt;//&gt;</string>
