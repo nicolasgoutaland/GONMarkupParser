@@ -1,4 +1,9 @@
 # Change Log
+## [__0.8.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.0)
+Improved Paragraph layout<br/>
+Improved List Item layout<br/>
+Added paragraph sample<br/>
+Fixed a typo issue with paragraph class<br/>
 ## [__0.7.9__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.9)
 Fixed bug in GONMarkupParserUtils<br/>
 ## [__0.7.8__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.7.8)
