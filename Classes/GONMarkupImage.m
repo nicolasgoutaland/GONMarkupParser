@@ -14,7 +14,11 @@
     return [self markupForTag:@"image"];
 }
 
-- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+                                resultString:(NSAttributedString *)resultString
 {
     UIImage *image = [UIImage imageNamed:[dicAttributes objectForKey:GONMarkupImage_TAG_value_ATT]];
     if (image)
@@ -27,6 +31,10 @@
         return [NSAttributedString attributedStringWithAttachment:attch];
     }
 
-    return [super updatedContentString:string context:context attributes:dicAttributes stringAttributes:stringAttributes];
+    return [super updatedContentString:string
+                               context:context
+                            attributes:dicAttributes
+                      stringAttributes:stringAttributes
+                          resultString:resultString];
 }
 @end

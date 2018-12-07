@@ -55,7 +55,7 @@
     [parser addMarkup:[GONMarkupColor colorMarkup]];
     [parser addMarkup:[GONMarkupLineBreak lineBreakMarkup]];
     [parser addMarkup:[GONMarkupReset resetMarkup]];
-    [parser addMarkup:[GONMarkupParagrap paragraphMarkup]];
+    [parser addMarkup:[GONMarkupParagraph paragraphMarkup]];
 
     [parser addMarkups:[GONMarkupLineStyle allMarkups]];
     [parser addMarkups:[GONMarkupTextStyle allMarkups]];
@@ -229,7 +229,8 @@
             NSArray *parts = [[inputString substringWithRange:result.range] componentsSeparatedByString:@"<"];
             
             // Append extracted string
-            [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]]];
+            [resultString appendAttributedString:[self computeFinalExtractedString:[parts firstObject]
+                                                                      resultString:resultString]];
             
             // Check if a tag was found
             if (parts.count > 1)
@@ -248,8 +249,10 @@
                     tag = [tag stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
                     
                     // Closing current tag, so append result string
-                    [resultString appendAttributedString:[self computeSuffixString]];
-                    [self handleClosingTag:tag error:error];
+                    [resultString appendAttributedString:[self computeSuffixString:resultString]];
+                    [self handleClosingTag:tag
+                              resultString:resultString
+                                     error:error];
                 }
                 else
                 {
@@ -270,21 +273,27 @@
                     if (autoclosingMarkup)
                     {
                         // Opening tag
-                        [self handleOpeningTag:tag error:error];
+                        [self handleOpeningTag:tag
+                                  resultString:resultString
+                                         error:error];
                         
                         // Append an extracted empty string
-                        [resultString appendAttributedString:[self computePrefixString]];
-                        [resultString appendAttributedString:[self computeFinalExtractedString:@""]];
-                        [resultString appendAttributedString:[self computeSuffixString]];
+                        [resultString appendAttributedString:[self computePrefixString:resultString]];
+                        [resultString appendAttributedString:[self computeFinalExtractedString:@"" resultString:resultString]];
+                        [resultString appendAttributedString:[self computeSuffixString:resultString]];
                         
                         // Close tag
-                        [self handleClosingTag:tag error:error];
+                        [self handleClosingTag:tag
+                                         resultString:resultString
+                                         error:error];
                     }
                     else
                     {
                         // Opening tag
-                        [self handleOpeningTag:tag error:error];
-                        [resultString appendAttributedString:[self computePrefixString]];
+                        [self handleOpeningTag:tag
+                                  resultString:resultString
+                                         error:error];
+                        [resultString appendAttributedString:[self computePrefixString:resultString]];
                     }
                 }
             }
@@ -390,28 +399,30 @@
 }
 
 #pragma mark - Tag content managements
-- (NSAttributedString *)computePrefixString
+- (NSAttributedString *)computePrefixString:(NSAttributedString *)resultString
 {
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
         return [currentMarker prefixStringForContext:_currentContext
                                           attributes:[self attributesForCurrentTag]
-                                    stringAttributes:[self currentConfiguration]];
+                                    stringAttributes:[self currentConfiguration]
+                                        resultString:resultString];
 
     }
 
     return [[NSAttributedString alloc] initWithString:@""];
 }
 
-- (NSAttributedString *)computeSuffixString
+- (NSAttributedString *)computeSuffixString:(NSAttributedString *)resultString
 {
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
     {
         return [currentMarker suffixStringForContext:_currentContext
                                           attributes:[self attributesForCurrentTag]
-                                    stringAttributes:[self currentConfiguration]];
+                                    stringAttributes:[self currentConfiguration]
+                                        resultString:resultString];
 
     }
 
@@ -419,6 +430,7 @@
 }
 
 - (NSAttributedString *)computeFinalExtractedString:(NSString *)inputString
+                                       resultString:(NSAttributedString *)resultString
 {
     GONMarkup *currentMarker = [_markupsStack lastObject];
     if (currentMarker && ![currentMarker isKindOfClass:[NSNull class]])
@@ -426,14 +438,17 @@
         return [currentMarker updatedContentString:inputString
                                            context:_currentContext
                                         attributes:[self attributesForCurrentTag]
-                                  stringAttributes:[self currentConfiguration]];
+                                  stringAttributes:[self currentConfiguration]
+                                      resultString:resultString];
     }
 
     return [[NSAttributedString alloc] initWithString:inputString attributes:[self currentConfiguration]];
 }
 
 #pragma mark - Tag managements
-- (BOOL)handleClosingTag:(NSString *)tag error:(NSError **)error
+- (BOOL)handleClosingTag:(NSString *)tag
+            resultString:(NSAttributedString *)resultString
+                   error:(NSError **)error
 {
     // Hold error status
     BOOL errorGenerated = NO;
@@ -462,7 +477,8 @@
                     [markup closingMarkupFound:tag
                                  configuration:currentTagConfiguration
                                        context:_currentContext
-                                    attributes:([_markupAttributesStack objectAtIndex:i] == [NSNull null] ? nil : [_markupAttributesStack objectAtIndex:i])];
+                                    attributes:([_markupAttributesStack objectAtIndex:i] == [NSNull null] ? nil : [_markupAttributesStack objectAtIndex:i])
+                                  resultString:resultString];
                 }
                 else
                 {
@@ -510,7 +526,8 @@
                 [markup closingMarkupFound:tag
                              configuration:[_configurationsStack lastObject]
                                    context:_currentContext
-                                attributes:[self attributesForCurrentTag]];
+                                attributes:[self attributesForCurrentTag]
+                              resultString:resultString];
             }
 
             // Remove last tag objet
@@ -525,7 +542,9 @@
     return errorGenerated;
 }
 
-- (BOOL)handleOpeningTag:(NSString *)tag error:(NSError **)error
+- (BOOL)handleOpeningTag:(NSString *)tag
+            resultString:(NSAttributedString *)resultString
+                   error:(NSError **)error
 {
     // Hold error status
     BOOL errorGenerated = NO;
@@ -550,7 +569,8 @@
         [markup openingMarkupFound:tag
                      configuration:currentTagConfiguration
                            context:_currentContext
-                        attributes:[self attributesForCurrentTag]];
+                        attributes:[self attributesForCurrentTag]
+                      resultString:resultString];
 
         [_markupsStack addObject:markup];
     }

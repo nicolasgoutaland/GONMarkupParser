@@ -66,7 +66,11 @@ static NSDictionary *dicPatterns;
 }
 
 #pragma mark - Markup lifecycle
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     // Hold new configuration
     [configurationDictionary setObject:@([self extractStyleFromAttributes:dicAttributes])

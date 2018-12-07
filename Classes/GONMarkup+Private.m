@@ -10,7 +10,9 @@
 
 @implementation GONMarkup (Private)
 #pragma mark - LIFO shared context management
-- (void)pushConfiguration:(id)configuration toContext:(NSMutableDictionary *)context forKey:(NSString *)key
+- (void)pushConfiguration:(id)configuration
+                toContext:(NSMutableDictionary *)context
+                   forKey:(NSString *)key
 {
     // Retrieve FIFO
     NSMutableArray *configurationsLIFO = [context objectForKey:key];
@@ -26,12 +28,14 @@
     [configurationsLIFO addObject:configuration];
 }
 
-- (id)currentContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
+- (id)currentContextConfiguration:(NSString *)key
+                      fromContext:(NSMutableDictionary *)context
 {
     return [[context objectForKey:key] lastObject];
 }
 
-- (id)popContextConfiguration:(NSString *)key fromContext:(NSMutableDictionary *)context
+- (id)popContextConfiguration:(NSString *)key
+                  fromContext:(NSMutableDictionary *)context
 {
     // Retrieve LIFO
     NSMutableArray *configurationsLIFO = [context objectForKey:key];

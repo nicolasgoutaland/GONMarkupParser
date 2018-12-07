@@ -13,10 +13,10 @@
 //  Markup lifecycle :
 //  - Once a tag is found, openingMarkupFound:configuration:context: method will be called
 //  - Before parser append extracted string to result, following methods will be called
-//      - prefixStringForContext:attributes: will be called, allowing tag to generate a prefix
-//      - updatedContentString:context:attributes: will be called, allowing tag to update its content string (without prefix included)
-//      - suffixStringForContext:attributes: will be called, allowing tag to generate a suffix
-//  - Once tag is closed, closingMarkupFound:configuration:context: method will be called
+//      - prefixStringForContext:attributes:resultString: will be called, allowing tag to generate a prefix
+//      - updatedContentString:context:attributes:resultString: will be called, allowing tag to update its content string (without prefix included)
+//      - suffixStringForContext:attributes:resultString: will be called, allowing tag to generate a suffix
+//  - Once tag is closed, closingMarkupFound:configuration:context:resultString: method will be called
 //
 //  Attributes should be space separated, values affected using equal sign, and between quotes or double quotes. To escape quotes / double quotes, use \
 //  Be careful,text heere is intended to be loaded from a file, not directly set in code. If so, do not forget to escape \.
@@ -54,15 +54,23 @@
  * "tag" is matching tag, allowing you to extract parameters
  * "context" is a mutable dictionary used by marker to add contextual information. This dictionary is shared throught all markers in a parser and is reset each time a new parse is started
  * It is used for example by list markers to handle list type, tabulation index and count
+ * "resultString" is currently built result string
  *
  * You should override this method to implement new behavior
  */
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString;
 
 /* Allows marker to prefix its content string
  * This method is called right after opening markup
  */
-- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes;
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttribute
+                                  resultString:(NSAttributedString *)resultString;
 
 /* This method will be called once current marker tag is closed
  * This allows marker to update string content
@@ -70,12 +78,19 @@
  *
  * Default implementation return input string
  */
-- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes;
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+                                resultString:(NSAttributedString *)resultString;
 
 /* Allows marker to suffix its content string
  * This method is called right after opening markup
  */
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes;
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString;
 
 /* This method will be called if markup is matching current closing tag.
  * Object is responsible to update attributed string parameters in "configurationDictionary"
@@ -86,8 +101,11 @@
  *
  * You should override this method to implement new behavior
  */
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes;
-
+- (void)closingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString;
 
 @property (nonatomic, copy, readonly) NSString *tag;            // Have to be unique. Used to speed up rules matching, when using tags without parameters
 @property (nonatomic, weak, readonly) GONMarkupParser *parser;  // Parser the markup is attached to

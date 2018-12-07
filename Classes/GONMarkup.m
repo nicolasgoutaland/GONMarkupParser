@@ -42,25 +42,109 @@
 }
 
 #pragma mark - Test
-- (NSAttributedString *)updatedContentString:(NSString *)string context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+                                resultString:(NSAttributedString *)resultString
 {
     return [[NSAttributedString alloc] initWithString:string attributes:stringAttributes];
 }
 
-- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)updatedContentString:(NSString *)string
+                                     context:(NSMutableDictionary *)context
+                                  attributes:(NSDictionary *)dicAttributes
+                            stringAttributes:(NSDictionary *)stringAttributes
+{
+    NSLog(@"WARNING : This method will be deleted in next release. Use updatedContentString:context:attributes:stringAttributes:resultString: instead");
+
+    return [self updatedContentString:string
+                              context:context
+                           attributes:dicAttributes
+                     stringAttributes:stringAttributes
+                         resultString:nil];
+}
+
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     return [[NSAttributedString alloc] initWithString:@""];
 }
 
-- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes stringAttributes:(NSDictionary *)stringAttributes
+- (NSAttributedString *)prefixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+{
+    NSLog(@"WARNING : This method will be deleted in next release. Use prefixStringForContext:attributes:stringAttributes:resultString: instead");
+    
+    return [self prefixStringForContext:context
+                             attributes:dicAttributes
+                       stringAttributes:stringAttributes
+                           resultString:nil];
+}
+
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+{
+    NSLog(@"WARNING : This method will be deleted in next release. Use suffixStringForContext:attributes:stringAttributes:resultString: instead");
+
+    return [self suffixStringForContext:context
+                             attributes:dicAttributes
+                       stringAttributes:stringAttributes
+                           resultString:nil];
+}
+
+- (NSAttributedString *)suffixStringForContext:(NSMutableDictionary *)context
+                                    attributes:(NSDictionary *)dicAttributes
+                              stringAttributes:(NSDictionary *)stringAttributes
+                                  resultString:(NSAttributedString *)resultString
 {
     return [[NSAttributedString alloc] initWithString:@""];
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString {}
 
-- (void)closingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes {}
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes {
+
+    NSLog(@"WARNING : This method will be deleted in next release. Use openingMarkupFound:configuration:context:attributes:resultString: instead");
+    
+    [self openingMarkupFound:tag
+               configuration:configurationDictionary
+                     context:context
+                  attributes:dicAttributes
+                resultString:nil];
+}
+
+- (void)closingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes {
+
+    NSLog(@"WARNING : This method will be deleted in next release. Use closingMarkupFound:configuration:context:attributes:resultString: instead");
+
+    [self closingMarkupFound:tag
+               configuration:configurationDictionary
+                     context:context
+                  attributes:dicAttributes
+                resultString:nil];
+}
+
+- (void)closingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString {}
 
 @end
     

@@ -73,7 +73,7 @@
 
     // Custom markup, based on block
     GONMarkupBlock *markupBlock = [GONMarkupBlock blockMarkup:@"custom"];
-    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes) {
+    markupBlock.openingMarkupBlock = ^(NSMutableDictionary *configurationDictionary, NSString *tag, NSMutableDictionary *context, NSDictionary *dicAttributes, NSAttributedString *resultString) {
         [configurationDictionary setObject:[UIFont boldSystemFontOfSize:69.0]
                                     forKey:NSFontAttributeName];
         [configurationDictionary setObject:[@"brown" representedColor]

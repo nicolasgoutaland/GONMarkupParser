@@ -18,7 +18,9 @@
 
 @implementation GONMarkupSimple
 #pragma mark - Constructor
-+ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style mergingStrategy:(GONMarkupSimpleMergingStrategy)strategy
++ (instancetype)simpleMarkup:(NSString *)tag
+                       style:(NSDictionary *)style
+             mergingStrategy:(GONMarkupSimpleMergingStrategy)strategy
 {
     GONMarkupSimple *markup = [self markupForTag:tag];
 
@@ -28,7 +30,8 @@
     return markup;
 }
 
-+ (instancetype)simpleMarkup:(NSString *)tag style:(NSDictionary *)style
++ (instancetype)simpleMarkup:(NSString *)tag
+                       style:(NSDictionary *)style
 {
     if ([style objectForKey:NSParagraphStyleAttributeName])
         @throw @"Critical error. You cannot update NSParagraphStyleAttributeName without setting a merging strategy ";
@@ -41,7 +44,11 @@
 }
 
 #pragma mark - Style
-- (void)openingMarkupFound:(NSString *)tag configuration:(NSMutableDictionary *)configurationDictionary context:(NSMutableDictionary *)context attributes:(NSDictionary *)dicAttributes
+- (void)openingMarkupFound:(NSString *)tag
+             configuration:(NSMutableDictionary *)configurationDictionary
+                   context:(NSMutableDictionary *)context
+                attributes:(NSDictionary *)dicAttributes
+              resultString:(NSAttributedString *)resultString
 {
     // No NSParagraphStyleAttributeName update, or set in only one dic, nothing to do
     if ((![_style objectForKey:NSParagraphStyleAttributeName] && ![configurationDictionary objectForKey:NSParagraphStyleAttributeName]) ||
@@ -60,7 +67,8 @@
     [configurationDictionary addEntriesFromDictionary:_style];
 }
 
-- (NSParagraphStyle *)merge:(NSParagraphStyle *)sourceStyle into:(NSParagraphStyle *)destStyle
+- (NSParagraphStyle *)merge:(NSParagraphStyle *)sourceStyle
+                       into:(NSParagraphStyle *)destStyle
 {
     // On override, nothing to do
     if (_mergingStrategy == GONMarkupSimpleMergingStrategyOverride)
