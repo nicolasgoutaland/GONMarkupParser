@@ -1,4 +1,6 @@
 # Change Log
+## [__0.8.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.1)
+Fixed list alignment bug in iOS12<br/>
 ## [__0.8.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.0)
 Improved Paragraph layout<br/>
 Improved List Item layout<br/>

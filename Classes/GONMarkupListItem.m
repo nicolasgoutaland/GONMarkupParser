@@ -74,7 +74,7 @@
                                                        resultString:resultString];
     
     // Compute prefix string width
-    paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 1)
+    paragraphStyle.headIndent = CGRectGetWidth([prefixString boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)
                                                                           options:NSStringDrawingUsesLineFragmentOrigin
                                                                           context:nil]);
 }
