@@ -10,7 +10,10 @@
 #import "GONMarkupParserUtils.h"
 #import "GONMarkupParserManager.h"
 
-#define HTML_ENTITY_REGEX       @"&#?[a-zA-Z0-9]+;"
+#define HTML_ENTITY_REGEX               @"&#?[a-zA-Z0-9]+;"
+#define HTML_ENTITY_256_PREFIX_SEARCH   @"&#0"
+#define HTML_ENTITY_256_PREFIX_REPLACE  @"&#"
+#define HTML_ENTITY_256_LENGTH          6
 
 @implementation GONMarkupParserUtils
 #pragma mark - Utils
@@ -27,11 +30,26 @@
     NSRange range                = NSMakeRange(0, inputString.length);
     NSTextCheckingResult *result = nil;
     NSString *entity             = nil;
- 
+    NSString * match             = nil;
     while ((result = [regex firstMatchInString:inputString options:0 range:range]) != nil) {
 
         // Check if entity is known
-        entity = [dicEntities objectForKey:[inputString substringWithRange:result.range]];
+        match  = [inputString substringWithRange:result.range];
+        entity = [dicEntities objectForKey:match];
+
+        // If no entity found, try with alternate synthax
+        if (!entity)
+        {
+            // Check only if
+            if (match.length == HTML_ENTITY_256_LENGTH && [match rangeOfString:HTML_ENTITY_256_PREFIX_SEARCH].location == 0)
+            {
+                match = [match stringByReplacingOccurrencesOfString:HTML_ENTITY_256_PREFIX_SEARCH withString:HTML_ENTITY_256_PREFIX_REPLACE];
+
+                // Look again for entity
+                entity = [dicEntities objectForKey:match];
+            }
+        }
+
         if (entity)
             [inputString replaceCharactersInRange:result.range withString:entity];
 

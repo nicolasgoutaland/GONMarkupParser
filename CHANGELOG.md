@@ -1,4 +1,6 @@
 # Change Log
+## [__0.8.2__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.2)
+Updated HTML entities replace code<br/>
 ## [__0.8.1__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.1)
 Fixed list alignment bug in iOS12<br/>
 ## [__0.8.0__](https://github.com/nicolasgoutaland/GONMarkupParser/releases/tag/0.8.0)
